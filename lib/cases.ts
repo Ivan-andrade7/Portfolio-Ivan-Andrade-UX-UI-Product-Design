@@ -60,7 +60,7 @@ export const CASES: CaseStudy[] = [
       behance: "https://www.behance.net/gallery/245704303/GardenAds-Attribution-Tracking-Health-Platform",
     },
     context: {
-      rol: "Único Diseñador UX/UI",
+      rol: "Diseñador UX/UI",
       duracion: "5 semanas · 2026",
       focoLabel: "Contexto",
       foco: "Simulación No Country",
@@ -127,7 +127,7 @@ export const CASES: CaseStudy[] = [
     next: {
       slug: "fintech",
       title: "Fintech PYME — Plataforma de Créditos B2B",
-      role: "Lead UX/UI Designer · No Country · 2025",
+      role: "Diseñador UX/UI · No Country · 2025",
     },
   },
   {
@@ -140,7 +140,7 @@ export const CASES: CaseStudy[] = [
       behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
     },
     context: {
-      rol: "Lead UX/UI Designer",
+      rol: "Diseñador UX/UI",
       duracion: "2 meses · Sep–Oct 2025",
       focoLabel: "Equipo",
       foco: "Multidisciplinario · No Country",
@@ -208,12 +208,12 @@ export const CASES: CaseStudy[] = [
     prev: {
       slug: "garden-ads",
       title: "GardenAds — Attribution & Tracking Health",
-      role: "UX/UI Designer · No Country · 2026",
+      role: "Diseñador UX/UI · No Country · 2026",
     },
     next: {
       slug: "crm",
       title: "ChatCRM — CRM para PyMEs",
-      role: "UX/UI Designer · No Country · 2024",
+      role: "Diseñador UX/UI · No Country · 2024",
     },
   },
   {
@@ -226,7 +226,7 @@ export const CASES: CaseStudy[] = [
       behance: "https://www.behance.net/gallery/248459859/Startup-CRM-Plataforma-SaaS-UXUI?platform=direct",
     },
     context: {
-      rol: "UX/UI Designer",
+      rol: "Diseñador UX/UI",
       duracion: "No Country · 2026",
       focoLabel: "Foco",
       foco: "Operación · Pipeline · Handoff",
@@ -284,12 +284,12 @@ export const CASES: CaseStudy[] = [
     prev: {
       slug: "fintech",
       title: "Fintech PYME — Plataforma de Créditos B2B",
-      role: "Lead UX/UI Designer · No Country · 2025",
+      role: "Diseñador UX/UI · No Country · 2025",
     },
     next: {
       slug: "multi-brand",
       title: "Multi-Brand Design System",
-      role: "UX/UI Designer · No Country · 2025",
+      role: "Diseñador UX/UI · No Country · 2025",
     },
   },
   {
@@ -302,7 +302,7 @@ export const CASES: CaseStudy[] = [
       behance: "https://www.behance.net/gallery/240712809/Multi-Brand-Design-System",
     },
     context: {
-      rol: "UX/UI Designer",
+      rol: "Diseñador UX/UI",
       duracion: "No Country · 2025",
       focoLabel: "Foco",
       foco: "Tokens · Arquitectura · Escala",
@@ -369,12 +369,12 @@ export const CASES: CaseStudy[] = [
     prev: {
       slug: "crm",
       title: "ChatCRM — CRM para PyMEs",
-      role: "UX/UI Designer · No Country · 2024",
+      role: "Diseñador UX/UI · No Country · 2024",
     },
     next: {
       slug: "trainit",
       title: "TrainiT — Gestión de Proyectos",
-      role: "UX/UI Designer Jr. · No Country · 2025",
+      role: "Diseñador UX/UI Jr. · No Country · 2025",
     },
   },
   {
@@ -387,7 +387,7 @@ export const CASES: CaseStudy[] = [
       behance: "https://www.behance.net/gallery/240653385/TrainiT-PGT-%28Plataforma-de-Gestion-de-Proyectos%29",
     },
     context: {
-      rol: "UX/UI Designer Jr",
+      rol: "Diseñador UX/UI Jr.",
       duracion: "3 sprints · No Country · 2025",
       focoLabel: "Foco",
       foco: "Flujos · Liderazgo",
@@ -445,7 +445,7 @@ export const CASES: CaseStudy[] = [
     prev: {
       slug: "multi-brand",
       title: "Multi-Brand Design System",
-      role: "UX/UI Designer · No Country · 2025",
+      role: "Diseñador UX/UI · No Country · 2025",
     },
   },
 ];
