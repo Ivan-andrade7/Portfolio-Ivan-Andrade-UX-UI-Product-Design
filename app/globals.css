@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+/* ── Design tokens — Dark (default) ── */
+:root {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --surface-elevated: #334155;
+  --border-default: #334155;
+  --text-accent: #2dd4bf;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-inverse: #020617;
+  --brand-primary: #14b8a6;
+  --brand-hover: #2dd4bf;
+  --brand-soft: #042f2e;
+  --border-interactive: #0f766e;
+  --highlight: #99f6e4;
+  --focus-ring: rgba(20, 184, 166, 0.3);
+}
+
+/* ── Design tokens — Light ── */
+html.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #e2e8f0;
+  --surface-elevated: #e2e8f0;
+  --border-default: #cbd5e1;
+  --text-accent: #0d9488;
+  --text-primary: #0f172a;
+  --text-secondary: #1e293b;
+  --text-tertiary: #475569;
+  --text-inverse: #f8fafc;
+  --brand-primary: #0d9488;
+  --brand-hover: #0f766e;
+  --brand-soft: #ccfbf1;
+  --border-interactive: #0d9488;
+  --highlight: #0d9488;
+  --focus-ring: rgba(13, 148, 136, 0.3);
+}
+
+/* ── Additional tokens ── */
+:root {
+  --surface-secondary: #1e293b;
+  --text-link: #5eead4;
+  --text-placeholder: #64748b;
+}
+html.light {
+  --surface-secondary: #f1f5f9;
+  --text-link: #0d9488;
+  --text-placeholder: #94a3b8;
+}
+
+/* ── Feedback tokens — Dark ── */
+:root {
+  --feedback-success-bg:     #022c22;
+  --feedback-success-border: #065f46;
+  --feedback-success-text:   #6ee7b7;
+  --feedback-warning-bg:     #451a03;
+  --feedback-warning-border: #92400e;
+  --feedback-warning-text:   #fcd34d;
+  --feedback-error-bg:       #4c0519;
+  --feedback-error-border:   #9f1239;
+  --feedback-error-text:     #fda4af;
+  --feedback-info-bg:        #082f49;
+  --feedback-info-border:    #075985;
+  --feedback-info-text:      #7dd3fc;
+  --overlay-card:            rgba(2, 6, 23, 0.85);
+  --overlay-card-hover:      rgba(2, 6, 23, 0.92);
+  --shadow-card:             0px 1px 2px 0px rgba(255, 255, 255, 0.08);
+  --shadow-card-hover:       0px 4px 8px 0px rgba(255, 255, 255, 0.16);
+}
+
+/* ── Feedback tokens — Light ── */
+html.light {
+  --feedback-success-bg:     #f0fdf4;
+  --feedback-success-border: #bbf7d0;
+  --feedback-success-text:   #166534;
+  --feedback-warning-bg:     #fffbeb;
+  --feedback-warning-border: #fde68a;
+  --feedback-warning-text:   #92400e;
+  --feedback-error-bg:       #fff1f2;
+  --feedback-error-border:   #fecdd3;
+  --feedback-error-text:     #9f1239;
+  --feedback-info-bg:        #eff6ff;
+  --feedback-info-border:    #bfdbfe;
+  --feedback-info-text:      #1e40af;
+  --overlay-card:            rgba(255, 255, 255, 0.85);
+  --overlay-card-hover:      rgba(255, 255, 255, 0.92);
+  --shadow-card:             0px 1px 2px 0px rgba(2, 6, 23, 0.08);
+  --shadow-card-hover:       0px 4px 8px 0px rgba(2, 6, 23, 0.16);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ── Marquee ── */
+@keyframes portfolio-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: portfolio-marquee 40s linear infinite;
+  will-change: transform;
+}
+.marquee-track-reverse {
+  animation: portfolio-marquee 50s linear infinite reverse;
+  will-change: transform;
+}
+.marquee-track:hover,
+.marquee-track-reverse:hover { animation-play-state: paused; }
