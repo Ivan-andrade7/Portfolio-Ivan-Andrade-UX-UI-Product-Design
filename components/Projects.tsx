@@ -67,7 +67,7 @@ export default function Projects() {
             Casos de estudio
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Proyectos end-to-end que resuelven problemas operacionales reales con criterio de diseño y foco en el impacto.
+            Proyectos end-to-end que resuelven problemas operacionales reales con criterio de diseño.
           </p>
         </div>
       </div>
