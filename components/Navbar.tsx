@@ -83,11 +83,18 @@ export default function Navbar() {
             pointer-events-none xl:pointer-events-auto
           "
         >
-          <img
-            src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
-            alt="Ivan Andrade"
-            className="w-10 h-auto"
-          />
+          {/* Clip exacto del asset Figma — sin esto el PNG muestra todo el frame con whitespace */}
+          <div className="relative w-10 shrink-0 overflow-hidden" style={{ height: "34.39px" }}>
+            <img
+              src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
+              alt=""
+              className={`absolute max-w-none pointer-events-none ${
+                theme === "light"
+                  ? "h-[335.38%] left-[-173.33%] top-[-104.62%] w-[436%]"
+                  : "h-[348.3%] left-[-177.19%] top-[-103.06%] w-[449.12%]"
+              }`}
+            />
+          </div>
         </Link>
 
         {/* Desktop nav items */}

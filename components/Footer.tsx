@@ -68,12 +68,18 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="flex flex-col gap-2 flex-1 min-w-[220px]">
-            <Link href="/" className="w-fit">
-              <img
-                src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
-                alt="Ivan Andrade"
-                className="w-12 h-auto"
-              />
+            <Link href="/" className="w-fit block">
+              <div className="relative w-12 overflow-hidden" style={{ height: "41.26px" }}>
+                <img
+                  src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
+                  alt="Ivan Andrade"
+                  className={`absolute max-w-none pointer-events-none ${
+                    theme === "light"
+                      ? "h-[335.38%] left-[-173.33%] top-[-104.62%] w-[436%]"
+                      : "h-[348.3%] left-[-177.19%] top-[-103.06%] w-[449.12%]"
+                  }`}
+                />
+              </div>
             </Link>
             <p className="text-[var(--text-tertiary)] text-[14px] leading-6">
               Ivan Andrade Product Designer especializado en SaaS B2B, Fintech y Design Systems. Buenos Aires, Argentina.
