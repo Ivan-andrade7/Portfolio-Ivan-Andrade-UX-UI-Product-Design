@@ -29,6 +29,9 @@ export default function Hero() {
         <div className="flex-1 flex flex-col gap-6">
           <div className="flex flex-col gap-2">
 
+            {/* Name */}
+            <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 tracking-[0.5px]">Ivan Andrade</p>
+
             {/* Eyebrow */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0 self-center" />

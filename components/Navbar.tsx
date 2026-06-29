@@ -79,13 +79,15 @@ export default function Navbar() {
           className="
             absolute left-1/2 -translate-x-1/2
             xl:static xl:translate-x-0
-            text-[20px] leading-7 xl:text-[24px] xl:leading-8
-            font-semibold tracking-[-1px] shrink-0
+            shrink-0
             pointer-events-none xl:pointer-events-auto
           "
-          style={{ color: "var(--text-accent)" }}
         >
-          Iván Andrade
+          <img
+            src="/ivan-andrade-logo-primary.svg"
+            alt="Ivan Andrade"
+            className="h-7 xl:h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop nav items */}
