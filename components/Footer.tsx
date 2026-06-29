@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 import { SiBehance } from "react-icons/si";
+import { useTheme } from "@/components/ThemeProvider";
 
 function LinkedinIcon() {
   return (
@@ -33,8 +36,8 @@ const PROJECT_LINKS = [
 
 const CONTACT_LINKS = [
   { label: "ivanandradeuxui@gmail.com", href: "mailto:ivanandradeuxui@gmail.com", Icon: () => <Mail size={20} aria-hidden /> },
-  { label: "Ivan Andrade", href: "https://www.linkedin.com/in/ivan-andrade-uxui/", Icon: LinkedinIcon },
-  { label: "Ivan Andrade", href: "https://www.behance.net/ivaanandrade", Icon: BehanceIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/ivan-andrade-uxui/", Icon: LinkedinIcon },
+  { label: "Behance", href: "https://www.behance.net/ivaanandrade", Icon: BehanceIcon },
   { label: "WhatsApp", href: "https://wa.me/5492346683761", Icon: WhatsAppIcon },
 ];
 
@@ -53,6 +56,8 @@ const NAV_LINKS = [
 const NAV_ITEM = "flex items-center gap-2 h-8 px-3 py-2 rounded-lg text-[var(--text-secondary)] text-[14px] font-semibold leading-5 hover:text-[var(--text-accent)] transition-colors no-underline";
 
 export default function Footer() {
+  const { theme } = useTheme();
+
   return (
     <footer className="bg-[var(--bg-primary)] border-t border-[var(--border-default)]">
       {/* p-8 = inset/xl=32px; gap/lg=24px between blocks */}
@@ -63,13 +68,15 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="flex flex-col gap-2 flex-1 min-w-[220px]">
-            {/* H3: 24px/600/32px/-1px — accent */}
-            <Link href="/" className="text-[var(--text-accent)] text-[24px] font-semibold leading-8 tracking-[-1px] w-fit">
-              Iván Andrade
+            <Link href="/" className="w-fit">
+              <img
+                src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
+                alt="Ivan Andrade"
+                className="w-12 h-auto"
+              />
             </Link>
-            {/* Body-S: 14px/400/24px — tertiary */}
             <p className="text-[var(--text-tertiary)] text-[14px] leading-6">
-              Product Designer especializado en SaaS B2B, Fintech y Design Systems. Buenos Aires, Argentina.
+              Ivan Andrade Product Designer especializado en SaaS B2B, Fintech y Design Systems. Buenos Aires, Argentina.
             </p>
           </div>
 

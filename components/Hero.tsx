@@ -29,14 +29,11 @@ export default function Hero() {
         <div className="flex-1 flex flex-col gap-6">
           <div className="flex flex-col gap-2">
 
-            {/* Name */}
-            <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 tracking-[0.5px]">Ivan Andrade</p>
-
             {/* Eyebrow */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0 self-center" />
               <span className="text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-                Product Designer · Buenos Aires, Argentina
+                Iván Andrade Product Designer · Buenos Aires, Argentina
               </span>
               <span className="flex items-center gap-2 bg-[var(--brand-soft)] border border-[var(--border-interactive)] rounded-full px-3 py-2 h-8 shrink-0">
                 <span className="relative flex w-2 h-2 shrink-0">

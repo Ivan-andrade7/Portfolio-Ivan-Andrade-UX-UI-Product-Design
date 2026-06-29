@@ -86,7 +86,7 @@ export default function Navbar() {
           <img
             src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
             alt="Ivan Andrade"
-            className="h-7 xl:h-8 w-auto"
+            className="w-10 h-auto"
           />
         </Link>
 
