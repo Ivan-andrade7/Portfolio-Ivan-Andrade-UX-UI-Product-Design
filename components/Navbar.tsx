@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Moon, Sun, Menu, Download } from "lucide-react";
+import { Moon, Sun, Menu, X, Download } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 
 const NAV_LINKS = [
@@ -134,7 +134,7 @@ export default function Navbar() {
 
       {/* ── Mobile / Tablet — collapsed bar ── */}
       {!isOpen && (
-        <div className="xl:hidden flex items-center justify-between px-5 py-4">
+        <div className="xl:hidden flex items-center justify-between px-6 py-4">
           <Link href="/" aria-label="Ir al inicio">
             <Logo theme={theme} />
           </Link>
@@ -152,17 +152,15 @@ export default function Navbar() {
 
       {/* ── Mobile / Tablet — expanded panel (reemplaza la barra completa) ── */}
       {isOpen && (
-        <div
-          className="xl:hidden flex flex-col gap-4 px-5 py-5"
-        >
-          {/* Header: "Ivan Andrade" + hamburger (cierra) */}
-          <div className="flex items-center justify-between">
-            <span
-              className="text-[20px] font-semibold leading-7 tracking-[-1px] whitespace-nowrap"
-              style={{ color: "var(--text-accent)" }}
-            >
-              Ivan Andrade
-            </span>
+        <div className="xl:hidden flex flex-col items-start w-full">
+          {/* Header: logo + cerrar (X) */}
+          <div
+            className="flex items-center justify-between border-b px-6 py-4 w-full"
+            style={{ borderColor: "var(--border-default)" }}
+          >
+            <Link href="/" aria-label="Ir al inicio" onClick={() => setIsOpen(false)}>
+              <Logo theme={theme} />
+            </Link>
             <button
               aria-label="Cerrar menú"
               aria-expanded={true}
@@ -170,39 +168,39 @@ export default function Navbar() {
               className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
               style={{ color: "var(--text-secondary)" }}
             >
-              <Menu className="w-4 h-4" />
+              <X className="w-4 h-4" />
             </button>
           </div>
 
-          {/* Divider */}
-          <div className="w-full border-t" style={{ borderColor: "var(--border-default)" }} />
+          {/* Navigations */}
+          <div className="flex flex-col gap-4 items-start p-6 w-full">
+            {/* Nav links — centrados */}
+            <div className="flex flex-col gap-2 items-center justify-center w-full">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => { setActiveId(link.id); setIsOpen(false); }}
+                  aria-current={activeId === link.id ? "page" : undefined}
+                  className={navLinkClass(activeId === link.id) + " w-full justify-center"}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-          {/* Nav links — centrados */}
-          <div className="flex flex-col gap-2 items-center">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => { setActiveId(link.id); setIsOpen(false); }}
-                aria-current={activeId === link.id ? "page" : undefined}
-                className={navLinkClass(activeId === link.id) + " w-full justify-center"}
+            {/* Modes & CV */}
+            <div className="flex items-center gap-4 justify-center w-full">
+              <ThemeToggle isDark={isDark} toggle={toggle} />
+              <a
+                href="/cv/CV_Ivan_Andrade.pdf"
+                download
+                className="flex flex-1 items-center justify-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
               >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Bottom: theme toggle (shrink) + CV (flex-1) */}
-          <div className="flex items-center gap-4">
-            <ThemeToggle isDark={isDark} toggle={toggle} />
-            <a
-              href="/cv/CV_Ivan_Andrade.pdf"
-              download
-              className="flex flex-1 items-center justify-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              Descargar CV
-            </a>
+                <Download className="w-4 h-4" />
+                Descargar CV
+              </a>
+            </div>
           </div>
         </div>
       )}
