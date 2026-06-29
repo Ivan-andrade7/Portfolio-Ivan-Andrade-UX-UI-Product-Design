@@ -14,14 +14,50 @@ const NAV_LINKS = [
   { label: "Contactos",   href: "/#contactos",   id: "contactos" },
 ];
 
+function Logo({ theme }: { theme: string }) {
+  const isLight = theme === "light";
+  return (
+    <div className="relative shrink-0 overflow-hidden" style={{ width: 40, height: 34.39 }}>
+      <img
+        src={isLight ? "/logo-light.png" : "/logo-dark.png"}
+        alt=""
+        className={`absolute max-w-none pointer-events-none ${
+          isLight
+            ? "h-[335.38%] left-[-173.33%] top-[-104.62%] w-[436%]"
+            : "h-[348.3%] left-[-177.19%] top-[-103.06%] w-[449.12%]"
+        }`}
+      />
+    </div>
+  );
+}
+
+function ThemeToggle({ isDark, toggle }: { isDark: boolean; toggle: () => void }) {
+  return (
+    <button
+      aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+      onClick={toggle}
+      className="flex items-center border rounded-full p-2 w-20 shrink-0 cursor-pointer transition-all duration-200"
+      style={{
+        backgroundColor: "var(--surface-elevated)",
+        borderColor: "var(--border-default)",
+        justifyContent: isDark ? "flex-start" : "flex-end",
+      }}
+    >
+      {isDark
+        ? <Moon className="w-5 h-5" style={{ color: "var(--text-accent)" }} />
+        : <Sun  className="w-5 h-5" style={{ color: "var(--text-accent)" }} />
+      }
+    </button>
+  );
+}
+
 export default function Navbar() {
-  const [isOpen, setIsOpen]   = useState(false);
+  const [isOpen, setIsOpen]     = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState("inicio");
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
 
-  /* ── scroll detection → backdrop ── */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -29,7 +65,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* ── IntersectionObserver → active section ── */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,141 +83,125 @@ export default function Navbar() {
     ? isDark ? "rgba(2,6,23,0.85)" : "rgba(248,250,252,0.85)"
     : "var(--bg-primary)";
 
+  const navLinkClass = (isActive: boolean) => [
+    "text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg flex items-center transition-colors duration-150",
+    "focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]",
+    isActive
+      ? "text-[var(--text-accent)]"
+      : "text-[var(--text-secondary)] hover:text-[var(--text-accent)]",
+  ].join(" ");
+
   return (
     <nav
       className="border-b sticky top-0 z-50 w-full backdrop-blur-sm"
       style={{ backgroundColor: navBg, borderColor: "var(--border-default)", transition: "background-color 0.2s ease" }}
     >
-      {/* ── Bar ── */}
-      <div className="relative flex items-center justify-between px-5 xl:px-8 py-4">
-
-        {/* Toggle pill */}
-        <button
-          aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-          onClick={toggle}
-          className="flex items-center border rounded-full p-2 w-20 shrink-0 cursor-pointer transition-all duration-200"
-          style={{
-            backgroundColor: "var(--surface-elevated)",
-            borderColor: "var(--border-default)",
-            justifyContent: isDark ? "flex-start" : "flex-end",
-          }}
-        >
-          {isDark
-            ? <Moon className="w-4 h-4 xl:w-5 xl:h-5" style={{ color: "var(--text-accent)" }} />
-            : <Sun  className="w-4 h-4 xl:w-5 xl:h-5" style={{ color: "var(--text-accent)" }} />
-          }
-        </button>
-
-        {/* Logo — Mobile: centrado absoluto (no cliqueable), Desktop: enlace a home */}
-        <Link
-          href="/"
-          className="
-            absolute left-1/2 -translate-x-1/2
-            xl:static xl:translate-x-0
-            shrink-0
-            pointer-events-none xl:pointer-events-auto
-          "
-        >
-          {/* Clip exacto del asset Figma — sin esto el PNG muestra todo el frame con whitespace */}
-          <div className="relative w-10 shrink-0 overflow-hidden" style={{ height: "34.39px" }}>
-            <img
-              src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
-              alt=""
-              className={`absolute max-w-none pointer-events-none ${
-                theme === "light"
-                  ? "h-[335.38%] left-[-173.33%] top-[-104.62%] w-[436%]"
-                  : "h-[348.3%] left-[-177.19%] top-[-103.06%] w-[449.12%]"
-              }`}
-            />
-          </div>
+      {/* ── Desktop ── */}
+      <div className="hidden xl:flex items-center justify-between px-8 py-4">
+        {/* Logo */}
+        <Link href="/" aria-label="Ir al inicio">
+          <Logo theme={theme} />
         </Link>
 
-        {/* Desktop nav items */}
-        <div className="hidden xl:flex items-center gap-2.5">
-          {NAV_LINKS.map((link) => {
-            const isActive = activeId === link.id;
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                aria-current={isActive ? "page" : undefined}
-                onClick={() => setActiveId(link.id)}
-                className={[
-                  "text-[14px] font-semibold leading-5 tracking-[0px]",
-                  "h-8 px-3 py-2 rounded-lg flex items-center",
-                  "transition-colors duration-150",
-                  "focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]",
-                  isActive
-                    ? "text-[var(--text-accent)]"
-                    : "text-[var(--text-secondary)] hover:text-[var(--text-accent)]",
-                ].join(" ")}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+        {/* Nav links */}
+        <div className="flex items-center gap-2.5">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              aria-current={activeId === link.id ? "page" : undefined}
+              onClick={() => setActiveId(link.id)}
+              className={navLinkClass(activeId === link.id)}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        {/* Right: CV (desktop) + hamburger (mobile) */}
-        <div className="flex items-center shrink-0">
+        {/* Theme toggle + CV */}
+        <div className="flex items-center gap-4 shrink-0">
+          <ThemeToggle isDark={isDark} toggle={toggle} />
           <a
             href="/cv/CV_Ivan_Andrade.pdf"
             download
-            className="hidden xl:flex items-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
+            className="flex items-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
           >
             <Download className="w-4 h-4" />
             Descargar CV
           </a>
-
-          <button
-            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={isOpen}
-            onClick={() => setIsOpen((v) => !v)}
-            className="xl:hidden flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-          </button>
         </div>
       </div>
 
-      {/* ── Mobile / tablet menu ── */}
+      {/* ── Mobile / Tablet bar (collapsed) ── */}
+      <div className="xl:hidden flex items-center justify-between px-5 py-4">
+        <Link href="/" aria-label="Ir al inicio">
+          <Logo theme={theme} />
+        </Link>
+        <button
+          aria-label="Abrir menú"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen(true)}
+          className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          <Menu className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* ── Mobile / Tablet expanded menu ── */}
       {isOpen && (
         <div
-          className="xl:hidden border-t px-5 py-4 flex flex-col gap-1"
+          className="xl:hidden border-t flex flex-col gap-4 px-5 py-5"
           style={{ borderColor: "var(--border-default)" }}
         >
-          {NAV_LINKS.map((link) => {
-            const isActive = activeId === link.id;
-            return (
+          {/* Header: name + close */}
+          <div className="flex items-center justify-between">
+            <span
+              className="text-[20px] font-semibold leading-7 tracking-[-1px] whitespace-nowrap"
+              style={{ color: "var(--text-accent)" }}
+            >
+              Ivan Andrade
+            </span>
+            <button
+              aria-label="Cerrar menú"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full border-t" style={{ borderColor: "var(--border-default)" }} />
+
+          {/* Nav links — centered */}
+          <div className="flex flex-col gap-2 items-center">
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => { setActiveId(link.id); setIsOpen(false); }}
-                aria-current={isActive ? "page" : undefined}
-                className={[
-                  "text-[14px] font-semibold leading-5 tracking-[0px]",
-                  "h-8 px-3 py-2 rounded-lg flex items-center",
-                  "transition-colors duration-150",
-                  "focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]",
-                  isActive
-                    ? "text-[var(--text-accent)]"
-                    : "text-[var(--text-secondary)] hover:text-[var(--text-accent)]",
-                ].join(" ")}
+                aria-current={activeId === link.id ? "page" : undefined}
+                className={navLinkClass(activeId === link.id) + " w-full justify-center"}
               >
                 {link.label}
               </Link>
-            );
-          })}
+            ))}
+          </div>
 
-          <a
-            href="/cv/CV_Ivan_Andrade.pdf"
-            download
-            className="flex items-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg mt-3 w-fit cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
-          >
-            <Download className="w-4 h-4" />
-            Descargar CV
-          </a>
+          {/* Bottom: theme toggle + CV button */}
+          <div className="flex items-center gap-4">
+            <ThemeToggle isDark={isDark} toggle={toggle} />
+            <a
+              href="/cv/CV_Ivan_Andrade.pdf"
+              download
+              className="flex flex-1 items-center justify-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Descargar CV
+            </a>
+          </div>
         </div>
       )}
     </nav>
