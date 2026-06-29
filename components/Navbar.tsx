@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Moon, Sun, Menu, X, Download } from "lucide-react";
+import { Moon, Sun, Menu, Download } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 
 const NAV_LINKS = [
@@ -132,29 +132,30 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── Mobile / Tablet bar (collapsed) ── */}
-      <div className="xl:hidden flex items-center justify-between px-5 py-4">
-        <Link href="/" aria-label="Ir al inicio">
-          <Logo theme={theme} />
-        </Link>
-        <button
-          aria-label="Abrir menú"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen(true)}
-          className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          <Menu className="w-4 h-4" />
-        </button>
-      </div>
+      {/* ── Mobile / Tablet — collapsed bar ── */}
+      {!isOpen && (
+        <div className="xl:hidden flex items-center justify-between px-5 py-4">
+          <Link href="/" aria-label="Ir al inicio">
+            <Logo theme={theme} />
+          </Link>
+          <button
+            aria-label="Abrir menú"
+            aria-expanded={false}
+            onClick={() => setIsOpen(true)}
+            className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            <Menu className="w-4 h-4" />
+          </button>
+        </div>
+      )}
 
-      {/* ── Mobile / Tablet expanded menu ── */}
+      {/* ── Mobile / Tablet — expanded panel (reemplaza la barra completa) ── */}
       {isOpen && (
         <div
-          className="xl:hidden border-t flex flex-col gap-4 px-5 py-5"
-          style={{ borderColor: "var(--border-default)" }}
+          className="xl:hidden flex flex-col gap-4 px-5 py-5"
         >
-          {/* Header: name + close */}
+          {/* Header: "Ivan Andrade" + hamburger (cierra) */}
           <div className="flex items-center justify-between">
             <span
               className="text-[20px] font-semibold leading-7 tracking-[-1px] whitespace-nowrap"
@@ -164,18 +165,19 @@ export default function Navbar() {
             </span>
             <button
               aria-label="Cerrar menú"
+              aria-expanded={true}
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
               style={{ color: "var(--text-secondary)" }}
             >
-              <X className="w-4 h-4" />
+              <Menu className="w-4 h-4" />
             </button>
           </div>
 
           {/* Divider */}
           <div className="w-full border-t" style={{ borderColor: "var(--border-default)" }} />
 
-          {/* Nav links — centered */}
+          {/* Nav links — centrados */}
           <div className="flex flex-col gap-2 items-center">
             {NAV_LINKS.map((link) => (
               <Link
@@ -190,7 +192,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Bottom: theme toggle + CV button */}
+          {/* Bottom: theme toggle (shrink) + CV (flex-1) */}
           <div className="flex items-center gap-4">
             <ThemeToggle isDark={isDark} toggle={toggle} />
             <a
