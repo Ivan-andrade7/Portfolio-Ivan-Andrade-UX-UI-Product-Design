@@ -127,10 +127,10 @@ export default function Footer() {
         {/* Divider */}
         <div className="w-full border-t border-[var(--border-default)]" />
 
-        {/* Bottom row: copyright left, nav links right */}
-        <div className="flex flex-wrap gap-2 items-start justify-end w-full">
-          {/* Label-S: 12px/600/16px/1px — tertiary, flex-1 */}
-          <p className="flex-1 min-w-px text-[var(--text-tertiary)] text-[12px] font-semibold leading-4 tracking-[1px] h-8 flex items-center">
+        {/* Bottom row: mobile = stack, sin forzar ancho; md+ = copyright flex-1 + links a la derecha */}
+        <div className="flex flex-wrap gap-2 items-start justify-start md:justify-end w-full">
+          {/* Label-S: 12px/600/16px/1px — tertiary */}
+          <p className="md:flex-1 md:min-w-px text-[var(--text-tertiary)] text-[12px] font-semibold leading-4 tracking-[1px] h-8 flex items-center">
             © 2026 Iván Andrade · Diseñado con criterio.
           </p>
           {NAV_LINKS.map(({ label, href }) => (
