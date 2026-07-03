@@ -105,11 +105,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/garden-ads-hero-mobile.png",
     },
     pantallas: [
-      "https://www.figma.com/api/mcp/asset/e10bd425-3eda-422f-8429-72cb8942e482",
-      "https://www.figma.com/api/mcp/asset/434cd69b-a96a-4a0a-9ce8-bf5ed7957271",
-      "https://www.figma.com/api/mcp/asset/62444c21-0866-4685-81d6-90815340e648",
-      "https://www.figma.com/api/mcp/asset/4d2cc230-ac71-4b3c-88b2-4ded699fd9a9",
-      "https://www.figma.com/api/mcp/asset/4af01999-9441-4868-ac67-08e24e0fdf4d",
+      "/projects/garden-ads-screen-1.png",
+      "/projects/garden-ads-screen-2.png",
+      "/projects/garden-ads-screen-3.png",
+      "/projects/garden-ads-screen-4.png",
+      "/projects/garden-ads-screen-5.png",
     ],
     designSystem: {
       title: "Canopy DS · Emerald Garden",
@@ -455,11 +455,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/trainit-hero-mobile.png",
     },
     pantallas: [
-      "https://www.figma.com/api/mcp/asset/78bd473d-bb98-4b8f-b1b3-01f01fd0b9bf",
-      "https://www.figma.com/api/mcp/asset/47d20446-57d7-47a1-a650-482ebea818c2",
-      "https://www.figma.com/api/mcp/asset/81c36264-5a76-4a4f-93f0-9cd12ec84963",
-      "https://www.figma.com/api/mcp/asset/b3869ce3-9a26-4b8e-a120-cb168dc0a51c",
-      "https://www.figma.com/api/mcp/asset/3d7b3b73-9ff8-4e1b-8cc4-6b144f309f93",
+      "/projects/trainit-screen-1.png",
+      "/projects/trainit-screen-2.png",
+      "/projects/trainit-screen-3.png",
+      "/projects/trainit-screen-4.png",
+      "/projects/trainit-screen-5.png",
     ],
     metrics: [
       { value: "4", label: "módulos core" },
