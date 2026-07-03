@@ -191,11 +191,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/fintech-hero-mobile.png",
     },
     pantallas: [
-      "https://www.figma.com/api/mcp/asset/08330f77-16ec-408f-bed8-87bc81536407",
-      "https://www.figma.com/api/mcp/asset/96b7a25f-356f-4c49-9f42-5c1015818a41",
-      "https://www.figma.com/api/mcp/asset/97a93375-fb9c-4973-b61f-94dc155d66e1",
-      "https://www.figma.com/api/mcp/asset/f4f52d19-38b8-4367-9188-c0b6419b44b9",
-      "https://www.figma.com/api/mcp/asset/310f1794-4ea2-4357-a8ce-228f5fac18a6",
+      "/projects/fintech-screen-1.png",
+      "/projects/fintech-screen-2.png",
+      "/projects/fintech-screen-3.png",
+      "/projects/fintech-screen-4.png",
+      "/projects/fintech-screen-5.png",
     ],
     designSystem: {
       title: "Sistema de componentes desde cero",
@@ -284,11 +284,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/crm-hero-mobile.png",
     },
     pantallas: [
-      "https://www.figma.com/api/mcp/asset/5f43a93b-6a5b-44c0-8d40-dff97ed2bd1f",
-      "https://www.figma.com/api/mcp/asset/e9e1c24f-3696-4aaf-be02-974de8c1c17a",
-      "https://www.figma.com/api/mcp/asset/16dbadee-e013-450c-bb0c-100e6c593fe1",
-      "https://www.figma.com/api/mcp/asset/5ba6060e-6dc5-4f75-b070-a417e97cee74",
-      "https://www.figma.com/api/mcp/asset/d652ef68-0d5c-4203-ae09-0794dc09e44e",
+      "/projects/crm-screen-1.png",
+      "/projects/crm-screen-2.png",
+      "/projects/crm-screen-3.png",
+      "/projects/crm-screen-4.png",
+      "/projects/crm-screen-5.png",
     ],
     metrics: [
       { value: "8", label: "pantallas core" },
