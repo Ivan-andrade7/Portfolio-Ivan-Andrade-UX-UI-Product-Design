@@ -38,9 +38,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div
         className="absolute inset-0 flex flex-col gap-3 items-center justify-end p-6 rounded-xl border transition-all duration-200 cursor-pointer"
         style={{
-          backgroundImage: "linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.12) 50%, rgba(2,6,23,0.68) 75%, rgba(2,6,23,0.9) 100%)",
+          backgroundImage: "linear-gradient(180deg, var(--card-gradient-0) 0%, var(--card-gradient-1) 50%, var(--card-gradient-2) 75%, var(--card-gradient-3) 100%)",
           borderColor: hovered ? "var(--border-interactive)" : "var(--border-default)",
-          boxShadow: hovered ? "0 4px 24px rgba(0,0,0,0.4)" : "0 1px 2px rgba(255,255,255,0.08)",
+          boxShadow: hovered ? "var(--shadow-card-hover)" : "var(--shadow-card)",
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -85,7 +85,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Title */}
         <p
           className="w-full text-[24px] font-semibold leading-8 tracking-[-1px] truncate text-left transition-colors duration-200"
-          style={{ color: hovered ? "#2dd4bf" : "#f8fafc" }}
+          style={{ color: hovered ? "var(--text-accent)" : "var(--text-primary)" }}
         >
           {project.title}
         </p>
