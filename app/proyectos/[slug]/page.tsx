@@ -178,11 +178,22 @@ export default async function CaseStudyPage({
       <Navbar />
       <main className="bg-[var(--bg-primary)]">
 
-        {/* ── Hero — Figma 338:2433 ── */}
-        <div className="relative w-full min-h-[520px]">
-          <Image src={c.images[0]} alt={c.title} fill className="object-cover" priority />
+        {/* ── Hero — Figma 349:55 (desktop) / 593:3011 (tablet) / 659:3011 (mobile) ── */}
+        <div className="relative w-full min-h-[480px] md:min-h-[560px]">
+          {c.heroImages ? (
+            <picture className="absolute inset-0 size-full">
+              <source media="(min-width: 1024px)" srcSet={c.heroImages.desktop} />
+              <source media="(min-width: 768px)" srcSet={c.heroImages.tablet} />
+              <img src={c.heroImages.mobile} alt="" className="absolute inset-0 size-full object-cover pointer-events-none" />
+            </picture>
+          ) : (
+            <Image src={c.images[0]} alt={c.title} fill className="object-cover" priority />
+          )}
 
-          <div className="absolute inset-0 flex flex-col justify-between px-6 sm:px-12 lg:px-24 py-12 bg-[var(--overlay-card)]">
+          <div
+            className="absolute inset-0 flex flex-col justify-between px-6 md:px-12 xl:px-24 py-12"
+            style={{ backgroundImage: "linear-gradient(90deg, rgba(2,6,23,0.92) 0%, rgba(2,6,23,0.72) 42%, rgba(2,6,23,0.3) 72%, rgba(2,6,23,0.1) 100%)" }}
+          >
 
             {/* Ghost button MD — Figma 198:253 */}
             <Link

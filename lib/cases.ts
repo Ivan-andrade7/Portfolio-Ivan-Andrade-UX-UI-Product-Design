@@ -40,6 +40,7 @@ export interface CaseStudy {
   estrategia: string;
   decisions: Decision[];
   images: string[];
+  heroImages?: { desktop: string; tablet: string; mobile: string };
   pantallas?: string[];
   designSystem?: DesignSystem;
   metrics: Metric[];
@@ -98,6 +99,11 @@ export const CASES: CaseStudy[] = [
       },
     ],
     images: ["/projects/garden-ads.png"],
+    heroImages: {
+      desktop: "/projects/garden-ads-hero-desktop.png",
+      tablet: "/projects/garden-ads-hero-tablet.png",
+      mobile: "/projects/garden-ads-hero-mobile.png",
+    },
     pantallas: [
       "https://www.figma.com/api/mcp/asset/e10bd425-3eda-422f-8429-72cb8942e482",
       "https://www.figma.com/api/mcp/asset/434cd69b-a96a-4a0a-9ce8-bf5ed7957271",
