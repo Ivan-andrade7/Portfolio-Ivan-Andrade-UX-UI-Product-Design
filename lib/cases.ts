@@ -362,11 +362,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/multi-brand-hero-mobile.png",
     },
     pantallas: [
-      "https://www.figma.com/api/mcp/asset/2b1c88ec-929a-4e67-bddd-ca6d78e130ad",
-      "https://www.figma.com/api/mcp/asset/aff2b240-059c-43b8-8176-e208348dae08",
-      "https://www.figma.com/api/mcp/asset/4b6a0f3d-7d64-4a9b-9614-ab51fa92bb70",
-      "https://www.figma.com/api/mcp/asset/c0c91efd-6c39-4d92-9e59-705f646f37b3",
-      "https://www.figma.com/api/mcp/asset/d1f15577-752c-4528-9205-546be4d82b1a",
+      "/projects/multi-brand-screen-1.png",
+      "/projects/multi-brand-screen-2.png",
+      "/projects/multi-brand-screen-3.png",
+      "/projects/multi-brand-screen-4.png",
+      "/projects/multi-brand-screen-5.png",
     ],
     designSystem: {
       title: "Arquitectura de tokens multimarca",

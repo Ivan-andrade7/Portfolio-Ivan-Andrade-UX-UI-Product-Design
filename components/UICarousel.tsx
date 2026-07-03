@@ -64,7 +64,7 @@ export default function UICarousel({ images, title }: { images: string[]; title:
           src={images[idx]}
           alt={`${title} — pantalla ${idx + 1}`}
           fill
-          className="object-cover"
+          className="object-cover object-top"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1000px"
         />
       </div>
@@ -104,7 +104,7 @@ export default function UICarousel({ images, title }: { images: string[]; title:
               src={img}
               alt={`${title} — ${i + 1}`}
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="100px"
             />
           </button>
