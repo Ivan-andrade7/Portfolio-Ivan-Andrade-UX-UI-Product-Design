@@ -185,6 +185,11 @@ export const CASES: CaseStudy[] = [
       },
     ],
     images: ["/projects/fintech.png"],
+    heroImages: {
+      desktop: "/projects/fintech-hero-desktop.png",
+      tablet: "/projects/fintech-hero-tablet.png",
+      mobile: "/projects/fintech-hero-mobile.png",
+    },
     pantallas: [
       "https://www.figma.com/api/mcp/asset/08330f77-16ec-408f-bed8-87bc81536407",
       "https://www.figma.com/api/mcp/asset/96b7a25f-356f-4c49-9f42-5c1015818a41",
@@ -273,6 +278,11 @@ export const CASES: CaseStudy[] = [
       },
     ],
     images: ["/projects/crm.png"],
+    heroImages: {
+      desktop: "/projects/crm-hero-desktop.png",
+      tablet: "/projects/crm-hero-tablet.png",
+      mobile: "/projects/crm-hero-mobile.png",
+    },
     pantallas: [
       "https://www.figma.com/api/mcp/asset/5f43a93b-6a5b-44c0-8d40-dff97ed2bd1f",
       "https://www.figma.com/api/mcp/asset/e9e1c24f-3696-4aaf-be02-974de8c1c17a",
@@ -346,6 +356,11 @@ export const CASES: CaseStudy[] = [
       },
     ],
     images: ["/projects/multi-brand.png"],
+    heroImages: {
+      desktop: "/projects/multi-brand-hero-desktop.png",
+      tablet: "/projects/multi-brand-hero-tablet.png",
+      mobile: "/projects/multi-brand-hero-mobile.png",
+    },
     pantallas: [
       "https://www.figma.com/api/mcp/asset/2b1c88ec-929a-4e67-bddd-ca6d78e130ad",
       "https://www.figma.com/api/mcp/asset/aff2b240-059c-43b8-8176-e208348dae08",
@@ -434,6 +449,11 @@ export const CASES: CaseStudy[] = [
       },
     ],
     images: ["/projects/trainit.png"],
+    heroImages: {
+      desktop: "/projects/trainit-hero-desktop.png",
+      tablet: "/projects/trainit-hero-tablet.png",
+      mobile: "/projects/trainit-hero-mobile.png",
+    },
     pantallas: [
       "https://www.figma.com/api/mcp/asset/78bd473d-bb98-4b8f-b1b3-01f01fd0b9bf",
       "https://www.figma.com/api/mcp/asset/47d20446-57d7-47a1-a650-482ebea818c2",
