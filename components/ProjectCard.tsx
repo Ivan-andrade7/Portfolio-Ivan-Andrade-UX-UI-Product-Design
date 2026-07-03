@@ -34,13 +34,13 @@ export default function ProjectCard({ project }: { project: Project }) {
         />
       </div>
 
-      {/* Info overlay — var(--overlay-card) es dark en dark mode, blanco en light mode */}
+      {/* Info overlay con gradiente Figma */}
       <div
         className="absolute inset-0 flex flex-col gap-3 items-center justify-end p-6 rounded-xl border transition-all duration-200 cursor-pointer"
         style={{
-          background: "var(--overlay-card)",
+          backgroundImage: "linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.12) 50%, rgba(2,6,23,0.68) 75%, rgba(2,6,23,0.9) 100%)",
           borderColor: hovered ? "var(--border-interactive)" : "var(--border-default)",
-          boxShadow: hovered ? "var(--shadow-card-hover)" : "var(--shadow-card)",
+          boxShadow: hovered ? "0 4px 24px rgba(0,0,0,0.4)" : "0 1px 2px rgba(255,255,255,0.08)",
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -85,7 +85,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Title */}
         <p
           className="w-full text-[24px] font-semibold leading-8 tracking-[-1px] truncate text-left transition-colors duration-200"
-          style={{ color: hovered ? "var(--text-accent)" : "var(--text-primary)" }}
+          style={{ color: hovered ? "#2dd4bf" : "#f8fafc" }}
         >
           {project.title}
         </p>
