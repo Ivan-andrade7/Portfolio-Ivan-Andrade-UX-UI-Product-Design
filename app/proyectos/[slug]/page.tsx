@@ -192,7 +192,7 @@ export default async function CaseStudyPage({
 
           <div
             className="absolute inset-0 flex flex-col justify-between px-6 md:px-12 xl:px-24 py-12"
-            style={{ backgroundImage: "linear-gradient(90deg, rgba(2,6,23,0.92) 0%, rgba(2,6,23,0.72) 42%, rgba(2,6,23,0.3) 72%, rgba(2,6,23,0.1) 100%)" }}
+            style={{ backgroundImage: "linear-gradient(90deg, var(--card-gradient-4) 0%, var(--card-gradient-3) 42%, var(--card-gradient-2) 72%, var(--card-gradient-1) 100%)" }}
           >
 
             {/* Ghost button MD — Figma 198:253 */}

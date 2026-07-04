@@ -24,8 +24,9 @@
   --focus-ring: rgba(20, 184, 166, 0.3);
   --card-gradient-0: rgba(2, 6, 23, 0);
   --card-gradient-1: rgba(2, 6, 23, 0.1);
-  --card-gradient-2: rgba(2, 6, 23, 0.7);
-  --card-gradient-3: rgba(2, 6, 23, 0.9);
+  --card-gradient-2: rgba(2, 6, 23, 0.3);
+  --card-gradient-3: rgba(2, 6, 23, 0.7);
+  --card-gradient-4: rgba(2, 6, 23, 0.9);
 }
 
 /* ── Design tokens — Light ── */
@@ -47,8 +48,9 @@ html.light {
   --focus-ring: rgba(13, 148, 136, 0.3);
   --card-gradient-0: rgba(248, 250, 252, 0);
   --card-gradient-1: rgba(248, 250, 252, 0.1);
-  --card-gradient-2: rgba(248, 250, 252, 0.7);
-  --card-gradient-3: rgba(248, 250, 252, 0.9);
+  --card-gradient-2: rgba(248, 250, 252, 0.3);
+  --card-gradient-3: rgba(248, 250, 252, 0.7);
+  --card-gradient-4: rgba(248, 250, 252, 0.9);
 }
 
 /* ── Additional tokens ── */

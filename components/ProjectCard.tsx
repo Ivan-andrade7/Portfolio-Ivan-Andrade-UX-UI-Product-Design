@@ -38,7 +38,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div
         className="absolute inset-0 flex flex-col gap-3 items-center justify-end p-6 rounded-xl border transition-all duration-200 cursor-pointer"
         style={{
-          backgroundImage: "linear-gradient(180deg, var(--card-gradient-0) 0%, var(--card-gradient-1) 50%, var(--card-gradient-2) 75%, var(--card-gradient-3) 100%)",
+          backgroundImage: "linear-gradient(180deg, var(--card-gradient-0) 0%, var(--card-gradient-1) 50%, var(--card-gradient-3) 75%, var(--card-gradient-4) 100%)",
           borderColor: hovered ? "var(--border-interactive)" : "var(--border-default)",
           boxShadow: hovered ? "var(--shadow-card-hover)" : "var(--shadow-card)",
         }}

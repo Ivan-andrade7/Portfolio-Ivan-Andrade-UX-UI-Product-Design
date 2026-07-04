@@ -103,7 +103,7 @@ export default function Hero() {
 
         {/* Profile image */}
         <div className="w-full md:w-[349px] md:shrink-0">
-          <div className="relative w-full aspect-[349/500] overflow-hidden rounded-xl border border-[var(--border-default)] shadow-[0_1px_2px_rgba(255,255,255,0.08)]">
+          <div className="relative w-full aspect-[349/500] overflow-hidden rounded-xl border border-[var(--border-default)]" style={{ boxShadow: "var(--shadow-card)" }}>
             <Image
               src="/profile.jpg"
               alt="Ivan Andrade"
