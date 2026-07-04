@@ -37,7 +37,7 @@ export default function About() {
         {/* Content */}
         <div className="flex flex-col gap-3 w-full">
           <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            De seguridad pública al diseño de producto
+            Una cabeza de sistemas aplicada al diseño
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
             Una mirada particular sobre la claridad, la prevención de errores y la confianza en interfaces de alta fricción.
@@ -62,9 +62,9 @@ export default function About() {
             {" "}donde la claridad y la escalabilidad son tan importantes como la estética. No diseño para que se vea bien. Diseño para que funcione bien y se entienda mejor.
           </p>
           <p>
-            Antes de diseñar, trabajé en{" "}
-            <span className="text-[var(--text-accent)]">seguridad pública</span>
-            . Ese contexto me dio una forma diferente de pensar sobre la confianza del usuario, la prevención de errores y la claridad en situaciones de alta fricción. Hoy lo aplico directamente en cada producto que diseño.
+            Trabajo con una forma de pensar poco común para el diseño: foco en la confianza del usuario, prevención de errores y claridad en situaciones de alta presión. Eso es justo lo que necesitan los entornos donde el error se paga caro —{" "}
+            <span className="text-[var(--text-accent)]">fintech, SaaS B2B, herramientas data-heavy</span>
+            .
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default function About() {
           </h3>
           {/* Body-M: 16px/400/28px */}
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Vengo de seguridad pública: años tomando decisiones en contextos de alta presión donde un error tiene consecuencias reales. Eso me dio criterio para diseñar pensando en prevención de errores, claridad y confianza del usuario.
+            Mi diferencial: rigor documental, calma bajo presión y la costumbre de anticipar el error antes de que pase. No diseño para que se vea bien; diseño para que funcione bien y se entienda mejor. Además de diseñar, programé este mismo portfolio (Claude Code, Git, Vercel), así que entiendo el lado técnico y colaboro de cerca con desarrollo.
           </p>
         </div>
       </div>
