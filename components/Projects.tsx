@@ -14,7 +14,7 @@ const PROJECTS: Project[] = [
     title: "ChatCRM — CRM para PyMEs",
     tags: ["CRM", "SaaS B2B", "Pipeline"],
     longDesc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
-    role: "UX UI Designer · 2 meses",
+    role: "UX UI Designer · 5 semanas",
     image: "/projects/crm.png",
   },
   {
@@ -30,7 +30,7 @@ const PROJECTS: Project[] = [
     title: "Multi-Brand Design System",
     tags: ["Design System", "EdTech", "Multi-marca"],
     longDesc: "Design system multimarca: una librería, dos identidades (Academy / Kids), con ~70% de componentes compartidos.",
-    role: "UX UI Designer · 3 semanas",
+    role: "UX UI Designer · 5 semanas",
     image: "/projects/multi-brand.png",
   },
   {
@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
     title: "TrainiT — Gestión de proyectos",
     tags: ["SaaS", "Kanban", "Gestión"],
     longDesc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
-    role: "UX UI Designer Jr · 3 meses",
+    role: "UX UI Designer Jr · 5 semanas",
     image: "/projects/trainit.png",
   },
 ];

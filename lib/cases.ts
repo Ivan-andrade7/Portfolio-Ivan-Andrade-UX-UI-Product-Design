@@ -147,7 +147,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "2 meses · Sep–Oct 2025",
+      duracion: "5 semanas · Sep–Oct 2025",
       focoLabel: "Equipo",
       foco: "Multidisciplinario · No Country",
       tools: "Figma · FigJam · Notion",
@@ -238,7 +238,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "No Country · 2026",
+      duracion: "5 semanas · 2026",
       focoLabel: "Foco",
       foco: "Operación · Pipeline · Handoff",
       tools: "Figma · FigJam",
@@ -319,7 +319,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "No Country · 2025",
+      duracion: "5 semanas · 2025",
       focoLabel: "Foco",
       foco: "Tokens · Arquitectura · Escala",
       tools: "Figma · Variables",
@@ -409,7 +409,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI Jr.",
-      duracion: "3 sprints · No Country · 2025",
+      duracion: "5 semanas · No Country · 2025",
       focoLabel: "Foco",
       foco: "Flujos · Liderazgo",
       tools: "Figma · FigJam",
