@@ -129,7 +129,7 @@ export const CASES: CaseStudy[] = [
       { value: "6", label: "roles RBAC diferenciados" },
     ],
     reflection:
-      "El feature diferencial surgió del análisis competitivo, no de la intuición: sin revisar 5 plataformas a fondo nunca habría detectado el gap. Y diseñar para múltiples roles exige reflejar la arquitectura de permisos antes de abrir Figma —no después.",
+      "El feature diferencial surgió del análisis competitivo, no de la intuición: sin revisar 6 plataformas a fondo nunca habría detectado el gap. Y diseñar para múltiples roles exige reflejar la arquitectura de permisos antes de abrir Figma —no después.",
     next: {
       slug: "fintech",
       title: "Fintech PYME — Plataforma de Créditos B2B",
@@ -229,7 +229,7 @@ export const CASES: CaseStudy[] = [
   },
   {
     slug: "crm",
-    tags: ["CRM", "SaaS B2B", "2024"],
+    tags: ["CRM", "SaaS B2B", "2026"],
     title: "ChatCRM — CRM para PyMEs",
     subtitle: "Centralizar conversaciones y pipeline para no perder contexto comercial.",
     links: {
