@@ -9,7 +9,7 @@ interface ExperienceItem {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
-    date: "Mar — Abr 2026",
+    date: "Abr — May 2026",
     title: "UX UI Designer — ChatCRM",
     company: "No Country · Simulación laboral remota",
     desc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
@@ -17,7 +17,7 @@ const EXPERIENCES: ExperienceItem[] = [
     neutralTags: ["Handoff"],
   },
   {
-    date: "Ene — Mar 2026",
+    date: "Feb — Mar 2026",
     title: "UX UI Designer — GardenAds",
     company: "No Country · Simulación laboral remota",
     desc: "Plataforma SaaS de atribución end-to-end como único designer: Tracking Health, benchmark de 6 competidores y handoff completo.",
@@ -33,7 +33,7 @@ const EXPERIENCES: ExperienceItem[] = [
     neutralTags: ["EdTech"],
   },
   {
-    date: "Sep — Nov 2025",
+    date: "Oct — Nov 2025",
     title: "UX UI Designer — Fintech PYME",
     company: "No Country · Simulación laboral remota",
     desc: "Onboarding KYC de 4 pasos y dos superficies (solicitante / supervisor) con RBAC pensado como UX, no solo como técnica.",
