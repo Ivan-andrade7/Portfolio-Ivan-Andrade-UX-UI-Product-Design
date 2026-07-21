@@ -409,7 +409,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI Jr.",
-      duracion: "5 semanas · No Country · 2025",
+      duracion: "3 meses · No Country · 2025",
       focoLabel: "Foco",
       foco: "Flujos · Liderazgo",
       tools: "Figma · FigJam",
