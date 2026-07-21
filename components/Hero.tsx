@@ -9,12 +9,12 @@ const STATS: Stat[] = [
   { value: "5", label: "Proyectos", accent: false },
   {
     parts: [
-      { text: "120", accent: false },
+      { text: "80", accent: false },
       { text: "+", accent: true },
     ],
-    label: "Componentes diseñados",
+    label: "Componentes documentados",
   },
-  { value: "WCAG AA", label: "Accesibilidad", accent: true },
+  { value: "Accesibilidad", label: "criterios WCAG AA", accent: true },
   { value: "3", label: "Equipos coordinados", accent: false },
 ];
 

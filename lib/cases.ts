@@ -74,13 +74,13 @@ export const CASES: CaseStudy[] = [
       body: "Los equipos de marketing B2B sufren pérdida silenciosa de datos por fallos de tracking no detectados: un píxel roto, un UTM mal configurado o una integración caída pueden pasar semanas sin detectarse, generando decisiones de inversión basadas en datos incorrectos.\n\nConstraints: 5 semanas, único diseñador, alcance end-to-end (research → handoff). Objetivo: detectar esos fallos y traducir el dolor técnico en impacto financiero concreto que un perfil no técnico pueda entender.",
     },
     estrategia:
-      "Arranqué con un análisis competitivo de 5 plataformas (GA4, Mixpanel, Amplitude, Segment, HubSpot). El hallazgo unánime: ninguna tiene un diagnóstico proactivo de salud del tracking. Ese gap definió el feature central.\n\nDefiní RBAC para 6 arquetipos de usuario y una arquitectura de navegación Dashboard → Tracking Health → Atribución, priorizando que el usuario confíe en el dato antes de profundizar.",
+      "Arranqué con un análisis competitivo de 6 plataformas (GA4, Mixpanel, Amplitude, Segment, HubSpot, entre otras). El hallazgo unánime: ninguna tiene un diagnóstico proactivo de salud del tracking. Ese gap definió el feature central.\n\nDefiní RBAC para 6 arquetipos de usuario y una arquitectura de navegación Dashboard → Tracking Health → Atribución, priorizando que el usuario confíe en el dato antes de profundizar.",
     decisions: [
       {
         id: "01",
         title: "Tracking Health como funcionalidad central del MVP",
         motivo:
-          "Ninguno de los 5 competidores analizados tiene una funcionalidad equivalente — es el diferencial real del producto.",
+          "Ninguno de los 6 competidores analizados tiene una funcionalidad equivalente — es el diferencial real del producto.",
         impacto:
           "Alerta proactiva de anomalías antes de que el problema consuma presupuesto de campaña.",
       },
@@ -224,7 +224,7 @@ export const CASES: CaseStudy[] = [
     next: {
       slug: "crm",
       title: "ChatCRM — CRM para PyMEs",
-      role: "Diseñador UX/UI · No Country · 2024",
+      role: "Diseñador UX/UI · No Country · 2026",
     },
   },
   {
@@ -325,34 +325,34 @@ export const CASES: CaseStudy[] = [
       tools: "Figma · Variables",
     },
     description:
-      "Diseñé el sistema visual y la arquitectura de tokens para una plataforma EdTech con dos identidades diferenciadas: Academy (17+) y Kids (6–16). El sistema comparte el 70% de los tokens y varía el 30% por marca.",
+      "Diseñé el sistema visual y la arquitectura de tokens para una plataforma EdTech con dos identidades diferenciadas: Academy (17+) y Kids (6–16). El sistema comparte cerca del 70% de los componentes entre ambas marcas.",
     problema: {
       title: "Fragmentación visual entre productos",
       body: "La plataforma EdTech tenía múltiples productos con identidades inconsistentes: cada equipo resolvía el estilo por su cuenta, duplicando trabajo y rompiendo la coherencia.\n\nSe necesitaban dos marcas con personalidad propia —Academy profesional y Kids lúdica— sin mantener dos sistemas separados.",
     },
     estrategia:
-      "Definí una arquitectura de 70% tokens compartidos + 30% tokens de marca: la estructura es única y solo cambian color, tipografía y radios por identidad.\n\nUsé naming semántico (no descriptivo) para que cambiar de marca sea cambiar un modo, no reemplazar valores en cada componente.",
+      "Definí una arquitectura de tokens única para ambas marcas: la estructura es la misma y solo cambian color, tipografía y radios por identidad.\n\nOrganicé los tokens en una arquitectura paralela por marca, de modo que cada componente tematizado apunta a los valores de su identidad sin rehacer la estructura.",
     decisions: [
       {
         id: "01",
-        title: "70% tokens compartidos + 30% de marca",
+        title: "70% de componentes compartidos + 30% de identidad propia",
         motivo:
           "Compartir la estructura evita mantener dos sistemas; variar solo lo identitario da personalidad sin duplicar.",
-        impacto: "Reducción estimada de 30–45% del tiempo de desarrollo entre marcas.",
+        impacto: "Una sola librería para mantener, en lugar de dos sistemas paralelos.",
       },
       {
         id: "02",
-        title: "Naming semántico, no descriptivo",
+        title: "Arquitectura de tokens paralela por marca",
         motivo:
-          "Un token llamado por su función (no por su color) sobrevive a los cambios de marca y tema.",
-        impacto: "Cambiar de Academy a Kids es cambiar un modo, sin tocar componentes.",
+          "Separar los valores por marca permite que cada identidad evolucione sin arrastrar a la otra.",
+        impacto: "Sumar o ajustar una marca no obliga a rehacer la estructura del sistema.",
       },
       {
         id: "03",
         title: "Dos identidades sobre una misma base",
         motivo:
-          "Academy (17+, teal profesional) y Kids (6–16, violeta lúdico) hablan a públicos distintos.",
-        impacto: "Cada marca se siente propia compartiendo el 70% del sistema.",
+          "Academy (17+, azules corporativos) y Kids (6–16, paleta vibrante) hablan a públicos distintos.",
+        impacto: "Cada marca se siente propia compartiendo cerca del 70% de los componentes.",
       },
     ],
     images: ["/projects/multi-brand.png"],
@@ -371,10 +371,10 @@ export const CASES: CaseStudy[] = [
     designSystem: {
       title: "Arquitectura de tokens multimarca",
       foundations:
-        "80+ componentes documentados sobre una base de tokens compartidos al 70%, con naming semántico y modos por marca (Academy / Kids).",
+        "80+ componentes documentados sobre una arquitectura de tokens común, con valores propios por marca (Academy / Kids).",
       components: [
         "Tokens primitivos y semánticos",
-        "Modos de marca (Academy / Kids)",
+        "Tokens por marca (Academy / Kids)",
         "Escala tipográfica por marca",
         "Componentes tematizados",
         "Documentación de uso",
@@ -382,15 +382,15 @@ export const CASES: CaseStudy[] = [
     },
     metrics: [
       { value: "80+", label: "componentes documentados" },
-      { value: "70%", label: "tokens compartidos" },
-      { value: "30-45%", label: "menos tiempo de desarrollo" },
+      { value: "70%", label: "componentes compartidos" },
+      { value: "2", label: "identidades · 1 librería" },
     ],
     reflection:
-      "El naming semántico fue lo que hizo escalable al sistema. Si los tokens se hubieran llamado por su color, cada marca nueva habría implicado rehacer medio sistema.",
+      "Lo que más me llevé fue dónde vive de verdad la identidad de una marca. La escala de espaciado terminó siendo idéntica en ambas y los neutrales se comparten enteros: lo que separa a Academy de Kids es el color y, sobre todo, el border-radius —de 4 a 16px en una, de 12 a 32 en la otra—. La estructura de un sistema puede ser común mucho más de lo que uno supone.",
     prev: {
       slug: "crm",
       title: "ChatCRM — CRM para PyMEs",
-      role: "Diseñador UX/UI · No Country · 2024",
+      role: "Diseñador UX/UI · No Country · 2026",
     },
     next: {
       slug: "trainit",
