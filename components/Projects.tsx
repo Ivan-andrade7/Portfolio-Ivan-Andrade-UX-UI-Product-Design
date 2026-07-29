@@ -1,6 +1,14 @@
 import ProjectCard, { type Project } from "@/components/ProjectCard";
 
-const PROJECTS: Project[] = [
+const MAIN_PROJECTS: Project[] = [
+  {
+    id: "fintech",
+    title: "Fintech PYME — Plataforma de Créditos",
+    tags: ["Fintech", "SaaS B2B", "KYC"],
+    longDesc: "Onboarding KYC de 4 pasos y dos superficies (solicitante / supervisor) con RBAC pensado como UX, no solo como técnica.",
+    role: "UX UI Designer · 5 semanas",
+    image: "/projects/fintech.png",
+  },
   {
     id: "garden-ads",
     title: "GardenAds — Attribution & Tracking Health",
@@ -17,14 +25,9 @@ const PROJECTS: Project[] = [
     role: "UX UI Designer · 5 semanas",
     image: "/projects/crm.png",
   },
-  {
-    id: "fintech",
-    title: "Fintech PYME — Plataforma de Créditos",
-    tags: ["Fintech", "SaaS B2B", "KYC"],
-    longDesc: "Onboarding KYC de 4 pasos y dos superficies (solicitante / supervisor) con RBAC pensado como UX, no solo como técnica.",
-    role: "UX UI Designer · 5 semanas",
-    image: "/projects/fintech.png",
-  },
+];
+
+const SELECTED_WORK: Project[] = [
   {
     id: "multi-brand",
     title: "Multi-Brand Design System",
@@ -72,18 +75,28 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* ── Grid: flex-col gap-24px, rows use flex-wrap ── */}
+      {/* ── Proyectos principales ── */}
       <div className="flex flex-col gap-6 w-full">
-        {/* Row 1 — 2 cards */}
+        <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5">
+          Proyectos principales
+        </p>
         <div className="flex flex-wrap gap-6">
-          {PROJECTS.slice(0, 2).map((p) => (
+          {MAIN_PROJECTS.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </div>
+      </div>
 
-        {/* Row 2 — 3 cards */}
+      {/* Divider between grupos */}
+      <div className="w-full border-t border-[var(--border-default)]" />
+
+      {/* ── Trabajo seleccionado ── */}
+      <div className="flex flex-col gap-6 w-full">
+        <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5">
+          Trabajo seleccionado
+        </p>
         <div className="flex flex-wrap gap-6">
-          {PROJECTS.slice(2).map((p) => (
+          {SELECTED_WORK.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </div>
