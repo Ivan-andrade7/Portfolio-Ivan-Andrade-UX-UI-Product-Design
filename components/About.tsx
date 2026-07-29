@@ -80,7 +80,7 @@ export default function About() {
           </h3>
           {/* Body-M: 16px/400/28px */}
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Rigor documental, calma bajo presión y la costumbre de anticipar el error antes de que pase. No diseño para que se vea bien; diseño para que funcione bien y se entienda mejor. Además de diseñar, programé este mismo portfolio (Claude Code, Git, Vercel), así que entiendo el lado técnico y colaboro de cerca con desarrollo.
+            Rigor documental, calma bajo presión y la costumbre de anticipar el error antes de que pase. Además de diseñar, programé este mismo portfolio (Claude Code, Git, Vercel), así que entiendo el lado técnico y colaboro de cerca con desarrollo.
           </p>
         </div>
       </div>

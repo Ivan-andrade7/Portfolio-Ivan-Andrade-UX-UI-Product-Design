@@ -27,7 +27,7 @@ const TESTIMONIALS = [
       'Además de su talento como diseñador, es una persona muy predispuesta al trabajo en equipo y mantiene una comunicación clara y constante con el área de desarrollo, lo que hace que el trabajo conjunto sea mucho mas eficiente y fluido. Sin dudas, recomiendo a Ivan para cualquier proyecto relacionado con diseño UX/UI y desarrollo de productos digitales."',
     ],
     name: "Matias Barisone",
-    role: "Desarrollador Fronted · No Country · 2026",
+    role: "Desarrollador Frontend · No Country · 2026",
     linkedin: "https://www.linkedin.com/in/ivan-andrade-uxui/details/recommendations/",
   },
 ];
@@ -74,29 +74,31 @@ export default function Testimonials() {
             <div className="w-full border-t border-[var(--border-default)]" />
 
             {/* Author — gap/sm=12px */}
-            <div className="flex items-center gap-3">
-              {/* Avatar pill — bg-secondary, rounded-full, p-8px */}
-              <div className="p-2 rounded-full bg-[var(--bg-secondary)] shrink-0">
-                <User size={20} className="text-[var(--text-tertiary)]" />
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                {/* Avatar pill — bg-secondary, rounded-full, p-8px */}
+                <div className="p-2 rounded-full bg-[var(--bg-secondary)] shrink-0">
+                  <User size={20} className="text-[var(--text-tertiary)]" />
+                </div>
+                {/* Name + role — gap/xs=8px */}
+                <div className="flex flex-col flex-1 min-w-0 gap-2">
+                  <span className="text-[var(--text-primary)] text-[14px] font-semibold leading-5">
+                    {name}
+                  </span>
+                  <span className="text-[var(--text-tertiary)] text-[12px] font-semibold leading-4 tracking-[1px]">
+                    {role}
+                  </span>
+                </div>
               </div>
-              {/* Name + role — gap/xs=8px */}
-              <div className="flex flex-col flex-1 min-w-0 gap-2">
-                <span className="text-[var(--text-primary)] text-[14px] font-semibold leading-5">
-                  {name}
-                </span>
-                <span className="text-[var(--text-tertiary)] text-[12px] font-semibold leading-4 tracking-[1px]">
-                  {role}
-                </span>
-              </div>
-              {/* LinkedIn button — ghost, 32px, border-accent, rounded-control */}
+              {/* LinkedIn — enlace con texto, no URL cruda */}
               <a
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`LinkedIn de ${name}`}
-                className="flex items-center justify-center w-8 h-8 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] shrink-0 hover:bg-[rgba(45,212,191,0.08)] active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-2 w-fit text-[var(--text-accent)] text-[14px] font-semibold leading-5 hover:opacity-80 transition-opacity"
               >
                 <LinkedinIcon />
+                Ver recomendación en LinkedIn
               </a>
             </div>
           </div>
