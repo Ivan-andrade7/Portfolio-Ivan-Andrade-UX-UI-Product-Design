@@ -10,6 +10,17 @@ export interface Metric {
   label: string;
 }
 
+export interface Screen {
+  src: string;
+  width: number;
+  height: number;
+  // Override explícito y puntual del recorte en el escenario principal del carrusel.
+  // Si se omite, se deriva de width/height (portrait → cover; landscape → contain).
+  fit?: "contain" | "cover";
+  // Solo aplica cuando fit="cover". Si se omite, se usa "center top" (portrait) o "center center" (landscape).
+  objectPosition?: string;
+}
+
 export interface DesignSystem {
   title: string;
   foundations: string;
@@ -41,7 +52,12 @@ export interface CaseStudy {
   decisions: Decision[];
   images: string[];
   heroImages?: { desktop: string; tablet: string; mobile: string };
-  pantallas?: string[];
+  pantallas?: Screen[];
+  // Aviso discreto bajo la galería "Selección de UI" (ej. cuando el caso tiene una sola pantalla final disponible).
+  galleryNote?: string;
+  // Ratio "width / height" del escenario principal del carrusel para este caso puntual.
+  // Opt-in: si se omite, UICarousel usa "800 / 569" (default de los otros casos, sin cambios).
+  galleryAspect?: string;
   designSystem?: DesignSystem;
   metrics: Metric[];
   reflection: string;
@@ -104,12 +120,17 @@ export const CASES: CaseStudy[] = [
       tablet: "/projects/garden-ads-hero-tablet.png",
       mobile: "/projects/garden-ads-hero-mobile.png",
     },
+    // Pantallas completas del producto (sidebar + nav + contenido), exportadas de Figma
+    // "05A. ⭐ Key screens — Recruiter walkthrough" a 1440×1024 — mismo ratio que Fintech/ChatCRM,
+    // usan el escenario 800/569 default sin overrides. Tracking Health primero: es el diferencial.
+    // Nombres descriptivos (no garden-ads-screen-N) a propósito: cache-busting real, esas rutas
+    // nunca fueron pedidas con contenido viejo por ningún navegador.
     pantallas: [
-      "/projects/garden-ads-screen-1.png",
-      "/projects/garden-ads-screen-2.png",
-      "/projects/garden-ads-screen-3.png",
-      "/projects/garden-ads-screen-4.png",
-      "/projects/garden-ads-screen-5.png",
+      { src: "/projects/garden-ads-ui-tracking-health.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-incident-detail.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-executive-dashboard.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-integrations.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-onboarding.png", width: 1440, height: 1024 },
     ],
     designSystem: {
       title: "Canopy DS · Emerald Garden",
@@ -191,11 +212,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/fintech-hero-mobile.png",
     },
     pantallas: [
-      "/projects/fintech-screen-1.png",
-      "/projects/fintech-screen-2.png",
-      "/projects/fintech-screen-3.png",
-      "/projects/fintech-screen-4.png",
-      "/projects/fintech-screen-5.png",
+      { src: "/projects/fintech-screen-1.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-2.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-3.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-4.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-5.png", width: 1440, height: 1024 },
     ],
     designSystem: {
       title: "Sistema de componentes desde cero",
@@ -284,11 +305,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/crm-hero-mobile.png",
     },
     pantallas: [
-      "/projects/crm-screen-1.png",
-      "/projects/crm-screen-2.png",
-      "/projects/crm-screen-3.png",
-      "/projects/crm-screen-4.png",
-      "/projects/crm-screen-5.png",
+      { src: "/projects/crm-screen-1.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-2.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-3.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-4.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-5.png", width: 1440, height: 1024 },
     ],
     metrics: [
       { value: "8", label: "pantallas core" },
@@ -362,11 +383,14 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/multi-brand-hero-mobile.png",
     },
     pantallas: [
-      "/projects/multi-brand-screen-1.png",
-      "/projects/multi-brand-screen-2.png",
-      "/projects/multi-brand-screen-3.png",
-      "/projects/multi-brand-screen-4.png",
-      "/projects/multi-brand-screen-5.png",
+      // Única con recorte intencional: en "contain" quedaba con gutters muy grandes a los costados
+      // (ratio casi cuadrado vs. escenario 800/569). "cover" + top llena el escenario mostrando
+      // header, banner y progreso/recompensas. screen-2/1/5/3 sin cambios (aprobadas).
+      { src: "/projects/multi-brand-screen-4.png", width: 1440, height: 1379, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/multi-brand-screen-2.png", width: 1440, height: 1826 },
+      { src: "/projects/multi-brand-screen-1.png", width: 1440, height: 2488 },
+      { src: "/projects/multi-brand-screen-5.png", width: 1309, height: 4096 },
+      { src: "/projects/multi-brand-screen-3.png", width: 1440, height: 1872 },
     ],
     designSystem: {
       title: "Arquitectura de tokens multimarca",
@@ -404,7 +428,7 @@ export const CASES: CaseStudy[] = [
     title: "TrainiT — Gestión de Proyectos",
     subtitle: "Flujos de gestión de proyectos que el equipo realmente quiere usar.",
     links: {
-      figma: "https://www.figma.com/design/hVoZTFVZtIfZ2H9JNETvhE/Nuevo---PGT-Gesti%C3%B3n-de-tareas?node-id=1-2",
+      figma: "https://www.figma.com/design/mRTUkA0fo9kmxB94q6y57N/Nuevo---PGT-Gesti%C3%B3n-de-tareas--Copy-?node-id=1-2&p=f",
       behance: "https://www.behance.net/gallery/240653385/TrainiT-PGT-%28Plataforma-de-Gestion-de-Proyectos%29",
     },
     context: {
@@ -454,12 +478,14 @@ export const CASES: CaseStudy[] = [
       tablet: "/projects/trainit-hero-tablet.png",
       mobile: "/projects/trainit-hero-mobile.png",
     },
+    galleryAspect: "16 / 9",
     pantallas: [
-      "/projects/trainit-screen-1.png",
-      "/projects/trainit-screen-2.png",
-      "/projects/trainit-screen-3.png",
-      "/projects/trainit-screen-4.png",
-      "/projects/trainit-screen-5.png",
+      { src: "/projects/trainit-ui-home.png", width: 1366, height: 1210, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-backlog.png", width: 1366, height: 768, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-card-detail.png", width: 1366, height: 1094, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-notifications.png", width: 1366, height: 1210, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-members.png", width: 1366, height: 1162, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-login.png", width: 1366, height: 768, fit: "cover", objectPosition: "center center" },
     ],
     metrics: [
       { value: "4", label: "módulos core" },
