@@ -294,7 +294,14 @@ export default async function CaseStudyPage({
           {/* Selección de UI */}
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
             <SectionHeader eyebrow="Pantallas" heading="Selección de UI" />
-            {c.pantallas && <UICarousel images={c.pantallas} title={c.title} />}
+            {c.pantallas && (
+              <UICarousel
+                screens={c.pantallas}
+                title={c.title}
+                note={c.galleryNote}
+                galleryAspect={c.galleryAspect}
+              />
+            )}
           </section>
 
           {/* Design System (opcional) */}
