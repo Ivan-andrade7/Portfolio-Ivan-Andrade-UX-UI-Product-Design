@@ -78,7 +78,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "5 semanas · 2026",
+      duracion: "5 semanas · Ene–Mar 2026",
       focoLabel: "Contexto",
       foco: "Simulación No Country",
       tools: "Figma · FigJam · Notion",
@@ -168,7 +168,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "5 semanas · Sep–Oct 2025",
+      duracion: "5 semanas · Sep–Nov 2025",
       focoLabel: "Equipo",
       foco: "Multidisciplinario · No Country",
       tools: "Figma · FigJam · Notion",
@@ -259,7 +259,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "5 semanas · 2026",
+      duracion: "5 semanas · Mar–Abr 2026",
       focoLabel: "Foco",
       foco: "Operación · Pipeline · Handoff",
       tools: "Figma · FigJam",
@@ -340,7 +340,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "5 semanas · 2025",
+      duracion: "5 semanas · Nov–Dic 2025",
       focoLabel: "Foco",
       foco: "Tokens · Arquitectura · Escala",
       tools: "Figma · Variables",
@@ -419,7 +419,7 @@ export const CASES: CaseStudy[] = [
     next: {
       slug: "trainit",
       title: "TrainiT — Gestión de Proyectos",
-      role: "Diseñador UX/UI Jr. · No Country · 2025",
+      role: "Diseñador UX/UI Jr. · Programa TrainiT · 2025",
     },
   },
   {
@@ -433,7 +433,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Diseñador UX/UI Jr.",
-      duracion: "3 meses · No Country · 2025",
+      duracion: "3 meses · Jul–Oct 2025",
       focoLabel: "Foco",
       foco: "Flujos · Liderazgo",
       tools: "Figma · FigJam",

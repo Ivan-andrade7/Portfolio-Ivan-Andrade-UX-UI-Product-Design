@@ -6,7 +6,7 @@ const MAIN_PROJECTS: Project[] = [
     title: "Fintech PYME — Plataforma de Créditos",
     tags: ["Fintech", "SaaS B2B", "KYC"],
     longDesc: "Onboarding KYC de 4 pasos y dos superficies (solicitante / supervisor) con RBAC pensado como UX, no solo como técnica.",
-    role: "UX UI Designer · 5 semanas",
+    role: "UX/UI Designer · 5 semanas",
     images: {
       narrow: "/projects/fintech-card-tall.png",
       medium: "/projects/fintech-card-square.png",
@@ -18,7 +18,7 @@ const MAIN_PROJECTS: Project[] = [
     title: "GardenAds — Attribution & Tracking Health",
     tags: ["Analytics SaaS", "Dashboard", "2026"],
     longDesc: "Plataforma SaaS de atribución end-to-end como único designer: Tracking Health, benchmark de 6 competidores y handoff completo.",
-    role: "UX UI Designer · 5 semanas",
+    role: "UX/UI Designer · 5 semanas",
     images: {
       narrow: "/projects/garden-ads-card-tall.png",
       medium: "/projects/garden-ads-card-square.png",
@@ -30,7 +30,7 @@ const MAIN_PROJECTS: Project[] = [
     title: "ChatCRM — CRM para PyMEs",
     tags: ["CRM", "SaaS B2B", "Pipeline"],
     longDesc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
-    role: "UX UI Designer · 5 semanas",
+    role: "UX/UI Designer · 5 semanas",
     images: {
       narrow: "/projects/crm-card-tall.png",
       medium: "/projects/crm-card-square.png",
@@ -45,7 +45,7 @@ const SELECTED_WORK: Project[] = [
     title: "Multi-Brand Design System",
     tags: ["Design System", "EdTech", "Multi-marca"],
     longDesc: "Design system multimarca: una librería, dos identidades (Academy / Kids), con ~70% de componentes compartidos.",
-    role: "UX UI Designer · 5 semanas",
+    role: "UX/UI Designer · 5 semanas",
     images: {
       narrow: "/projects/multi-brand-card-tall.png",
       medium: "/projects/multi-brand-card-tall.png",
@@ -57,7 +57,7 @@ const SELECTED_WORK: Project[] = [
     title: "TrainiT — Gestión de proyectos",
     tags: ["SaaS", "Kanban", "Gestión"],
     longDesc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
-    role: "UX UI Designer Jr · 3 meses",
+    role: "UX/UI Designer Jr · 3 meses",
     images: {
       narrow: "/projects/trainit-card-tall.png",
       medium: "/projects/trainit-card-tall.png",

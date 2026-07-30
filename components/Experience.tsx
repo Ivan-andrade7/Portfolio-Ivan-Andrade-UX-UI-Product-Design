@@ -9,41 +9,41 @@ interface ExperienceItem {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
-    date: "Abr — May 2026",
-    title: "UX UI Designer — ChatCRM",
+    date: "Mar — Abr 2026 · 5 semanas",
+    title: "UX/UI Designer — ChatCRM",
     company: "No Country · Simulación laboral remota",
     desc: "Prioricé el pipeline kanban sobre un dashboard tradicional, estructuré las variables del sistema en dos niveles (primitivos → semánticos) y documenté el handoff como entregable primario para minimizar idas y vueltas con desarrollo.",
     accentTags: ["CRM", "Kanban"],
     neutralTags: ["Handoff"],
   },
   {
-    date: "Feb — Mar 2026",
-    title: "UX UI Designer — GardenAds",
+    date: "Ene — Mar 2026 · 5 semanas",
+    title: "UX/UI Designer — GardenAds",
     company: "No Country · Simulación laboral remota",
     desc: "Lideré un benchmark de 6 plataformas de atribución como único designer para identificar el gap de mercado, definí el RBAC para 6 arquetipos de usuario y prioricé Tracking Health como la funcionalidad diferencial del MVP.",
     accentTags: ["Analytics", "SaaS B2B"],
     neutralTags: ["Dark"],
   },
   {
-    date: "Nov — Dic 2025",
-    title: "UX UI Designer — Multi-Brand DS",
+    date: "Nov — Dic 2025 · 5 semanas",
+    title: "UX/UI Designer — Multi-Brand DS",
     company: "No Country · Simulación laboral remota",
     desc: "Definí una arquitectura de tokens única para dos marcas (Academy / Kids), organizada en capas paralelas por identidad, logrando ~70% de componentes compartidos sin sacrificar personalidad propia de cada una.",
     accentTags: ["DS", "Tokens"],
     neutralTags: ["EdTech"],
   },
   {
-    date: "Oct — Nov 2025",
-    title: "UX UI Designer — Fintech PYME",
+    date: "Sep — Nov 2025 · 5 semanas",
+    title: "UX/UI Designer — Fintech PYME",
     company: "No Country · Simulación laboral remota",
     desc: "Separé la operación en dos superficies (solicitante / supervisor) en vez de forzar una plataforma única, y diseñé el RBAC como parte de la UX —no como una capa técnica agregada al final— para que cada operador vea solo lo que le corresponde.",
     accentTags: ["Fintech", "KYC"],
     neutralTags: ["RBAC"],
   },
   {
-    date: "Jul — Oct 2025",
-    title: "UX UI Designer Jr — TrainiT",
-    company: "No Country · Simulación laboral remota",
+    date: "Jul — Oct 2025 · 3 meses",
+    title: "UX/UI Designer Jr — TrainiT",
+    company: "Programa TrainiT · Pasantía laboral remota",
     desc: "Definí el Dashboard como punto de entrada en lugar del kanban directo, separé Kanban y Backlog en módulos propios, e iteré los flujos durante 3 sprints con feedback técnico real del equipo de desarrollo.",
     accentTags: ["SaaS", "Kanban"],
     neutralTags: ["Gestión"],
@@ -67,10 +67,10 @@ export default function Experience() {
         </div>
         <div className="flex flex-col gap-3 w-full">
           <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Simulaciones laborales remotas
+            Experiencia en equipos tech
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Simulaciones laborales en No Country — programa de aceleración para profesionales tech en equipos reales con metodologías ágiles.
+            Simulaciones laborales en No Country y pasantía en Programa TrainiT — equipos reales con metodologías ágiles.
           </p>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function Experience() {
           /* Item: flex gap/lg=24px, pb-inset/lg=24px, border-b */
           <div
             key={title}
-            className="flex gap-6 items-start pb-6 border-b border-[var(--border-default)]"
+            className="flex flex-col md:flex-row gap-2 md:gap-6 items-start pb-6 border-b border-[var(--border-default)]"
           >
             {/* Date — Label-S: 12px/600/16px/1px — tertiary, no-wrap */}
             <span className="shrink-0 whitespace-nowrap text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-tertiary)]">
