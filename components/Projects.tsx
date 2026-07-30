@@ -7,7 +7,11 @@ const MAIN_PROJECTS: Project[] = [
     tags: ["Fintech", "SaaS B2B", "KYC"],
     longDesc: "Onboarding KYC de 4 pasos y dos superficies (solicitante / supervisor) con RBAC pensado como UX, no solo como técnica.",
     role: "UX UI Designer · 5 semanas",
-    image: "/projects/fintech.png",
+    images: {
+      narrow: "/projects/fintech-card-tall.png",
+      medium: "/projects/fintech-card-square.png",
+      wide: "/projects/fintech-card-square.png",
+    },
   },
   {
     id: "garden-ads",
@@ -15,7 +19,11 @@ const MAIN_PROJECTS: Project[] = [
     tags: ["Analytics SaaS", "Dashboard", "2026"],
     longDesc: "Plataforma SaaS de atribución end-to-end como único designer: Tracking Health, benchmark de 6 competidores y handoff completo.",
     role: "UX UI Designer · 5 semanas",
-    image: "/projects/garden-ads.png",
+    images: {
+      narrow: "/projects/garden-ads-card-tall.png",
+      medium: "/projects/garden-ads-card-square.png",
+      wide: "/projects/garden-ads-card-square.png",
+    },
   },
   {
     id: "crm",
@@ -23,7 +31,11 @@ const MAIN_PROJECTS: Project[] = [
     tags: ["CRM", "SaaS B2B", "Pipeline"],
     longDesc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
     role: "UX UI Designer · 5 semanas",
-    image: "/projects/crm.png",
+    images: {
+      narrow: "/projects/crm-card-tall.png",
+      medium: "/projects/crm-card-square.png",
+      wide: "/projects/crm-card-wide.png",
+    },
   },
 ];
 
@@ -34,7 +46,11 @@ const SELECTED_WORK: Project[] = [
     tags: ["Design System", "EdTech", "Multi-marca"],
     longDesc: "Design system multimarca: una librería, dos identidades (Academy / Kids), con ~70% de componentes compartidos.",
     role: "UX UI Designer · 5 semanas",
-    image: "/projects/multi-brand.png",
+    images: {
+      narrow: "/projects/multi-brand-card-tall.png",
+      medium: "/projects/multi-brand-card-tall.png",
+      wide: "/projects/multi-brand-card-wide.png",
+    },
   },
   {
     id: "trainit",
@@ -42,7 +58,11 @@ const SELECTED_WORK: Project[] = [
     tags: ["SaaS", "Kanban", "Gestión"],
     longDesc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
     role: "UX UI Designer Jr · 3 meses",
-    image: "/projects/trainit.png",
+    images: {
+      narrow: "/projects/trainit-card-tall.png",
+      medium: "/projects/trainit-card-tall.png",
+      wide: "/projects/trainit-card-wide.png",
+    },
   },
 ];
 
