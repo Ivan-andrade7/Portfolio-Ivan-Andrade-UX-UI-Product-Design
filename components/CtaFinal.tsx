@@ -31,10 +31,10 @@ export default function CtaFinal() {
         <div className="flex flex-wrap gap-3 items-center justify-center">
           {/* Primary LG */}
           <a
-            href="#contactos"
+            href="#contacto"
             className="flex items-center justify-center h-12 px-4 py-3 rounded-lg bg-[var(--brand-primary)] text-[var(--text-inverse)] text-[14px] font-semibold leading-5 hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
           >
-            Contactame
+            Contactar
           </a>
           {/* Secondary LG */}
           <a

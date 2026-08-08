@@ -9,7 +9,7 @@ const STATS: Stat[] = [
   { value: "5", label: "Proyectos", accent: false },
   {
     parts: [
-      { text: "80", accent: false },
+      { text: "100", accent: false },
       { text: "+", accent: true },
     ],
     label: "Componentes documentados",
@@ -72,7 +72,7 @@ export default function Hero() {
             </a>
             {/* Secondary LG */}
             <a
-              href="#contactos"
+              href="#contacto"
               className="flex items-center gap-3 border border-[var(--text-accent)] text-[var(--text-accent)] text-[14px] font-semibold leading-5 h-12 px-4 py-3 rounded-lg hover:bg-[var(--brand-soft)] active:scale-[0.98] transition-colors cursor-pointer"
             >
               Contactar

@@ -9,8 +9,8 @@ const FORMAL: EduItem[] = [
   {
     title: "Tecnicatura Universitaria en Diseño Gráfico Digital",
     institution: "Universidad Tecnológica Nacional (UTN)",
-    status: "Próximo",
-    date: "Inicia Ago 2026",
+    status: "Cursando",
+    date: "Ago 2026 — Presente",
   },
   {
     title: "Diplomatura en IA Aplicada a Entornos Digitales",

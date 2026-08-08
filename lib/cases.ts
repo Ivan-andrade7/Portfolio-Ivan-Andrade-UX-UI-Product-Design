@@ -73,7 +73,7 @@ export const CASES: CaseStudy[] = [
     subtitle:
       "La única plataforma que alerta sobre fallos de tracking antes de que destruyan tu atribución.",
     links: {
-      figma: "https://www.figma.com/design/PNZKPUCsJNb9Mq5LFgIhJ2/Plataforma-de-ecommerce---NC--Legal-Tech-_-SaaS-?node-id=0-1&t=F30YoahuVttg9B5y-1",
+      figma: "https://www.figma.com/design/8SMwklByslExRkjFk8P9U2",
       behance: "https://www.behance.net/gallery/245704303/GardenAds-Attribution-Tracking-Health-Platform",
     },
     context: {
@@ -163,7 +163,7 @@ export const CASES: CaseStudy[] = [
     title: "Fintech PYME — Plataforma de Créditos B2B",
     subtitle: "De proceso manual fragmentado a plataforma dual de créditos B2B.",
     links: {
-      figma: "https://www.figma.com/design/JCq729uNiFQGcy3Pa4FgN7/Plataforma-Web-de-Onboarding-de-Cr%C3%A9ditos-para-PYMES?node-id=4636-25615&t=kkn0iD5pdC92jTca-1",
+      figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
       behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
     },
     context: {
@@ -250,11 +250,11 @@ export const CASES: CaseStudy[] = [
   },
   {
     slug: "crm",
-    tags: ["CRM", "SaaS B2B", "2024"],
+    tags: ["CRM", "SaaS B2B", "2026"],
     title: "ChatCRM — CRM para PyMEs",
     subtitle: "Centralizar conversaciones y pipeline para no perder contexto comercial.",
     links: {
-      figma: "https://www.figma.com/design/bIFrL2uQ9F2ncrmVQo8IjC/Startup-CRM---Cross-Industry?node-id=62-133&t=dkT3NDrn7WMHkD70-1",
+      figma: "https://www.figma.com/design/WfehLZHqanlAyZy5qPrlcV",
       behance: "https://www.behance.net/gallery/248459859/Startup-CRM-Plataforma-SaaS-UXUI?platform=direct",
     },
     context: {
@@ -335,7 +335,7 @@ export const CASES: CaseStudy[] = [
     title: "Multi-Brand Design System",
     subtitle: "Un sistema de diseño que escala dos marcas sin duplicar trabajo.",
     links: {
-      figma: "https://www.figma.com/design/RfCquxoqVi6x3bipKzBpoQ/Doc-Ed-Tech_No-country?node-id=0-1&t=REJ14uqOSn8jxSr5-1",
+      figma: "https://www.figma.com/design/1jHTtZiRuYJM2cG5mtoEG3",
       behance: "https://www.behance.net/gallery/240712809/Multi-Brand-Design-System",
     },
     context: {
@@ -428,7 +428,7 @@ export const CASES: CaseStudy[] = [
     title: "TrainiT — Gestión de Proyectos",
     subtitle: "Flujos de gestión de proyectos que el equipo realmente quiere usar.",
     links: {
-      figma: "https://www.figma.com/design/mRTUkA0fo9kmxB94q6y57N/Nuevo---PGT-Gesti%C3%B3n-de-tareas--Copy-?node-id=1-2&p=f",
+      figma: "https://www.figma.com/design/mRTUkA0fo9kmxB94q6y57N",
       behance: "https://www.behance.net/gallery/240653385/TrainiT-PGT-%28Plataforma-de-Gestion-de-Proyectos%29",
     },
     context: {

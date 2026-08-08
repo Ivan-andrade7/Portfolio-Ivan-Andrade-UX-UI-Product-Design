@@ -243,7 +243,7 @@ export default function Contact() {
 
   return (
     <section
-      id="contactos"
+      id="contacto"
       className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]"
     >
       {/* ── Section header ── */}

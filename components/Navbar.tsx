@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "Proyectos",   href: "/#proyectos",   id: "proyectos" },
   { label: "Experiencia", href: "/#experiencia", id: "experiencia" },
   { label: "Educación",   href: "/#educacion",   id: "educacion" },
-  { label: "Contacto",    href: "/#contactos",   id: "contactos" },
+  { label: "Contacto",    href: "/#contacto",    id: "contacto" },
 ];
 
 function Logo({ theme }: { theme: string }) {

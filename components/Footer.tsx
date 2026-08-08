@@ -27,8 +27,8 @@ function WhatsAppIcon() {
 }
 
 const PROJECT_LINKS = [
-  { label: "GardenAds", href: "/proyectos/garden-ads" },
   { label: "Fintech PYME", href: "/proyectos/fintech" },
+  { label: "GardenAds", href: "/proyectos/garden-ads" },
   { label: "CRM Startup", href: "/proyectos/crm" },
   { label: "Multi-Brand DS", href: "/proyectos/multi-brand" },
   { label: "TrainiT", href: "/proyectos/trainit" },
@@ -47,7 +47,7 @@ const NAV_LINKS = [
   { label: "Proyectos", href: "/#proyectos" },
   { label: "Experiencia", href: "/#experiencia" },
   { label: "Educación", href: "/#educacion" },
-  { label: "Contacto", href: "/#contactos" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 /* Navigation / Item states (836:3121):
