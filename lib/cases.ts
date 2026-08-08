@@ -67,6 +67,92 @@ export interface CaseStudy {
 
 export const CASES: CaseStudy[] = [
   {
+    slug: "fintech",
+    tags: ["Fintech", "SaaS B2B", "2025"],
+    title: "Fintech PYME — Plataforma de Créditos B2B",
+    subtitle: "De proceso manual fragmentado a plataforma dual de créditos B2B.",
+    links: {
+      figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
+      behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
+    },
+    context: {
+      rol: "Diseñador UX/UI",
+      duracion: "5 semanas · Sep–Nov 2025",
+      focoLabel: "Equipo",
+      foco: "Multidisciplinario · No Country",
+      tools: "Figma · FigJam · Notion",
+    },
+    description:
+      "Diseñé una plataforma de onboarding de créditos para PyMEs con dos superficies diferenciadas: un portal cliente y un panel admin. El objetivo era digitalizar un proceso manual, reducir la fricción operativa y mejorar la trazabilidad para ambos lados de la operación.",
+    problema: {
+      title: "Onboarding manual, lento y sin trazabilidad",
+      body: "El alta de crédito para PyMEs era un proceso manual y fragmentado: formularios sueltos, validación por fuera del sistema y cero visibilidad del estado para el solicitante.\n\nEl solicitante no sabía en qué paso estaba ni qué le faltaba; el operador no tenía una vista única para revisar, aprobar o pedir correcciones.",
+    },
+    estrategia:
+      "Separé la operación en dos superficies con objetivos distintos: el Solicitante PyME (completar y enviar) y el Supervisor/Operador (revisar, aprobar, auditar), en vez de forzar una sola plataforma para ambos.\n\nDiseñé un onboarding KYC de 4 pasos con progreso siempre visible y construí un sistema de componentes desde cero con dark mode nativo y accesibilidad WCAG AA.",
+    decisions: [
+      {
+        id: "01",
+        title: "Dos superficies separadas: portal cliente y panel admin",
+        motivo:
+          "Solicitante y supervisor tienen objetivos opuestos; una plataforma unificada generaría errores operativos.",
+        impacto: "Menos errores, mejor trazabilidad y una experiencia enfocada para cada rol.",
+      },
+      {
+        id: "02",
+        title: "KYC en 4 pasos con progreso visible",
+        motivo:
+          "Un alta larga sin feedback de avance dispara el abandono y la incertidumbre.",
+        impacto: "El solicitante siempre sabe en qué paso está y qué le falta.",
+      },
+      {
+        id: "03",
+        title: "RBAC pensado como UX, no solo como capa técnica",
+        motivo:
+          "Los permisos definen qué ve y qué puede hacer cada operador; impactan directo en la interfaz.",
+        impacto:
+          "Cada operador ve exactamente lo que necesita, sin acciones que no le corresponden.",
+      },
+    ],
+    images: ["/projects/fintech.png"],
+    heroImages: {
+      desktop: "/projects/fintech-hero-desktop.png",
+      tablet: "/projects/fintech-hero-tablet.png",
+      mobile: "/projects/fintech-hero-mobile.png",
+    },
+    pantallas: [
+      { src: "/projects/fintech-screen-1.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-2.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-3.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-4.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-5.png", width: 1440, height: 1024 },
+    ],
+    designSystem: {
+      title: "Sistema de componentes desde cero",
+      foundations:
+        "120+ componentes con dark mode nativo, accesibilidad WCAG AA y una arquitectura dual (portal + admin) que comparte foundations y tiene superficies.",
+      components: [
+        "KYC stepper de 4 pasos",
+        "Estatus de solicitud",
+        "Tablas de revisión con filtros",
+        "Matriz de permisos RBAC",
+        "Formularios con validación inline",
+      ],
+    },
+    metrics: [
+      { value: "120+", label: "componentes en el sistema" },
+      { value: "100%", label: "del proceso digitalizado" },
+      { value: "2", label: "superficies diferenciadas" },
+    ],
+    reflection:
+      "Separar las dos superficies temprano fue la decisión que ordenó todo lo demás. Diseñar el RBAC como parte de la UX —y no como un detalle técnico del final— evitó rehacer pantallas más adelante.",
+    next: {
+      slug: "garden-ads",
+      title: "GardenAds — Attribution & Tracking Health",
+      role: "Diseñador UX/UI · No Country · 2026",
+    },
+  },
+  {
     slug: "garden-ads",
     tags: ["Analytics SaaS", "Analytics", "2026"],
     title: "GardenAds — Attribution & Tracking Health",
@@ -151,96 +237,10 @@ export const CASES: CaseStudy[] = [
     ],
     reflection:
       "El feature diferencial surgió del análisis competitivo, no de la intuición: sin revisar 5 plataformas a fondo nunca habría detectado el gap. Y diseñar para múltiples roles exige reflejar la arquitectura de permisos antes de abrir Figma —no después.",
-    next: {
+    prev: {
       slug: "fintech",
       title: "Fintech PYME — Plataforma de Créditos B2B",
       role: "Diseñador UX/UI · No Country · 2025",
-    },
-  },
-  {
-    slug: "fintech",
-    tags: ["Fintech", "SaaS B2B", "2025"],
-    title: "Fintech PYME — Plataforma de Créditos B2B",
-    subtitle: "De proceso manual fragmentado a plataforma dual de créditos B2B.",
-    links: {
-      figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
-      behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
-    },
-    context: {
-      rol: "Diseñador UX/UI",
-      duracion: "5 semanas · Sep–Nov 2025",
-      focoLabel: "Equipo",
-      foco: "Multidisciplinario · No Country",
-      tools: "Figma · FigJam · Notion",
-    },
-    description:
-      "Diseñé una plataforma de onboarding de créditos para PyMEs con dos superficies diferenciadas: un portal cliente y un panel admin. El objetivo era digitalizar un proceso manual, reducir la fricción operativa y mejorar la trazabilidad para ambos lados de la operación.",
-    problema: {
-      title: "Onboarding manual, lento y sin trazabilidad",
-      body: "El alta de crédito para PyMEs era un proceso manual y fragmentado: formularios sueltos, validación por fuera del sistema y cero visibilidad del estado para el solicitante.\n\nEl solicitante no sabía en qué paso estaba ni qué le faltaba; el operador no tenía una vista única para revisar, aprobar o pedir correcciones.",
-    },
-    estrategia:
-      "Separé la operación en dos superficies con objetivos distintos: el Solicitante PyME (completar y enviar) y el Supervisor/Operador (revisar, aprobar, auditar), en vez de forzar una sola plataforma para ambos.\n\nDiseñé un onboarding KYC de 4 pasos con progreso siempre visible y construí un sistema de componentes desde cero con dark mode nativo y accesibilidad WCAG AA.",
-    decisions: [
-      {
-        id: "01",
-        title: "Dos superficies separadas: portal cliente y panel admin",
-        motivo:
-          "Solicitante y supervisor tienen objetivos opuestos; una plataforma unificada generaría errores operativos.",
-        impacto: "Menos errores, mejor trazabilidad y una experiencia enfocada para cada rol.",
-      },
-      {
-        id: "02",
-        title: "KYC en 4 pasos con progreso visible",
-        motivo:
-          "Un alta larga sin feedback de avance dispara el abandono y la incertidumbre.",
-        impacto: "El solicitante siempre sabe en qué paso está y qué le falta.",
-      },
-      {
-        id: "03",
-        title: "RBAC pensado como UX, no solo como capa técnica",
-        motivo:
-          "Los permisos definen qué ve y qué puede hacer cada operador; impactan directo en la interfaz.",
-        impacto:
-          "Cada operador ve exactamente lo que necesita, sin acciones que no le corresponden.",
-      },
-    ],
-    images: ["/projects/fintech.png"],
-    heroImages: {
-      desktop: "/projects/fintech-hero-desktop.png",
-      tablet: "/projects/fintech-hero-tablet.png",
-      mobile: "/projects/fintech-hero-mobile.png",
-    },
-    pantallas: [
-      { src: "/projects/fintech-screen-1.png", width: 1440, height: 1024 },
-      { src: "/projects/fintech-screen-2.png", width: 1440, height: 1024 },
-      { src: "/projects/fintech-screen-3.png", width: 1440, height: 1024 },
-      { src: "/projects/fintech-screen-4.png", width: 1440, height: 1024 },
-      { src: "/projects/fintech-screen-5.png", width: 1440, height: 1024 },
-    ],
-    designSystem: {
-      title: "Sistema de componentes desde cero",
-      foundations:
-        "120+ componentes con dark mode nativo, accesibilidad WCAG AA y una arquitectura dual (portal + admin) que comparte foundations y tiene superficies.",
-      components: [
-        "KYC stepper de 4 pasos",
-        "Estatus de solicitud",
-        "Tablas de revisión con filtros",
-        "Matriz de permisos RBAC",
-        "Formularios con validación inline",
-      ],
-    },
-    metrics: [
-      { value: "120+", label: "componentes en el sistema" },
-      { value: "100%", label: "del proceso digitalizado" },
-      { value: "2", label: "superficies diferenciadas" },
-    ],
-    reflection:
-      "Separar las dos superficies temprano fue la decisión que ordenó todo lo demás. Diseñar el RBAC como parte de la UX —y no como un detalle técnico del final— evitó rehacer pantallas más adelante.",
-    prev: {
-      slug: "garden-ads",
-      title: "GardenAds — Attribution & Tracking Health",
-      role: "Diseñador UX/UI · No Country · 2026",
     },
     next: {
       slug: "crm",
@@ -319,9 +319,9 @@ export const CASES: CaseStudy[] = [
     reflection:
       "Tratar el handoff como entregable principal cambió cómo diseñé: pensar en cómo se construye cada componente, no solo cómo se ve, hace que el sistema sea mucho más sólido.",
     prev: {
-      slug: "fintech",
-      title: "Fintech PYME — Plataforma de Créditos B2B",
-      role: "Diseñador UX/UI · No Country · 2025",
+      slug: "garden-ads",
+      title: "GardenAds — Attribution & Tracking Health",
+      role: "Diseñador UX/UI · No Country · 2026",
     },
     next: {
       slug: "multi-brand",

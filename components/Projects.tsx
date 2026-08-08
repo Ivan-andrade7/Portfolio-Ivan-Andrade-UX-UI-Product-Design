@@ -54,7 +54,7 @@ const SELECTED_WORK: Project[] = [
   },
   {
     id: "trainit",
-    title: "TrainiT — Gestión de proyectos",
+    title: "TrainiT — Gestión de Proyectos",
     tags: ["SaaS", "Kanban", "Gestión"],
     longDesc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
     role: "UX/UI Designer Jr · 3 meses",
