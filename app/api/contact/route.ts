@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO_EMAIL = "ivanandradeuxui@gmail.com";
 
 export async function POST(req: NextRequest) {
@@ -12,6 +10,8 @@ export async function POST(req: NextRequest) {
     if (!name?.trim() || !email?.trim() || !message?.trim()) {
       return NextResponse.json({ error: "Campos incompletos" }, { status: 400 });
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const result = await resend.emails.send({
       from: "Portfolio de Iván <onboarding@resend.dev>",

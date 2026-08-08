@@ -127,3 +127,14 @@ body {
 }
 .marquee-track:hover,
 .marquee-track-reverse:hover { animation-play-state: paused; }
+
+/* Reduced motion: el marquee es contenido en movimiento continuo (WCAG 2.2.2).
+   El :hover no alcanza —no funciona por teclado ni en touch—, así que se
+   desactiva la animación por completo. Las skills quedan legibles igual. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none;
+    will-change: auto;
+  }
+}
