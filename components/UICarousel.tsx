@@ -6,46 +6,6 @@ import { ChevronLeft, ChevronRight, Info, Maximize2, X } from "lucide-react";
 import type { Screen } from "@/lib/cases";
 import ResilientImage from "@/components/ResilientImage";
 
-// Button / Icon — Ghost SM — Figma node 201-503
-// Default:  bg transparent
-// Hover:    bg var(--bg-secondary) = #0f172a
-// Pressed:  bg var(--bg-secondary) + inner shadow (rendered as absolute span, matching Figma)
-// Focus:    transparent + focus ring 0 0 0 4px rgba(20,184,166,0.3)
-// Disabled: bg #1e293b + opacity-40 rendered as <div> (avoids browser :disabled style conflicts)
-function CarouselBtn({
-  onClick,
-  disabled,
-  label,
-  children,
-}: {
-  onClick: () => void;
-  disabled: boolean;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={label}
-      className={`group relative flex items-center justify-center p-2 rounded-lg shrink-0 size-8 transition-colors focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)] ${
-        disabled
-          ? "cursor-not-allowed opacity-40 bg-[var(--surface-secondary)]"
-          : "cursor-pointer bg-transparent hover:bg-[var(--bg-secondary)] active:bg-[var(--bg-secondary)]"
-      }`}
-      style={{ color: "var(--text-primary)" }}
-    >
-      {children}
-      {/* Pressed inner shadow — Figma Ghost SM Pressed: inset shadow as absolute overlay */}
-      <span
-        aria-hidden
-        className="absolute inset-0 rounded-[inherit] pointer-events-none opacity-0 group-active:opacity-100 shadow-[inset_0px_1px_2px_0px_rgba(255,255,255,0.16)]"
-      />
-    </button>
-  );
-}
-
 // Lightbox — modal de ampliación sin dependencias externas.
 // Cierre: Escape, click en el fondo o botón visible. Foco: entra al abrir, se atrapa con Tab,
 // vuelve al disparador al cerrar. Scroll lock compensando el ancho de la scrollbar (evita layout shift).
@@ -389,19 +349,6 @@ export default function UICarousel({
             ))}
           </div>
         </section>
-      )}
-
-      {/* Navegación compacta para teclado y para revisar cualquier pantalla sin perder el contexto editorial. */}
-      {total > 1 && (
-        <div className="flex items-center justify-between w-full border-t border-[var(--border-default)] pt-4">
-          <CarouselBtn onClick={() => setIdx((i) => Math.max(0, i - 1))} disabled={idx === 0} label="Pantalla anterior">
-            <ChevronLeft size={16} />
-          </CarouselBtn>
-          <span className="text-[14px] font-semibold leading-5 text-[var(--text-tertiary)] whitespace-nowrap">{String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
-          <CarouselBtn onClick={() => setIdx((i) => Math.min(total - 1, i + 1))} disabled={idx === total - 1} label="Pantalla siguiente">
-            <ChevronRight size={16} />
-          </CarouselBtn>
-        </div>
       )}
 
     </div>
