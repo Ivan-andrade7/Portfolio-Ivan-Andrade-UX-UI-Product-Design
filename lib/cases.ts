@@ -76,7 +76,6 @@ export const CASES: CaseStudy[] = [
     links: {
       figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
       behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
-      demo: "https://pyfin-nocountry.vercel.app",
     },
     context: {
       rol: "Diseñador UX/UI",
@@ -264,7 +263,6 @@ export const CASES: CaseStudy[] = [
     links: {
       figma: "https://www.figma.com/design/WfehLZHqanlAyZy5qPrlcV",
       behance: "https://www.behance.net/gallery/248459859/Startup-CRM-Plataforma-SaaS-UXUI?platform=direct",
-      demo: "https://s03-26-equipo-02-web-app-developmen.vercel.app/",
     },
     context: {
       rol: "Diseñador UX/UI",
