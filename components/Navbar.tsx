@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Moon, Sun, Menu, X, Download } from "lucide-react";
+import { Moon, Sun, Menu, X, Download, Search } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
+import CommandMenu, { CommandMenuTrigger } from "@/components/CommandMenu";
 
 const NAV_LINKS = [
   { label: "Inicio",      href: "/#inicio",      id: "inicio" },
@@ -96,6 +97,8 @@ export default function Navbar() {
       className="border-b sticky top-0 z-50 w-full backdrop-blur-sm"
       style={{ backgroundColor: navBg, borderColor: "var(--border-default)", transition: "background-color 0.2s ease" }}
     >
+      <CommandMenu />
+
       {/* ── Desktop ── */}
       <div className="hidden xl:flex items-center justify-between px-8 py-4">
         {/* Logo */}
@@ -120,6 +123,7 @@ export default function Navbar() {
 
         {/* Theme toggle + CV */}
         <div className="flex items-center gap-4 shrink-0">
+          <CommandMenuTrigger />
           <ThemeToggle isDark={isDark} toggle={toggle} />
           <a
             href="/cv/CV_Ivan_Andrade.pdf"
@@ -190,6 +194,16 @@ export default function Navbar() {
             </div>
 
             {/* Modes & CV */}
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("portfolio:open-command-menu"))}
+              className="flex items-center justify-center gap-2 w-full h-10 px-3 rounded-lg border border-[var(--border-default)] text-[14px] font-semibold leading-5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
+            >
+              <Search size={16} />
+              Buscar en el portfolio
+              <kbd className="ml-1 rounded border border-[var(--border-default)] px-1.5 py-0.5 text-[11px] font-medium text-[var(--text-tertiary)]">⌘K</kbd>
+            </button>
+
             <div className="flex items-center gap-4 justify-center w-full">
               <ThemeToggle isDark={isDark} toggle={toggle} />
               <a

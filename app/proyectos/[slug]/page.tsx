@@ -7,6 +7,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import UICarousel from "@/components/UICarousel";
 import ResilientImage from "@/components/ResilientImage";
+import AnalyticsTableSandbox from "@/components/AnalyticsTableSandbox";
+import TokenSwitcherWidget from "@/components/TokenSwitcherWidget";
 
 export async function generateStaticParams() {
   return CASES.filter((c) => c.published !== false).map((c) => ({ slug: c.slug }));
@@ -354,6 +356,28 @@ export default async function CaseStudyPage({
               />
             )}
           </section>
+
+          {slug === "garden-ads" && (
+            <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
+              <SectionHeader
+                eyebrow="Sandbox conceptual"
+                heading="Inspeccionar la salud del tracking"
+                subtitle="Una vista de exploración para entender cómo una alerta de atribución puede convertirse en una acción operativa."
+              />
+              <AnalyticsTableSandbox />
+            </section>
+          )}
+
+          {slug === "multi-brand" && (
+            <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
+              <SectionHeader
+                eyebrow="Interacción"
+                heading="Los tokens cambian la expresión, no la estructura"
+                subtitle="Una demostración visual del principio multimarca documentado en este caso."
+              />
+              <TokenSwitcherWidget />
+            </section>
+          )}
 
           {/* Design System (opcional) */}
           {c.designSystem && (
