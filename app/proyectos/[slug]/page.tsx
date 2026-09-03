@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SiBehance, SiFigma } from "react-icons/si";
 import { CASES, getCaseBySlug } from "@/lib/cases";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import UICarousel from "@/components/UICarousel";
+import ResilientImage from "@/components/ResilientImage";
 
 export async function generateStaticParams() {
   return CASES.filter((c) => c.published !== false).map((c) => ({ slug: c.slug }));
@@ -80,7 +80,7 @@ function TagChip({ label, accent }: { label: string; accent?: boolean }) {
 function DecisionBlock({
   decision,
 }: {
-  decision: { id: string; title: string; motivo: string; impacto: string };
+  decision: { id: string; title: string; motivo: string; impacto: string; tradeoff?: string };
 }) {
   return (
     <div className="border-l-2 rounded-br-xl rounded-tr-xl w-full" style={{ borderColor: "var(--border-interactive)" }}>
@@ -100,6 +100,12 @@ function DecisionBlock({
           <span className="shrink-0 whitespace-nowrap text-[var(--text-tertiary)]">Impacto</span>
           <p className="flex-1 min-w-0 text-[var(--text-secondary)]">{decision.impacto}</p>
         </div>
+        {decision.tradeoff && (
+          <div className="flex gap-3 items-start text-[16px] leading-7">
+            <span className="shrink-0 whitespace-nowrap text-[var(--text-tertiary)]">Trade-off</span>
+            <p className="flex-1 min-w-0 text-[var(--text-secondary)]">{decision.tradeoff}</p>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -187,7 +193,7 @@ export default async function CaseStudyPage({
               <img src={c.heroImages.mobile} alt="" className="absolute inset-0 size-full object-cover pointer-events-none" />
             </picture>
           ) : (
-            <Image src={c.images[0]} alt={c.title} fill className="object-cover" priority />
+            <ResilientImage src={c.images[0]} alt={c.title} fill className="object-cover" priority fallbackLabel={`${c.title}: imagen no disponible`} />
           )}
 
           <div
@@ -290,6 +296,27 @@ export default async function CaseStudyPage({
               </div>
             )}
           </section>
+
+          {(c.users || c.outcome) && (
+            <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
+              <SectionHeader eyebrow="Lectura del caso" heading="Personas y resultado" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {c.users && (
+                  <div className="flex flex-col gap-3 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+                    <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">Personas involucradas</span>
+                    <h3 className="text-[20px] font-semibold leading-8 text-[var(--text-primary)]">{c.users.title}</h3>
+                    <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{c.users.body}</p>
+                  </div>
+                )}
+                {c.outcome && (
+                  <div className="flex flex-col gap-3 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+                    <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">{c.outcome.title}</span>
+                    <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{c.outcome.body}</p>
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
 
           {/* El problema */}
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">

@@ -8,9 +8,9 @@ const MAIN_PROJECTS: Project[] = [
     longDesc: "Plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
     role: "UX/UI Designer · 5 semanas",
     images: {
-      narrow: "/projects/fintech-card-tall.png",
-      medium: "/projects/fintech-card-square.png",
-      wide: "/projects/fintech-card-square.png",
+      narrow: "/projects/fintech-card-tall.webp",
+      medium: "/projects/fintech-card-square.webp",
+      wide: "/projects/fintech-card-square.webp",
     },
   },
   {
@@ -20,9 +20,9 @@ const MAIN_PROJECTS: Project[] = [
     longDesc: "Landing parcial de una propuesta SaaS de atribución; el deploy visible conserva dos secciones incompletas.",
     role: "UX/UI Designer · 5 semanas",
     images: {
-      narrow: "/projects/garden-ads-card-tall.png",
-      medium: "/projects/garden-ads-card-square.png",
-      wide: "/projects/garden-ads-card-square.png",
+      narrow: "/projects/garden-ads-card-tall.webp",
+      medium: "/projects/garden-ads-card-square.webp",
+      wide: "/projects/garden-ads-card-square.webp",
     },
   },
   {
@@ -32,9 +32,9 @@ const MAIN_PROJECTS: Project[] = [
     longDesc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
     role: "UX/UI Designer · 5 semanas",
     images: {
-      narrow: "/projects/crm-card-tall.png",
-      medium: "/projects/crm-card-square.png",
-      wide: "/projects/crm-card-wide.png",
+      narrow: "/projects/crm-card-tall.webp",
+      medium: "/projects/crm-card-square.webp",
+      wide: "/projects/crm-card-wide.webp",
     },
   },
 ];
@@ -47,9 +47,9 @@ const SELECTED_WORK: Project[] = [
     longDesc: "Design system multimarca: una librería y dos identidades (Academy / Kids), con una base compartida documentada.",
     role: "UX/UI Designer · 5 semanas",
     images: {
-      narrow: "/projects/multi-brand-card-tall.png",
-      medium: "/projects/multi-brand-card-tall.png",
-      wide: "/projects/multi-brand-card-wide.png",
+      narrow: "/projects/multi-brand-card-tall.webp",
+      medium: "/projects/multi-brand-card-tall.webp",
+      wide: "/projects/multi-brand-card-wide.webp",
     },
   },
   {
@@ -59,9 +59,9 @@ const SELECTED_WORK: Project[] = [
     longDesc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
     role: "UX/UI Designer Jr · 3 meses",
     images: {
-      narrow: "/projects/trainit-card-tall.png",
-      medium: "/projects/trainit-card-tall.png",
-      wide: "/projects/trainit-card-wide.png",
+      narrow: "/projects/trainit-card-tall.webp",
+      medium: "/projects/trainit-card-tall.webp",
+      wide: "/projects/trainit-card-wide.webp",
     },
   },
 ];

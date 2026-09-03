@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight, Info, Maximize2, X } from "lucide-react";
 import type { Screen } from "@/lib/cases";
+import ResilientImage from "@/components/ResilientImage";
 
 // Button / Icon — Ghost SM — Figma node 201-503
 // Default:  bg transparent
@@ -166,7 +166,7 @@ function Lightbox({
           className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-lg"
           onClick={(e) => e.stopPropagation()}
         >
-          <Image
+          <ResilientImage
             src={screens[idx].src}
             alt={`${title} — pantalla ${idx + 1} ampliada`}
             width={screens[idx].width}
@@ -177,7 +177,7 @@ function Lightbox({
         </div>
       ) : (
         <div className="relative w-full h-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
-          <Image
+          <ResilientImage
             src={screens[idx].src}
             alt={`${title} — pantalla ${idx + 1} ampliada`}
             fill
@@ -208,61 +208,82 @@ export default function UICarousel({
 }) {
   const [idx, setIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const total = screens.length;
-  const single = total === 1;
   const expandBtnRef = useRef<HTMLButtonElement>(null);
+  const total = screens.length;
+  const keyIndex = Math.max(0, screens.findIndex((screen) => screen.role === "key"));
+  const flowScreens = screens.filter((screen) => screen.role === "flow");
+  const comparisonScreens = screens.filter((screen) => screen.role === "comparison");
+  const galleryScreens = screens.filter((screen) => !screen.role || screen.role === "gallery");
+  const idBase = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-  const current = screens[idx];
-  // Modo derivado de la proporción real de cada imagen (metadata explícita), nunca del nombre de archivo o del caso.
-  // `fit`/`objectPosition` en la metadata permiten un override puntual por imagen cuando el derivado no alcanza.
-  const isPortrait = current.height > current.width;
-  const fit = current.fit ?? (isPortrait ? "cover" : "contain");
-  const objectPosition = current.objectPosition ?? (isPortrait ? "center top" : "center center");
+  function openScreen(screen: Screen) {
+    setIdx(screens.indexOf(screen));
+    setLightboxOpen(true);
+  }
+
+  function previewClass(screen: Screen) {
+    const isPortrait = screen.height > screen.width;
+    const fit = screen.fit ?? (isPortrait ? "contain" : "contain");
+    return fit === "cover" ? "object-cover" : "object-contain";
+  }
+
+  function previewStyle(screen: Screen) {
+    if (screen.fit !== "cover") return undefined;
+    return { objectPosition: screen.objectPosition ?? "center top" };
+  }
 
   return (
-    <div className="flex flex-col gap-6 w-full overflow-hidden">
+    <div className="flex flex-col gap-12 w-full overflow-hidden">
 
-      {/* Main image — escenario fijo por caso (800:569 default, o galleryAspect si el caso lo define):
-          constante entre todos los slides de ESE caso (sin layout shift al navegar).
-          - Horizontal: object-contain, se ve completa, centrada, sin deformar.
-          - Vertical o extremadamente larga: object-cover + object-top es un RECORTE INTENCIONAL
-            (vista previa desde arriba dentro del escenario fijo); la imagen completa solo se ve
-            en el lightbox, con scroll vertical si hace falta. */}
-      <div
-        className="relative w-full rounded-xl overflow-hidden border border-[var(--border-default)]"
-        style={{ aspectRatio: galleryAspect ?? "800 / 569", background: "var(--bg-secondary)" }}
-      >
-        <button
-          ref={expandBtnRef}
-          type="button"
-          onClick={() => setLightboxOpen(true)}
-          aria-label={`Ampliar captura: ${title}, pantalla ${idx + 1} de ${total}`}
-          className="group absolute inset-0 p-4 md:p-6 cursor-zoom-in focus-visible:outline-none"
-        >
-          <Image
-            src={current.src}
-            alt={`${title} — pantalla ${idx + 1}`}
-            fill
-            className={fit === "cover" ? "object-cover" : "object-contain"}
-            style={fit === "cover" ? { objectPosition } : undefined}
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1000px"
-          />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute bottom-3 right-3 flex items-center justify-center size-8 rounded-lg opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity"
-            style={{ background: "var(--overlay-card)", color: "var(--text-primary)" }}
+      {/* Bloque 1 — pantalla clave: se ve completa y tiene contexto antes de pedirle al recruiter que explore. */}
+      <section className="flex flex-col gap-6" aria-labelledby={`${idBase}-key-screen`}>
+        <div className="flex flex-col gap-2">
+          <p className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">01 · Pantalla clave</p>
+          <h3 id={`${idBase}-key-screen`} className="text-[24px] font-semibold leading-8 text-[var(--text-primary)]">
+            {screens[keyIndex].name}
+          </h3>
+          <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{screens[keyIndex].task}</p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.55fr)_minmax(260px,0.75fr)] items-start">
+          <button
+            ref={expandBtnRef}
+            type="button"
+            onClick={() => openScreen(screens[keyIndex])}
+            aria-label={`Ampliar captura: ${title}, ${screens[keyIndex].name}`}
+            className="group relative w-full rounded-xl overflow-hidden border border-[var(--border-default)] cursor-zoom-in focus-visible:outline-none"
+            style={{ aspectRatio: galleryAspect ?? "800 / 569", background: "var(--bg-secondary)" }}
           >
-            <Maximize2 size={16} />
-          </span>
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-2 md:inset-3 rounded-lg opacity-0 group-focus-visible:opacity-100 transition-opacity"
-            style={{ boxShadow: "0 0 0 4px var(--focus-ring)" }}
-          />
-        </button>
-      </div>
+            <ResilientImage
+              src={screens[keyIndex].src}
+              alt={screens[keyIndex].alt}
+              fill
+              className="object-contain p-3 md:p-6 transition-transform duration-300 group-hover:scale-[1.01]"
+              sizes="(max-width: 1024px) 100vw, 70vw"
+            />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute bottom-3 right-3 flex items-center justify-center size-8 rounded-lg opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity"
+              style={{ background: "var(--overlay-card)", color: "var(--text-primary)" }}
+            >
+              <Maximize2 size={16} />
+            </span>
+          </button>
 
-      {/* Aviso discreto opcional (ej. TrainiT: caso con una sola pantalla final disponible). */}
+          <div className="flex flex-col gap-5 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+            <div className="flex flex-col gap-2">
+              <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-tertiary)]">Qué demuestra</span>
+              <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{screens[keyIndex].decision}</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-tertiary)]">Evidencia disponible</span>
+              <p className="text-[14px] leading-6 text-[var(--text-secondary)]">Captura de interfaz diseñada; no implica por sí sola un resultado de negocio medido.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Aviso discreto opcional. */}
       {note && (
         <div
           className="flex items-center gap-2 px-4 py-3 rounded-lg border text-[14px] leading-5"
@@ -292,52 +313,95 @@ export default function UICarousel({
         />
       )}
 
-      {/* Con una sola pantalla: evidencia estática ampliable, sin flechas/contador/miniaturas. */}
-      {!single && (
-        <>
-          <div className="flex items-center justify-between w-full">
-            <CarouselBtn onClick={() => setIdx((i) => i - 1)} disabled={idx === 0} label="Pantalla anterior">
-              <ChevronLeft size={16} />
-            </CarouselBtn>
-
-            <span className="text-[14px] font-semibold leading-5 text-[var(--text-tertiary)] whitespace-nowrap">
-              {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-            </span>
-
-            <CarouselBtn onClick={() => setIdx((i) => i + 1)} disabled={idx === total - 1} label="Pantalla siguiente">
-              <ChevronRight size={16} />
-            </CarouselBtn>
+      {/* Bloque 2 — flujo: tres pantallas alineadas para explicar una secuencia. */}
+      {flowScreens.length > 0 && (
+        <section className="flex flex-col gap-6" aria-labelledby={`${idBase}-flow`}>
+          <div className="flex flex-col gap-2">
+            <p className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">02 · Flujo</p>
+            <h3 id={`${idBase}-flow`} className="text-[24px] font-semibold leading-8 text-[var(--text-primary)]">Del problema a la acción</h3>
+            <p className="text-[16px] leading-7 text-[var(--text-secondary)]">Una selección breve de pantallas que muestra cómo se recorre la solución.</p>
           </div>
-
-          {/* Thumbnails — mismo escenario recortado en los cinco casos (Image / Small — Figma node 385-1041):
-              vista previa intencional con object-cover/object-top, uniforme sin importar el modo de la
-              imagen principal. El activo se diferencia por borde de acento. */}
-          <div className="flex gap-3 items-center w-full overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {screens.map((s, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {flowScreens.slice(0, 3).map((screen, i) => (
               <button
-                key={i}
+                key={screen.src}
                 type="button"
-                onClick={() => setIdx(i)}
-                aria-label={`Ver pantalla ${i + 1} de ${total}`}
-                aria-current={i === idx ? "true" : undefined}
-                className={`shrink-0 relative rounded-xl overflow-hidden border cursor-pointer transition-colors ${
-                  i === idx
-                    ? "border-[var(--border-interactive)]"
-                    : "border-[var(--border-default)] hover:border-[var(--text-tertiary)]"
-                }`}
-                style={{ width: 100, aspectRatio: "720 / 512" }}
+                onClick={() => openScreen(screen)}
+                aria-label={`Ampliar ${screen.name}`}
+                className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none"
               >
-                <Image
-                  src={s.src}
-                  alt={`${title} — ${i + 1}`}
-                  fill
-                  className="object-cover object-top"
-                  sizes="100px"
-                />
+                <span className="relative block w-full aspect-[4/3]" style={{ background: "var(--bg-primary)" }}>
+                  <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 768px) 100vw, 33vw" />
+                </span>
+                <span className="flex flex-col gap-1 px-4 pb-4">
+                  <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">0{i + 1}</span>
+                  <span className="text-[16px] font-semibold leading-6 text-[var(--text-primary)]">{screen.name}</span>
+                  <span className="text-[14px] leading-6 text-[var(--text-secondary)]">{screen.task}</span>
+                </span>
               </button>
             ))}
           </div>
-        </>
+        </section>
+      )}
+
+      {/* Bloque 3 — comparación: sólo aparece cuando la evidencia permite comparar dos superficies. */}
+      {comparisonScreens.length > 1 && (
+        <section className="flex flex-col gap-6" aria-labelledby={`${idBase}-comparison`}>
+          <div className="flex flex-col gap-2">
+            <p className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">03 · Comparación</p>
+            <h3 id={`${idBase}-comparison`} className="text-[24px] font-semibold leading-8 text-[var(--text-primary)]">Una base, dos identidades</h3>
+            <p className="text-[16px] leading-7 text-[var(--text-secondary)]">La estructura se conserva mientras cambia la expresión visual de cada marca.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {comparisonScreens.map((screen) => (
+              <button key={screen.src} type="button" onClick={() => openScreen(screen)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none">
+                <span className="relative block w-full aspect-[4/3]" style={{ background: "var(--bg-primary)" }}>
+                  <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 768px) 100vw, 50vw" />
+                </span>
+                <span className="flex flex-col gap-1 px-4 pb-4">
+                  <span className="text-[16px] font-semibold leading-6 text-[var(--text-primary)]">{screen.name}</span>
+                  <span className="text-[14px] leading-6 text-[var(--text-secondary)]">{screen.task}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Bloque 4 — galería secundaria: conserva la evidencia restante sin esconderla en un carrusel. */}
+      {galleryScreens.length > 0 && (
+        <section className="flex flex-col gap-6" aria-labelledby={`${idBase}-gallery`}>
+          <div className="flex flex-col gap-2">
+            <p className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">04 · Galería secundaria</p>
+            <h3 id={`${idBase}-gallery`} className="text-[24px] font-semibold leading-8 text-[var(--text-primary)]">Más pantallas del sistema</h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {galleryScreens.map((screen) => (
+              <button key={screen.src} type="button" onClick={() => openScreen(screen)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none">
+                <span className="relative block w-full aspect-[4/3]" style={{ background: "var(--bg-primary)" }}>
+                  <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 640px) 100vw, 50vw" />
+                </span>
+                <span className="flex flex-col gap-1 px-4 pb-4">
+                  <span className="text-[16px] font-semibold leading-6 text-[var(--text-primary)]">{screen.name}</span>
+                  <span className="text-[14px] leading-6 text-[var(--text-secondary)]">{screen.task}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Navegación compacta para teclado y para revisar cualquier pantalla sin perder el contexto editorial. */}
+      {total > 1 && (
+        <div className="flex items-center justify-between w-full border-t border-[var(--border-default)] pt-4">
+          <CarouselBtn onClick={() => setIdx((i) => Math.max(0, i - 1))} disabled={idx === 0} label="Pantalla anterior">
+            <ChevronLeft size={16} />
+          </CarouselBtn>
+          <span className="text-[14px] font-semibold leading-5 text-[var(--text-tertiary)] whitespace-nowrap">{String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
+          <CarouselBtn onClick={() => setIdx((i) => Math.min(total - 1, i + 1))} disabled={idx === total - 1} label="Pantalla siguiente">
+            <ChevronRight size={16} />
+          </CarouselBtn>
+        </div>
       )}
 
     </div>

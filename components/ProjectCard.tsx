@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ResilientImage from "@/components/ResilientImage";
 
 export interface ProjectImages {
   /** Card width < 384px (equiv. Tailwind container breakpoint @sm) */
@@ -65,7 +65,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     >
       {/* Image layer */}
       <div className="absolute inset-0 rounded-xl overflow-hidden">
-        <Image
+        <ResilientImage
           src={project.images[variant]}
           alt={project.title}
           fill
