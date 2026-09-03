@@ -1,9 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+
+export interface ProjectImages {
+  /** Card width < 384px (equiv. Tailwind container breakpoint @sm) */
+  narrow: string;
+  /** Card width 384–448px (equiv. @sm–@md) */
+  medium: string;
+  /** Card width ≥ 448px (equiv. @md) */
+  wide: string;
+}
 
 export interface Project {
   id: string;
@@ -11,15 +20,41 @@ export interface Project {
   tags: string[];
   longDesc: string;
   role: string;
-  image: string;
+  images: ProjectImages;
+}
+
+// Matches Tailwind's default container-query breakpoints (@sm / @md), so the
+// image variant depends on the card's own rendered width, not the viewport —
+// needed because a card can be full-width mid-layout (e.g. ChatCRM alone on
+// tablet) while its viewport-siblings are still paired.
+const NARROW_MAX = 384;
+const MEDIUM_MAX = 448;
+
+function pickVariant(width: number): keyof ProjectImages {
+  if (width < NARROW_MAX) return "narrow";
+  if (width < MEDIUM_MAX) return "medium";
+  return "wide";
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [active, setActive] = useState(false);
+  const containerRef = useRef<HTMLAnchorElement>(null);
+  const [variant, setVariant] = useState<keyof ProjectImages>("medium");
+
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setVariant(pickVariant(entry.contentRect.width));
+    });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Link
       href={`/proyectos/${project.id}`}
+      ref={containerRef}
       aria-label={`Ver caso: ${project.title}`}
       className="relative h-[460px] min-w-[340px] no-underline"
       style={{ flex: "1 0 0" }}
@@ -31,7 +66,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Image layer */}
       <div className="absolute inset-0 rounded-xl overflow-hidden">
         <Image
-          src={project.image}
+          src={project.images[variant]}
           alt={project.title}
           fill
           className="object-cover transition-transform duration-300"
@@ -47,7 +82,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           backgroundImage: "linear-gradient(180deg, var(--card-gradient-0) 0%, var(--card-gradient-1) 50%, var(--card-gradient-3) 75%, var(--card-gradient-4) 100%)",
           borderColor: active ? "var(--border-interactive)" : "var(--border-default)",
           boxShadow: active ? "var(--shadow-card-hover)" : "var(--shadow-card)",
-          }}
+        }}
       >
         {/* Tags */}
         <div className="flex flex-wrap gap-2 items-center w-full">

@@ -1,45 +1,68 @@
 import ProjectCard, { type Project } from "@/components/ProjectCard";
 
-const PROJECTS: Project[] = [
+const MAIN_PROJECTS: Project[] = [
+  {
+    id: "fintech",
+    title: "Fintech PYME — Plataforma de Créditos B2B",
+    tags: ["Fintech", "SaaS B2B", "KYC"],
+    longDesc: "Plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
+    role: "UX/UI Designer · 5 semanas",
+    images: {
+      narrow: "/projects/fintech-card-tall.png",
+      medium: "/projects/fintech-card-square.png",
+      wide: "/projects/fintech-card-square.png",
+    },
+  },
   {
     id: "garden-ads",
     title: "GardenAds — Attribution & Tracking Health",
     tags: ["Analytics SaaS", "Dashboard", "2026"],
     longDesc: "Landing parcial de una propuesta SaaS de atribución; el deploy visible conserva dos secciones incompletas.",
-    role: "UX UI Designer · 5 semanas",
-    image: "/projects/garden-ads.png",
+    role: "UX/UI Designer · 5 semanas",
+    images: {
+      narrow: "/projects/garden-ads-card-tall.png",
+      medium: "/projects/garden-ads-card-square.png",
+      wide: "/projects/garden-ads-card-square.png",
+    },
   },
   {
     id: "crm",
     title: "ChatCRM — CRM para PyMEs",
     tags: ["CRM", "SaaS B2B", "Pipeline"],
     longDesc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
-    role: "UX UI Designer · 5 semanas",
-    image: "/projects/crm.png",
+    role: "UX/UI Designer · 5 semanas",
+    images: {
+      narrow: "/projects/crm-card-tall.png",
+      medium: "/projects/crm-card-square.png",
+      wide: "/projects/crm-card-wide.png",
+    },
   },
-  {
-    id: "fintech",
-    title: "Fintech PYME — Plataforma de Créditos B2B",
-    tags: ["Fintech", "SaaS B2B", "KYC"],
-    longDesc: "Plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
-    role: "UX UI Designer · 5 semanas",
-    image: "/projects/fintech.png",
-  },
+];
+
+const SELECTED_WORK: Project[] = [
   {
     id: "multi-brand",
     title: "Multi-Brand Design System",
     tags: ["Design System", "EdTech", "Multi-marca"],
     longDesc: "Design system multimarca: una librería y dos identidades (Academy / Kids), con una base compartida documentada.",
-    role: "UX UI Designer · 5 semanas",
-    image: "/projects/multi-brand.png",
+    role: "UX/UI Designer · 5 semanas",
+    images: {
+      narrow: "/projects/multi-brand-card-tall.png",
+      medium: "/projects/multi-brand-card-tall.png",
+      wide: "/projects/multi-brand-card-wide.png",
+    },
   },
   {
     id: "trainit",
-    title: "TrainiT — Gestión de proyectos",
+    title: "TrainiT — Gestión de Proyectos",
     tags: ["SaaS", "Kanban", "Gestión"],
     longDesc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
-    role: "UX UI Designer Jr · 3 meses",
-    image: "/projects/trainit.png",
+    role: "UX/UI Designer Jr · 3 meses",
+    images: {
+      narrow: "/projects/trainit-card-tall.png",
+      medium: "/projects/trainit-card-tall.png",
+      wide: "/projects/trainit-card-wide.png",
+    },
   },
 ];
 
@@ -72,18 +95,28 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* ── Grid: flex-col gap-24px, rows use flex-wrap ── */}
+      {/* ── Proyectos principales ── */}
       <div className="flex flex-col gap-6 w-full">
-        {/* Row 1 — 2 cards */}
+        <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5">
+          Proyectos principales
+        </p>
         <div className="flex flex-wrap gap-6">
-          {PROJECTS.slice(0, 2).map((p) => (
+          {MAIN_PROJECTS.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </div>
+      </div>
 
-        {/* Row 2 — 3 cards */}
+      {/* Divider between grupos */}
+      <div className="w-full border-t border-[var(--border-default)]" />
+
+      {/* ── Trabajo seleccionado ── */}
+      <div className="flex flex-col gap-6 w-full">
+        <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5">
+          Trabajo seleccionado
+        </p>
         <div className="flex flex-wrap gap-6">
-          {PROJECTS.slice(2).map((p) => (
+          {SELECTED_WORK.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </div>

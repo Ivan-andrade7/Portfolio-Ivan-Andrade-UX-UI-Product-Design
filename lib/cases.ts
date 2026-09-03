@@ -10,6 +10,17 @@ export interface Metric {
   label: string;
 }
 
+export interface Screen {
+  src: string;
+  width: number;
+  height: number;
+  // Override explícito y puntual del recorte en el escenario principal del carrusel.
+  // Si se omite, se deriva de width/height (portrait → cover; landscape → contain).
+  fit?: "contain" | "cover";
+  // Solo aplica cuando fit="cover". Si se omite, se usa "center top" (portrait) o "center center" (landscape).
+  objectPosition?: string;
+}
+
 export interface DesignSystem {
   title: string;
   foundations: string;
@@ -43,7 +54,12 @@ export interface CaseStudy {
   decisions: Decision[];
   images: string[];
   heroImages?: { desktop: string; tablet: string; mobile: string };
-  pantallas?: string[];
+  pantallas?: Screen[];
+  // Aviso discreto bajo la galería "Selección de UI" (ej. cuando el caso tiene una sola pantalla final disponible).
+  galleryNote?: string;
+  // Ratio "width / height" del escenario principal del carrusel para este caso puntual.
+  // Opt-in: si se omite, UICarousel usa "800 / 569" (default de los otros casos, sin cambios).
+  galleryAspect?: string;
   designSystem?: DesignSystem;
   metrics: Metric[];
   reflection: string;
@@ -53,101 +69,12 @@ export interface CaseStudy {
 
 export const CASES: CaseStudy[] = [
   {
-    slug: "garden-ads",
-    tags: ["Analytics SaaS", "Analytics", "2026"],
-    title: "GardenAds — Attribution & Tracking Health",
-    subtitle:
-      "Una plataforma analytics B2B SaaS para detectar fallos de tracking antes de que afecten la atribución.",
-    links: {
-      figma: "https://www.figma.com/design/PNZKPUCsJNb9Mq5LFgIhJ2/Plataforma-de-ecommerce---NC--Legal-Tech-_-SaaS-?node-id=0-1&t=F30YoahuVttg9B5y-1",
-      behance: "https://www.behance.net/gallery/245704303/GardenAds-Attribution-Tracking-Health-Platform",
-      demo: "https://s02-26-equipo-03-web-app-developmen-green.vercel.app",
-    },
-    context: {
-      rol: "Diseñador UX/UI",
-      duracion: "5 semanas · 2026",
-      focoLabel: "Contexto",
-      foco: "Proyecto colaborativo · No Country",
-      tools: "Figma · FigJam · Notion",
-    },
-    description:
-      "GardenAds explora la propuesta de una plataforma analytics B2B SaaS para marketing managers, fundadores y sales ops que necesitan entender el rendimiento de sus campañas. La implementación pública verificada corresponde a una landing parcial; dos secciones todavía muestran un placeholder y un componente superpuesto.",
-    notice:
-      "Proyecto de No Country trabajado con diseñadores y desarrolladores. El deploy público verificado corresponde a una landing parcial: dos secciones siguen incompletas (placeholder y componente superpuesto). Presentarlo como demo parcial, no como plataforma completa ni como evidencia de resultados de negocio.",
-    problema: {
-      title: "Pérdida silenciosa de atribución",
-      body: "El caso parte de un problema de diseño: un píxel roto, un UTM mal configurado o una integración caída pueden pasar inadvertidos y afectar la lectura de las campañas.\n\nConstraints: 5 semanas y alcance end-to-end (research → handoff). Objetivo: hacer visible ese riesgo y traducirlo a una señal que un perfil no técnico pueda entender.",
-    },
-    estrategia:
-      "Arranqué con un benchmark de 6 plataformas (GA4, Mixpanel, Amplitude, Segment, HubSpot, entre otras). El análisis sugirió un espacio para explorar un diagnóstico proactivo de salud del tracking.\n\nEl alcance diseñado contemplaba RBAC para 6 arquetipos y una arquitectura Dashboard → Tracking Health → Atribución; la implementación pública disponible no cubre todavía todas esas superficies.",
-    decisions: [
-      {
-        id: "01",
-        title: "Tracking Health como funcionalidad central del MVP",
-        motivo:
-          "El benchmark revisó 6 plataformas y no documentó una funcionalidad equivalente con el mismo enfoque.",
-        impacto:
-          "Propone alertas proactivas de anomalías antes de que el problema avance.",
-      },
-      {
-        id: "02",
-        title: "Cada rol arranca en una vista personalizada, no en un dashboard genérico",
-        motivo:
-          "Los 6 arquetipos (Marketing Manager, Founder, Sales Ops, Data Analyst, Admin, Developer) tienen necesidades muy distintas.",
-        impacto: "Relevancia inmediata y menos fricción: cada usuario ve primero lo que le importa.",
-      },
-      {
-        id: "03",
-        title: "Health Score 0–100 para visualizar impacto financiero estimado",
-        motivo: "Un perfil no técnico necesita entender el problema en plata, no en logs.",
-        impacto: "Busca traducir un problema técnico a una señal comprensible para negocio.",
-      },
-    ],
-    images: ["/projects/garden-ads.png"],
-    heroImages: {
-      desktop: "/projects/garden-ads-hero-desktop.png",
-      tablet: "/projects/garden-ads-hero-tablet.png",
-      mobile: "/projects/garden-ads-hero-mobile.png",
-    },
-    pantallas: [
-      "/projects/garden-ads-screen-1.png",
-      "/projects/garden-ads-screen-2.png",
-      "/projects/garden-ads-screen-3.png",
-      "/projects/garden-ads-screen-4.png",
-      "/projects/garden-ads-screen-5.png",
-    ],
-    designSystem: {
-      title: "Canopy DS · Emerald Garden",
-      foundations:
-        "Paleta Emerald Garden, 11 estilos tipográficos, fundaciones de espaciado e iconografía, con componentes y tokens documentados.",
-      components: [
-        "Tracking Health Score widget",
-        "KPI cards con tendencia",
-        "Alert system con severity levels",
-        "RBAC permission matrix",
-        "OAuth onboarding stepper",
-      ],
-    },
-    metrics: [
-      { value: "6", label: "plataformas revisadas en el benchmark" },
-      { value: "5", label: "semanas de trabajo" },
-      { value: "6", label: "roles RBAC diferenciados" },
-    ],
-    reflection:
-      "El feature diferencial surgió del análisis competitivo, no de la intuición: sin revisar 6 plataformas a fondo nunca habría detectado el gap. Y diseñar para múltiples roles exige reflejar la arquitectura de permisos antes de abrir Figma —no después.",
-    next: {
-      slug: "fintech",
-      title: "Fintech PYME — Plataforma de Créditos B2B",
-      role: "Diseñador UX/UI · No Country · 2025",
-    },
-  },
-  {
     slug: "fintech",
     tags: ["Fintech", "SaaS B2B", "2025"],
     title: "Fintech PYME — Plataforma de Créditos B2B",
     subtitle: "De proceso manual fragmentado a plataforma dual de créditos B2B.",
     links: {
-      figma: "https://www.figma.com/design/JCq729uNiFQGcy3Pa4FgN7/Plataforma-Web-de-Onboarding-de-Cr%C3%A9ditos-para-PYMES?node-id=4636-25615&t=kkn0iD5pdC92jTca-1",
+      figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
       behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
       demo: "https://pyfin-nocountry.vercel.app",
     },
@@ -187,7 +114,7 @@ export const CASES: CaseStudy[] = [
         id: "03",
         title: "RBAC pensado como UX, no solo como capa técnica",
         motivo:
-          "Los permisos definen qué ve y qué puede hacer cada operador; por eso forman parte de la experiencia.",
+          "Los permisos definen qué ve y qué puede hacer cada operador; impactan directo en la interfaz.",
         impacto:
           "Cada operador ve exactamente lo que necesita, sin acciones que no le corresponden.",
       },
@@ -199,11 +126,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/fintech-hero-mobile.png",
     },
     pantallas: [
-      "/projects/fintech-screen-1.png",
-      "/projects/fintech-screen-2.png",
-      "/projects/fintech-screen-3.png",
-      "/projects/fintech-screen-4.png",
-      "/projects/fintech-screen-5.png",
+      { src: "/projects/fintech-screen-1.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-2.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-3.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-4.png", width: 1440, height: 1024 },
+      { src: "/projects/fintech-screen-5.png", width: 1440, height: 1024 },
     ],
     designSystem: {
       title: "Sistema de componentes desde cero",
@@ -224,10 +151,104 @@ export const CASES: CaseStudy[] = [
     ],
     reflection:
       "Separar las dos superficies temprano fue la decisión que ordenó todo lo demás. Diseñar el RBAC como parte de la UX —y no como un detalle técnico del final— evitó rehacer pantallas más adelante.",
-    prev: {
+    next: {
       slug: "garden-ads",
       title: "GardenAds — Attribution & Tracking Health",
       role: "Diseñador UX/UI · No Country · 2026",
+    },
+  },
+  {
+    slug: "garden-ads",
+    tags: ["Analytics SaaS", "Analytics", "2026"],
+    title: "GardenAds — Attribution & Tracking Health",
+    subtitle:
+      "Una plataforma SaaS para detectar fallos de tracking antes de que afecten la atribución.",
+    links: {
+      figma: "https://www.figma.com/design/8SMwklByslExRkjFk8P9U2",
+      behance: "https://www.behance.net/gallery/245704303/GardenAds-Attribution-Tracking-Health-Platform",
+      demo: "https://s02-26-equipo-03-web-app-developmen-green.vercel.app",
+    },
+    context: {
+      rol: "Diseñador UX/UI",
+      duracion: "5 semanas · Feb–Mar 2026",
+      focoLabel: "Contexto",
+      foco: "Proyecto colaborativo · No Country",
+      tools: "Figma · FigJam · Notion",
+    },
+    description:
+      "GardenAds explora la propuesta de una plataforma analytics B2B SaaS para marketing managers, fundadores y sales ops que necesitan entender el rendimiento de sus campañas. La implementación pública verificada corresponde a una landing parcial; dos secciones todavía muestran un placeholder y un componente superpuesto.",
+    notice:
+      "Proyecto de No Country trabajado con diseñadores y desarrolladores. El deploy público verificado corresponde a una landing parcial: dos secciones siguen incompletas (placeholder y componente superpuesto). Presentarlo como demo parcial, no como plataforma completa ni como evidencia de resultados de negocio.",
+    problema: {
+      title: "Pérdida silenciosa de atribución",
+      body: "Los equipos de marketing B2B sufren pérdida silenciosa de datos por fallos de tracking no detectados: un píxel roto, un UTM mal configurado o una integración caída pueden pasar semanas sin detectarse, generando decisiones de inversión basadas en datos incorrectos.\n\nConstraints: 5 semanas, único diseñador, alcance end-to-end (research → handoff). Objetivo: detectar esos fallos y traducir el dolor técnico en impacto financiero concreto que un perfil no técnico pueda entender.",
+    },
+    estrategia:
+      "Arranqué con un benchmark de 6 plataformas (GA4, Mixpanel, Amplitude, Segment, HubSpot, entre otras). El análisis sugirió un espacio para explorar un diagnóstico proactivo de salud del tracking.\n\nEl alcance diseñado contemplaba RBAC para 6 arquetipos y una arquitectura Dashboard → Tracking Health → Atribución; la implementación pública disponible no cubre todavía todas esas superficies.",
+    decisions: [
+      {
+        id: "01",
+        title: "Tracking Health como funcionalidad central del MVP",
+        motivo:
+          "El benchmark revisó 6 plataformas y no documentó una funcionalidad equivalente con el mismo enfoque.",
+        impacto:
+          "Propone alertas proactivas de anomalías antes de que el problema avance.",
+      },
+      {
+        id: "02",
+        title: "Cada rol arranca en una vista personalizada, no en un dashboard genérico",
+        motivo:
+          "Los 6 arquetipos (Marketing Manager, Founder, Sales Ops, Data Analyst, Admin, Developer) tienen necesidades muy distintas.",
+        impacto: "Relevancia inmediata y menos fricción: cada usuario ve primero lo que le importa.",
+      },
+      {
+        id: "03",
+        title: "Health Score 0–100 para visualizar impacto financiero estimado",
+        motivo: "Un perfil no técnico necesita entender el problema en plata, no en logs.",
+        impacto: "Busca traducir un problema técnico a una señal comprensible para negocio.",
+      },
+    ],
+    images: ["/projects/garden-ads.png"],
+    heroImages: {
+      desktop: "/projects/garden-ads-hero-desktop.png",
+      tablet: "/projects/garden-ads-hero-tablet.png",
+      mobile: "/projects/garden-ads-hero-mobile.png",
+    },
+    // Pantallas completas del producto (sidebar + nav + contenido), exportadas de Figma
+    // "05A. ⭐ Key screens — Recruiter walkthrough" a 1440×1024 — mismo ratio que Fintech/ChatCRM,
+    // usan el escenario 800/569 default sin overrides. Tracking Health primero: es el diferencial.
+    // Nombres descriptivos (no garden-ads-screen-N) a propósito: cache-busting real, esas rutas
+    // nunca fueron pedidas con contenido viejo por ningún navegador.
+    pantallas: [
+      { src: "/projects/garden-ads-ui-tracking-health.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-incident-detail.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-executive-dashboard.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-integrations.png", width: 1440, height: 1024 },
+      { src: "/projects/garden-ads-ui-onboarding.png", width: 1440, height: 1024 },
+    ],
+    designSystem: {
+      title: "Canopy DS · Emerald Garden",
+      foundations:
+        "Paleta Emerald Garden, 11 estilos tipográficos, fundaciones de espaciado e iconografía, con componentes y tokens documentados.",
+      components: [
+        "Tracking Health Score widget",
+        "KPI cards con tendencia",
+        "Alert system con severity levels",
+        "RBAC permission matrix",
+        "OAuth onboarding stepper",
+      ],
+    },
+    metrics: [
+      { value: "6", label: "plataformas revisadas en el benchmark" },
+      { value: "5", label: "semanas de trabajo" },
+      { value: "6", label: "roles RBAC diferenciados" },
+    ],
+    reflection:
+      "El feature diferencial surgió del análisis competitivo, no de la intuición: sin revisar 6 plataformas a fondo nunca habría detectado el gap. Y diseñar para múltiples roles exige reflejar la arquitectura de permisos antes de abrir Figma —no después.",
+    prev: {
+      slug: "fintech",
+      title: "Fintech PYME — Plataforma de Créditos B2B",
+      role: "Diseñador UX/UI · No Country · 2025",
     },
     next: {
       slug: "crm",
@@ -241,13 +262,13 @@ export const CASES: CaseStudy[] = [
     title: "ChatCRM — CRM para PyMEs",
     subtitle: "Centralizar conversaciones y pipeline para no perder contexto comercial.",
     links: {
-      figma: "https://www.figma.com/design/bIFrL2uQ9F2ncrmVQo8IjC/Startup-CRM---Cross-Industry?node-id=62-133&t=dkT3NDrn7WMHkD70-1",
+      figma: "https://www.figma.com/design/WfehLZHqanlAyZy5qPrlcV",
       behance: "https://www.behance.net/gallery/248459859/Startup-CRM-Plataforma-SaaS-UXUI?platform=direct",
       demo: "https://s03-26-equipo-02-web-app-developmen.vercel.app/",
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "5 semanas · 2026",
+      duracion: "5 semanas · Mar–Abr 2026",
       focoLabel: "Foco",
       foco: "Operación · Pipeline · Handoff",
       tools: "Figma · FigJam",
@@ -295,11 +316,11 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/crm-hero-mobile.png",
     },
     pantallas: [
-      "/projects/crm-screen-1.png",
-      "/projects/crm-screen-2.png",
-      "/projects/crm-screen-3.png",
-      "/projects/crm-screen-4.png",
-      "/projects/crm-screen-5.png",
+      { src: "/projects/crm-screen-1.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-2.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-3.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-4.png", width: 1440, height: 1024 },
+      { src: "/projects/crm-screen-5.png", width: 1440, height: 1024 },
     ],
     metrics: [
       { value: "MVP", label: "alcance de diseño documentado" },
@@ -309,9 +330,9 @@ export const CASES: CaseStudy[] = [
     reflection:
       "Tratar el handoff como entregable principal cambió cómo diseñé: pensar en cómo se construye cada componente, no solo cómo se ve, hace que el sistema sea mucho más sólido.",
     prev: {
-      slug: "fintech",
-      title: "Fintech PYME — Plataforma de Créditos B2B",
-      role: "Diseñador UX/UI · No Country · 2025",
+      slug: "garden-ads",
+      title: "GardenAds — Attribution & Tracking Health",
+      role: "Diseñador UX/UI · No Country · 2026",
     },
     next: {
       slug: "multi-brand",
@@ -325,12 +346,12 @@ export const CASES: CaseStudy[] = [
     title: "Multi-Brand Design System",
     subtitle: "Un sistema de diseño que escala dos marcas sin duplicar trabajo.",
     links: {
-      figma: "https://www.figma.com/design/ISPPHrjlxu34hHO6zaI0JV/Edvance-Design-System",
+      figma: "https://www.figma.com/design/1jHTtZiRuYJM2cG5mtoEG3",
       behance: "https://www.behance.net/gallery/240712809/Multi-Brand-Design-System",
     },
     context: {
       rol: "Diseñador UX/UI",
-      duracion: "5 semanas · 2025",
+      duracion: "5 semanas · Nov–Dic 2025",
       focoLabel: "Foco",
       foco: "Tokens · Arquitectura · Escala",
       tools: "Figma · Variables",
@@ -375,11 +396,14 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/multi-brand-hero-mobile.png",
     },
     pantallas: [
-      "/projects/multi-brand-screen-1.png",
-      "/projects/multi-brand-screen-2.png",
-      "/projects/multi-brand-screen-3.png",
-      "/projects/multi-brand-screen-4.png",
-      "/projects/multi-brand-screen-5.png",
+      // Única con recorte intencional: en "contain" quedaba con gutters muy grandes a los costados
+      // (ratio casi cuadrado vs. escenario 800/569). "cover" + top llena el escenario mostrando
+      // header, banner y progreso/recompensas. screen-2/1/5/3 sin cambios (aprobadas).
+      { src: "/projects/multi-brand-screen-4.png", width: 1440, height: 1379, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/multi-brand-screen-2.png", width: 1440, height: 1826 },
+      { src: "/projects/multi-brand-screen-1.png", width: 1440, height: 2488 },
+      { src: "/projects/multi-brand-screen-5.png", width: 1309, height: 4096 },
+      { src: "/projects/multi-brand-screen-3.png", width: 1440, height: 1872 },
     ],
     designSystem: {
       title: "Arquitectura de tokens multimarca",
@@ -417,12 +441,12 @@ export const CASES: CaseStudy[] = [
     title: "TrainiT — Gestión de Proyectos",
     subtitle: "Flujos de gestión de proyectos que el equipo realmente quiere usar.",
     links: {
-      figma: "https://www.figma.com/design/hVoZTFVZtIfZ2H9JNETvhE/Nuevo---PGT-Gesti%C3%B3n-de-tareas?node-id=1-2",
+      figma: "https://www.figma.com/design/mRTUkA0fo9kmxB94q6y57N",
       behance: "https://www.behance.net/gallery/240653385/TrainiT-PGT-%28Plataforma-de-Gestion-de-Proyectos%29",
     },
     context: {
       rol: "Diseñador UX/UI Jr.",
-      duracion: "3 meses · Programa TrainiT · 2025",
+      duracion: "3 meses · Jul–Oct 2025",
       focoLabel: "Foco",
       foco: "Flujos · Coordinación",
       tools: "Figma · FigJam",
@@ -469,17 +493,19 @@ export const CASES: CaseStudy[] = [
       tablet: "/projects/trainit-hero-tablet.png",
       mobile: "/projects/trainit-hero-mobile.png",
     },
+    galleryAspect: "16 / 9",
     pantallas: [
-      "/projects/trainit-screen-1.png",
-      "/projects/trainit-screen-2.png",
-      "/projects/trainit-screen-3.png",
-      "/projects/trainit-screen-4.png",
-      "/projects/trainit-screen-5.png",
+      { src: "/projects/trainit-ui-home.png", width: 1366, height: 1210, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-backlog.png", width: 1366, height: 768, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-card-detail.png", width: 1366, height: 1094, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-notifications.png", width: 1366, height: 1210, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-members.png", width: 1366, height: 1162, fit: "cover", objectPosition: "center top" },
+      { src: "/projects/trainit-ui-login.png", width: 1366, height: 768, fit: "cover", objectPosition: "center center" },
     ],
     metrics: [
-      { value: "25", label: "pantallas verificadas en el archivo" },
+      { value: "4", label: "módulos core" },
       { value: "3", label: "sprints de iteración" },
-      { value: "1", label: "Design System compartido" },
+      { value: "1", label: "equipo coordinado" },
     ],
     reflection:
       "Poner el dashboard como entrada fue contraintuitivo pero correcto: el kanban es potente, pero sin contexto previo aturde. Iterar con desarrollo en cada sprint me enseñó a diseñar para lo que se puede construir.",

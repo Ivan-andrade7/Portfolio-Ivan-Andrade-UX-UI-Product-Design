@@ -5,7 +5,15 @@ const SKILLS = [
   "Wireframing", "Interaction Design", "Handoff", "Responsive",
 ];
 
-const DOUBLED = [...SKILLS, ...SKILLS];
+function SkillPill({ skill }: { skill: string }) {
+  return (
+    <div className="flex items-center justify-center px-3 py-2 h-8 rounded-full shrink-0 bg-[var(--bg-secondary)] border border-[var(--border-default)]">
+      <span className="text-[var(--text-secondary)] text-xs font-semibold leading-4 tracking-[1px] whitespace-nowrap">
+        {skill}
+      </span>
+    </div>
+  );
+}
 
 export default function Marquee() {
   return (
@@ -13,16 +21,18 @@ export default function Marquee() {
       {/* Inner band: bg-secondary + border-subtle, full-width */}
       <div className="w-full bg-[var(--bg-secondary)] border-y border-[var(--border-default)] px-6 py-4 overflow-hidden">
         <div className="marquee-track flex flex-row gap-3 w-max py-3">
-          {DOUBLED.map((skill, i) => (
-            <div
-              key={i}
-              className="flex items-center justify-center px-3 py-2 h-8 rounded-full shrink-0 bg-[var(--bg-secondary)] border border-[var(--border-default)]"
-            >
-              <span className="text-[var(--text-secondary)] text-xs font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-                {skill}
-              </span>
-            </div>
-          ))}
+          {/* Copia real, visible para lectores de pantalla */}
+          <div className="flex flex-row gap-3">
+            {SKILLS.map((skill, i) => (
+              <SkillPill key={i} skill={skill} />
+            ))}
+          </div>
+          {/* Copia duplicada solo para el loop visual del marquee — oculta de lectores de pantalla */}
+          <div className="flex flex-row gap-3" aria-hidden="true">
+            {SKILLS.map((skill, i) => (
+              <SkillPill key={i} skill={skill} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
