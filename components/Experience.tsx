@@ -11,7 +11,7 @@ const EXPERIENCES: ExperienceItem[] = [
   {
     date: "Abr — May 2026",
     title: "UX UI Designer — ChatCRM",
-    company: "No Country · Simulación laboral remota",
+    company: "No Country · Proyecto colaborativo con desarrollo",
     desc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
     accentTags: ["CRM", "Kanban"],
     neutralTags: ["Handoff"],
@@ -19,31 +19,31 @@ const EXPERIENCES: ExperienceItem[] = [
   {
     date: "Feb — Mar 2026",
     title: "UX UI Designer — GardenAds",
-    company: "No Country · Simulación laboral remota",
-    desc: "Plataforma SaaS de atribución end-to-end como único designer: Tracking Health, benchmark de 6 competidores y handoff completo.",
+    company: "No Country · Proyecto colaborativo con desarrollo",
+    desc: "Propuesta SaaS de atribución con landing pública parcial, benchmark de 6 plataformas y handoff documentado.",
     accentTags: ["Analytics", "SaaS B2B"],
     neutralTags: ["Dark"],
   },
   {
     date: "Nov — Dic 2025",
     title: "UX UI Designer — Multi-Brand DS",
-    company: "No Country · Simulación laboral remota",
-    desc: "Design system multimarca: una librería, dos identidades (Academy / Kids), con ~70% de componentes compartidos.",
+    company: "No Country · Equipo UX/UI y Product Design",
+    desc: "Design system multimarca: una librería y dos identidades (Academy / Kids), con una base compartida documentada.",
     accentTags: ["DS", "Tokens"],
     neutralTags: ["EdTech"],
   },
   {
-    date: "Oct — Nov 2025",
+    date: "Sep — Oct 2025",
     title: "UX UI Designer — Fintech PYME",
-    company: "No Country · Simulación laboral remota",
-    desc: "Onboarding KYC de 4 pasos y dos superficies (solicitante / supervisor) con RBAC pensado como UX, no solo como técnica.",
+    company: "No Country · Proyecto colaborativo con desarrollo",
+    desc: "Plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
     accentTags: ["Fintech", "KYC"],
     neutralTags: ["RBAC"],
   },
   {
     date: "Jul — Oct 2025",
     title: "UX UI Designer Jr — TrainiT",
-    company: "No Country · Simulación laboral remota",
+    company: "Programa TrainiT · Pasantía con equipo de desarrollo",
     desc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
     accentTags: ["SaaS", "Kanban"],
     neutralTags: ["Gestión"],
@@ -67,10 +67,10 @@ export default function Experience() {
         </div>
         <div className="flex flex-col gap-3 w-full">
           <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Simulaciones laborales remotas
+            Experiencia en proyectos colaborativos
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Simulaciones laborales en No Country — programa de aceleración para profesionales tech en equipos reales con metodologías ágiles.
+            Experiencia en No Country y Programa TrainiT, con trabajo en equipos de diseño y desarrollo y metodologías ágiles.
           </p>
         </div>
       </div>

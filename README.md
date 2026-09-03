@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio 2026 — Iván Andrade
 
-## Getting Started
+Sitio estático del portfolio profesional de Iván Andrade, Product Designer UX/UI especializado en SaaS B2B, Fintech, Analytics Dashboards y Design Systems.
 
-First, run the development server:
+## Desarrollo
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El sitio local queda disponible en `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verificación
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx tsc --noEmit
+npm run build
+```
 
-## Learn More
+## Estructura
 
-To learn more about Next.js, take a look at the following resources:
+- `app/`: rutas, layout, metadata y tokens globales.
+- `components/`: secciones de la home, navegación, contacto y carruseles.
+- `lib/cases.ts`: fuente de datos de los cinco casos publicados.
+- `public/projects/`: imágenes optimizadas usadas por el sitio.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El contacto funciona como flujo estático: valida los campos y abre un mensaje precompletado en el cliente de correo del visitante. No hay backend ni envío de formularios desde el servidor.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+La estrategia, evidencia, narrativa y criterios de publicación se mantienen en la documentación canónica externa:
 
-## Deploy on Vercel
+`C:/Users/Ivan/OneDrive/Documentos/ChatGPT/Portfolio`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+AtlasOne es un caso académico de curso y no forma parte del portfolio profesional.

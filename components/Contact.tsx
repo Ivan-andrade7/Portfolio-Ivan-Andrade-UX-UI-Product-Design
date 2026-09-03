@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, ArrowRight, Mail, CheckCircle2, AlertTriangle, XCircle } from "lucide-react";
+import { Send, ArrowRight, Mail, AlertTriangle } from "lucide-react";
 import { SiBehance } from "react-icons/si";
 
 /* ── Brand icons ── */
@@ -45,21 +45,10 @@ const CONTACT_LINKS = [
   },
 ];
 
-/* ── Feedback banner (Figma 210:417) ──
-   Success: #022c22 bg / #065f46 border / #6ee7b7 text
-   Warning: #451a03 bg / #92400e border / #fcd34d text
-   Error:   #4c0519 bg / #9f1239 border / #fda4af text          */
-type FeedbackType = "success" | "warning" | "error";
+/* ── Feedback banner (Figma 210:417) — validation warning ── */
+type FeedbackType = "warning";
 
 const FEEDBACK = {
-  success: {
-    bg:     "var(--feedback-success-bg)",
-    border: "var(--feedback-success-border)",
-    color:  "var(--feedback-success-text)",
-    Icon: CheckCircle2,
-    title: "Mensaje enviado correctamente",
-    body: "Te responderé en menos de 48hs hábiles.",
-  },
   warning: {
     bg:     "var(--feedback-warning-bg)",
     border: "var(--feedback-warning-border)",
@@ -68,20 +57,13 @@ const FEEDBACK = {
     title: "Campos incompletos o inválidos",
     body: "Completá tu nombre, un email válido y un mensaje antes de enviar.",
   },
-  error: {
-    bg:     "var(--feedback-error-bg)",
-    border: "var(--feedback-error-border)",
-    color:  "var(--feedback-error-text)",
-    Icon: XCircle,
-    title: "Error al enviar",
-    body: "Intentá de nuevo o escribime directamente a ivanandradeuxui@gmail.com.",
-  },
 } as const;
 
 function FeedbackBanner({ type, bodyOverride }: { type: FeedbackType; bodyOverride?: string }) {
   const { bg, border, color, Icon, title, body } = FEEDBACK[type];
   return (
     <div
+      id="contact-validation"
       className="flex gap-3 items-start p-4 rounded-xl border w-full"
       style={{ background: bg, borderColor: border }}
       role="alert"
@@ -102,7 +84,7 @@ const INPUT_BASE =
 
 function inputCls(hasError: boolean): string {
   return hasError
-    ? `${INPUT_BASE} border-[#9f1239] text-[var(--text-primary)]`
+    ? `${INPUT_BASE} border-[var(--feedback-error-border)] text-[var(--text-primary)]`
     : `${INPUT_BASE} border-[var(--border-default)] text-[var(--text-primary)] hover:border-2 hover:border-[var(--border-default)] focus:border-[var(--border-interactive)] focus:shadow-[0_0_0_4px_var(--focus-ring)]`;
 }
 
@@ -141,7 +123,7 @@ function detectEmailTypo(email: string): string | null {
 
 type FieldErrors = { name?: boolean; email?: boolean; message?: boolean };
 
-/* ── Links column (shared between form and success states) ── */
+/* ── Links column ── */
 function LinksColumn() {
   return (
     <div className="flex flex-col gap-6 flex-1 min-w-[320px]">
@@ -153,8 +135,8 @@ function LinksColumn() {
           <a
             key={href}
             href={href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={href.startsWith("http") ? "_blank" : undefined}
+            rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
             className="group flex items-center gap-2 px-4 py-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-default)] hover:border-[var(--border-interactive)] transition-colors no-underline"
           >
             <span className="text-[var(--text-accent)] shrink-0"><Icon /></span>
@@ -185,13 +167,12 @@ export default function Contact() {
   const [errors, setErrors]   = useState<FieldErrors>({});
   const [banner, setBanner]   = useState<FeedbackType | null>(null);
   const [bannerBody, setBannerBody] = useState<string | undefined>(undefined);
-  const [sent, setSent]       = useState(false);   // true → show success state
 
   /* Clear individual field error on edit */
   const clearErr = (field: keyof FieldErrors) =>
     setErrors((prev) => ({ ...prev, [field]: undefined }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     /* ── Strict validation ── */
@@ -216,29 +197,13 @@ export default function Contact() {
       return;
     }
 
-    /* ── All valid: send via API ── */
+    /* ── All valid: open a prefilled email in the user's mail client ── */
     setErrors({});
     setBanner(null);
     setBannerBody(undefined);
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: emailVal, message: message.trim() }),
-      });
-
-      if (!res.ok) throw new Error("send failed");
-
-      setSent(true);
-    } catch {
-      setBanner("error");
-    }
-  };
-
-  const handleReset = () => {
-    setName(""); setEmail(""); setMessage("");
-    setErrors({}); setBanner(null); setBannerBody(undefined); setSent(false);
+    const subject = encodeURIComponent(`Contacto desde portfolio — ${name.trim()}`);
+    const body = encodeURIComponent(`Nombre: ${name.trim()}\nEmail: ${emailVal}\n\nMensaje:\n${message.trim()}`);
+    window.location.href = `mailto:ivanandradeuxui@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -260,7 +225,7 @@ export default function Contact() {
             <span className="text-[var(--text-accent)]">tu proyecto</span>
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Disponible para roles full-time remotos, proyectos freelance y colaboraciones. Respondo en menos de 48hs hábiles.
+            Disponible para roles full-time remotos, proyectos freelance y colaboraciones. Escribime y coordinamos.
           </p>
         </div>
       </div>
@@ -268,35 +233,24 @@ export default function Contact() {
       {/* ── Contact Row ── */}
       <div className="flex flex-wrap gap-12 items-start w-full">
 
-        {/* ── LEFT COLUMN: form OR success state ── */}
-        {sent ? (
-          /* Success state (Figma 864:11035) — replace form entirely */
-          <div className="flex flex-col gap-4 flex-1 min-w-[320px]">
-            <FeedbackBanner type="success" />
-            <button
-              type="button"
-              onClick={handleReset}
-              className="flex items-center h-10 px-4 rounded-lg text-[var(--text-primary)] text-[14px] font-semibold leading-5 hover:bg-[var(--bg-secondary)] transition-colors w-fit"
-            >
-              Enviar otro mensaje
-            </button>
-          </div>
-        ) : (
-          /* Form */
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            className="flex flex-col gap-4 flex-1 min-w-[320px]"
-          >
+        {/* ── LEFT COLUMN: form ── */}
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          aria-describedby={banner ? "contact-validation" : undefined}
+          className="flex flex-col gap-4 flex-1 min-w-[320px]"
+        >
             {/* Nombre */}
             <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
+              <label htmlFor="contact-name" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
                 Nombre
               </label>
               <input
+                id="contact-name"
                 type="text"
                 placeholder="Tu nombre"
                 value={name}
+                aria-invalid={errors.name || undefined}
                 autoComplete="name"
                 onChange={(e) => { setName(e.target.value); clearErr("name"); }}
                 className={`${inputCls(!!errors.name)} h-12 py-3`}
@@ -305,13 +259,15 @@ export default function Contact() {
 
             {/* Email */}
             <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
+              <label htmlFor="contact-email" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
                 Email
               </label>
               <input
+                id="contact-email"
                 type="email"
                 placeholder="tu@email.com"
                 value={email}
+                aria-invalid={errors.email || undefined}
                 autoComplete="email"
                 onChange={(e) => { setEmail(e.target.value); clearErr("email"); }}
                 className={`${inputCls(!!errors.email)} h-12 py-3`}
@@ -320,18 +276,20 @@ export default function Contact() {
 
             {/* Mensaje */}
             <div className="flex flex-col gap-2">
-              <label className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
+              <label htmlFor="contact-message" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
                 Mensaje
               </label>
               <textarea
+                id="contact-message"
                 placeholder="Contame sobre tu proyecto"
                 value={message}
+                aria-invalid={errors.message || undefined}
                 onChange={(e) => { setMessage(e.target.value); clearErr("message"); }}
                 className={`${inputCls(!!errors.message)} h-[96px] py-3 resize-none`}
               />
             </div>
 
-            {/* Warning / Error banner — visible before submit button */}
+            {/* Validation warning — visible before submit button */}
             {banner && <FeedbackBanner type={banner} bodyOverride={bannerBody} />}
 
             {/* Submit */}
@@ -340,10 +298,9 @@ export default function Contact() {
               className="flex items-center gap-3 h-12 px-4 py-3 rounded-lg shrink-0 w-fit bg-[var(--brand-primary)] text-[var(--text-inverse)] text-[14px] font-semibold leading-5 hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
             >
               <Send size={20} aria-hidden />
-              Enviar mensaje
+              Abrir cliente de correo
             </button>
-          </form>
-        )}
+        </form>
 
         {/* ── RIGHT COLUMN: always visible ── */}
         <LinksColumn />

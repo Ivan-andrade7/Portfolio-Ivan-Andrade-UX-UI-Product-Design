@@ -15,12 +15,18 @@ export interface Project {
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const [hovered, setHovered] = useState(false);
+  const [active, setActive] = useState(false);
 
   return (
-    <div
-      className="relative h-[460px] min-w-[340px]"
+    <Link
+      href={`/proyectos/${project.id}`}
+      aria-label={`Ver caso: ${project.title}`}
+      className="relative h-[460px] min-w-[340px] no-underline"
       style={{ flex: "1 0 0" }}
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+      onFocus={() => setActive(true)}
+      onBlur={() => setActive(false)}
     >
       {/* Image layer */}
       <div className="absolute inset-0 rounded-xl overflow-hidden">
@@ -29,7 +35,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           alt={project.title}
           fill
           className="object-cover transition-transform duration-300"
-          style={{ transform: hovered ? "scale(1.03)" : "scale(1)" }}
+          style={{ transform: active ? "scale(1.03)" : "scale(1)" }}
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
         />
       </div>
@@ -39,11 +45,9 @@ export default function ProjectCard({ project }: { project: Project }) {
         className="absolute inset-0 flex flex-col gap-3 items-center justify-end p-6 rounded-xl border transition-all duration-200 cursor-pointer"
         style={{
           backgroundImage: "linear-gradient(180deg, var(--card-gradient-0) 0%, var(--card-gradient-1) 50%, var(--card-gradient-3) 75%, var(--card-gradient-4) 100%)",
-          borderColor: hovered ? "var(--border-interactive)" : "var(--border-default)",
-          boxShadow: hovered ? "var(--shadow-card-hover)" : "var(--shadow-card)",
-        }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+          borderColor: active ? "var(--border-interactive)" : "var(--border-default)",
+          boxShadow: active ? "var(--shadow-card-hover)" : "var(--shadow-card)",
+          }}
       >
         {/* Tags */}
         <div className="flex flex-wrap gap-2 items-center w-full">
@@ -85,7 +89,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Title */}
         <p
           className="w-full text-[24px] font-semibold leading-8 tracking-[-1px] truncate text-left transition-colors duration-200"
-          style={{ color: hovered ? "var(--text-accent)" : "var(--text-primary)" }}
+          style={{ color: active ? "var(--text-accent)" : "var(--text-primary)" }}
         >
           {project.title}
         </p>
@@ -93,7 +97,9 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Hover-only content */}
         <div
           className={`grid transition-all duration-300 ease-in-out w-full ${
-            hovered ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+            active
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0 max-xl:grid-rows-[1fr] max-xl:opacity-100"
           }`}
         >
           <div className="overflow-hidden min-h-0 flex flex-col gap-3">
@@ -110,8 +116,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               >
                 {project.role}
               </p>
-              <Link
-                href={`/proyectos/${project.id}`}
+              <span
                 className="flex items-center gap-3 h-10 px-4 py-3 rounded-lg border text-[14px] font-semibold leading-5 shrink-0 active:scale-[0.98] transition-colors hover:bg-[var(--brand-soft)]"
                 style={{
                   borderColor: "var(--text-accent)",
@@ -120,11 +125,11 @@ export default function ProjectCard({ project }: { project: Project }) {
               >
                 Ver caso
                 <ArrowRight size={20} />
-              </Link>
+              </span>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

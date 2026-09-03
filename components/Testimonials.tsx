@@ -13,7 +13,7 @@ const TESTIMONIALS = [
   {
     paragraphs: [
       "Tuve la oportunidad de participar en una simulación laboral junto a Iván Andrade, quien se desempeñó como UX/UI Designer del equipo.",
-      "Es una de las personas mas comprometidas que conocí, tanto con su trabajo como con el proyecto y el equipo. Su diseño no solo cumplió con los objetivos, sino que destacó por su calidad, creatividad y enfoque en la mejora continua.",
+      "Es una de las personas más comprometidas que conocí, tanto con su trabajo como con el proyecto y el equipo. Su diseño no solo cumplió con los objetivos, sino que destacó por su calidad, creatividad y enfoque en la mejora continua.",
       "Además de sus capacidades técnicas, sus habilidades blandas sobresalen: tiene una comunicación clara, una excelente predisposición, iniciativa constante y una actitud siempre colaborativa.",
       "Verdaderamente alguien a quien tener en cuenta para sumar a su equipo.",
     ],
@@ -24,10 +24,10 @@ const TESTIMONIALS = [
   {
     paragraphs: [
       '"Tuve la oportunidad de trabajar junto a Ivan en distintos proyectos y siempre destacó por su creatividad, compromiso y profesionalismo en el área de UX/UI. Tiene una gran capacidad para transformar ideas en diseños modernos, intuitivos y funcionales, logrando una excelente experiencia para el usuario.',
-      'Además de su talento como diseñador, es una persona muy predispuesta al trabajo en equipo y mantiene una comunicación clara y constante con el área de desarrollo, lo que hace que el trabajo conjunto sea mucho mas eficiente y fluido. Sin dudas, recomiendo a Ivan para cualquier proyecto relacionado con diseño UX/UI y desarrollo de productos digitales."',
+      'Además de su talento como diseñador, es una persona muy predispuesta al trabajo en equipo y mantiene una comunicación clara y constante con el área de desarrollo, lo que hace que el trabajo conjunto sea mucho más eficiente y fluido. Sin dudas, recomiendo a Ivan para cualquier proyecto relacionado con diseño UX/UI y desarrollo de productos digitales."',
     ],
     name: "Matias Barisone",
-    role: "Desarrollador Fronted · No Country · 2026",
+    role: "Desarrollador Frontend · No Country · 2026",
     linkedin: "https://www.linkedin.com/in/ivan-andrade-uxui/details/recommendations/",
   },
 ];
@@ -58,7 +58,7 @@ export default function Testimonials() {
           <div
             key={name}
             className="flex flex-col gap-3 p-6 rounded-xl flex-1 min-w-[320px] bg-[var(--bg-primary)] border border-[var(--border-default)] hover:border-[var(--border-interactive)] transition-colors duration-150 cursor-default"
-            style={{ boxShadow: "0px 1px 2px 0px rgba(255,255,255,0.08)" }}
+            style={{ boxShadow: "var(--shadow-card)" }}
           >
             {/* Quote icon — 20px accent */}
             <Quote size={20} className="text-[var(--text-accent)] shrink-0" />
@@ -93,8 +93,8 @@ export default function Testimonials() {
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`LinkedIn de ${name}`}
-                className="flex items-center justify-center w-8 h-8 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] shrink-0 hover:bg-[rgba(45,212,191,0.08)] active:scale-[0.98] transition-all"
+                aria-label="Ver recomendaciones de Iván en LinkedIn"
+                className="flex items-center justify-center w-8 h-8 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] shrink-0 hover:bg-[var(--brand-soft)] active:scale-[0.98] transition-all"
               >
                 <LinkedinIcon />
               </a>

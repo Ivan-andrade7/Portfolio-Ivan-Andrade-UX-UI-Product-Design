@@ -13,29 +13,25 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 function CarouselBtn({
   onClick,
   disabled,
+  label,
   children,
 }: {
   onClick: () => void;
   disabled: boolean;
+  label: string;
   children: React.ReactNode;
 }) {
-  if (disabled) {
-    return (
-      <div
-        className="flex items-center justify-center p-2 rounded-lg shrink-0 size-8 opacity-40"
-        style={{ background: "#1e293b", color: "var(--text-primary)" }}
-      >
-        {children}
-      </div>
-    );
-  }
   return (
     <button
+      type="button"
       onClick={onClick}
-      className="group relative flex items-center justify-center p-2 rounded-lg shrink-0 size-8 cursor-pointer transition-colors bg-transparent
-        hover:bg-[var(--bg-secondary)]
-        active:bg-[var(--bg-secondary)]
-        focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_rgba(20,184,166,0.3)]"
+      disabled={disabled}
+      aria-label={label}
+      className={`group relative flex items-center justify-center p-2 rounded-lg shrink-0 size-8 transition-colors focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)] ${
+        disabled
+          ? "cursor-not-allowed opacity-40 bg-[var(--surface-secondary)]"
+          : "cursor-pointer bg-transparent hover:bg-[var(--bg-secondary)] active:bg-[var(--bg-secondary)]"
+      }`}
       style={{ color: "var(--text-primary)" }}
     >
       {children}
@@ -71,7 +67,7 @@ export default function UICarousel({ images, title }: { images: string[]; title:
 
       {/* Controls row */}
       <div className="flex items-center justify-between w-full">
-        <CarouselBtn onClick={() => setIdx((i) => i - 1)} disabled={idx === 0}>
+        <CarouselBtn onClick={() => setIdx((i) => i - 1)} disabled={idx === 0} label="Pantalla anterior">
           <ChevronLeft size={16} />
         </CarouselBtn>
 
@@ -79,7 +75,7 @@ export default function UICarousel({ images, title }: { images: string[]; title:
           {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </span>
 
-        <CarouselBtn onClick={() => setIdx((i) => i + 1)} disabled={idx === total - 1}>
+        <CarouselBtn onClick={() => setIdx((i) => i + 1)} disabled={idx === total - 1} label="Pantalla siguiente">
           <ChevronRight size={16} />
         </CarouselBtn>
       </div>
@@ -92,7 +88,10 @@ export default function UICarousel({ images, title }: { images: string[]; title:
         {images.map((img, i) => (
           <button
             key={i}
+            type="button"
             onClick={() => setIdx(i)}
+            aria-label={`Ver pantalla ${i + 1}`}
+            aria-current={i === idx ? "true" : undefined}
             className={`shrink-0 relative rounded-xl overflow-hidden border cursor-pointer transition-colors ${
               i === idx
                 ? "border-[var(--border-interactive)]"

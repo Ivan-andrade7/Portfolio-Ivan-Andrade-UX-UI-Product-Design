@@ -112,6 +112,11 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+:where(a, button, input, textarea):focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
 /* ── Marquee ── */
 @keyframes portfolio-marquee {
   from { transform: translateX(0); }
@@ -127,3 +132,19 @@ body {
 }
 .marquee-track:hover,
 .marquee-track-reverse:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track,
+  .marquee-track-reverse {
+    animation: none;
+  }
+}

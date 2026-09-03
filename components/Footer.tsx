@@ -29,7 +29,7 @@ function WhatsAppIcon() {
 const PROJECT_LINKS = [
   { label: "GardenAds", href: "/proyectos/garden-ads" },
   { label: "Fintech PYME", href: "/proyectos/fintech" },
-  { label: "CRM Startup", href: "/proyectos/crm" },
+  { label: "ChatCRM", href: "/proyectos/crm" },
   { label: "Multi-Brand DS", href: "/proyectos/multi-brand" },
   { label: "TrainiT", href: "/proyectos/trainit" },
 ];
@@ -110,10 +110,10 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               {CONTACT_LINKS.map(({ label, href, Icon }) => (
                 <a
-                  key={label}
+                  key={href}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={NAV_ITEM}
                 >
                   <span className="shrink-0"><Icon /></span>

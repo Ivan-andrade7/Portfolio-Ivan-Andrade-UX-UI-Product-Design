@@ -6,16 +6,10 @@ type Stat =
   | { label: string; parts: { text: string; accent: boolean }[]; value?: never; accent?: never };
 
 const STATS: Stat[] = [
-  { value: "5", label: "Proyectos", accent: false },
-  {
-    parts: [
-      { text: "80", accent: false },
-      { text: "+", accent: true },
-    ],
-    label: "Componentes documentados",
-  },
-  { value: "Accesibilidad", label: "criterios WCAG AA", accent: true },
-  { value: "3", label: "Equipos coordinados", accent: false },
+  { value: "5", label: "Proyectos publicados", accent: false },
+  { value: "Sistemas", label: "de componentes y tokens documentados", accent: false },
+  { value: "Accesibilidad", label: "criterios considerados en diseño", accent: true },
+  { value: "UX/UI", label: "diseño de producto y sistemas", accent: false },
 ];
 
 export default function Hero() {

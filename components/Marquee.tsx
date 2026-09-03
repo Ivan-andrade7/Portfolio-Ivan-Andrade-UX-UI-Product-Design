@@ -1,6 +1,6 @@
 const SKILLS = [
   "Figma", "FigJam", "Variables", "Auto Layout", "Dev Mode", "Notion", "Miro",
-  "Tokens", "Componentes", "Dark Mode", "WCAG AA", "UX Research", "UI Design",
+  "Tokens", "Componentes", "Dark Mode", "Criterios WCAG", "UX Research", "UI Design",
   "Prototipado", "Design Systems", "Accesibilidad", "Arquitectura de información",
   "Wireframing", "Interaction Design", "Handoff", "Responsive",
 ];

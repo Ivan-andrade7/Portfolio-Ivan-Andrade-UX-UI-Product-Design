@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SiBehance, SiFigma } from "react-icons/si";
 import { CASES, getCaseBySlug } from "@/lib/cases";
 import Navbar from "@/components/Navbar";
@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import UICarousel from "@/components/UICarousel";
 
 export async function generateStaticParams() {
-  return CASES.map((c) => ({ slug: c.slug }));
+  return CASES.filter((c) => c.published !== false).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({
@@ -86,7 +86,7 @@ function DecisionBlock({
     <div className="border-l-2 rounded-br-xl rounded-tr-xl w-full" style={{ borderColor: "var(--border-interactive)" }}>
       <div
         className="flex flex-col gap-2 p-6 rounded-br-xl rounded-tr-xl border"
-        style={{ background: "var(--bg-secondary)", borderColor: "#1e293b" }}
+        style={{ background: "var(--bg-secondary)", borderColor: "var(--border-default)" }}
       >
         <p className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">
           Decisión {decision.id}
@@ -222,6 +222,17 @@ export default async function CaseStudyPage({
 
               {/* Button Icon Secondary MD — Behance + Figma */}
               <div className="flex gap-3">
+                {c.links.demo && (
+                  <a
+                    href={c.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 h-10 px-4 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] bg-transparent text-[14px] font-semibold transition-colors hover:bg-[var(--brand-soft)]"
+                  >
+                    <ExternalLink size={17} />
+                    <span>Ver demo</span>
+                  </a>
+                )}
                 <a
                   href={c.links.behance}
                   target="_blank"
@@ -265,6 +276,19 @@ export default async function CaseStudyPage({
               ))}
             </div>
             <p className="text-[16px] leading-7 text-[var(--text-secondary)] w-full">{c.description}</p>
+            {c.notice && (
+              <div
+                role="note"
+                className="flex items-start gap-3 rounded-lg border px-4 py-3"
+                style={{
+                  background: "var(--brand-soft)",
+                  borderColor: "var(--border-interactive)",
+                }}
+              >
+                <span className="text-[var(--text-accent)] text-[14px] font-semibold leading-6">Nota</span>
+                <p className="text-[14px] leading-6 text-[var(--text-secondary)]">{c.notice}</p>
+              </div>
+            )}
           </section>
 
           {/* El problema */}
@@ -325,9 +349,9 @@ export default async function CaseStudyPage({
             </section>
           )}
 
-          {/* Resultados */}
+          {/* Datos del proyecto — métricas de contexto, no resultados de negocio */}
           <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
-            <SectionHeader eyebrow="Resultados" heading="En números" />
+            <SectionHeader eyebrow="Datos del proyecto" heading="Contexto y alcance" />
             <div className="flex flex-wrap gap-6 w-full">
               {c.metrics.map((m) => (
                 <MetricCard key={m.label} value={m.value} label={m.label} />

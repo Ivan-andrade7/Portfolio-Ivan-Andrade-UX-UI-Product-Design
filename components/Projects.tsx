@@ -5,7 +5,7 @@ const PROJECTS: Project[] = [
     id: "garden-ads",
     title: "GardenAds — Attribution & Tracking Health",
     tags: ["Analytics SaaS", "Dashboard", "2026"],
-    longDesc: "Plataforma SaaS de atribución end-to-end como único designer: Tracking Health, benchmark de 6 competidores y handoff completo.",
+    longDesc: "Landing parcial de una propuesta SaaS de atribución; el deploy visible conserva dos secciones incompletas.",
     role: "UX UI Designer · 5 semanas",
     image: "/projects/garden-ads.png",
   },
@@ -19,9 +19,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "fintech",
-    title: "Fintech PYME — Plataforma de Créditos",
+    title: "Fintech PYME — Plataforma de Créditos B2B",
     tags: ["Fintech", "SaaS B2B", "KYC"],
-    longDesc: "Onboarding KYC de 4 pasos y dos superficies (solicitante / supervisor) con RBAC pensado como UX, no solo como técnica.",
+    longDesc: "Plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
     role: "UX UI Designer · 5 semanas",
     image: "/projects/fintech.png",
   },
@@ -29,7 +29,7 @@ const PROJECTS: Project[] = [
     id: "multi-brand",
     title: "Multi-Brand Design System",
     tags: ["Design System", "EdTech", "Multi-marca"],
-    longDesc: "Design system multimarca: una librería, dos identidades (Academy / Kids), con ~70% de componentes compartidos.",
+    longDesc: "Design system multimarca: una librería y dos identidades (Academy / Kids), con una base compartida documentada.",
     role: "UX UI Designer · 5 semanas",
     image: "/projects/multi-brand.png",
   },
@@ -67,7 +67,7 @@ export default function Projects() {
             Casos de estudio
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Proyectos end-to-end que resuelven problemas operacionales reales con criterio de diseño.
+            Proyectos end-to-end que exploran problemas de producto con criterio de diseño.
           </p>
         </div>
       </div>
