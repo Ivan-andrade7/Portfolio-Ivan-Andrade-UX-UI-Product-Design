@@ -45,7 +45,7 @@ export interface CaseStudy {
   tags: string[];
   title: string;
   subtitle: string;
-  links: { figma: string; behance: string; demo?: string };
+  links: { figma: string; behance: string };
   context: {
     rol: string;
     duracion: string;
@@ -184,7 +184,6 @@ export const CASES: CaseStudy[] = [
     links: {
       figma: "https://www.figma.com/design/8SMwklByslExRkjFk8P9U2",
       behance: "https://www.behance.net/gallery/245704303/GardenAds-Attribution-Tracking-Health-Platform",
-      demo: "https://s02-26-equipo-03-web-app-developmen-green.vercel.app",
     },
     context: {
       rol: "Diseñador UX/UI",
@@ -194,9 +193,9 @@ export const CASES: CaseStudy[] = [
       tools: "Figma · FigJam · Notion",
     },
     description:
-      "GardenAds explora la propuesta de una plataforma analytics B2B SaaS para marketing managers, fundadores y sales ops que necesitan entender el rendimiento de sus campañas. La implementación pública verificada corresponde a una landing parcial; dos secciones todavía muestran un placeholder y un componente superpuesto.",
+      "GardenAds explora la propuesta de una plataforma analytics B2B SaaS para marketing managers, fundadores y sales ops que necesitan entender el rendimiento de sus campañas. El caso se presenta desde el trabajo documentado y las capturas de interfaz disponibles.",
     notice:
-      "Proyecto de No Country trabajado con diseñadores y desarrolladores. El deploy público verificado corresponde a una landing parcial: dos secciones siguen incompletas (placeholder y componente superpuesto). Presentarlo como demo parcial, no como plataforma completa ni como evidencia de resultados de negocio.",
+      "Proyecto de No Country trabajado con diseñadores y desarrolladores. El caso se presenta como trabajo documentado de diseño e implementación parcial, no como plataforma completa ni como evidencia de resultados de negocio.",
     users: {
       title: "Equipos que dependen del dato",
       body: "El alcance diseñado contempla perfiles de marketing, founders, sales ops, análisis, administración y desarrollo, con necesidades diferentes frente al estado del tracking.",
@@ -304,14 +303,14 @@ export const CASES: CaseStudy[] = [
     description:
       "ChatCRM unifica la información comercial que hoy vive dispersa en WhatsApp, email y notas sueltas. El foco fue la operación diaria del equipo de ventas y la trazabilidad del pipeline, con el handoff a desarrollo como entregable primario.",
     notice:
-      "Proyecto de No Country trabajado con diseñadores y desarrolladores. La demo pública está incompleta y no contiene datos precargados suficientes para validar todos los flujos; presentarlo como implementación parcial del equipo y como evidencia del alcance diseñado, sin atribuir resultados de negocio.",
+      "Proyecto de No Country trabajado con diseñadores y desarrolladores. La implementación pública es parcial y no contiene datos suficientes para validar todos los flujos; presentarlo como evidencia del alcance diseñado, sin atribuir resultados de negocio.",
     users: {
       title: "Equipo comercial",
       body: "El foco está en equipos de ventas que necesitan recuperar el contexto de un prospecto y mantener visible el próximo paso del pipeline.",
     },
     outcome: {
       title: "Resultado documentado",
-      body: "El alcance de diseño prioriza un pipeline kanban y un handoff claro para desarrollo. La demo pública no tiene datos suficientes para presentar una experiencia completa ni resultados medidos.",
+      body: "El alcance de diseño prioriza un pipeline kanban y un handoff claro para desarrollo. La implementación pública no tiene datos suficientes para presentar una experiencia completa ni resultados medidos.",
     },
     problema: {
       title: "Información comercial dispersa y sin trazabilidad",

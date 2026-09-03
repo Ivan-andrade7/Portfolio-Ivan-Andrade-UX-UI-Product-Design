@@ -1,14 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiBehance, SiFigma } from "react-icons/si";
 import { CASES, getCaseBySlug } from "@/lib/cases";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import UICarousel from "@/components/UICarousel";
 import ResilientImage from "@/components/ResilientImage";
-import AnalyticsTableSandbox from "@/components/AnalyticsTableSandbox";
-import TokenSwitcherWidget from "@/components/TokenSwitcherWidget";
 
 export async function generateStaticParams() {
   return CASES.filter((c) => c.published !== false).map((c) => ({ slug: c.slug }));
@@ -230,17 +228,6 @@ export default async function CaseStudyPage({
 
               {/* Button Icon Secondary MD — Behance + Figma */}
               <div className="flex gap-3">
-                {c.links.demo && (
-                  <a
-                    href={c.links.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 h-10 px-4 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] bg-transparent text-[14px] font-semibold transition-colors hover:bg-[var(--brand-soft)]"
-                  >
-                    <ExternalLink size={17} />
-                    <span>Ver demo</span>
-                  </a>
-                )}
                 <a
                   href={c.links.behance}
                   target="_blank"
@@ -356,28 +343,6 @@ export default async function CaseStudyPage({
               />
             )}
           </section>
-
-          {slug === "garden-ads" && (
-            <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
-              <SectionHeader
-                eyebrow="Sandbox conceptual"
-                heading="Inspeccionar la salud del tracking"
-                subtitle="Una vista de exploración para entender cómo una alerta de atribución puede convertirse en una acción operativa."
-              />
-              <AnalyticsTableSandbox />
-            </section>
-          )}
-
-          {slug === "multi-brand" && (
-            <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
-              <SectionHeader
-                eyebrow="Interacción"
-                heading="Los tokens cambian la expresión, no la estructura"
-                subtitle="Una demostración visual del principio multimarca documentado en este caso."
-              />
-              <TokenSwitcherWidget />
-            </section>
-          )}
 
           {/* Design System (opcional) */}
           {c.designSystem && (
