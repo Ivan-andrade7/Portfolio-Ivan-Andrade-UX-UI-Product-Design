@@ -55,6 +55,12 @@ export interface CaseStudy {
   };
   description: string;
   notice?: string;
+  attribution?: {
+    responsibility: string;
+    collaboration: string;
+    deliverables: string;
+    evidence: string;
+  };
   users?: { title: string; body: string };
   outcome?: { title: string; body: string };
   problema: { title: string; body: string };
@@ -96,6 +102,12 @@ export const CASES: CaseStudy[] = [
       "Diseñé una plataforma de onboarding de créditos para PyMEs con dos superficies diferenciadas: un portal cliente y un panel admin. El objetivo era digitalizar un proceso manual, reducir la fricción operativa y mejorar la trazabilidad para ambos lados de la operación.",
     notice:
       "Proyecto de No Country trabajado con diseñadores y desarrolladores, con implementación y despliegue realizados durante el proyecto. Las cifras y estados mostrados en las interfaces describen el escenario documentado; no deben interpretarse como métricas de negocio posteriores sin evidencia específica.",
+    attribution: {
+      responsibility: "Diseño de la plataforma dual de onboarding: portal cliente, panel admin, KYC y RBAC.",
+      collaboration: "Proyecto de No Country trabajado con diseñadores y desarrolladores.",
+      deliverables: "Flujos de onboarding, superficies diferenciadas y sistema de componentes.",
+      evidence: "La portada del proyecto identifica a Iván Andrade como Diseñador UX/UI; también hay capturas de interfaz, enlaces a Figma y Behance y documentación del caso. No hay métricas posteriores verificables.",
+    },
     users: {
       title: "Solicitante y operador",
       body: "El solicitante PyME necesita completar y seguir su solicitud; el supervisor u operador necesita revisar, aprobar o pedir correcciones con trazabilidad.",
@@ -196,6 +208,12 @@ export const CASES: CaseStudy[] = [
       "GardenAds explora la propuesta de una plataforma analytics B2B SaaS para marketing managers, fundadores y sales ops que necesitan entender el rendimiento de sus campañas. El caso se presenta desde el trabajo documentado y las capturas de interfaz disponibles.",
     notice:
       "Proyecto de No Country trabajado con diseñadores y desarrolladores. El caso se presenta como trabajo documentado de diseño e implementación parcial, no como plataforma completa ni como evidencia de resultados de negocio.",
+    attribution: {
+      responsibility: "Benchmark y diseño de la propuesta de producto, con foco en Tracking Health.",
+      collaboration: "Proyecto de No Country trabajado con diseñadores y desarrolladores.",
+      deliverables: "Benchmark de 6 plataformas, arquitectura de producto, UI de Tracking Health y Canopy DS.",
+      evidence: "La portada del equipo identifica a Iván Andrade como UX/UI Designer; también hay capturas del producto y benchmark descrito en el caso. La implementación pública es parcial y no hay resultados de negocio verificables.",
+    },
     users: {
       title: "Equipos que dependen del dato",
       body: "El alcance diseñado contempla perfiles de marketing, founders, sales ops, análisis, administración y desarrollo, con necesidades diferentes frente al estado del tracking.",
@@ -304,6 +322,12 @@ export const CASES: CaseStudy[] = [
       "ChatCRM unifica la información comercial que hoy vive dispersa en WhatsApp, email y notas sueltas. El foco fue la operación diaria del equipo de ventas y la trazabilidad del pipeline, con el handoff a desarrollo como entregable primario.",
     notice:
       "Proyecto de No Country trabajado con diseñadores y desarrolladores. La implementación pública es parcial y no contiene datos suficientes para validar todos los flujos; presentarlo como evidencia del alcance diseñado, sin atribuir resultados de negocio.",
+    attribution: {
+      responsibility: "Diseño del pipeline kanban y handoff a desarrollo.",
+      collaboration: "Proyecto de No Country trabajado con diseñadores y desarrolladores.",
+      deliverables: "MVP de operación comercial, variables en dos niveles y documentación de handoff.",
+      evidence: "La portada del equipo identifica a Iván Andrade como UX/UI Designer; también hay capturas del alcance diseñado y documentación enlazada. La implementación pública es parcial y no hay resultados medidos.",
+    },
     users: {
       title: "Equipo comercial",
       body: "El foco está en equipos de ventas que necesitan recuperar el contexto de un prospecto y mantener visible el próximo paso del pipeline.",
@@ -398,6 +422,12 @@ export const CASES: CaseStudy[] = [
       "Diseñé el sistema visual y la arquitectura de tokens para una plataforma EdTech con dos identidades diferenciadas: Academy (17+) y Kids (6–16). La documentación del proyecto describe una base de componentes compartida entre ambas marcas.",
     notice:
       "Proyecto colaborativo de No Country realizado por un equipo de UX/UI y Product Design. Las cifras y proporciones describen el archivo y el alcance documentado; no implican implementación de software ni resultados de negocio medidos.",
+    attribution: {
+      responsibility: "Diseño visual y arquitectura de tokens para Academy y Kids.",
+      collaboration: "Proyecto colaborativo de No Country realizado por un equipo de UX/UI y Product Design.",
+      deliverables: "Base compartida, tokens por marca, componentes tematizados y documentación de uso.",
+      evidence: "La portada y el guion del equipo identifican a Iván Andrade como UX/UI Designer; el guion le asigna la presentación del proceso UX y los flujos. Las capturas y el archivo del sistema no prueban resultados de implementación o negocio medidos.",
+    },
     users: {
       title: "Dos identidades, una base",
       body: "Academy y Kids representan públicos distintos dentro de una misma plataforma; el sistema debe permitir diferenciar la experiencia sin mantener dos estructuras separadas.",
@@ -504,6 +534,12 @@ export const CASES: CaseStudy[] = [
       "Diseñé e iteré los flujos principales de TrainiT: dashboard, backlog, kanban, módulo de miembros y configuración. Coordiné el diseño durante 3 sprints, pasando por rondas de feedback técnico real.",
     notice:
       "Pasantía en Programa TrainiT trabajada con un equipo de desarrollo que implementó los flujos diseñados. La evidencia disponible documenta el alcance del trabajo; no se presenta como experiencia de No Country ni se atribuyen resultados de uso o negocio sin una fuente específica.",
+    attribution: {
+      responsibility: "Diseño e iteración de los flujos principales durante 3 sprints.",
+      collaboration: "Pasantía en Programa TrainiT trabajada con un equipo de desarrollo.",
+      deliverables: "Dashboard, backlog, kanban, miembros y configuración.",
+      evidence: "Capturas de los flujos y feedback técnico documentado. No se atribuyen resultados de adopción o negocio.",
+    },
     users: {
       title: "Equipo de proyecto",
       body: "El alcance se centra en las personas que coordinan tareas, priorizan trabajo y necesitan entender el estado general del proyecto antes de operar.",

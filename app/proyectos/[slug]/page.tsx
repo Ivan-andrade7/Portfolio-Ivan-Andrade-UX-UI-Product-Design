@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiBehance, SiFigma } from "react-icons/si";
@@ -16,11 +17,37 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const c = getCaseBySlug(slug);
   if (!c) return {};
-  return { title: `${c.title} — Ivan Andrade`, description: c.subtitle };
+
+  const title = `${c.title} — Ivan Andrade`;
+  const canonical = `/proyectos/${c.slug}`;
+  const image = c.heroImages?.desktop ?? c.images[0];
+
+  return {
+    title,
+    description: c.subtitle,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      type: "article",
+      url: canonical,
+      title,
+      description: c.subtitle,
+      siteName: "Ivan Andrade — Product Designer",
+      locale: "es_AR",
+      images: [{ url: image, alt: c.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: c.subtitle,
+      images: [image],
+    },
+  };
 }
 
 // ── Section header — Figma 246:1503 ──────────────────────────────────────────
@@ -285,6 +312,25 @@ export default async function CaseStudyPage({
               </div>
             )}
           </section>
+
+          {c.attribution && (
+            <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
+              <SectionHeader eyebrow="Atribución y evidencia" heading="Mi trabajo y su alcance" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  { label: "Mi responsabilidad", value: c.attribution.responsibility },
+                  { label: "Colaboración", value: c.attribution.collaboration },
+                  { label: "Entregables descritos", value: c.attribution.deliverables },
+                  { label: "Evidencia y límites", value: c.attribution.evidence },
+                ].map(({ label, value }) => (
+                  <div key={label} className="flex flex-col gap-2 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+                    <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">{label}</span>
+                    <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {(c.users || c.outcome) && (
             <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">

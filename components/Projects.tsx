@@ -16,8 +16,8 @@ const MAIN_PROJECTS: Project[] = [
   {
     id: "garden-ads",
     title: "GardenAds — Attribution & Tracking Health",
-    tags: ["Analytics SaaS", "Dashboard", "2026"],
-    longDesc: "Landing parcial de una propuesta SaaS de atribución; el deploy visible conserva dos secciones incompletas.",
+    tags: ["Analytics SaaS", "Dashboard", "Implementación parcial", "2026"],
+    longDesc: "Plataforma SaaS de atribución que convierte fallos de tracking en señales accionables para marketing y revenue. La implementación pública es parcial.",
     role: "UX/UI Designer · 5 semanas",
     images: {
       narrow: "/projects/garden-ads-card-tall.webp",

@@ -29,12 +29,12 @@ const CONTACT_LINKS = [
     Icon: () => <Mail size={20} aria-hidden />,
   },
   {
-    label: "Ivan Andrade",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/in/ivan-andrade-uxui/",
     Icon: LinkedinIcon,
   },
   {
-    label: "Ivan Andrade",
+    label: "Behance",
     href: "https://www.behance.net/ivaanandrade",
     Icon: () => <SiBehance size={20} aria-hidden />,
   },
@@ -251,10 +251,17 @@ export default function Contact() {
                 placeholder="Tu nombre"
                 value={name}
                 aria-invalid={errors.name || undefined}
+                aria-describedby={errors.name ? "contact-name-error" : undefined}
                 autoComplete="name"
+                required
                 onChange={(e) => { setName(e.target.value); clearErr("name"); }}
                 className={`${inputCls(!!errors.name)} h-12 py-3`}
               />
+              {errors.name && (
+                <p id="contact-name-error" className="text-[12px] leading-5 text-[var(--feedback-error-text)]">
+                  Ingresá tu nombre.
+                </p>
+              )}
             </div>
 
             {/* Email */}
@@ -268,10 +275,17 @@ export default function Contact() {
                 placeholder="tu@email.com"
                 value={email}
                 aria-invalid={errors.email || undefined}
+                aria-describedby={errors.email ? "contact-email-error" : undefined}
                 autoComplete="email"
+                required
                 onChange={(e) => { setEmail(e.target.value); clearErr("email"); }}
                 className={`${inputCls(!!errors.email)} h-12 py-3`}
               />
+              {errors.email && (
+                <p id="contact-email-error" className="text-[12px] leading-5 text-[var(--feedback-error-text)]">
+                  Ingresá un email válido.
+                </p>
+              )}
             </div>
 
             {/* Mensaje */}
@@ -284,9 +298,16 @@ export default function Contact() {
                 placeholder="Contame sobre tu proyecto"
                 value={message}
                 aria-invalid={errors.message || undefined}
+                aria-describedby={errors.message ? "contact-message-error" : undefined}
+                required
                 onChange={(e) => { setMessage(e.target.value); clearErr("message"); }}
                 className={`${inputCls(!!errors.message)} h-[96px] py-3 resize-none`}
               />
+              {errors.message && (
+                <p id="contact-message-error" className="text-[12px] leading-5 text-[var(--feedback-error-text)]">
+                  Escribí un mensaje.
+                </p>
+              )}
             </div>
 
             {/* Validation warning — visible before submit button */}

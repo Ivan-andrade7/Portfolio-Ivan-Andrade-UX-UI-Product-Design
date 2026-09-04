@@ -43,13 +43,13 @@ export default function Hero() {
             {/* Heading + subtitle */}
             <div className="flex flex-col gap-3">
               <h1 className="text-[var(--text-primary)] text-[32px] md:text-[40px] font-bold leading-[1.2] md:leading-[48px] tracking-[-2px]">
-                Diseño que transforma{" "}
-                <span className="text-[var(--highlight)]">complejidad</span>
-                {" "}en sistemas claros.
+                Product Designer que transforma{" "}
+                <span className="text-[var(--highlight)]">complejidad operacional</span>
+                {" "}en sistemas claros y escalables.
               </h1>
               <p className="text-[var(--text-secondary)] text-xl leading-8">
-                Especializado en SaaS B2B, Fintech, Analytics Dashboards y
-                Design Systems escalables. Disponible para trabajo remoto.
+                Diseño productos SaaS B2B, Fintech, Analytics Dashboards y
+                Design Systems. Disponible para trabajo remoto.
               </p>
             </div>
           </div>
