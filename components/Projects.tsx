@@ -1,125 +1,64 @@
 import ProjectCard, { type Project } from "@/components/ProjectCard";
 
-const MAIN_PROJECTS: Project[] = [
+// Todos los casos publicados se presentan en una selección unificada.
+const PROJECTS: Project[] = [
   {
     id: "fintech",
     title: "Fintech PYME — Plataforma de Créditos B2B",
     tags: ["Fintech", "SaaS B2B", "KYC"],
-    longDesc: "Plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
-    role: "UX/UI Designer · 5 semanas",
-    images: {
-      narrow: "/projects/fintech-card-tall.webp",
-      medium: "/projects/fintech-card-square.webp",
-      wide: "/projects/fintech-card-square.webp",
-    },
+    longDesc: "Simulación laboral de No Country: plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas.",
+    role: "UX/UI Designer · único diseñador · 5 semanas",
+    images: { image: "/projects/fintech-card-square.webp" },
   },
   {
     id: "garden-ads",
     title: "GardenAds — Attribution & Tracking Health",
-    tags: ["Analytics SaaS", "Dashboard", "Implementación parcial", "2026"],
-    longDesc: "Plataforma SaaS de atribución que convierte fallos de tracking en señales accionables para marketing y revenue. La implementación pública es parcial.",
-    role: "UX/UI Designer · 5 semanas",
-    images: {
-      narrow: "/projects/garden-ads-card-tall.webp",
-      medium: "/projects/garden-ads-card-square.webp",
-      wide: "/projects/garden-ads-card-square.webp",
-    },
+    tags: ["Analytics SaaS", "Dashboard", "2026"],
+    longDesc: "Simulación laboral de No Country: propuesta de plataforma para detectar fallos de tracking y convertirlos en señales accionables.",
+    role: "UX/UI Designer · único diseñador · 5 semanas",
+    images: { image: "/projects/garden-ads-card-square.webp" },
   },
   {
     id: "crm",
     title: "ChatCRM — CRM para PyMEs",
     tags: ["CRM", "SaaS B2B", "Pipeline"],
-    longDesc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
-    role: "UX/UI Designer · 5 semanas",
-    images: {
-      narrow: "/projects/crm-card-tall.webp",
-      medium: "/projects/crm-card-square.webp",
-      wide: "/projects/crm-card-wide.webp",
-    },
+    longDesc: "Simulación laboral de No Country: concepto de CRM con pipeline visual kanban y handoff como entregable de diseño.",
+    role: "UX/UI Designer · equipo de 5",
+    images: { image: "/projects/crm-card-square.webp" },
   },
-];
-
-const SELECTED_WORK: Project[] = [
   {
     id: "multi-brand",
     title: "Multi-Brand Design System",
     tags: ["Design System", "EdTech", "Multi-marca"],
-    longDesc: "Design system multimarca: una librería y dos identidades (Academy / Kids), con una base compartida documentada.",
-    role: "UX/UI Designer · 5 semanas",
-    images: {
-      narrow: "/projects/multi-brand-card-tall.webp",
-      medium: "/projects/multi-brand-card-tall.webp",
-      wide: "/projects/multi-brand-card-wide.webp",
-    },
+    longDesc: "Simulación laboral colaborativa de No Country: arquitectura de tokens compartida para Academy y Kids.",
+    role: "UX/UI Designer · equipo de 5 · 5 semanas",
+    images: { image: "/projects/multi-brand-card-square.webp" },
   },
   {
     id: "trainit",
     title: "TrainiT — Gestión de Proyectos",
-    tags: ["SaaS", "Kanban", "Gestión"],
-    longDesc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
-    role: "UX/UI Designer Jr · 3 meses",
-    images: {
-      narrow: "/projects/trainit-card-tall.webp",
-      medium: "/projects/trainit-card-tall.webp",
-      wide: "/projects/trainit-card-wide.webp",
-    },
+    tags: ["Pasantía formativa", "SaaS", "Kanban"],
+    longDesc: "Pasantía/práctica formativa del Programa TrainiT: trabajo en el workstream Grupo 1/UI Components.",
+    role: "Junior UX/UI Designer · 23/06–15/10/2025",
+    images: { image: "/projects/trainit-card-square.webp" },
   },
 ];
 
 export default function Projects() {
   return (
-    /* Section: px-96px py-64px (section/lg × section/md) */
-    <section
-      id="proyectos"
-      className="bg-[var(--bg-primary)] flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-12 md:py-16"
-    >
-      {/* ── Section header ── */}
+    <section id="proyectos" className="bg-[var(--bg-primary)] flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-12 md:py-16 min-w-0">
       <div className="flex flex-col gap-2 items-start w-full">
-
-        {/* Eyebrow: divider line + label-s */}
-        <div className="flex items-center gap-2 h-4">
+        <div className="flex items-center gap-2 min-h-4">
           <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-          <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-            Proyectos seleccionados
-          </span>
+          <span className="min-w-0 break-words text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px]">Proyectos seleccionados</span>
         </div>
-
-        {/* Content: H2 + body-m */}
-        <div className="flex flex-col gap-3 w-full">
-          <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Casos de estudio
-          </h2>
-          <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Proyectos end-to-end que exploran problemas de producto con criterio de diseño.
-          </p>
+        <div className="flex flex-col gap-3 w-full min-w-0">
+          <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px] break-words">Casos de estudio</h2>
+          <p className="text-[var(--text-secondary)] text-[16px] leading-7">Proyectos de diseño de producto que exploran problemas complejos con criterio, sistemas y documentación.</p>
         </div>
       </div>
-
-      {/* ── Proyectos principales ── */}
-      <div className="flex flex-col gap-6 w-full">
-        <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5">
-          Proyectos principales
-        </p>
-        <div className="flex flex-wrap gap-6">
-          {MAIN_PROJECTS.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
-        </div>
-      </div>
-
-      {/* Divider between grupos */}
-      <div className="w-full border-t border-[var(--border-default)]" />
-
-      {/* ── Trabajo seleccionado ── */}
-      <div className="flex flex-col gap-6 w-full">
-        <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5">
-          Trabajo seleccionado
-        </p>
-        <div className="flex flex-wrap gap-6">
-          {SELECTED_WORK.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-w-0">
+        {PROJECTS.map((project) => <ProjectCard key={project.id} project={project} />)}
       </div>
     </section>
   );

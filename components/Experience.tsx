@@ -9,42 +9,50 @@ interface ExperienceItem {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
+    date: "Ago — Sep 2026",
+    title: "Web Designer Fellow — No Country",
+    company: "No Country · Fellowship / voluntariado · experiencia profesional privada bajo NDA",
+    desc: "Integré el squad de Comunicación dentro de Sales & Marketing, trabajando en diseño web, componentes y documentación de entrega dentro del alcance asignado.",
+    accentTags: ["Fellowship", "Web Design"],
+    neutralTags: ["NDA"],
+  },
+  {
     date: "Abr — May 2026",
     title: "UX UI Designer — ChatCRM",
-    company: "No Country · Proyecto colaborativo con desarrollo",
-    desc: "CRM con pipeline visual kanban como pantalla principal y handoff como entregable primario para desarrollo.",
+    company: "No Country · Simulación laboral · equipo de 5 · único diseñador UX/UI",
+    desc: "Diseñé un concepto UX/UI para centralizar conversaciones y pipeline; personas, JTBD y oportunidad se presentan como hipótesis o síntesis de desk research.",
     accentTags: ["CRM", "Kanban"],
     neutralTags: ["Handoff"],
   },
   {
     date: "Feb — Mar 2026",
     title: "UX UI Designer — GardenAds",
-    company: "No Country · Proyecto colaborativo con desarrollo",
-    desc: "Propuesta SaaS de atribución con landing pública parcial, benchmark de 6 plataformas y handoff documentado.",
+    company: "No Country · Simulación laboral · único diseñador UX/UI",
+    desc: "Diseñé una propuesta de plataforma de tracking health con benchmark colaborativo de seis competidores, arquitectura y prototipos.",
     accentTags: ["Analytics", "SaaS B2B"],
     neutralTags: ["Dark"],
   },
   {
     date: "Nov — Dic 2025",
     title: "UX UI Designer — Multi-Brand DS",
-    company: "No Country · Equipo UX/UI y Product Design",
-    desc: "Design system multimarca: una librería y dos identidades (Academy / Kids), con una base compartida documentada.",
+    company: "No Country · Simulación laboral colaborativa · 1 de 4 UX/UI en equipo de 5",
+    desc: "Contribuí a una arquitectura de tokens compartida para Academy y Kids, con componentes, variantes, estados y documentación de handoff.",
     accentTags: ["DS", "Tokens"],
     neutralTags: ["EdTech"],
   },
   {
     date: "Sep — Oct 2025",
     title: "UX UI Designer — Fintech PYME",
-    company: "No Country · Proyecto colaborativo con desarrollo",
-    desc: "Plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
+    company: "No Country · Simulación laboral · único diseñador UX/UI",
+    desc: "Diseñé una plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
     accentTags: ["Fintech", "KYC"],
     neutralTags: ["RBAC"],
   },
   {
     date: "Jul — Oct 2025",
-    title: "UX UI Designer Jr — TrainiT",
-    company: "Programa TrainiT · Pasantía con equipo de desarrollo",
-    desc: "Herramienta de gestión de proyectos con Dashboard como entrada y Kanban y Backlog separados.",
+    title: "Junior UX/UI Designer — TrainiT",
+    company: "Programa TrainiT (PGT) · Pasantía/práctica formativa",
+    desc: "Lideré el workstream Grupo 1/UI Components durante sprints concretos, coordiné a dos diseñadoras y colaboré con el Design System del equipo.",
     accentTags: ["SaaS", "Kanban"],
     neutralTags: ["Gestión"],
   },
@@ -55,7 +63,7 @@ export default function Experience() {
     /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
     <section
       id="experiencia"
-      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]"
+      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)] min-w-0"
     >
       {/* ── Section header: gap/xs=8px outer, gap/sm=12px content ── */}
       <div className="flex flex-col gap-2 w-full">
@@ -67,10 +75,10 @@ export default function Experience() {
         </div>
         <div className="flex flex-col gap-3 w-full">
           <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Experiencia en proyectos colaborativos
+            Experiencia en producto y formación
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Experiencia en No Country y Programa TrainiT, con trabajo en equipos de diseño y desarrollo y metodologías ágiles.
+            Fellowship y simulaciones laborales de No Country, junto con práctica formativa en TrainiT, con atribución diferenciada por equipo y alcance.
           </p>
         </div>
       </div>
@@ -81,10 +89,10 @@ export default function Experience() {
           /* Item: flex gap/lg=24px, pb-inset/lg=24px, border-b */
           <div
             key={title}
-            className="flex gap-6 items-start pb-6 border-b border-[var(--border-default)]"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-6 items-start pb-6 border-b border-[var(--border-default)] min-w-0"
           >
             {/* Date — Label-S: 12px/600/16px/1px — tertiary, no-wrap */}
-            <span className="shrink-0 whitespace-nowrap text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-tertiary)]">
+            <span className="shrink-0 sm:whitespace-nowrap text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-tertiary)]">
               {date}
             </span>
 

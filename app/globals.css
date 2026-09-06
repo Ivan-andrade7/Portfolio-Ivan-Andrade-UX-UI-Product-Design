@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* ── Design tokens — Dark (default) ── */
@@ -24,9 +24,9 @@
   --focus-ring: rgba(20, 184, 166, 0.3);
   --card-gradient-0: rgba(2, 6, 23, 0);
   --card-gradient-1: rgba(2, 6, 23, 0.1);
-  --card-gradient-2: rgba(2, 6, 23, 0.3);
-  --card-gradient-3: rgba(2, 6, 23, 0.7);
-  --card-gradient-4: rgba(2, 6, 23, 0.9);
+  --card-gradient-2: rgba(2, 6, 23, 0.95);
+  --card-gradient-3: rgba(2, 6, 23, 1);
+  --card-gradient-4: rgba(2, 6, 23, 0.98);
 }
 
 /* ── Design tokens — Light ── */
@@ -48,9 +48,9 @@ html.light {
   --focus-ring: rgba(13, 148, 136, 0.3);
   --card-gradient-0: rgba(248, 250, 252, 0);
   --card-gradient-1: rgba(248, 250, 252, 0.1);
-  --card-gradient-2: rgba(248, 250, 252, 0.3);
-  --card-gradient-3: rgba(248, 250, 252, 0.7);
-  --card-gradient-4: rgba(248, 250, 252, 0.9);
+  --card-gradient-2: rgba(248, 250, 252, 1);
+  --card-gradient-3: rgba(248, 250, 252, 1);
+  --card-gradient-4: rgba(248, 250, 252, 1);
 }
 
 /* ── Additional tokens ── */
@@ -108,7 +108,7 @@ html.light {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 

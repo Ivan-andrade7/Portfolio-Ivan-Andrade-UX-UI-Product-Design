@@ -126,7 +126,7 @@ type FieldErrors = { name?: boolean; email?: boolean; message?: boolean };
 /* ── Links column ── */
 function LinksColumn() {
   return (
-    <div className="flex flex-col gap-6 flex-1 min-w-[320px]">
+    <div className="flex flex-col gap-6 flex-1 min-w-0 basis-full lg:basis-0">
       <div className="flex flex-col gap-3">
         <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">
           Otros canales
@@ -209,7 +209,7 @@ export default function Contact() {
   return (
     <section
       id="contactos"
-      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]"
+      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)] min-w-0"
     >
       {/* ── Section header ── */}
       <div className="flex flex-col gap-2 w-full">
@@ -231,14 +231,14 @@ export default function Contact() {
       </div>
 
       {/* ── Contact Row ── */}
-      <div className="flex flex-wrap gap-12 items-start w-full">
+      <div className="flex flex-wrap gap-12 items-start w-full min-w-0">
 
         {/* ── LEFT COLUMN: form ── */}
         <form
           onSubmit={handleSubmit}
           noValidate
           aria-describedby={banner ? "contact-validation" : undefined}
-          className="flex flex-col gap-4 flex-1 min-w-[320px]"
+          className="flex flex-col gap-4 flex-1 min-w-0 basis-full lg:basis-0"
         >
             {/* Nombre */}
             <div className="flex flex-col gap-2">
@@ -317,10 +317,14 @@ export default function Contact() {
             <button
               type="submit"
               className="flex items-center gap-3 h-12 px-4 py-3 rounded-lg shrink-0 w-fit bg-[var(--brand-primary)] text-[var(--text-inverse)] text-[14px] font-semibold leading-5 hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
+              aria-describedby="contact-mail-helper"
             >
               <Send size={20} aria-hidden />
-              Abrir cliente de correo
+              Preparar correo
             </button>
+            <p id="contact-mail-helper" className="max-w-md text-[12px] leading-5 text-[var(--text-tertiary)]">
+              Se abrirá un borrador prellenado en tu aplicación de correo. No se envía automáticamente.
+            </p>
         </form>
 
         {/* ── RIGHT COLUMN: always visible ── */}

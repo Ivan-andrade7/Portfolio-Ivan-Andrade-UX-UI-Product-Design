@@ -1,17 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ResilientImage from "@/components/ResilientImage";
 
 export interface ProjectImages {
-  /** Card width < 384px (equiv. Tailwind container breakpoint @sm) */
-  narrow: string;
-  /** Card width 384–448px (equiv. @sm–@md) */
-  medium: string;
-  /** Card width ≥ 448px (equiv. @md) */
-  wide: string;
+  /** Shared card-ready source used by every card at every responsive width. */
+  image: string;
 }
 
 export interface Project {
@@ -23,40 +19,14 @@ export interface Project {
   images: ProjectImages;
 }
 
-// Matches Tailwind's default container-query breakpoints (@sm / @md), so the
-// image variant depends on the card's own rendered width, not the viewport —
-// needed because a card can be full-width mid-layout (e.g. ChatCRM alone on
-// tablet) while its viewport-siblings are still paired.
-const NARROW_MAX = 384;
-const MEDIUM_MAX = 448;
-
-function pickVariant(width: number): keyof ProjectImages {
-  if (width < NARROW_MAX) return "narrow";
-  if (width < MEDIUM_MAX) return "medium";
-  return "wide";
-}
-
 export default function ProjectCard({ project }: { project: Project }) {
   const [active, setActive] = useState(false);
-  const containerRef = useRef<HTMLAnchorElement>(null);
-  const [variant, setVariant] = useState<keyof ProjectImages>("medium");
-
-  useEffect(() => {
-    const node = containerRef.current;
-    if (!node) return;
-    const observer = new ResizeObserver(([entry]) => {
-      setVariant(pickVariant(entry.contentRect.width));
-    });
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Link
       href={`/proyectos/${project.id}`}
-      ref={containerRef}
       aria-label={`Ver caso: ${project.title}`}
-      className="relative h-[460px] min-w-[340px] no-underline"
+      className="relative h-[460px] min-w-0 w-full no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
       style={{ flex: "1 0 0" }}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
@@ -66,12 +36,13 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Image layer */}
       <div className="absolute inset-0 rounded-xl overflow-hidden">
         <ResilientImage
-          src={project.images[variant]}
+          src={project.images.image}
           alt={project.title}
           fill
           className="object-cover transition-transform duration-300"
           style={{ transform: active ? "scale(1.03)" : "scale(1)" }}
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+           priority={project.id === "garden-ads"}
         />
       </div>
 
@@ -79,7 +50,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div
         className="absolute inset-0 flex flex-col gap-3 items-center justify-end p-6 rounded-xl border transition-all duration-200 cursor-pointer"
         style={{
-          backgroundImage: "linear-gradient(180deg, var(--card-gradient-0) 0%, var(--card-gradient-1) 50%, var(--card-gradient-3) 75%, var(--card-gradient-4) 100%)",
+          backgroundImage: "linear-gradient(180deg, var(--card-gradient-0) 0%, var(--card-gradient-1) 34%, var(--card-gradient-2) 52%, var(--card-gradient-3) 66%, var(--card-gradient-4) 100%)",
           borderColor: active ? "var(--border-interactive)" : "var(--border-default)",
           boxShadow: active ? "var(--shadow-card-hover)" : "var(--shadow-card)",
         }}
@@ -123,7 +94,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
         {/* Title */}
         <p
-          className="w-full text-[24px] font-semibold leading-8 tracking-[-1px] truncate text-left transition-colors duration-200"
+          className="w-full text-[24px] font-semibold leading-8 tracking-[-1px] line-clamp-2 text-left transition-colors duration-200"
           style={{ color: active ? "var(--text-accent)" : "var(--text-primary)" }}
         >
           {project.title}
