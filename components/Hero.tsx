@@ -6,7 +6,7 @@ type Stat =
   | { label: string; parts: { text: string; accent: boolean }[]; value?: never; accent?: never };
 
 const STATS: Stat[] = [
-  { value: "5", label: "Proyectos publicados", accent: false },
+  { value: "5", label: "casos publicados", accent: false },
   { value: "Sistemas", label: "de componentes y tokens documentados", accent: false },
   { value: "Accesibilidad", label: "criterios considerados en diseño", accent: true },
   { value: "UX/UI", label: "diseño de producto y sistemas", accent: false },
@@ -26,16 +26,16 @@ export default function Hero() {
             {/* Eyebrow */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0 self-center" />
-              <span className="text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px]">
-                Iván Andrade Product Designer · Buenos Aires, Argentina
+              <span className="min-w-0 break-words text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px]">
+                Soy Iván Andrade, Product Designer · Buenos Aires, Argentina
               </span>
               <span className="flex items-center gap-2 bg-[var(--brand-soft)] border border-[var(--border-interactive)] rounded-full px-3 py-2 h-8 shrink-0">
                 <span className="relative flex w-2 h-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--text-accent)] opacity-75" />
                   <span className="relative inline-flex rounded-full w-2 h-2 bg-[var(--text-accent)]" />
                 </span>
-                <span className="text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-                  Disponible para proyectos
+                <span className="min-w-0 text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px] text-center break-words sm:whitespace-nowrap">
+                  Abierto a oportunidades full-time y freelance
                 </span>
               </span>
             </div>

@@ -264,15 +264,21 @@ export default async function CaseStudyPage({
                 >
                   <SiBehance size={20} />
                 </a>
-                <a
-                  href={c.links.figma}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ver prototipo en Figma"
-                  className="flex items-center justify-center w-10 h-10 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] bg-transparent transition-colors hover:bg-[var(--brand-soft)]"
-                >
-                  <SiFigma size={20} />
-                </a>
+                {c.links.figma ? (
+                  <a
+                    href={c.links.figma}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver prototipo en Figma"
+                    className="flex items-center justify-center w-10 h-10 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] bg-transparent transition-colors hover:bg-[var(--brand-soft)]"
+                  >
+                    <SiFigma size={20} />
+                  </a>
+                ) : c.links.figmaNote ? (
+                  <span className="flex items-center max-w-xs px-3 py-2 rounded-lg border border-[var(--border-default)] text-[12px] leading-4 text-[var(--text-tertiary)]">
+                    Figma: {c.links.figmaNote}
+                  </span>
+                ) : null}
               </div>
             </div>
           </div>
