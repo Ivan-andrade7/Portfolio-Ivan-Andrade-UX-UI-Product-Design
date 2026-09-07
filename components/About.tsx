@@ -4,7 +4,7 @@ const VALUES = [
   {
     icon: <Component size={24} className="text-[var(--text-accent)]" />,
     title: "Sistemas sobre pantallas",
-    desc: "Construyo design systems que el equipo implementa sin ambigüedades.",
+    desc: "Construyo design systems con tokens, componentes y documentación que facilitan la colaboración con desarrollo.",
   },
   {
     icon: <CircleHelp size={24} className="text-[var(--text-accent)]" />,
@@ -14,7 +14,7 @@ const VALUES = [
   {
     icon: <Code2 size={24} className="text-[var(--text-accent)]" />,
     title: "Handoff sin fricción",
-    desc: "Tokens, especificaciones y documentación clara. El diseño no termina en Figma, termina en producción.",
+    desc: "Tokens, especificaciones y documentación clara para comunicar decisiones y preparar el handoff.",
   },
 ];
 
