@@ -14,13 +14,13 @@ const STATS: Stat[] = [
 
 export default function Hero() {
   return (
-    <section className="bg-[var(--bg-primary)] flex flex-col gap-8 items-center justify-center px-6 py-12 md:px-12 md:py-16 xl:px-24 xl:py-16 w-full overflow-hidden transition-colors duration-200">
+    <section className="bg-[var(--bg-primary)] flex flex-col gap-8 items-center justify-center px-6 py-12 md:px-12 md:py-16 xl:px-24 xl:py-16 w-full min-w-0 transition-colors duration-200">
 
       {/* ── Hero row ── */}
-      <div className="flex flex-col md:flex-row gap-12 items-center w-full">
+      <div className="flex flex-col md:flex-row gap-12 items-center w-full min-w-0">
 
         {/* Content */}
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="flex-1 min-w-0 w-full flex flex-col gap-6">
           <div className="flex flex-col gap-2">
 
             {/* Eyebrow */}
@@ -29,7 +29,7 @@ export default function Hero() {
               <span className="min-w-0 break-words text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px]">
                 Soy Iván Andrade, Product Designer · Buenos Aires, Argentina
               </span>
-              <span className="flex items-center gap-2 bg-[var(--brand-soft)] border border-[var(--border-interactive)] rounded-full px-3 py-2 h-8 shrink-0">
+              <span className="flex w-full sm:w-auto max-w-full items-center gap-2 bg-[var(--brand-soft)] border border-[var(--border-interactive)] rounded-full px-3 py-2 min-h-8">
                 <span className="relative flex w-2 h-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--text-accent)] opacity-75" />
                   <span className="relative inline-flex rounded-full w-2 h-2 bg-[var(--text-accent)]" />
@@ -42,7 +42,7 @@ export default function Hero() {
 
             {/* Heading + subtitle */}
             <div className="flex flex-col gap-3">
-              <h1 className="text-[var(--text-primary)] text-[32px] md:text-[40px] font-bold leading-[1.2] md:leading-[48px] tracking-[-2px]">
+              <h1 className="text-[var(--text-primary)] text-[30px] md:text-[40px] font-bold leading-[1.2] md:leading-[48px] tracking-[-1.5px] break-words">
                 Product Designer que transforma{" "}
                 <span className="text-[var(--highlight)]">complejidad operacional</span>
                 {" "}en sistemas claros y escalables.
@@ -111,11 +111,11 @@ export default function Hero() {
       </div>
 
       {/* ── Stats ── */}
-      <div className="flex flex-wrap gap-4 md:gap-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full min-w-0">
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col gap-2 bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-xl p-4 transition-colors cursor-default shrink-0"
+            className="flex min-w-0 flex-col gap-2 bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-xl p-4 transition-colors cursor-default"
           >
             {stat.parts ? (
               <span className="text-base font-normal leading-7">

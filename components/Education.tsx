@@ -114,7 +114,7 @@ export default function Education() {
     /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
     <section
       id="educacion"
-      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]"
+      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)] min-w-0"
     >
       {/* ── Section header: gap/xs=8px outer, no subtitle (per Figma) ── */}
       <div className="flex flex-col gap-2 w-full">
@@ -130,9 +130,9 @@ export default function Education() {
       </div>
 
       {/* ── Edu Row: 2 columns — gap/lg=24px ── */}
-      <div className="flex flex-wrap gap-6 items-start w-full">
+        <div className="flex flex-wrap gap-6 items-start w-full min-w-0">
         {/* Educación formal — gap/md=16px */}
-        <div className="flex flex-col gap-4 flex-1 min-w-[320px]">
+        <div className="flex flex-col gap-4 flex-1 min-w-0 basis-full lg:basis-0">
           <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">
             Educación formal
           </p>
@@ -142,7 +142,7 @@ export default function Education() {
         </div>
 
         {/* Certificaciones — gap/md=16px */}
-        <div className="flex flex-col gap-4 flex-1 min-w-[320px]">
+        <div className="flex flex-col gap-4 flex-1 min-w-0 basis-full lg:basis-0">
           <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">
             Certificaciones
           </p>

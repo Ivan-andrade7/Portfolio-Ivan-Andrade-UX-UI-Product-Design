@@ -93,7 +93,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · Sep–Oct 2025",
+      duracion: "5 semanas · 29 sep — 2 nov 2025",
       focoLabel: "Equipo",
       foco: "Simulación laboral · No Country",
       tools: "Figma · FigJam · Notion",
@@ -199,7 +199,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · Feb–Mar 2026",
+      duracion: "5 semanas · 26 ene — 7 mar 2026",
       focoLabel: "Contexto",
       foco: "Simulación laboral · No Country",
       tools: "Figma · FigJam · Notion",
@@ -314,7 +314,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · Mar–Abr 2026",
+      duracion: "5 semanas · 9 mar — 18 abr 2026",
       focoLabel: "Foco",
       foco: "Simulación laboral · equipo de 5 · No Country",
       tools: "Figma · FigJam",
@@ -414,7 +414,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "UX/UI Designer · 1 de 4 diseñadores UX/UI",
-      duracion: "5 semanas · Nov–Dic 2025",
+      duracion: "5 semanas · 10 nov — 14 dic 2025",
       focoLabel: "Foco",
       foco: "Simulación laboral colaborativa · equipo de 5",
       tools: "Figma · Variables",
@@ -527,7 +527,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Junior UX/UI Designer · líder del workstream Grupo 1/UI Components",
-      duracion: "23/06/2025–15/10/2025",
+      duracion: "23 jun — 15 oct 2025",
       focoLabel: "Foco",
       foco: "Pasantía/práctica formativa · Programa TrainiT (PGT)",
       tools: "Figma · FigJam",

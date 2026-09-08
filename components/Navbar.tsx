@@ -126,7 +126,7 @@ export default function Navbar() {
           <CommandMenuTrigger />
           <ThemeToggle isDark={isDark} toggle={toggle} />
           <a
-            href="/cv/CV_Ivan_Andrade.pdf"
+            href="/cv/Iván Andrade - Product Designer UX UI.pdf"
             download
             className="flex items-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
           >
@@ -207,7 +207,7 @@ export default function Navbar() {
             <div className="flex items-center gap-4 justify-center w-full">
               <ThemeToggle isDark={isDark} toggle={toggle} />
               <a
-                href="/cv/CV_Ivan_Andrade.pdf"
+                href="/cv/Iván Andrade - Product Designer UX UI.pdf"
                 download
                 className="flex flex-1 items-center justify-center gap-2 text-[14px] font-semibold leading-5 h-8 px-3 py-2 rounded-lg cursor-pointer bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
               >

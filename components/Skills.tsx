@@ -69,12 +69,12 @@ export default function Skills() {
       </div>
 
       {/* ── Skill groups: gap/lg=24px between cards ── */}
-      <div className="flex flex-wrap gap-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 w-full min-w-0">
         {SKILL_GROUPS.map(({ title, items }) => (
           /* Card: inset/lg=24px, radius/card=12px, gap/sm=12px, border-default */
           <div
             key={title}
-            className="flex flex-col gap-3 flex-1 min-w-[240px] p-6 rounded-xl border border-[var(--border-default)]"
+            className="flex min-w-0 flex-col gap-3 p-6 rounded-xl border border-[var(--border-default)]"
           >
             {/* Label-L: 14px/600/20px/0px — accent */}
             <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">

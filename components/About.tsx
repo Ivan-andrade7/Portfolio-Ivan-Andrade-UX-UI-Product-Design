@@ -23,7 +23,7 @@ export default function About() {
     /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
     <section
       id="sobre-mi"
-      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]"
+      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)] min-w-0"
     >
       {/* ── Section header: gap/xs=8px outer, gap/sm=12px content ── */}
       <div className="flex flex-col gap-2 w-full">
@@ -46,9 +46,9 @@ export default function About() {
       </div>
 
       {/* ── About Row: Bio + Diferencial card — gap/xxl=48px ── */}
-      <div className="flex flex-wrap gap-12 items-start w-full">
+        <div className="flex flex-wrap gap-12 items-start w-full min-w-0">
         {/* Bio — gap/md=16px between paragraphs */}
-        <div className="flex flex-col gap-4 flex-1 min-w-[320px] text-[16px] leading-7 text-[var(--text-secondary)]">
+        <div className="flex flex-col gap-4 flex-1 min-w-0 basis-full lg:basis-0 text-[16px] leading-7 text-[var(--text-secondary)]">
           <p>
             Soy{" "}
             <span className="text-[var(--text-accent)]">
@@ -69,7 +69,7 @@ export default function About() {
         </div>
 
         {/* Diferencial card — bg-secondary, border-interactive, gap/sm=12px, inset/lg=24px */}
-        <div className="flex flex-col gap-3 p-6 rounded-xl flex-1 min-w-[320px] bg-[var(--bg-secondary)] border border-[var(--border-interactive)]">
+        <div className="flex flex-col gap-3 p-6 rounded-xl flex-1 min-w-0 basis-full lg:basis-0 bg-[var(--bg-secondary)] border border-[var(--border-interactive)]">
           {/* Chip — bg-brand-soft, control=8px radius, no border (per Figma) */}
           <div className="p-2 rounded-lg bg-[var(--brand-soft)] shrink-0 self-start">
             <Shield size={24} className="text-[var(--text-accent)]" />
@@ -88,7 +88,7 @@ export default function About() {
       {/* ── Values — gap/lg=24px between items ── */}
       <div className="flex flex-wrap gap-6 w-full">
         {VALUES.map(({ icon, title, desc }) => (
-          <div key={title} className="flex flex-row gap-3 flex-1 min-w-[240px] items-start">
+          <div key={title} className="flex flex-row gap-3 flex-1 min-w-0 basis-full md:basis-0 items-start">
             {/* Icon chip — bg-brand-soft, border-accent, control=8px radius */}
             <div className="p-2 rounded-lg bg-[var(--brand-soft)] border border-[var(--text-accent)] shrink-0">
               {icon}

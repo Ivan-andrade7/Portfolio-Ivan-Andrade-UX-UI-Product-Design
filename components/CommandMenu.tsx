@@ -23,7 +23,7 @@ const ACTIONS: CommandAction[] = [
   { id: "trainit", label: "TrainiT — Gestión de Proyectos", category: "Casos de estudio", href: "/proyectos/trainit", tag: "Product Design" },
   { id: "copy-email", label: "Copiar correo de contacto", category: "Acciones", copy: "ivanandradeuxui@gmail.com", tag: "Email" },
   { id: "linkedin", label: "Abrir perfil de LinkedIn", category: "Enlaces", href: "https://www.linkedin.com/in/ivan-andrade-uxui/", external: true },
-  { id: "cv", label: "Descargar CV actualizado", category: "Acciones", href: "/cv/CV_Ivan_Andrade.pdf", tag: "PDF" },
+  { id: "cv", label: "Descargar CV actualizado", category: "Acciones", href: "/cv/Iván Andrade - Product Designer UX UI.pdf", tag: "PDF" },
 ];
 
 function openCommandMenu() {
@@ -240,4 +240,3 @@ export default function CommandMenu() {
     </>
   );
 }
-

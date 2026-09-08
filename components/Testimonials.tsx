@@ -1,4 +1,7 @@
-import { Quote, User } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Quote, User } from "lucide-react";
 
 function LinkedinIcon() {
   return (
@@ -30,9 +33,28 @@ const TESTIMONIALS = [
     role: "Desarrollador Frontend · No Country · 2026",
     linkedin: "https://www.linkedin.com/in/ivan-andrade-uxui/details/recommendations/",
   },
+  {
+    paragraphs: [
+      '“Iván participó en el No Country Fellowship como diseñador UX/UI en un contexto exigente: trabajar sobre un producto real con branding definido y mobile-first.”',
+      '“Lo que más valoro de su paso por el programa es su disposición a iterar y la coherencia que fue ganando su documentación.”',
+    ],
+    name: "Leandro",
+    role: "CEO · No Country · Fellowship",
+    linkedin: "https://www.linkedin.com/in/ivan-andrade-uxui/details/recommendations/",
+    linkedinLabel: "Ver recomendaciones en LinkedIn",
+    authorUrl: "https://www.linkedin.com/in/leandrobuzeta/",
+    orgUrl: "https://www.linkedin.com/company/nocountrytalent/home/",
+  },
 ];
 
 export default function Testimonials() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeTestimonial = TESTIMONIALS[activeIndex];
+
+  const move = (direction: -1 | 1) => {
+    setActiveIndex((current) => (current + direction + TESTIMONIALS.length) % TESTIMONIALS.length);
+  };
+
   return (
     /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
     <section className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]">
@@ -49,23 +71,30 @@ export default function Testimonials() {
         </h2>
       </div>
 
-      {/* ── Cards row: gap/lg=24px ── */}
-      <div className="flex flex-wrap gap-6 items-start w-full">
-        {TESTIMONIALS.map(({ paragraphs, name, role, linkedin }) => (
-          /* Card
-             Default: border-default, shadow-xs
-             Hover:   border-interactive   ← per Figma 246:1918 */
-          <div
-            key={name}
-            className="flex flex-col gap-3 p-6 rounded-xl flex-1 min-w-[320px] bg-[var(--bg-primary)] border border-[var(--border-default)] hover:border-[var(--border-interactive)] transition-colors duration-150 cursor-default"
-            style={{ boxShadow: "var(--shadow-card)" }}
-          >
+      <div
+        className="flex flex-col gap-6 w-full min-w-0"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Recomendaciones del equipo"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === "ArrowLeft") move(-1);
+          if (event.key === "ArrowRight") move(1);
+        }}
+      >
+        {/* ── Single recommendation card ── */}
+        <div
+          key={activeTestimonial.name}
+          className="flex min-w-0 flex-col gap-3 p-6 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-default)] hover:border-[var(--border-interactive)] transition-colors duration-150 cursor-default"
+          style={{ boxShadow: "var(--shadow-card)" }}
+          aria-live="polite"
+        >
             {/* Quote icon — 20px accent */}
             <Quote size={20} className="text-[var(--text-accent)] shrink-0" />
 
             {/* Body-M: 16px/400/28px — secondary */}
             <div className="flex flex-col text-[var(--text-secondary)] text-[16px] leading-7">
-              {paragraphs.map((p, i) => (
+              {activeTestimonial.paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
@@ -82,27 +111,62 @@ export default function Testimonials() {
                 </div>
                 {/* Name + role — gap/xs=8px */}
                 <div className="flex flex-col flex-1 min-w-0 gap-2">
-                  <span className="text-[var(--text-primary)] text-[14px] font-semibold leading-5">
-                    {name}
-                  </span>
+                  {activeTestimonial.authorUrl ? (
+                    <a href={activeTestimonial.authorUrl} target="_blank" rel="noopener noreferrer" className="text-[var(--text-primary)] text-[14px] font-semibold leading-5 hover:text-[var(--text-accent)] transition-colors">
+                      {activeTestimonial.name}
+                    </a>
+                  ) : (
+                    <span className="text-[var(--text-primary)] text-[14px] font-semibold leading-5">
+                      {activeTestimonial.name}
+                    </span>
+                  )}
                   <span className="text-[var(--text-tertiary)] text-[12px] font-semibold leading-4 tracking-[1px]">
-                    {role}
+                    {activeTestimonial.orgUrl ? <a href={activeTestimonial.orgUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-accent)] transition-colors">{activeTestimonial.role}</a> : activeTestimonial.role}
                   </span>
                 </div>
               </div>
               {/* LinkedIn — enlace con texto, no URL cruda */}
-              <a
-                href={linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 w-fit text-[var(--text-accent)] text-[14px] font-semibold leading-5 hover:opacity-80 transition-opacity"
-              >
-                <LinkedinIcon />
-                Ver recomendación en LinkedIn
-              </a>
+              {activeTestimonial.linkedin ? (
+                <a
+                  href={activeTestimonial.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 w-fit text-[var(--text-accent)] text-[14px] font-semibold leading-5 hover:opacity-80 transition-opacity"
+                >
+                  <LinkedinIcon />
+                  {activeTestimonial.linkedinLabel ?? "Ver recomendación en LinkedIn"}
+                </a>
+              ) : (
+                <span className="text-[var(--text-tertiary)] text-[12px] leading-5">
+                  Recomendación recibida · perfil público de Leandro
+                </span>
+              )}
             </div>
+        </div>
+
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2" role="tablist" aria-label="Seleccionar recomendación">
+            {TESTIMONIALS.map((testimonial, index) => (
+              <button
+                key={testimonial.name}
+                type="button"
+                role="tab"
+                aria-selected={index === activeIndex}
+                aria-label={`Mostrar recomendación de ${testimonial.name}`}
+                className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-6 bg-[var(--text-accent)]" : "w-2 bg-[var(--border-interactive)]"}`}
+                onClick={() => setActiveIndex(index)}
+              />
+            ))}
           </div>
-        ))}
+          <div className="flex items-center gap-2">
+            <button type="button" onClick={() => move(-1)} aria-label="Recomendación anterior" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-secondary)] hover:border-[var(--border-interactive)] hover:text-[var(--text-accent)] transition-colors">
+              <ChevronLeft size={18} />
+            </button>
+            <button type="button" onClick={() => move(1)} aria-label="Siguiente recomendación" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-secondary)] hover:border-[var(--border-interactive)] hover:text-[var(--text-accent)] transition-colors">
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

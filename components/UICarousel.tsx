@@ -246,7 +246,7 @@ export default function UICarousel({
       {/* Aviso discreto opcional. */}
       {note && (
         <div
-          className="flex items-center gap-2 px-4 py-3 rounded-lg border text-[14px] leading-5"
+          className="flex items-start gap-2 px-4 py-3 rounded-lg border text-[14px] leading-5 min-w-0"
           style={{
             background: "var(--feedback-info-bg)",
             borderColor: "var(--feedback-info-border)",
@@ -254,7 +254,7 @@ export default function UICarousel({
           }}
         >
           <Info size={16} className="shrink-0" />
-          <span>{note}</span>
+          <span className="min-w-0 break-words">{note}</span>
         </div>
       )}
 

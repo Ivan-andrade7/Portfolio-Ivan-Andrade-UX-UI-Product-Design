@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
     title: "TrainiT — Gestión de Proyectos",
     tags: ["Pasantía formativa", "SaaS", "Kanban"],
     longDesc: "Pasantía/práctica formativa del Programa TrainiT: trabajo en el workstream Grupo 1/UI Components.",
-    role: "Junior UX/UI Designer · 23/06–15/10/2025",
+    role: "Junior UX/UI Designer · 23 jun — 15 oct 2025",
     images: { image: "/projects/trainit-card-square.webp" },
   },
 ];

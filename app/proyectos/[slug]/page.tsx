@@ -64,15 +64,15 @@ function SectionHeader({
   subtitle?: string;
 }) {
   return (
-    <div className="flex flex-col gap-2 w-full">
-      <div className="flex items-center gap-2 h-4">
+    <div className="flex flex-col gap-2 w-full min-w-0">
+      <div className="flex items-center gap-2 min-h-4">
         <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-        <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)] whitespace-nowrap">
+        <span className="min-w-0 break-words text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">
           {eyebrow}
         </span>
       </div>
       <div className="flex flex-col gap-3 w-full">
-        <h2 className="text-[32px] font-bold leading-10 tracking-[-1.5px] text-[var(--text-primary)] w-full">
+        <h2 className="text-[30px] sm:text-[32px] font-bold leading-10 tracking-[-1.5px] text-[var(--text-primary)] w-full break-words">
           {heading}
         </h2>
         {subtitle && (
@@ -168,7 +168,7 @@ function NavCard({
   return (
     <Link
       href={`/proyectos/${item.slug}`}
-      className="group relative flex-1 flex flex-col gap-2 px-4 py-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-secondary)] hover:bg-[var(--surface-secondary)] active:bg-[var(--surface-secondary)] transition-colors duration-200 overflow-hidden"
+      className="group relative flex-1 min-w-0 flex flex-col gap-2 px-4 py-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-secondary)] hover:bg-[var(--surface-secondary)] active:bg-[var(--surface-secondary)] transition-colors duration-200 overflow-hidden"
     >
       {/* Direction label + icon */}
       <div className={`flex items-center gap-2 ${isPrev ? "" : "justify-end"}`}>
@@ -205,6 +205,7 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const c = getCaseBySlug(slug);
   if (!c) notFound();
+  const needsBackLinkContrast = c.slug === "crm" || c.slug === "trainit";
 
   return (
     <>
@@ -212,7 +213,7 @@ export default async function CaseStudyPage({
       <main className="bg-[var(--bg-primary)]">
 
         {/* ── Hero — Figma 349:55 (desktop) / 593:3011 (tablet) / 659:3011 (mobile) ── */}
-        <div className="relative w-full min-h-[480px] md:min-h-[560px]">
+        <div className="relative w-full min-w-0 min-h-[480px] md:min-h-[560px]">
           {c.heroImages ? (
             <picture className="absolute inset-0 size-full">
               <source media="(min-width: 1024px)" srcSet={c.heroImages.desktop} />
@@ -231,21 +232,21 @@ export default async function CaseStudyPage({
             {/* Ghost button MD — Figma 198:253 */}
             <Link
               href="/#proyectos"
-              className="inline-flex items-center gap-3 h-10 px-4 py-3 rounded-lg w-fit text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-secondary)]"
+              className={`inline-flex items-center gap-3 h-10 px-4 py-3 rounded-lg w-fit text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-secondary)] ${needsBackLinkContrast ? "bg-[var(--bg-primary)]/75 backdrop-blur-sm shadow-sm" : ""}`}
             >
               <ArrowLeft size={20} />
               <span className="text-[14px] font-semibold leading-5">Volver al portfolio</span>
             </Link>
 
             {/* Bottom content */}
-            <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col gap-4 w-full min-w-0">
               <div className="flex flex-wrap gap-2">
                 {c.tags.map((tag, i) => (
                   <TagChip key={tag} label={tag} accent={i === 0} />
                 ))}
               </div>
 
-              <h1 className="text-[40px] md:text-[56px] font-bold leading-[1.14] tracking-[-2px] text-[var(--text-primary)] w-full">
+          <h1 className="text-[34px] sm:text-[40px] md:text-[56px] font-bold leading-[1.14] tracking-[-1.5px] md:tracking-[-2px] text-[var(--text-primary)] w-full min-w-0 break-words">
                 {c.title}
               </h1>
 
@@ -290,16 +291,16 @@ export default async function CaseStudyPage({
           {/* Overview */}
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
             <SectionHeader eyebrow="Overview" heading="Contexto del proyecto" />
-            <div className="flex flex-wrap gap-[48px] pt-4 w-full">
+            <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 w-full min-w-0">
               {[
                 { label: "Rol", value: c.context.rol },
                 { label: "Duración", value: c.context.duracion },
                 { label: c.context.focoLabel, value: c.context.foco },
                 { label: "Tools", value: c.context.tools },
               ].map(({ label, value }) => (
-                <div key={label} className="flex flex-col gap-1 shrink-0">
+                <div key={label} className="flex min-w-0 flex-col gap-1">
                   <p className="text-[14px] leading-6 text-[var(--text-tertiary)]">{label}</p>
-                  <p className="text-[14px] font-semibold leading-5 text-[var(--text-primary)]">{value}</p>
+                  <p className="text-[14px] font-semibold leading-5 text-[var(--text-primary)] break-words">{value}</p>
                 </div>
               ))}
             </div>
@@ -384,17 +385,17 @@ export default async function CaseStudyPage({
           </section>
 
           {/* Selección de UI */}
-          <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
-            <SectionHeader eyebrow="Pantallas" heading="Selección de UI" />
-            {c.pantallas && (
+          {c.pantallas && (
+            <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
+              <SectionHeader eyebrow="Pantallas" heading="Selección de UI" />
               <UICarousel
                 screens={c.pantallas}
                 title={c.title}
                 note={c.galleryNote}
                 galleryAspect={c.galleryAspect}
               />
-            )}
-          </section>
+            </section>
+          )}
 
           {/* Design System (opcional) */}
           {c.designSystem && (
@@ -427,7 +428,7 @@ export default async function CaseStudyPage({
           {/* Datos del proyecto — métricas de contexto, no resultados de negocio */}
           <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
             <SectionHeader eyebrow="Datos del proyecto" heading="Contexto y alcance" />
-            <div className="flex flex-wrap gap-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full min-w-0">
               {c.metrics.map((m) => (
                 <MetricCard key={m.label} value={m.value} label={m.label} />
               ))}
@@ -441,9 +442,9 @@ export default async function CaseStudyPage({
           </section>
 
           {/* Navegación prev / next */}
-          <div className="flex gap-4 py-16">
-            {c.prev ? <NavCard item={c.prev} direction="prev" /> : <div className="flex-1" />}
-            {c.next ? <NavCard item={c.next} direction="next" /> : <div className="flex-1" />}
+          <div className="flex flex-col sm:flex-row gap-4 py-16 min-w-0">
+            {c.prev ? <NavCard item={c.prev} direction="prev" /> : <div className="hidden sm:block flex-1" />}
+            {c.next ? <NavCard item={c.next} direction="next" /> : <div className="hidden sm:block flex-1" />}
           </div>
         </div>
       </main>
