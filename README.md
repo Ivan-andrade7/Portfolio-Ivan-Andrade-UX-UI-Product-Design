@@ -31,4 +31,15 @@ La estrategia, evidencia, narrativa y criterios de publicación se mantienen en 
 
 `C:/Users/Ivan/OneDrive/Documentos/ChatGPT/Portfolio`
 
+## Continuidad
+
+Para retomar el trabajo desde otra computadora, leer en este orden:
+
+1. `AGENTS.md` y `README.md` de la carpeta canónica.
+2. `contexto.md`, que contiene el índice y el handoff operativo vigente.
+3. `AUDITORIA-PORTFOLIO-COMPLETA.md`, que conserva el detalle de auditorías, decisiones y pendientes.
+4. Notion, para evidencia, atribución, autorizaciones y estados durables.
+
+El código y los textos publicados son canónicos en este repositorio. No existe un `contexto.md` local a propósito: no se duplican los documentos de Portfolio.
+
 AtlasOne es un caso académico de curso y no forma parte del portfolio profesional.

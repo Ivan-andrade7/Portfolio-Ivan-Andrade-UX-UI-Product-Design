@@ -410,7 +410,7 @@ export const CASES: CaseStudy[] = [
     subtitle: "Arquitectura compartida para dos marcas de una plataforma EdTech.",
     links: {
       behance: "https://www.behance.net/gallery/240712809/Multi-Brand-Design-System",
-      figmaNote: "URL canónica pendiente de verificación entre las referencias documentadas.",
+      figma: "https://www.figma.com/design/1jHTtZiRuYJM2cG5mtoEG3/Multi-Brand-Design-System-%E2%80%94-EdTech",
     },
     context: {
       rol: "UX/UI Designer · 1 de 4 diseñadores UX/UI",
@@ -523,7 +523,7 @@ export const CASES: CaseStudy[] = [
     subtitle: "Flujos de gestión de proyectos documentados durante una práctica formativa.",
     links: {
       behance: "https://www.behance.net/gallery/240653385/TrainiT-PGT-%28Plataforma-de-Gestion-de-Proyectos%29",
-      figmaNote: "URL canónica pendiente de verificación entre las referencias documentadas.",
+      figma: "https://www.figma.com/design/mRTUkA0fo9kmxB94q6y57N/TrainiT-%E2%80%94-Gesti%C3%B3n-de-Proyectos",
     },
     context: {
       rol: "Junior UX/UI Designer · líder del workstream Grupo 1/UI Components",

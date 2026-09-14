@@ -4,6 +4,10 @@ interface ExperienceItem {
   title: string;
   company: string;
   desc: string;
+  link?: {
+    href: string;
+    label: string;
+  };
   accentTags: string[];
   neutralTags: string[];
 }
@@ -12,11 +16,15 @@ const EXPERIENCES: ExperienceItem[] = [
   {
     date: "3 ago — 31 ago 2026",
     dateExact: "03/08/2026–31/08/2026",
-    title: "Web Designer Fellow — No Country",
-    company: "No Country · Fellowship / voluntariado · experiencia profesional privada bajo NDA",
-    desc: "Participé en un proyecto profesional de diseño web del área Comunicación / Sales & Marketing, en coordinación con desarrollo. Entregables y detalles del proyecto protegidos por NDA.",
+    title: "Web Designer — Fellowship — No Country",
+    company: "Experiencia profesional/formativa · Remoto",
+    desc: "Trabajé en el diseño y la documentación de una landing mobile-first para el área de Comunicación / Sales & Marketing, con branding definido y en coordinación continua con desarrollo.",
+    link: {
+      href: "https://www.figma.com/design/amDM45xs0St1MQU40tfl0f/Landing---Empresa--%3E-Busca-talento?node-id=69-32&p=f",
+      label: "Ver trabajo autorizado en Figma",
+    },
     accentTags: ["Fellowship", "Web Design"],
-    neutralTags: ["NDA"],
+    neutralTags: ["Mobile-first"],
   },
   {
     date: "9 mar — 18 abr 2026",
@@ -87,7 +95,7 @@ export default function Experience() {
 
       {/* ── Exp list: gap/lg=24px between items ── */}
       <div className="flex flex-col gap-6 w-full">
-        {EXPERIENCES.map(({ date, dateExact, title, company, desc, accentTags, neutralTags }) => (
+        {EXPERIENCES.map(({ date, dateExact, title, company, desc, link, accentTags, neutralTags }) => (
           /* Item: flex gap/lg=24px, pb-inset/lg=24px, border-b */
           <div
             key={title}
@@ -114,6 +122,18 @@ export default function Experience() {
               <p className="text-[var(--text-secondary)] text-[14px] leading-6">
                 {desc}
               </p>
+
+              {link ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 text-[var(--text-accent)] text-[14px] font-semibold leading-5 underline decoration-1 underline-offset-4 hover:opacity-80 transition-opacity"
+                >
+                  {link.label}
+                  <span aria-hidden>↗</span>
+                </a>
+              ) : null}
 
               {/* Tags — gap/xs=8px */}
               <div className="flex flex-wrap gap-2">

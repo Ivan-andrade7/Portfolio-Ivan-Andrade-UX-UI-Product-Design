@@ -35,11 +35,13 @@ const TESTIMONIALS = [
   },
   {
     paragraphs: [
-      '“Iván participó en el No Country Fellowship como diseñador UX/UI en un contexto exigente: trabajar sobre un producto real con branding definido y mobile-first.”',
-      '“Lo que más valoro de su paso por el programa es su disposición a iterar y la coherencia que fue ganando su documentación.”',
+      '“Iván participó en el No Country Fellowship como diseñador UX/UI en un contexto exigente: trabajar sobre un producto real con branding definido, mobile-first, y aprendiendo el modelo de negocio en paralelo.',
+      'Lo que más valoro de su paso por el programa es su disposición a iterar. Cada semana los wireframes mejoraron, la documentación ganó coherencia y la integración con el equipo de desarrollo avanzó notablemente, algo que no es fácil de lograr cuando diseño y desarrollo trabajan en paralelo sobre el mismo producto.',
+      'Tiene buena sensibilidad para los layouts y para adaptar estilos de diseño rápidamente. Su próximo paso es profundizar en la atención al detalle y en pensar en opcionalidades cuando falta información, dos habilidades que se desarrollan con práctica y que van a hacer la diferencia en su carrera.',
+      'Iván tiene potencial real en UX/UI. Con más tiempo y continuidad, estoy seguro de que habría entregado trabajo muy sólido.”',
     ],
-    name: "Leandro",
-    role: "CEO · No Country · Fellowship",
+    name: "Leandro Buzeta",
+    role: "CEO · No Country",
     linkedin: "https://www.linkedin.com/in/ivan-andrade-uxui/details/recommendations/",
     linkedinLabel: "Ver recomendaciones en LinkedIn",
     authorUrl: "https://www.linkedin.com/in/leandrobuzeta/",
@@ -93,7 +95,7 @@ export default function Testimonials() {
             <Quote size={20} className="text-[var(--text-accent)] shrink-0" />
 
             {/* Body-M: 16px/400/28px — secondary */}
-            <div className="flex flex-col text-[var(--text-secondary)] text-[16px] leading-7">
+            <div className="flex flex-col gap-4 text-[var(--text-secondary)] text-[16px] leading-7">
               {activeTestimonial.paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
