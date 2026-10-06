@@ -124,7 +124,7 @@ function DecisionBlock({
           <p className="flex-1 min-w-0 text-[var(--text-secondary)]">{decision.motivo}</p>
         </div>
         <div className="flex gap-3 items-start text-[20px] leading-8">
-          <span className="shrink-0 whitespace-nowrap text-[var(--text-tertiary)]">Impacto</span>
+          <span className="shrink-0 whitespace-nowrap text-[var(--text-tertiary)]">Efecto buscado</span>
           <p className="flex-1 min-w-0 text-[var(--text-secondary)]">{decision.impacto}</p>
         </div>
         {decision.tradeoff && (
@@ -341,7 +341,7 @@ export default async function CaseStudyPage({
 
           {(c.users || c.outcome) && (
             <section className="flex flex-col gap-8 py-16 border-b border-[var(--border-default)]">
-              <SectionHeader eyebrow="Lectura del caso" heading="Personas y resultado" />
+              <SectionHeader eyebrow="Lectura del caso" heading="Personas y entregables" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {c.users && (
                   <div className="flex flex-col gap-3 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">

@@ -192,22 +192,22 @@ export const CASES: CaseStudy[] = [
     tags: ["Analytics SaaS", "Analytics", "2026"],
     title: "GardenAds — Attribution & Tracking Health",
     subtitle:
-      "Una plataforma SaaS para detectar fallos de tracking antes de que afecten la atribución.",
+      "Una propuesta SaaS para hacer visible la salud del tracking y anticipar fallos que podrían afectar la atribución.",
     links: {
       figma: "https://www.figma.com/design/8SMwklByslExRkjFk8P9U2",
       behance: "https://www.behance.net/gallery/245704303/GardenAds-Attribution-Tracking-Health-Platform",
     },
     context: {
       rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · 26 ene — 7 mar 2026",
+      duracion: "5 semanas · 2026",
       focoLabel: "Contexto",
       foco: "Simulación laboral · No Country",
-      tools: "Figma · FigJam · Notion",
+      tools: "Figma · FigJam · Canopy DS",
     },
     description:
       "En GardenAds participé en una simulación laboral de No Country y diseñé una propuesta de plataforma analytics B2B SaaS para equipos que necesitan entender el estado de su tracking. Presento el trabajo a partir de la documentación y las capturas de interfaz disponibles.",
     notice:
-      "Simulación laboral de No Country. Fui el único diseñador UX/UI dentro del equipo; documento entregables de diseño y prototipos, no una plataforma implementada ni resultados de negocio.",
+      "Simulación laboral de No Country. Fui el único diseñador UX/UI dentro del equipo; documento entregables de diseño y prototipos, no una plataforma implementada ni resultados de negocio. Las cifras, testimonios y estados visibles en la interfaz son escenarios ficticios.",
     attribution: {
       responsibility: "Benchmark y diseño de la propuesta de producto, con foco en Tracking Health.",
       collaboration: "Simulación laboral de No Country con colaboración multidisciplinaria.",
@@ -233,7 +233,7 @@ export const CASES: CaseStudy[] = [
         id: "01",
         title: "Tracking Health como funcionalidad central del MVP",
         motivo:
-          "El benchmark revisó 6 plataformas y no documentó una funcionalidad equivalente con el mismo enfoque.",
+          "El benchmark colaborativo revisó seis plataformas y abrió la hipótesis de un diagnóstico proactivo centrado en la salud del tracking.",
         impacto:
           "Propone alertas proactivas de anomalías antes de que el problema avance.",
         tradeoff: "Prioriza diagnóstico y prevención antes que sumar otra vista de reporting histórico.",
@@ -242,8 +242,8 @@ export const CASES: CaseStudy[] = [
         id: "02",
         title: "Cada rol arranca en una vista personalizada, no en un dashboard genérico",
         motivo:
-          "Los 6 arquetipos (Marketing Manager, Founder, Sales Ops, Data Analyst, Admin, Developer) tienen necesidades muy distintas.",
-        impacto: "Relevancia inmediata y menos fricción: cada usuario ve primero lo que le importa.",
+          "El alcance documentó seis perfiles —Marketing Manager, Founder, Sales Ops, Data Analyst, Admin y Developer— con prioridades de información propuestas para cada rol.",
+        impacto: "Organiza la información inicial según el rol en lugar de concentrarla en una única vista genérica.",
         tradeoff: "Aumenta la complejidad de la arquitectura, pero evita un dashboard genérico para todos.",
       },
       {
@@ -291,7 +291,7 @@ export const CASES: CaseStudy[] = [
       { value: "5", label: "semanas de trabajo" },
     ],
     reflection:
-      "El feature diferencial surgió del análisis competitivo, no de la intuición: sin revisar 6 plataformas a fondo nunca habría detectado el gap. Y diseñar para múltiples roles exige reflejar la arquitectura de permisos antes de abrir Figma —no después.",
+      "El benchmark colaborativo abrió la hipótesis de Tracking Health como eje del producto. También aprendí que, al diseñar para varios perfiles, conviene definir temprano la arquitectura de información y los permisos para que las pantallas respondan a un modelo coherente.",
     prev: {
       slug: "fintech",
       title: "Fintech PYME — Plataforma de Créditos B2B",

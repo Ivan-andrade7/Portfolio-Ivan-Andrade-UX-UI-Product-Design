@@ -35,7 +35,7 @@ const EXPERIENCES: ExperienceItem[] = [
     neutralTags: ["Handoff"],
   },
   {
-    date: "26 ene — 7 mar 2026",
+    date: "5 semanas · 2026",
     title: "UX UI Designer — GardenAds",
     company: "No Country · Simulación laboral · único diseñador UX/UI",
     desc: "Diseñé una propuesta de plataforma de tracking health con benchmark colaborativo de seis competidores, arquitectura y prototipos.",
