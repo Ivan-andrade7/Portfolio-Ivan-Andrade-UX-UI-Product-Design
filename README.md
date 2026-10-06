@@ -1,6 +1,6 @@
 # Portfolio 2026 — Iván Andrade
 
-Sitio estático del portfolio profesional de Iván Andrade, Product Designer UX/UI especializado en SaaS B2B, Fintech, Analytics Dashboards y Design Systems.
+Sitio estático del portfolio profesional de Iván Andrade, UX/UI Designer y Product Designer con IA aplicada al proceso de diseño.
 
 ## Desarrollo
 

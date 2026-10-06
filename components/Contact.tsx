@@ -221,11 +221,11 @@ export default function Contact() {
         </div>
         <div className="flex flex-col gap-3 w-full">
           <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Hablemos sobre{" "}
-            <span className="text-[var(--text-accent)]">tu proyecto</span>
+            Hablemos sobre una{" "}
+            <span className="text-[var(--text-accent)]">oportunidad</span>
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Disponible para roles full-time remotos, proyectos freelance y colaboraciones. Escribime y coordinamos.
+            Estoy buscando incorporarme a un equipo de diseño en una posición full-time. Escribime y coordinamos una conversación.
           </p>
         </div>
       </div>
@@ -295,7 +295,7 @@ export default function Contact() {
               </label>
               <textarea
                 id="contact-message"
-                placeholder="Contame sobre tu proyecto"
+                placeholder="Contame sobre la oportunidad"
                 value={message}
                 aria-invalid={errors.message || undefined}
                 aria-describedby={errors.message ? "contact-message-error" : undefined}

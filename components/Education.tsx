@@ -18,18 +18,6 @@ const FORMAL: EduItem[] = [
     status: "Cursando",
     date: "Abr 2026 — Presente",
   },
-  {
-    title: "Tecnicatura en Seguridad Pública",
-    institution: "Formación terciaria",
-    status: "Completado",
-    date: "2018 — 2019",
-  },
-  {
-    title: "Bachillerato en Ciencias Sociales",
-    institution: "Educación secundaria",
-    status: "Completado",
-    date: "2012 — 2017",
-  },
 ];
 
 const CERTS: EduItem[] = [

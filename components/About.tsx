@@ -40,7 +40,7 @@ export default function About() {
             Una cabeza de sistemas aplicada al diseño
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Una mirada particular sobre la claridad, la prevención de errores y la confianza en interfaces de alta fricción.
+            Diseño experiencias claras, consistentes y preparadas para evolucionar junto al producto.
           </p>
         </div>
       </div>
@@ -52,19 +52,17 @@ export default function About() {
           <p>
             Soy{" "}
             <span className="text-[var(--text-accent)]">
-              Product Designer orientado a plataformas operacionales complejas
+              UX/UI Designer y Product Designer orientado a productos digitales
             </span>
             . Diseño end-to-end: desde la arquitectura de información y los flujos de usuario hasta los componentes, los tokens y el handoff a desarrollo.
           </p>
           <p>
-            Trabajo principalmente en{" "}
-            <span className="text-[var(--text-accent)]">SaaS B2B, Fintech y herramientas data-heavy</span>
-            {" "}donde la claridad y la escalabilidad son tan importantes como la estética. No diseño para que se vea bien. Diseño para que funcione bien y se entienda mejor.
+            Mi experiencia práctica incluye{" "}
+            <span className="text-[var(--text-accent)]">SaaS, fintech, EdTech, CRM y herramientas operativas</span>
+            , pero mi perfil no está limitado a una industria. Me interesa resolver problemas reales con interfaces claras, accesibles y consistentes.
           </p>
           <p>
-            Trabajo con una forma de pensar poco común para el diseño: foco en la confianza del usuario, prevención de errores y claridad en situaciones de alta presión. Eso es justo lo que necesitan los entornos donde el error se paga caro —{" "}
-            <span className="text-[var(--text-accent)]">fintech, SaaS B2B, herramientas data-heavy</span>
-            .
+            Actualmente curso una diplomatura en IA aplicada y la integro a mi proceso para investigar, explorar alternativas, sintetizar información, documentar y acelerar la ejecución, siempre con revisión y criterio de diseño.
           </p>
         </div>
 
@@ -80,7 +78,7 @@ export default function About() {
           </h3>
           {/* Body-M: 16px/400/28px */}
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Rigor documental, calma bajo presión y la costumbre de anticipar el error antes de que pase. Además de diseñar, programé este mismo portfolio (Claude Code, Git, Vercel), así que entiendo el lado técnico y colaboro de cerca con desarrollo.
+            Combino pensamiento sistémico, documentación y cercanía con desarrollo. Implementé este portfolio con Codex, Git y Vercel, una experiencia que me ayudó a mejorar el handoff y a entender mejor cómo las decisiones de diseño llegan a producción.
           </p>
         </div>
       </div>

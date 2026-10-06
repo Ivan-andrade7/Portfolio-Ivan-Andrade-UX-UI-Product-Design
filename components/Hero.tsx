@@ -27,7 +27,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-2">
               <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0 self-center" />
               <span className="min-w-0 break-words text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px]">
-                Soy Iván Andrade, Product Designer · Buenos Aires, Argentina
+                Soy Iván Andrade · UX/UI Designer · Product Design · IA aplicada al diseño
               </span>
               <span className="flex w-full sm:w-auto max-w-full items-center gap-2 bg-[var(--brand-soft)] border border-[var(--border-interactive)] rounded-full px-3 py-2 min-h-8">
                 <span className="relative flex w-2 h-2 shrink-0">
@@ -35,7 +35,7 @@ export default function Hero() {
                   <span className="relative inline-flex rounded-full w-2 h-2 bg-[var(--text-accent)]" />
                 </span>
                 <span className="min-w-0 text-[var(--text-accent)] text-xs font-semibold leading-4 tracking-[1px] text-center break-words sm:whitespace-nowrap">
-                  Abierto a oportunidades full-time y freelance
+                  Abierto a oportunidades full-time
                 </span>
               </span>
             </div>
@@ -43,13 +43,13 @@ export default function Hero() {
             {/* Heading + subtitle */}
             <div className="flex flex-col gap-3">
               <h1 className="text-[var(--text-primary)] text-[30px] md:text-[40px] font-bold leading-[1.2] md:leading-[48px] tracking-[-1.5px] break-words">
-                Product Designer que transforma{" "}
-                <span className="text-[var(--highlight)]">complejidad operacional</span>
-                {" "}en sistemas claros y escalables.
+                Transformo problemas complejos en{" "}
+                <span className="text-[var(--highlight)]">experiencias digitales claras</span>
+                {" "}y consistentes.
               </h1>
               <p className="text-[var(--text-secondary)] text-xl leading-8">
-                Diseño productos SaaS B2B, Fintech, Analytics Dashboards y
-                Design Systems. Disponible para trabajo remoto.
+                Diseño productos digitales, plataformas web e interfaces responsive,
+                desde la arquitectura y los flujos hasta el prototipado, los componentes y el handoff.
               </p>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function Hero() {
             </span>
             <span className="flex items-center bg-[var(--brand-soft)] border border-[var(--border-interactive)] rounded px-3 py-2 h-8">
               <span className="font-mono text-[var(--text-accent)] text-xs leading-4 whitespace-nowrap">
-                SaaS B2B · Fintech · Design Systems
+                UX/UI · Product Design · IA aplicada
               </span>
             </span>
           </div>

@@ -2,13 +2,13 @@ import { Check } from "lucide-react";
 
 const SKILL_GROUPS = [
   {
-    title: "Especialización",
+    title: "Producto & IA",
     items: [
-      "SaaS B2B",
-      "Fintech",
-      "Analytics Dashboards",
+      "UX/UI Design",
+      "Product Design",
+      "IA aplicada al diseño",
       "Design Systems",
-      "Plataformas operacionales",
+      "Interfaces responsive",
     ],
   },
   {
@@ -63,7 +63,7 @@ export default function Skills() {
             Lo que sé hacer
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Disciplinas, especialización y herramientas con las que trabajo end-to-end.
+            Disciplinas, herramientas y métodos con los que trabajo de punta a punta.
           </p>
         </div>
       </div>

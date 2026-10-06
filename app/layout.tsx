@@ -4,26 +4,26 @@ import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-ivan-andrade-ux-ui-produc.vercel.app"),
-  title: "Ivan Andrade — Product Designer",
+  title: "Iván Andrade — UX/UI Designer · Product Design · IA aplicada",
   description:
-    "Portfolio de Ivan Andrade. Product Designer especializado en SaaS B2B, Fintech y Design Systems.",
+    "Portfolio de Iván Andrade: UX/UI Designer y Product Designer con IA aplicada al proceso de diseño.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "/",
-    title: "Ivan Andrade — Product Designer",
+    title: "Iván Andrade — UX/UI Designer · Product Design",
     description:
-      "Product Designer especializado en SaaS B2B, Fintech, Analytics Dashboards y Design Systems.",
+      "Casos de UX/UI y Product Design en productos digitales, con IA aplicada al proceso de diseño.",
     locale: "es_AR",
-    siteName: "Ivan Andrade — Product Designer",
+    siteName: "Iván Andrade — UX/UI Designer · Product Design",
   },
   twitter: {
     card: "summary",
-    title: "Ivan Andrade — Product Designer",
+    title: "Iván Andrade — UX/UI Designer · Product Design",
     description:
-      "Product Designer especializado en SaaS B2B, Fintech, Analytics Dashboards y Design Systems.",
+      "Casos de UX/UI y Product Design en productos digitales, con IA aplicada al proceso de diseño.",
   },
 };
 
