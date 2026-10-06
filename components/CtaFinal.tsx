@@ -5,26 +5,26 @@ export default function CtaFinal() {
       {/* Band: inset/xl=32px, gap/lg=24px, radius/block=16px, bg-secondary */}
       <div className="flex flex-col gap-6 p-8 rounded-2xl overflow-hidden items-center text-center bg-[var(--bg-secondary)]">
 
-        {/* "Disponible para proyectos" — mismo dot que el Hero */}
+        {/* Disponibilidad laboral — mismo dot que el Hero */}
         <div className="flex items-center gap-2 h-8 px-3 py-2 rounded-full bg-[var(--brand-soft)] border border-[var(--border-interactive)] shrink-0">
           <span className="relative flex w-2 h-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--text-accent)] opacity-75" />
             <span className="relative inline-flex rounded-full w-2 h-2 bg-[var(--text-accent)]" />
           </span>
           <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-            Disponible para proyectos
+            Abierto a oportunidades full-time
           </span>
         </div>
 
         {/* H1: 40px/700/48px/-2px — primary + accent */}
         <h2 className="text-[var(--text-primary)] text-[40px] font-bold leading-[48px] tracking-[-2px]">
-          ¿Trabajamos{" "}
-          <span className="text-[var(--text-accent)]">juntos</span>?
+          ¿Sumamos diseño a{" "}
+          <span className="text-[var(--text-accent)]">tu equipo</span>?
         </h2>
 
         {/* Body-L: 20px/400/32px — secondary */}
         <p className="text-[var(--text-secondary)] text-[20px] leading-8">
-          Si buscás un Product Designer con criterio para resolver problemas reales de producto, escribime.
+          Si buscás un perfil UX/UI y Product Design con criterio para resolver problemas reales de producto, escribime.
         </p>
 
         {/* Buttons — gap/sm=12px */}
