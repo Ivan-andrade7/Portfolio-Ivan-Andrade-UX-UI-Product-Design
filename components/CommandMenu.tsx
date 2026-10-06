@@ -55,7 +55,7 @@ export default function CommandMenu() {
   const [copied, setCopied] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   const filteredActions = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -69,12 +69,18 @@ export default function CommandMenu() {
     function handleGlobalKeyDown(event: KeyboardEvent) {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
-        setIsOpen((current) => !current);
+        setIsOpen((current) => {
+          if (!current) {
+            returnFocusRef.current = document.activeElement as HTMLElement;
+          }
+          return !current;
+        });
       }
-      if (event.key === "Escape") setIsOpen(false);
+      if (event.key === "Escape") closeMenu();
     }
 
     function handleOpenRequest() {
+      returnFocusRef.current = document.activeElement as HTMLElement;
       setIsOpen(true);
     }
 
@@ -108,7 +114,7 @@ export default function CommandMenu() {
 
   function closeMenu() {
     setIsOpen(false);
-    requestAnimationFrame(() => triggerRef.current?.focus());
+    requestAnimationFrame(() => returnFocusRef.current?.focus());
   }
 
   async function executeAction(action: CommandAction) {
@@ -167,10 +173,6 @@ export default function CommandMenu() {
 
   return (
     <>
-      <button ref={triggerRef} type="button" onClick={openCommandMenu} aria-label="Abrir navegación rápida" className="sr-only">
-        Abrir navegación rápida
-      </button>
-
       {isOpen && createPortal(
         <div
           className="fixed inset-0 z-[60] flex items-start justify-center bg-[var(--overlay-card)] px-4 pt-20 backdrop-blur-sm md:pt-28"
