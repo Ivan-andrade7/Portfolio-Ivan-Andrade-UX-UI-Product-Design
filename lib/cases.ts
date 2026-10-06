@@ -86,7 +86,7 @@ export const CASES: CaseStudy[] = [
     slug: "fintech",
     tags: ["Fintech", "SaaS B2B", "2025"],
     title: "Fintech PYME — Plataforma de Créditos B2B",
-    subtitle: "De proceso manual fragmentado a plataforma dual de créditos B2B.",
+    subtitle: "Onboarding y operación de créditos B2B organizados en dos superficies.",
     links: {
       figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
       behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
@@ -96,7 +96,7 @@ export const CASES: CaseStudy[] = [
       duracion: "5 semanas · 29 sep — 2 nov 2025",
       focoLabel: "Equipo",
       foco: "Simulación laboral · No Country",
-      tools: "Figma · FigJam · Notion",
+      tools: "Figma · FigJam",
     },
     description:
       "En una simulación laboral de No Country diseñé una plataforma de onboarding de créditos para PyMEs con dos superficies diferenciadas: un portal cliente y un panel admin. El alcance de diseño buscó ordenar el proceso y hacer visible el estado de cada solicitud.",
@@ -117,8 +117,8 @@ export const CASES: CaseStudy[] = [
       body: "La propuesta ordena el onboarding y separa las responsabilidades de cada superficie. No hay una medición posterior disponible para afirmar mejoras de conversión, tiempo o eficiencia.",
     },
     problema: {
-      title: "Onboarding manual, lento y sin trazabilidad",
-      body: "El alta de crédito para PyMEs era un proceso manual y fragmentado: formularios sueltos, validación por fuera del sistema y cero visibilidad del estado para el solicitante.\n\nEl solicitante no sabía en qué paso estaba ni qué le faltaba; el operador no tenía una vista única para revisar, aprobar o pedir correcciones.",
+      title: "Un proceso sensible, largo y propenso a errores",
+      body: "La simulación explora un alta de crédito para PyMEs que combina KYC, documentación y revisión operativa. Un dato incorrecto o una identidad sin verificar puede afectar la continuidad de la solicitud.\n\nEl objetivo de diseño fue hacer visible el progreso para quien solicita y organizar la revisión para quien opera, sin presentar una reducción medida de errores o tiempos.",
     },
     estrategia:
       "Separé la operación en dos superficies con objetivos distintos: el Solicitante PyME (completar y enviar) y el Supervisor/Operador (revisar, aprobar, auditar), en vez de forzar una sola plataforma para ambos.\n\nDiseñé un onboarding KYC de 4 pasos con progreso siempre visible y documenté un sistema de componentes desde cero con dark mode nativo. La accesibilidad queda pendiente de verificación.",
@@ -127,7 +127,7 @@ export const CASES: CaseStudy[] = [
         id: "01",
         title: "Dos superficies separadas: portal cliente y panel admin",
         motivo:
-          "Solicitante y supervisor tienen objetivos opuestos; una plataforma unificada generaría errores operativos.",
+          "Solicitante y supervisor realizan tareas y acciones diferentes dentro del flujo documentado.",
         impacto: "Separa responsabilidades y facilita la trazabilidad de cada superficie.",
         tradeoff: "Suma una segunda superficie que requiere reglas compartidas, pero evita mezclar tareas y permisos opuestos.",
       },
@@ -145,7 +145,7 @@ export const CASES: CaseStudy[] = [
         motivo:
           "Los permisos definen qué ve y qué puede hacer cada operador; impactan directo en la interfaz.",
         impacto:
-          "Cada operador ve exactamente lo que necesita, sin acciones que no le corresponden.",
+          "Organiza la visibilidad y las acciones propuestas de acuerdo con el rol del operador.",
         tradeoff: "Requiere modelar permisos desde el diseño, pero reduce acciones irrelevantes en cada rol.",
       },
     ],
@@ -180,7 +180,7 @@ export const CASES: CaseStudy[] = [
       { value: "61 / 540", label: "entidades / variantes documentadas" },
     ],
     reflection:
-      "Separar las dos superficies temprano fue la decisión que ordenó todo lo demás. Diseñar el RBAC como parte de la UX —y no como un detalle técnico del final— evitó rehacer pantallas más adelante.",
+      "Separar las dos superficies temprano ordenó la arquitectura del caso. También aprendí a considerar el RBAC como parte de la experiencia desde el diseño, dejando su implementación técnica y validación fuera del alcance demostrado.",
     next: {
       slug: "garden-ads",
       title: "GardenAds — Attribution & Tracking Health",
@@ -314,7 +314,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · 9 mar — 18 abr 2026",
+      duracion: "5 semanas · 2026",
       focoLabel: "Foco",
       foco: "Simulación laboral · equipo de 5 · No Country",
       tools: "Figma · FigJam",
@@ -342,13 +342,13 @@ export const CASES: CaseStudy[] = [
       body: "El caso parte de una oportunidad de diseño: la información de cada prospecto puede quedar repartida entre WhatsApp, mail y notas personales. Al cambiar de responsable o retomar un lead, el contexto puede perderse.\n\nPersonas, JTBD, precio y oportunidad son hipótesis o síntesis de desk research; no se presentan como investigación con participantes ni como resultados de negocio.",
     },
     estrategia:
-      "Puse el pipeline visual kanban como pantalla principal: el estado de cada oportunidad se puede revisar y mover desde una vista central.\n\nEstructuré las variables en dos niveles (primitivos → semánticos) y traté el handoff como entregable principal, no como un extra del final.",
+      "Propuse el pipeline visual kanban como pantalla principal y acerqué las conversaciones de WhatsApp y email al contexto comercial.\n\nEstructuré las variables en dos niveles (primitivos → semánticos) y traté el handoff como entregable principal, no como un extra del final.",
     decisions: [
       {
         id: "01",
         title: "Pipeline kanban como pantalla principal",
         motivo:
-          "El equipo necesita ver y mover el estado de las oportunidades sin entrar a cada ficha.",
+          "La hipótesis de diseño plantea que una vista central puede hacer visible el estado de las oportunidades sin entrar a cada ficha.",
         impacto:
           "Permite consultar y mover oportunidades desde una vista central.",
         tradeoff: "Concentra la operación en una vista más densa, pero evita saltos constantes entre fichas.",
@@ -391,7 +391,7 @@ export const CASES: CaseStudy[] = [
       { value: "1", label: "handoff como entregable primario" },
     ],
     reflection:
-      "Tratar el handoff como entregable principal cambió cómo diseñé: pensar en cómo se construye cada componente, no solo cómo se ve, hace que el sistema sea mucho más sólido.",
+      "Tratar el handoff como entregable principal cambió mi forma de diseñar: me obligó a explicar estados, reglas y componentes con suficiente claridad para que otra persona pudiera interpretarlos, aunque la implementación no esté verificada.",
     prev: {
       slug: "garden-ads",
       title: "GardenAds — Attribution & Tracking Health",
@@ -442,7 +442,7 @@ export const CASES: CaseStudy[] = [
       body: "La plataforma EdTech necesitaba dos marcas con personalidad propia —Academy profesional y Kids lúdica— sobre una arquitectura que pudiera mantenerse compartida. La consistencia y la reducción de duplicación se plantearon como objetivos del enfoque.",
     },
     estrategia:
-      "Definí una arquitectura de tokens compartida para ambas marcas: la estructura es común y los valores se diferencian por prefijo de marca. Las colecciones actuales tienen un solo modo por colección.\n\nEl enfoque busca favorecer consistencia y reducir duplicación, sin presentar esos objetivos como resultados medidos.",
+      "Contribuí a una arquitectura de tokens compartida para ambas marcas: la estructura es común y los valores se diferencian por prefijo de marca. Las colecciones actuales tienen un solo modo por colección.\n\nEl enfoque busca favorecer consistencia y reducir duplicación, sin presentar esos objetivos como resultados medidos ni atribuirme el liderazgo total del sistema.",
     decisions: [
       {
         id: "01",
@@ -518,9 +518,9 @@ export const CASES: CaseStudy[] = [
   },
   {
     slug: "trainit",
-    tags: ["SaaS B2B", "Kanban", "2025"],
+    tags: ["Práctica formativa", "UI Components", "2025"],
     title: "TrainiT — Gestión de Proyectos",
-    subtitle: "Flujos de gestión de proyectos documentados durante una práctica formativa.",
+    subtitle: "Componentes, estados y coordinación de un workstream dentro de una práctica formativa.",
     links: {
       behance: "https://www.behance.net/gallery/240653385/TrainiT-PGT-%28Plataforma-de-Gestion-de-Proyectos%29",
       figma: "https://www.figma.com/design/mRTUkA0fo9kmxB94q6y57N/TrainiT-%E2%80%94-Gesti%C3%B3n-de-Proyectos",
@@ -543,46 +543,46 @@ export const CASES: CaseStudy[] = [
       evidence: "El working file documenta mi aporte en seis secciones, junto con trabajo de compañeros y áreas colaborativas del equipo. No presento claims de research, testing, producción o resultados.",
     },
     users: {
-      title: "Equipo de proyecto",
-      body: "El alcance se centra en las personas que coordinan tareas, priorizan trabajo y necesitan entender el estado general del proyecto antes de operar.",
+      title: "Equipo de diseño y usuarios del tablero",
+      body: "El trabajo del workstream debía integrarse a una plataforma colaborativa de tareas y a un Design System compartido. Los resultados de research con usuarios no están verificados.",
     },
     outcome: {
       title: "Alcance documentado",
       body: "El caso documenta entregables del workstream Grupo 1/UI Components dentro de la práctica formativa. La atribución es parcial y no se presentan resultados de adopción, producción ni negocio.",
     },
     problema: {
-      title: "Herramientas dispares para gestionar proyectos",
-      body: "El equipo gestionaba proyectos con herramientas dispersas: una para tareas, otra para seguimiento, otra para el equipo. El contexto se perdía entre saltos.\n\nFaltaba un punto de entrada claro: la gente abría directamente el tablero sin una vista que resumiera el estado general.",
+      title: "Consistencia dentro de un producto colaborativo",
+      body: "La práctica formativa trabajó sobre una plataforma de tareas con tableros kanban, miembros, etiquetas y filtros. Dentro de ese contexto, el desafío comprobable de mi workstream fue producir componentes consistentes con el sistema compartido.\n\nMi contribución se concentró en nomenclatura, estados, tamaños, paddings, formularios, filtros e inventario de íconos; no en el ownership de todas las pantallas del producto.",
     },
     estrategia:
-      "Definí el Dashboard como entrada de la herramienta —no el kanban— para que el usuario entienda el estado general antes de operar.\n\nSeparé Kanban y Backlog en módulos distintos y trabajé en sprints concretos dentro del workstream Grupo 1/UI Components.",
+      "Trabajé durante sprints concretos en el workstream Grupo 1/UI Components, coordinando a dos diseñadoras y revisando que componentes, estados y nombres pudieran integrarse al Design System del equipo.\n\nLas pantallas de producto se conservan como contexto del archivo colaborativo; su presencia en la galería no implica autoría individual.",
     decisions: [
       {
         id: "01",
-        title: "Dashboard como entrada, no el kanban",
+        title: "Convención común para componentes y variantes",
         motivo:
-          "Entrar directo al tablero da detalle sin contexto; el usuario necesita primero el panorama.",
+          "El trabajo de varias diseñadoras necesitaba una nomenclatura compartida para identificar tipo, componente y variante.",
         impacto:
-          "El equipo entiende el estado general antes de meterse en una tarea puntual.",
-        tradeoff: "Agrega una pantalla de entrada, pero evita que el tablero sea el único contexto del proyecto.",
+          "Deja una referencia común para ordenar y revisar los componentes del workstream.",
+        tradeoff: "Exige acordar y mantener la convención, pero reduce interpretaciones distintas dentro del subequipo.",
       },
       {
         id: "02",
-        title: "Kanban y Backlog como módulos separados",
+        title: "Estados, tamaños y paddings normalizados",
         motivo:
-          "Mezclar el trabajo en curso con el pendiente genera ruido y desorganiza la vista.",
+          "Variaciones inconsistentes dificultaban integrar los componentes al sistema compartido.",
         impacto:
-          "Cada módulo cumple un rol claro: ejecutar (kanban) vs priorizar (backlog).",
-        tradeoff: "Duplica puntos de navegación, pero evita mezclar trabajo activo con trabajo pendiente.",
+          "Documenta reglas visuales comunes para los componentes trabajados por el subequipo.",
+        tradeoff: "Reduce excepciones locales y obliga a justificar cualquier variante que se aparte del patrón.",
       },
       {
         id: "03",
-        title: "Iteración en 3 sprints con feedback técnico",
+        title: "Coordinación del workstream en sprints concretos",
         motivo:
-          "Coordinar el workstream en sprints concretos permite mantener el alcance alineado con el trabajo del equipo.",
+          "El subequipo necesitaba distribuir componentes, revisar avances y mantener alineación con el Design System colaborativo.",
         impacto:
-          "Flujos documentados y coordinados dentro del alcance del workstream.",
-        tradeoff: "El feedback iterativo puede ralentizar decisiones puntuales, pero mantiene el alcance construible.",
+          "Mantiene visibles las responsabilidades y los criterios de revisión dentro del alcance del workstream.",
+        tradeoff: "La coordinación agrega instancias de revisión, pero evita consolidar componentes incompatibles al final.",
       },
     ],
     images: ["/projects/trainit.webp"],
@@ -592,21 +592,23 @@ export const CASES: CaseStudy[] = [
       mobile: "/projects/trainit-hero-mobile.webp",
     },
     galleryAspect: "16 / 9",
+    galleryNote:
+      "Pantallas del archivo colaborativo mostradas como contexto del producto. La autoría individual de estas vistas no está confirmada; mi aporte comprobable corresponde al workstream Grupo 1/UI Components.",
     pantallas: [
-      { src: "/projects/trainit-ui-home.webp", width: 1366, height: 1210, fit: "cover", objectPosition: "center top", name: "Dashboard", task: "Entender el estado general del proyecto antes de operar.", decision: "El dashboard funciona como entrada para dar contexto antes del kanban.", alt: "Dashboard principal de TrainiT con resumen del estado del proyecto.", role: "key" },
-      { src: "/projects/trainit-ui-backlog.webp", width: 1366, height: 768, fit: "cover", objectPosition: "center top", name: "Backlog", task: "Priorizar el trabajo pendiente del equipo.", decision: "Backlog y Kanban se separan para distinguir priorización de ejecución.", alt: "Backlog de TrainiT con tareas pendientes del proyecto.", role: "flow" },
-      { src: "/projects/trainit-ui-card-detail.webp", width: 1366, height: 1094, fit: "cover", objectPosition: "center top", name: "Detalle de tarjeta", task: "Consultar y editar el detalle de una tarea.", decision: "El detalle concentra la información sin sacar al usuario del flujo de gestión.", alt: "Detalle de una tarjeta de tarea en TrainiT.", role: "flow" },
-      { src: "/projects/trainit-ui-notifications.webp", width: 1366, height: 1210, fit: "cover", objectPosition: "center top", name: "Notificaciones", task: "Revisar novedades relevantes del proyecto.", decision: "Las notificaciones funcionan como una capa de seguimiento sobre los módulos principales.", alt: "Centro de notificaciones de TrainiT.", role: "flow" },
-      { src: "/projects/trainit-ui-members.webp", width: 1366, height: 1162, fit: "cover", objectPosition: "center top", name: "Miembros", task: "Consultar la composición del equipo del proyecto.", decision: "La gestión de miembros se trata como módulo propio para no mezclarla con las tareas.", alt: "Vista de miembros de un proyecto en TrainiT.", role: "gallery" },
-      { src: "/projects/trainit-ui-login.webp", width: 1366, height: 768, fit: "cover", objectPosition: "center center", name: "Ingreso", task: "Acceder al espacio de trabajo del proyecto.", decision: "El acceso se mantiene separado de la operación interna del producto.", alt: "Pantalla de ingreso de TrainiT.", role: "gallery" },
+      { src: "/projects/trainit-ui-home.webp", width: 1366, height: 1210, fit: "cover", objectPosition: "center top", name: "Dashboard", task: "Entender el contexto general del producto colaborativo.", decision: "Pantalla del archivo de equipo utilizada para mostrar dónde se integran componentes y patrones compartidos.", alt: "Dashboard principal de TrainiT con resumen del estado del proyecto.", role: "key" },
+      { src: "/projects/trainit-ui-backlog.webp", width: 1366, height: 768, fit: "cover", objectPosition: "center top", name: "Backlog", task: "Observar el uso de componentes dentro del módulo de trabajo pendiente.", decision: "Vista del archivo colaborativo presentada como contexto del sistema, no como autoría individual confirmada.", alt: "Backlog de TrainiT con tareas pendientes del proyecto.", role: "flow" },
+      { src: "/projects/trainit-ui-card-detail.webp", width: 1366, height: 1094, fit: "cover", objectPosition: "center top", name: "Detalle de tarjeta", task: "Observar estados y componentes aplicados al detalle de una tarea.", decision: "El detalle permite contextualizar variantes y estados trabajados por el equipo de diseño.", alt: "Detalle de una tarjeta de tarea en TrainiT.", role: "flow" },
+      { src: "/projects/trainit-ui-notifications.webp", width: 1366, height: 1210, fit: "cover", objectPosition: "center top", name: "Notificaciones", task: "Observar componentes de seguimiento dentro del producto.", decision: "Vista del archivo colaborativo incluida para mostrar el alcance general del sistema.", alt: "Centro de notificaciones de TrainiT.", role: "flow" },
+      { src: "/projects/trainit-ui-members.webp", width: 1366, height: 1162, fit: "cover", objectPosition: "center top", name: "Miembros", task: "Contextualizar formularios y componentes vinculados a miembros.", decision: "Esta superficie se relaciona con componentes trabajados en el workstream, sin atribuir la pantalla completa como autoría individual.", alt: "Vista de miembros de un proyecto en TrainiT.", role: "gallery" },
+      { src: "/projects/trainit-ui-login.webp", width: 1366, height: 768, fit: "cover", objectPosition: "center center", name: "Ingreso", task: "Mostrar otra superficie del archivo colaborativo.", decision: "Pantalla atribuida a otro integrante y conservada únicamente como contexto del producto de equipo.", alt: "Pantalla de ingreso de TrainiT.", role: "gallery" },
     ],
     metrics: [
-      { value: "3", label: "sprints documentados del workstream" },
+      { value: "6", label: "secciones del working file atribuidas a mi aporte" },
       { value: "2", label: "diseñadoras coordinadas" },
       { value: "1", label: "workstream UI Components" },
     ],
     reflection:
-      "Poner el dashboard como entrada fue contraintuitivo pero correcto: el kanban es potente, pero sin contexto previo aturde. Iterar con desarrollo en cada sprint me enseñó a diseñar para lo que se puede construir.",
+      "Coordinar un workstream me enseñó que un sistema compartido no se sostiene sólo con componentes: también necesita nombres, estados, criterios de revisión y responsabilidades claras. Ese aprendizaje es transferible, aunque la implementación y los resultados del producto no estén verificados.",
     prev: {
       slug: "multi-brand",
       title: "Multi-Brand Design System",

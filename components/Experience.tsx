@@ -27,7 +27,7 @@ const EXPERIENCES: ExperienceItem[] = [
     neutralTags: ["Mobile-first"],
   },
   {
-    date: "9 mar — 18 abr 2026",
+    date: "5 semanas · 2026",
     title: "UX UI Designer — ChatCRM",
     company: "No Country · Simulación laboral · equipo de 5 · único diseñador UX/UI",
     desc: "Diseñé un concepto UX/UI para centralizar conversaciones y pipeline; personas, JTBD y oportunidad se presentan como hipótesis o síntesis de desk research.",
@@ -62,9 +62,9 @@ const EXPERIENCES: ExperienceItem[] = [
     date: "23 jun — 15 oct 2025",
     title: "Junior UX/UI Designer — TrainiT",
     company: "Programa TrainiT (PGT) · Pasantía/práctica formativa",
-    desc: "Participé como UX/UI Designer Jr en diseño de experiencia e interfaz, user flows, wireframing, prototipado en Figma y validación visual; además lideré el workstream Grupo 1/UI Components durante sprints concretos.",
-    accentTags: ["SaaS", "Kanban"],
-    neutralTags: ["Gestión"],
+    desc: "Lideré el workstream Grupo 1/UI Components durante sprints concretos, coordinando a dos diseñadoras y trabajando nomenclatura, estados, tamaños, paddings e inventario de íconos dentro del sistema colaborativo.",
+    accentTags: ["UI Components", "Design System"],
+    neutralTags: ["Práctica formativa"],
   },
 ];
 
