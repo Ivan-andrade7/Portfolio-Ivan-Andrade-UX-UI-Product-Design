@@ -45,6 +45,7 @@ const NAV_LINKS = [
   { label: "Inicio", href: "/#inicio" },
   { label: "Sobre mí", href: "/#sobre-mi" },
   { label: "Proyectos", href: "/#proyectos" },
+  { label: "Servicios", href: "/#servicios" },
   { label: "Experiencia", href: "/#experiencia" },
   { label: "Educación", href: "/#educacion" },
   { label: "Contacto", href: "/#contactos" },

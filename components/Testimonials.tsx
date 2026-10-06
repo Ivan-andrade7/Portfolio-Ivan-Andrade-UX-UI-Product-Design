@@ -155,9 +155,14 @@ export default function Testimonials() {
                 role="tab"
                 aria-selected={index === activeIndex}
                 aria-label={`Mostrar recomendación de ${testimonial.name}`}
-                className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-6 bg-[var(--text-accent)]" : "w-2 bg-[var(--border-interactive)]"}`}
+                className="flex size-8 items-center justify-center rounded-full transition-colors hover:bg-[var(--bg-secondary)]"
                 onClick={() => setActiveIndex(index)}
-              />
+              >
+                <span
+                  aria-hidden
+                  className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-6 bg-[var(--text-accent)]" : "w-2 bg-[var(--border-interactive)]"}`}
+                />
+              </button>
             ))}
           </div>
           <div className="flex items-center gap-2">

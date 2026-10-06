@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Check, Command, Copy, ExternalLink, Search } from "lucide-react";
+import { Check, Command, Copy, ExternalLink, Search, X } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
 type CommandAction = {
@@ -16,6 +16,7 @@ type CommandAction = {
 };
 
 const ACTIONS: CommandAction[] = [
+  { id: "services", label: "Servicios web", category: "Secciones", href: "/#servicios", tag: "Web Design" },
   { id: "garden-ads", label: "GardenAds — Attribution & Tracking Health", category: "Casos de estudio", href: "/proyectos/garden-ads", tag: "Analytics SaaS" },
   { id: "fintech", label: "Fintech PYME — Plataforma de Créditos B2B", category: "Casos de estudio", href: "/proyectos/fintech", tag: "Fintech" },
   { id: "multi-brand", label: "Multi-Brand Design System", category: "Casos de estudio", href: "/proyectos/multi-brand", tag: "Design System" },
@@ -195,6 +196,14 @@ export default function CommandMenu() {
                 className="min-w-0 flex-1 bg-transparent text-[16px] leading-7 text-[var(--text-primary)] outline-none placeholder:text-[var(--text-placeholder)]"
               />
               <kbd className="hidden rounded border border-[var(--border-default)] px-2 py-1 text-[12px] text-[var(--text-tertiary)] sm:inline-flex">Esc</kbd>
+              <button
+                type="button"
+                onClick={closeMenu}
+                aria-label="Cerrar navegación rápida"
+                className="flex size-10 shrink-0 items-center justify-center rounded-lg text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]"
+              >
+                <X size={18} aria-hidden />
+              </button>
             </div>
 
             <div id="command-menu-title" className="sr-only">Navegación rápida del portfolio</div>

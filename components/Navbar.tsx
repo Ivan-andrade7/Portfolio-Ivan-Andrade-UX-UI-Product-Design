@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Inicio",      href: "/#inicio",      id: "inicio" },
   { label: "Sobre mí",    href: "/#sobre-mi",    id: "sobre-mi" },
   { label: "Proyectos",   href: "/#proyectos",   id: "proyectos" },
+  { label: "Servicios",   href: "/#servicios",   id: "servicios" },
   { label: "Experiencia", href: "/#experiencia", id: "experiencia" },
   { label: "Educación",   href: "/#educacion",   id: "educacion" },
   { label: "Contacto",    href: "/#contactos",   id: "contactos" },

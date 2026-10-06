@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { CASES } from "@/lib/cases";
 
 const BASE_URL = "https://portfolio-ivan-andrade-ux-ui-produc.vercel.app";
-const LAST_MODIFIED = new Date("2026-09-03T00:00:00-03:00");
+const LAST_MODIFIED = new Date("2026-10-06T00:00:00-03:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const caseUrls = CASES.filter((c) => c.published !== false).map((c) => ({

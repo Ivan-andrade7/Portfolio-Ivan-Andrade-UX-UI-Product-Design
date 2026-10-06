@@ -225,7 +225,7 @@ export default function Contact() {
             <span className="text-[var(--text-accent)]">oportunidad</span>
           </h2>
           <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Estoy buscando incorporarme a un equipo de diseño en una posición full-time. Escribime y coordinamos una conversación.
+            Estoy buscando incorporarme a un equipo de diseño full-time y también evalúo proyectos web seleccionados. Escribime y coordinamos una conversación.
           </p>
         </div>
       </div>
@@ -295,7 +295,7 @@ export default function Contact() {
               </label>
               <textarea
                 id="contact-message"
-                placeholder="Contame sobre la oportunidad"
+                placeholder="Contame sobre la oportunidad o el proyecto"
                 value={message}
                 aria-invalid={errors.message || undefined}
                 aria-describedby={errors.message ? "contact-message-error" : undefined}

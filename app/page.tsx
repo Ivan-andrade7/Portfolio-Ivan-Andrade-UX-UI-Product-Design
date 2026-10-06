@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import CtaMid from "@/components/CtaMid";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
+import Services from "@/components/Services";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Testimonials from "@/components/Testimonials";
@@ -25,6 +26,7 @@ export default function Home() {
         <CtaMid />
         <About />
         <Skills />
+        <Services />
         <Experience />
         <Education />
         <Testimonials />
