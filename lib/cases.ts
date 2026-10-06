@@ -199,7 +199,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · 2026",
+      duracion: "5 semanas · 26 ene — 7 mar 2026",
       focoLabel: "Contexto",
       foco: "Simulación laboral · No Country",
       tools: "Figma · FigJam · Canopy DS",
@@ -314,7 +314,7 @@ export const CASES: CaseStudy[] = [
     },
     context: {
       rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · 2026",
+      duracion: "5 semanas · 9 mar — 18 abr 2026",
       focoLabel: "Foco",
       foco: "Simulación laboral · equipo de 5 · No Country",
       tools: "Figma · FigJam",

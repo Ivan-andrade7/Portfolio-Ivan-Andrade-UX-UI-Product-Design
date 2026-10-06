@@ -27,7 +27,7 @@ const EXPERIENCES: ExperienceItem[] = [
     neutralTags: ["Mobile-first"],
   },
   {
-    date: "5 semanas · 2026",
+    date: "9 mar — 18 abr 2026",
     title: "UX UI Designer — ChatCRM",
     company: "No Country · Simulación laboral · equipo de 5 · único diseñador UX/UI",
     desc: "Diseñé un concepto UX/UI para centralizar conversaciones y pipeline; personas, JTBD y oportunidad se presentan como hipótesis o síntesis de desk research.",
@@ -35,7 +35,7 @@ const EXPERIENCES: ExperienceItem[] = [
     neutralTags: ["Handoff"],
   },
   {
-    date: "5 semanas · 2026",
+    date: "26 ene — 7 mar 2026",
     title: "UX UI Designer — GardenAds",
     company: "No Country · Simulación laboral · único diseñador UX/UI",
     desc: "Diseñé una propuesta de plataforma de tracking health con benchmark colaborativo de seis competidores, arquitectura y prototipos.",
