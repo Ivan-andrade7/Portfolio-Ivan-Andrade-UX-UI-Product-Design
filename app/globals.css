@@ -35,7 +35,7 @@ html.light {
   --bg-secondary: #e2e8f0;
   --surface-elevated: #e2e8f0;
   --border-default: #cbd5e1;
-  --text-accent: #0f766e;
+  --text-accent: #115e59;
   --text-primary: #0f172a;
   --text-secondary: #1e293b;
   --text-tertiary: #475569;
@@ -61,7 +61,7 @@ html.light {
 }
 html.light {
   --surface-secondary: #f1f5f9;
-  --text-link: #0f766e;
+  --text-link: #115e59;
   --text-placeholder: #475569;
 }
 
