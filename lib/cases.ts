@@ -614,6 +614,11 @@ export const CASES: CaseStudy[] = [
       title: "Multi-Brand Design System",
       role: "1 de 4 UX/UI · Simulación laboral colaborativa · No Country · 2025",
     },
+    next: {
+      slug: "nodo",
+      title: "NODO Arquitectura",
+      role: "Diseño web · Proyecto personal conceptual",
+    },
   },
 ];
 

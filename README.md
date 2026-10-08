@@ -23,6 +23,7 @@ npm run build
 - `app/`: rutas, layout, metadata y tokens globales.
 - `components/`: secciones de la home, navegación, contacto y carruseles.
 - `lib/cases.ts`: fuente de datos de los cinco casos publicados.
+- `app/proyectos/nodo/`: caso de diseño web NODO, con componentes compartidos de `CaseStudyUI.tsx` y capturas originales.
 - `public/projects/`: imágenes optimizadas usadas por el sitio.
 
 El contacto funciona como flujo estático: valida los campos y abre un mensaje precompletado en el cliente de correo del visitante. No hay backend ni envío de formularios desde el servidor.

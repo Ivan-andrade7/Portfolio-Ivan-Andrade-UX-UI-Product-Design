@@ -6,7 +6,7 @@ type Stat =
   | { label: string; parts: { text: string; accent: boolean }[]; value?: never; accent?: never };
 
 const STATS: Stat[] = [
-  { value: "5", label: "casos publicados", accent: false },
+  { value: "6", label: "casos seleccionados", accent: false },
   { value: "Sistemas", label: "de componentes y tokens documentados", accent: false },
   { value: "Accesibilidad", label: "criterios considerados en diseño", accent: true },
   { value: "UX/UI", label: "diseño de producto y sistemas", accent: false },

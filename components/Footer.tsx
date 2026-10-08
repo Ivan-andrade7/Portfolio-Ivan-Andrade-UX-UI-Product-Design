@@ -32,6 +32,7 @@ const PROJECT_LINKS = [
   { label: "ChatCRM", href: "/proyectos/crm" },
   { label: "Multi-Brand DS", href: "/proyectos/multi-brand" },
   { label: "TrainiT", href: "/proyectos/trainit" },
+  { label: "NODO Arquitectura", href: "/proyectos/nodo" },
 ];
 
 const CONTACT_LINKS = [

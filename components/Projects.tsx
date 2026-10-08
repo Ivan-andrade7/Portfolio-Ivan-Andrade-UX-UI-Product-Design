@@ -4,10 +4,10 @@ import ProjectCard, { type Project } from "@/components/ProjectCard";
 const PROJECTS: Project[] = [
   {
     id: "fintech",
-    title: "Fintech PYME — Plataforma de Créditos B2B",
+    title: "Fintech PYME",
     tags: ["Fintech", "SaaS B2B", "KYC"],
-    longDesc: "Simulación laboral de No Country: plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas.",
-    role: "UX/UI Designer · único diseñador · 5 semanas",
+    longDesc: "Simulación laboral No Country: diseño UX/UI de una experiencia de solicitud y revisión de créditos PYME.",
+    role: "Único diseñador UX/UI del workstream · 2025",
     images: { image: "/projects/fintech-card-square.webp" },
   },
   {
@@ -42,6 +42,14 @@ const PROJECTS: Project[] = [
     role: "Junior UX/UI Designer · 23 jun — 15 oct 2025",
     images: { image: "/projects/trainit-card-square.webp" },
   },
+  {
+    id: "nodo",
+    title: "NODO Arquitectura",
+    tags: ["Diseño web", "Responsive", "UI"],
+    longDesc: "Proyecto personal conceptual: sitio de arquitectura responsive, con componentes reutilizables y navegación coherente.",
+    role: "Diseño UI · ejecución asistida",
+    images: { image: "/projects/nodo/05-sobre-nodo-introduccion-desktop.jpg", treatment: "screen" },
+  },
 ];
 
 export default function Projects() {
@@ -54,7 +62,7 @@ export default function Projects() {
         </div>
         <div className="flex flex-col gap-3 w-full min-w-0">
           <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px] break-words">Casos de estudio</h2>
-          <p className="text-[var(--text-secondary)] text-[16px] leading-7">Proyectos de diseño de producto que exploran problemas complejos con criterio, sistemas y documentación.</p>
+          <p className="text-[var(--text-secondary)] text-[16px] leading-7">Proyectos de diseño de producto y web que exploran problemas complejos con criterio, sistemas y documentación.</p>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-w-0">

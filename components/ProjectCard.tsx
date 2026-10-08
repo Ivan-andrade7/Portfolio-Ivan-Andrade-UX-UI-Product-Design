@@ -8,6 +8,8 @@ import ResilientImage from "@/components/ResilientImage";
 export interface ProjectImages {
   /** Shared card-ready source used by every card at every responsive width. */
   image: string;
+  /** Raw, real UI screenshots can use the same green screen-mockup treatment. */
+  treatment?: "screen";
 }
 
 export interface Project {
@@ -34,7 +36,19 @@ export default function ProjectCard({ project }: { project: Project }) {
       onBlur={() => setActive(false)}
     >
       {/* Image layer */}
-      <div className="absolute inset-0 rounded-xl overflow-hidden">
+      <div className="absolute inset-0 rounded-xl overflow-hidden" style={project.images.treatment === "screen" ? { background: "radial-gradient(ellipse at 85% 0%, var(--brand-soft), var(--bg-primary) 80%)" } : undefined}>
+        {project.images.treatment === "screen" ? (
+          <div className="absolute left-[15%] top-[52px] w-[135%] overflow-hidden rounded-lg border border-[var(--border-default)] shadow-2xl transition-transform duration-300" style={{ transform: `rotate(4deg) scale(${active ? 1.03 : 1})`, transformOrigin: "top left" }}>
+            <ResilientImage
+              src={project.images.image}
+              alt={`Pantalla del sitio ${project.title}`}
+              width={1425}
+              height={670}
+              className="h-auto w-full"
+              sizes="(max-width: 768px) 135vw, (max-width: 1280px) 68vw, 45vw"
+            />
+          </div>
+        ) : (
         <ResilientImage
           src={project.images.image}
           alt={project.title}
@@ -44,6 +58,7 @@ export default function ProjectCard({ project }: { project: Project }) {
            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
            priority={project.id === "garden-ads"}
         />
+        )}
       </div>
 
       {/* Info overlay con gradiente Figma */}

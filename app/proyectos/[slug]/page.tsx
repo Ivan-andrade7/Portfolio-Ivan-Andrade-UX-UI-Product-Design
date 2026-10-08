@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { BackToPortfolio, CaseNavigation, SectionHeader, TagChip } from "@/components/CaseStudyUI";
 import { SiBehance, SiFigma } from "react-icons/si";
 import { CASES, getCaseBySlug } from "@/lib/cases";
 import Navbar from "@/components/Navbar";
@@ -50,58 +49,6 @@ export async function generateMetadata({
   };
 }
 
-// ── Section header — Figma 246:1503 ──────────────────────────────────────────
-// Eyebrow row: línea teal (h-[2px] w-6) + label 12px/600/1px tracking
-// Heading: H2 32px/700/40px/-1.5px
-// Subtitle opcional: Body M 16px/400/28px
-function SectionHeader({
-  eyebrow,
-  heading,
-  subtitle,
-}: {
-  eyebrow: string;
-  heading: string;
-  subtitle?: string;
-}) {
-  return (
-    <div className="flex flex-col gap-2 w-full min-w-0">
-      <div className="flex items-center gap-2 min-h-4">
-        <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-        <span className="min-w-0 break-words text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">
-          {eyebrow}
-        </span>
-      </div>
-      <div className="flex flex-col gap-3 w-full">
-        <h2 className="text-[30px] sm:text-[32px] font-bold leading-10 tracking-[-1.5px] text-[var(--text-primary)] w-full break-words">
-          {heading}
-        </h2>
-        {subtitle && (
-          <p className="text-[16px] leading-7 text-[var(--text-secondary)] w-full">{subtitle}</p>
-        )}
-      </div>
-    </div>
-  );
-}
-
-// ── Tag chip ──────────────────────────────────────────────────────────────────
-function TagChip({ label, accent }: { label: string; accent?: boolean }) {
-  return (
-    <div
-      className="flex items-center justify-center h-8 px-3 rounded-full border shrink-0"
-      style={{
-        background: accent ? "var(--brand-soft)" : "var(--bg-secondary)",
-        borderColor: accent ? "var(--border-interactive)" : "var(--border-default)",
-      }}
-    >
-      <span
-        className="text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap"
-        style={{ color: accent ? "var(--text-accent)" : "var(--text-secondary)" }}
-      >
-        {label}
-      </span>
-    </div>
-  );
-}
 
 // ── Decision block — Figma 223:720 ───────────────────────────────────────────
 function DecisionBlock({
@@ -119,16 +66,16 @@ function DecisionBlock({
           Decisión {decision.id}
         </p>
         <p className="text-[20px] leading-8 w-full text-[var(--text-primary)]">{decision.title}</p>
-        <div className="flex gap-3 items-start text-[20px] leading-8">
+        <div className="flex flex-col sm:flex-row gap-3 items-start text-[20px] leading-8">
           <span className="shrink-0 whitespace-nowrap text-[var(--text-tertiary)]">Motivo</span>
           <p className="flex-1 min-w-0 text-[var(--text-secondary)]">{decision.motivo}</p>
         </div>
-        <div className="flex gap-3 items-start text-[20px] leading-8">
+        <div className="flex flex-col sm:flex-row gap-3 items-start text-[20px] leading-8">
           <span className="shrink-0 whitespace-nowrap text-[var(--text-tertiary)]">Efecto buscado</span>
           <p className="flex-1 min-w-0 text-[var(--text-secondary)]">{decision.impacto}</p>
         </div>
         {decision.tradeoff && (
-          <div className="flex gap-3 items-start text-[16px] leading-7">
+          <div className="flex flex-col sm:flex-row gap-3 items-start text-[16px] leading-7">
             <span className="shrink-0 whitespace-nowrap text-[var(--text-tertiary)]">Trade-off</span>
             <p className="flex-1 min-w-0 text-[var(--text-secondary)]">{decision.tradeoff}</p>
           </div>
@@ -154,47 +101,6 @@ function MetricCard({ value, label }: { value: string; label: string }) {
   );
 }
 
-// ── Nav card — Figma 236:952 ──────────────────────────────────────────────────
-// Default: bg-secondary (#0f172a), Hover: surface-secondary (#1e293b)
-// Pressed: hover bg + inset shadow overlay
-function NavCard({
-  item,
-  direction,
-}: {
-  item: { slug: string; title: string; role: string };
-  direction: "prev" | "next";
-}) {
-  const isPrev = direction === "prev";
-  return (
-    <Link
-      href={`/proyectos/${item.slug}`}
-      className="group relative flex-1 min-w-0 flex flex-col gap-2 px-4 py-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-secondary)] hover:bg-[var(--surface-secondary)] active:bg-[var(--surface-secondary)] transition-colors duration-200 overflow-hidden"
-    >
-      {/* Direction label + icon */}
-      <div className={`flex items-center gap-2 ${isPrev ? "" : "justify-end"}`}>
-        {isPrev && <ArrowLeft size={16} className="text-[var(--text-accent)] shrink-0" />}
-        <span className="text-[14px] font-semibold leading-5 text-[var(--text-accent)]">
-          {isPrev ? "Anterior" : "Siguiente"}
-        </span>
-        {!isPrev && <ArrowRight size={16} className="text-[var(--text-accent)] shrink-0" />}
-      </div>
-      {/* Title + role */}
-      <div className={`flex flex-col gap-2 ${isPrev ? "" : "text-right"}`}>
-        <p className="text-[24px] font-semibold leading-8 tracking-[-1px] text-[var(--text-primary)] truncate">
-          {item.title}
-        </p>
-        <p className="text-[14px] font-semibold leading-5 text-[var(--text-tertiary)] truncate">
-          {item.role}
-        </p>
-      </div>
-      {/* Pressed inner shadow overlay */}
-      <span
-        aria-hidden
-        className="absolute inset-0 rounded-[inherit] pointer-events-none opacity-0 group-active:opacity-100 shadow-[inset_0px_1px_2px_0px_rgba(255,255,255,0.16)]"
-      />
-    </Link>
-  );
-}
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default async function CaseStudyPage({
@@ -230,13 +136,7 @@ export default async function CaseStudyPage({
           >
 
             {/* Ghost button MD — Figma 198:253 */}
-            <Link
-              href="/#proyectos"
-              className={`inline-flex items-center gap-3 h-10 px-4 py-3 rounded-lg w-fit text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-secondary)] ${needsBackLinkContrast ? "bg-[var(--bg-primary)]/75 backdrop-blur-sm shadow-sm" : ""}`}
-            >
-              <ArrowLeft size={20} />
-              <span className="text-[14px] font-semibold leading-5">Volver al portfolio</span>
-            </Link>
+            <BackToPortfolio contrast={needsBackLinkContrast} />
 
             {/* Bottom content */}
           <div className="flex flex-col gap-4 w-full min-w-0">
@@ -442,10 +342,7 @@ export default async function CaseStudyPage({
           </section>
 
           {/* Navegación prev / next */}
-          <div className="flex flex-col sm:flex-row gap-4 py-16 min-w-0">
-            {c.prev ? <NavCard item={c.prev} direction="prev" /> : <div className="hidden sm:block flex-1" />}
-            {c.next ? <NavCard item={c.next} direction="next" /> : <div className="hidden sm:block flex-1" />}
-          </div>
+          <CaseNavigation prev={c.prev} next={c.next} />
         </div>
       </main>
       <Footer />

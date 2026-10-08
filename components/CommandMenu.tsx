@@ -22,6 +22,7 @@ const ACTIONS: CommandAction[] = [
   { id: "multi-brand", label: "Multi-Brand Design System", category: "Casos de estudio", href: "/proyectos/multi-brand", tag: "Design System" },
   { id: "crm", label: "ChatCRM — CRM para PyMEs", category: "Casos de estudio", href: "/proyectos/crm", tag: "SaaS B2B" },
   { id: "trainit", label: "TrainiT — Gestión de Proyectos", category: "Casos de estudio", href: "/proyectos/trainit", tag: "Product Design" },
+  { id: "nodo", label: "NODO Arquitectura", category: "Casos de estudio", href: "/proyectos/nodo", tag: "Diseño web" },
   { id: "copy-email", label: "Copiar correo de contacto", category: "Acciones", copy: "ivanandradeuxui@gmail.com", tag: "Email" },
   { id: "linkedin", label: "Abrir perfil de LinkedIn", category: "Enlaces", href: "https://www.linkedin.com/in/ivan-andrade-uxui/", external: true },
   { id: "cv", label: "Descargar CV actualizado", category: "Acciones", href: "/cv/Iván Andrade - Product Designer UX UI.pdf", tag: "PDF" },
