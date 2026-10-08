@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
 import { SiBehance } from "react-icons/si";
 import { useTheme } from "@/components/ThemeProvider";
@@ -72,9 +73,12 @@ export default function Footer() {
           <div className="flex flex-col gap-2 flex-1 min-w-[220px]">
             <Link href="/" className="w-fit block">
               <div className="relative w-12 overflow-hidden" style={{ height: "41.26px" }}>
-                <img
+                <Image
                   src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"}
                   alt="Ivan Andrade"
+                  width={216}
+                  height={144}
+                  sizes="216px"
                   className={`absolute max-w-none pointer-events-none ${
                     theme === "light"
                       ? "h-[335.38%] left-[-173.33%] top-[-104.62%] w-[436%]"

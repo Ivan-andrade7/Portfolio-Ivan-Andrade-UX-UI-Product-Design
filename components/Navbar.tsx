@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Moon, Sun, Menu, X, Download, Search } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 import CommandMenu, { CommandMenuTrigger } from "@/components/CommandMenu";
@@ -20,9 +21,13 @@ function Logo({ theme }: { theme: string }) {
   const isLight = theme === "light";
   return (
     <div className="relative shrink-0 overflow-hidden" style={{ width: 40, height: 34.39 }}>
-      <img
+      <Image
         src={isLight ? "/logo-light.png" : "/logo-dark.png"}
         alt=""
+        width={180}
+        height={120}
+        sizes="180px"
+        loading="eager"
         className={`absolute max-w-none pointer-events-none ${
           isLight
             ? "h-[335.38%] left-[-173.33%] top-[-104.62%] w-[436%]"
