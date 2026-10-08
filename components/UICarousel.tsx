@@ -160,11 +160,13 @@ export default function UICarousel({
   title,
   note,
   galleryAspect,
+  captureBackground,
 }: {
   screens: Screen[];
   title: string;
   note?: string;
   galleryAspect?: string;
+  captureBackground?: string;
 }) {
   const [idx, setIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -212,7 +214,7 @@ export default function UICarousel({
             onClick={() => openScreen(screens[keyIndex])}
             aria-label={`Ampliar captura: ${title}, ${screens[keyIndex].name}`}
             className="group relative w-full rounded-xl overflow-hidden border border-[var(--border-default)] cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
-            style={{ aspectRatio: galleryAspect ?? "800 / 569", background: "var(--bg-secondary)" }}
+            style={{ aspectRatio: galleryAspect ?? "800 / 569", background: captureBackground ?? "var(--bg-secondary)" }}
           >
             <ResilientImage
               src={screens[keyIndex].src}
@@ -290,7 +292,7 @@ export default function UICarousel({
                 aria-label={`Ampliar ${screen.name}`}
                 className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
               >
-                <span className="relative block w-full aspect-[4/3]" style={{ background: "var(--bg-primary)" }}>
+                <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 768px) 100vw, 33vw" />
                 </span>
                 <span className="flex flex-col gap-1 px-4 pb-4">
@@ -315,7 +317,7 @@ export default function UICarousel({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {comparisonScreens.map((screen) => (
               <button key={screen.src} type="button" onClick={() => openScreen(screen)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
-                <span className="relative block w-full aspect-[4/3]" style={{ background: "var(--bg-primary)" }}>
+                <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 768px) 100vw, 50vw" />
                 </span>
                 <span className="flex flex-col gap-1 px-4 pb-4">
@@ -338,7 +340,7 @@ export default function UICarousel({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {galleryScreens.map((screen) => (
               <button key={screen.src} type="button" onClick={() => openScreen(screen)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
-                <span className="relative block w-full aspect-[4/3]" style={{ background: "var(--bg-primary)" }}>
+                <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 640px) 100vw, 50vw" />
                 </span>
                 <span className="flex flex-col gap-1 px-4 pb-4">

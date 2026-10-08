@@ -103,7 +103,7 @@ export default function NodoCasePage() {
               <p className={body}>En Figma, cada pantalla contiene frames de sección que organizan grupos y componentes. El padding y los gaps se aplican en ese nivel; las variables se mantienen en dos colecciones: Primitiva y Semántica.</p>
               <p className={body}>El contenido tiene un ancho máximo de 1280 px. Las grillas se reorganizan con el espacio disponible, mientras que navegación y tipografía cambian según el modo. La adaptación no implica que todos los controles deban ocupar todo el ancho.</p>
             </div>
-            <UICarousel screens={listingScreens} title="NODO · Proyectos" note="Capturas reales de la web. Mobile muestra el inicio del listado." />
+            <UICarousel screens={listingScreens} title="NODO · Proyectos" captureBackground="var(--bg-secondary)" note="Capturas reales de la web. Mobile muestra el inicio del listado." />
           </section>
 
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
@@ -121,7 +121,7 @@ export default function NodoCasePage() {
               <p className={body}>La web se implementó con Astro, TypeScript y CSS: componentes compartidos, fuentes locales, iconos Lucide y assets preparados como WebP. La revisión incluyó rutas, imágenes, filtros, menú y estados del formulario.</p>
               <p className={body}>Una corrección concreta fue retirar el error de un campo cuando vuelve a ser válido, sin mover el foco mientras se escribe. Contacto demuestra validación local: el estado final dice «Validación completada», no confirma una consulta recibida.</p>
             </div>
-            <UICarousel screens={contactScreens} title="NODO · Contacto" note="Validación local, sin transmisión ni almacenamiento de datos." />
+            <UICarousel screens={contactScreens} title="NODO · Contacto" captureBackground="var(--bg-secondary)" note="Validación local, sin transmisión ni almacenamiento de datos." />
           </section>
 
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
