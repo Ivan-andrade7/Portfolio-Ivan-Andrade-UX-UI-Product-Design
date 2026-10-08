@@ -16,7 +16,13 @@ type CommandAction = {
 };
 
 const ACTIONS: CommandAction[] = [
+  { id: "home", label: "Inicio", category: "Secciones", href: "/#inicio" },
+  { id: "projects", label: "Proyectos", category: "Secciones", href: "/#proyectos", tag: "UX/UI · Product Design" },
   { id: "services", label: "Servicios web", category: "Secciones", href: "/#servicios", tag: "Web Design" },
+  { id: "about", label: "Sobre mí", category: "Secciones", href: "/#sobre-mi" },
+  { id: "experience", label: "Experiencia", category: "Secciones", href: "/#experiencia" },
+  { id: "education", label: "Educación", category: "Secciones", href: "/#educacion" },
+  { id: "contact", label: "Contacto", category: "Secciones", href: "/#contactos" },
   { id: "garden-ads", label: "GardenAds — Attribution & Tracking Health", category: "Casos de estudio", href: "/proyectos/garden-ads", tag: "Analytics SaaS" },
   { id: "fintech", label: "Fintech PYME — Plataforma de Créditos B2B", category: "Casos de estudio", href: "/proyectos/fintech", tag: "Fintech" },
   { id: "multi-brand", label: "Multi-Brand Design System", category: "Casos de estudio", href: "/proyectos/multi-brand", tag: "Design System" },
@@ -113,6 +119,10 @@ export default function CommandMenu() {
     setSelectedIndex((current) => Math.min(current, Math.max(filteredActions.length - 1, 0)));
   }, [filteredActions.length]);
 
+  useEffect(() => {
+    if (isOpen) dialogRef.current?.querySelector('[aria-selected="true"]')?.scrollIntoView({ block: "nearest" });
+  }, [isOpen, selectedIndex, query]);
+
   function closeMenu() {
     setIsOpen(false);
     requestAnimationFrame(() => returnFocusRef.current?.focus());
@@ -176,7 +186,7 @@ export default function CommandMenu() {
     <>
       {isOpen && createPortal(
         <div
-          className="fixed inset-0 z-[60] flex items-start justify-center bg-[var(--overlay-card)] px-4 pt-20 backdrop-blur-sm md:pt-28"
+          className="portfolio-home command-overlay fixed inset-0 z-[60] flex items-start justify-center px-4 backdrop-blur-sm"
           role="presentation"
           onMouseDown={(event) => { if (event.target === event.currentTarget) closeMenu(); }}
         >
@@ -185,7 +195,7 @@ export default function CommandMenu() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="command-menu-title"
-            className="flex w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-primary)] shadow-2xl"
+            className="command-dialog flex w-full max-w-2xl flex-col overflow-hidden border border-[var(--border-default)] bg-[var(--bg-primary)] shadow-2xl"
           >
             <div className="flex items-center gap-3 border-b border-[var(--border-default)] px-4 py-3">
               <Search size={18} className="shrink-0 text-[var(--text-tertiary)]" />
@@ -194,8 +204,13 @@ export default function CommandMenu() {
                 value={query}
                 onChange={(event) => { setQuery(event.target.value); setSelectedIndex(0); }}
                 onKeyDown={handleInputKeyDown}
-                placeholder="Buscar casos, etiquetas o acciones…"
+                placeholder="Buscar secciones, casos o acciones…"
                 aria-label="Buscar en el portfolio"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-expanded="true"
+                aria-controls="command-results"
+                aria-activedescendant={filteredActions[selectedIndex] ? `command-${filteredActions[selectedIndex].id}` : undefined}
                 className="min-w-0 flex-1 bg-transparent text-[16px] leading-7 text-[var(--text-primary)] outline-none placeholder:text-[var(--text-placeholder)]"
               />
               <kbd className="hidden rounded border border-[var(--border-default)] px-2 py-1 text-[12px] text-[var(--text-tertiary)] sm:inline-flex">Esc</kbd>
@@ -210,7 +225,7 @@ export default function CommandMenu() {
             </div>
 
             <div id="command-menu-title" className="sr-only">Navegación rápida del portfolio</div>
-            <div className="max-h-[min(60vh,480px)] overflow-y-auto p-2" role="listbox" aria-label="Resultados de navegación">
+            <div id="command-results" className="command-results max-h-[min(60vh,480px)] overflow-y-auto p-2" role="listbox" aria-label="Resultados de navegación">
               {filteredActions.length === 0 ? (
                 <p className="px-4 py-8 text-center text-[14px] text-[var(--text-tertiary)]">No se encontraron resultados.</p>
               ) : filteredActions.map((action, index) => {
@@ -219,23 +234,24 @@ export default function CommandMenu() {
                 return (
                   <button
                     key={action.id}
+                    id={`command-${action.id}`}
                     type="button"
                     role="option"
                     aria-selected={isSelected}
                     onMouseEnter={() => setSelectedIndex(index)}
                     onClick={() => void executeAction(action)}
-                    className={`flex w-full items-center justify-between gap-4 rounded-lg px-3 py-3 text-left transition-colors focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)] ${isSelected ? "bg-[var(--bg-secondary)]" : "hover:bg-[var(--bg-secondary)]"}`}
+                    className={`command-option flex w-full items-center justify-between gap-4 px-3 py-3 text-left transition-colors ${isSelected ? "bg-[var(--bg-secondary)]" : "hover:bg-[var(--bg-secondary)]"}`}
                   >
                     <span className="flex min-w-0 items-center gap-3">
                       <span className="flex size-8 shrink-0 items-center justify-center rounded-lg border border-[var(--border-default)] text-[var(--text-accent)]">
                         {isCopied ? <Check size={16} /> : action.copy ? <Copy size={16} /> : action.external ? <ExternalLink size={16} /> : <Command size={16} />}
                       </span>
                       <span className="flex min-w-0 flex-col gap-0.5">
-                        <span className="truncate text-[14px] font-semibold leading-5 text-[var(--text-primary)]">{isCopied ? "Correo copiado" : action.label}</span>
+                        <span className="command-option-label text-[14px] font-semibold leading-5 text-[var(--text-primary)]">{isCopied ? "Correo copiado" : action.label}</span>
                         <span className="truncate text-[12px] leading-4 text-[var(--text-tertiary)]">{action.category}</span>
                       </span>
                     </span>
-                    {action.tag && <span className="shrink-0 rounded-full border border-[var(--border-default)] px-2 py-1 text-[11px] font-semibold text-[var(--text-tertiary)]">{action.tag}</span>}
+                    {action.tag && <span className="command-option-tag shrink-0 rounded border border-[var(--border-default)] px-2 py-1 text-[11px] font-semibold text-[var(--text-tertiary)]">{action.tag}</span>}
                   </button>
                 );
               })}

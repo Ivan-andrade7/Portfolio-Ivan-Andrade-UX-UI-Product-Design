@@ -132,7 +132,7 @@ export default async function CaseStudyPage({
               </div>
             </div>
             <div className="case-hero-media">
-              <ResilientImage src={coverScreen?.src ?? c.images[0]} alt={coverScreen?.alt ?? c.title} fill preload sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1296px) 52vw, 595px" className="object-contain p-4" fallbackLabel={`${c.title}: imagen no disponible`} />
+              <ResilientImage src={coverScreen?.src ?? c.images[0]} alt={coverScreen?.alt ?? c.title} fill preload sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1992px) 48vw, 910px" className="object-contain p-4" fallbackLabel={`${c.title}: imagen no disponible`} />
             </div>
           </div>
         </header>
