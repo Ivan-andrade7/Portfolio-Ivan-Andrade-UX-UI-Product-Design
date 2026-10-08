@@ -35,16 +35,16 @@ html.light {
   --bg-secondary: #e2e8f0;
   --surface-elevated: #e2e8f0;
   --border-default: #cbd5e1;
-  --text-accent: #0d9488;
+  --text-accent: #0f766e;
   --text-primary: #0f172a;
   --text-secondary: #1e293b;
   --text-tertiary: #475569;
   --text-inverse: #f8fafc;
-  --brand-primary: #0d9488;
+  --brand-primary: #0f766e;
   --brand-hover: #0f766e;
   --brand-soft: #ccfbf1;
   --border-interactive: #0d9488;
-  --highlight: #0d9488;
+  --highlight: #0f766e;
   --focus-ring: rgba(13, 148, 136, 0.3);
   --card-gradient-0: rgba(248, 250, 252, 0);
   --card-gradient-1: rgba(248, 250, 252, 0.1);
@@ -57,12 +57,12 @@ html.light {
 :root {
   --surface-secondary: #1e293b;
   --text-link: #5eead4;
-  --text-placeholder: #64748b;
+  --text-placeholder: #94a3b8;
 }
 html.light {
   --surface-secondary: #f1f5f9;
-  --text-link: #0d9488;
-  --text-placeholder: #94a3b8;
+  --text-link: #0f766e;
+  --text-placeholder: #475569;
 }
 
 /* ── Feedback tokens — Dark ── */

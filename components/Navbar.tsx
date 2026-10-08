@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Moon, Sun, Menu, X, Download, Search } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
@@ -59,6 +59,24 @@ export default function Navbar() {
   const [activeId, setActiveId] = useState("inicio");
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  function closeMobileMenu() {
+    setIsOpen(false);
+    requestAnimationFrame(() => menuButtonRef.current?.focus());
+  }
+
+  useEffect(() => {
+    if (!isOpen) return;
+    function onMenuKeyDown(event: KeyboardEvent) {
+      // The search dialog handles its own Escape and focus return.
+      if (event.key === "Escape" && !document.querySelector('[role="dialog"]')) {
+        closeMobileMenu();
+      }
+    }
+    window.addEventListener("keydown", onMenuKeyDown);
+    return () => window.removeEventListener("keydown", onMenuKeyDown);
+  }, [isOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -95,6 +113,7 @@ export default function Navbar() {
 
   return (
     <nav
+      aria-label="Navegación principal"
       className="border-b sticky top-0 z-50 w-full backdrop-blur-sm"
       style={{ backgroundColor: navBg, borderColor: "var(--border-default)", transition: "background-color 0.2s ease" }}
     >
@@ -144,6 +163,7 @@ export default function Navbar() {
             <Logo theme={theme} />
           </Link>
           <button
+            ref={menuButtonRef}
             aria-label="Abrir menú"
             aria-expanded={false}
             onClick={() => setIsOpen(true)}
@@ -169,7 +189,7 @@ export default function Navbar() {
             <button
               aria-label="Cerrar menú"
               aria-expanded={true}
-              onClick={() => setIsOpen(false)}
+              onClick={closeMobileMenu}
               className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer transition-colors hover:bg-[var(--bg-secondary)]"
               style={{ color: "var(--text-secondary)" }}
             >
