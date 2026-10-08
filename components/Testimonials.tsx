@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote, User } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 function LinkedinIcon() {
   return (
@@ -51,128 +51,21 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeTestimonial = TESTIMONIALS[activeIndex];
-
-  const move = (direction: -1 | 1) => {
-    setActiveIndex((current) => (current + direction + TESTIMONIALS.length) % TESTIMONIALS.length);
-  };
+  const active = TESTIMONIALS[activeIndex];
+  const move = (direction: -1 | 1) => setActiveIndex(current => (current + direction + TESTIMONIALS.length) % TESTIMONIALS.length);
 
   return (
-    /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
-    <section className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]">
-      {/* ── Section header: gap/xs=8px outer, no subtitle (per Figma) ── */}
-      <div className="flex flex-col gap-2 w-full">
-        <div className="flex items-center gap-2 h-4">
-          <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-          <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-            Testimonios
-          </span>
+    <section className="home-section home-container home-testimonials" aria-labelledby="testimonials-heading">
+      <div className="home-section-heading"><p className="home-kicker">06 / Recomendaciones</p><h2 id="testimonials-heading">Diseñar también es colaborar.</h2><p>Testimonios de personas con las que trabajé. Conservados con su atribución y contexto.</p></div>
+      <div role="region" aria-roledescription="carousel" aria-label="Recomendaciones del equipo" tabIndex={0} className="home-quote-region" onKeyDown={event => { if (event.key === "ArrowLeft") { event.preventDefault(); move(-1); } if (event.key === "ArrowRight") { event.preventDefault(); move(1); } }}>
+        <div aria-live="polite" aria-atomic="true" className="home-quote-body">
+          <Quote size={32} aria-hidden />
+          <blockquote>{active.paragraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</blockquote>
+          <div className="home-quote-author"><div>{active.authorUrl ? <a href={active.authorUrl} target="_blank" rel="noopener noreferrer">{active.name} ↗</a> : <strong>{active.name}</strong>}<p>{active.orgUrl ? <a href={active.orgUrl} target="_blank" rel="noopener noreferrer">{active.role}</a> : active.role}</p></div><a href={active.linkedin} target="_blank" rel="noopener noreferrer" className="home-text-link"><LinkedinIcon />{active.linkedinLabel ?? "Ver recomendación en LinkedIn"}</a></div>
         </div>
-        <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-          Lo que dice el equipo
-        </h2>
-      </div>
-
-      <div
-        className="flex flex-col gap-6 w-full min-w-0"
-        role="region"
-        aria-roledescription="carousel"
-        aria-label="Recomendaciones del equipo"
-        tabIndex={0}
-        onKeyDown={(event) => {
-          if (event.key === "ArrowLeft") move(-1);
-          if (event.key === "ArrowRight") move(1);
-        }}
-      >
-        {/* ── Single recommendation card ── */}
-        <div
-          key={activeTestimonial.name}
-          className="flex min-w-0 flex-col gap-3 p-6 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-default)] hover:border-[var(--border-interactive)] transition-colors duration-150 cursor-default"
-          style={{ boxShadow: "var(--shadow-card)" }}
-          aria-live="polite"
-        >
-            {/* Quote icon — 20px accent */}
-            <Quote size={20} className="text-[var(--text-accent)] shrink-0" />
-
-            {/* Body-M: 16px/400/28px — secondary */}
-            <div className="flex flex-col gap-4 text-[var(--text-secondary)] text-[16px] leading-7">
-              {activeTestimonial.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-
-            {/* Divider */}
-            <div className="w-full border-t border-[var(--border-default)]" />
-
-            {/* Author — gap/sm=12px */}
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                {/* Avatar pill — bg-secondary, rounded-full, p-8px */}
-                <div className="p-2 rounded-full bg-[var(--bg-secondary)] shrink-0">
-                  <User size={20} className="text-[var(--text-tertiary)]" />
-                </div>
-                {/* Name + role — gap/xs=8px */}
-                <div className="flex flex-col flex-1 min-w-0 gap-2">
-                  {activeTestimonial.authorUrl ? (
-                    <a href={activeTestimonial.authorUrl} target="_blank" rel="noopener noreferrer" className="text-[var(--text-primary)] text-[14px] font-semibold leading-5 hover:text-[var(--text-accent)] transition-colors">
-                      {activeTestimonial.name}
-                    </a>
-                  ) : (
-                    <span className="text-[var(--text-primary)] text-[14px] font-semibold leading-5">
-                      {activeTestimonial.name}
-                    </span>
-                  )}
-                  <span className="text-[var(--text-tertiary)] text-[12px] font-semibold leading-4 tracking-[1px]">
-                    {activeTestimonial.orgUrl ? <a href={activeTestimonial.orgUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-accent)] transition-colors">{activeTestimonial.role}</a> : activeTestimonial.role}
-                  </span>
-                </div>
-              </div>
-              {/* LinkedIn — enlace con texto, no URL cruda */}
-              {activeTestimonial.linkedin ? (
-                <a
-                  href={activeTestimonial.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 w-fit text-[var(--text-accent)] text-[14px] font-semibold leading-5 hover:opacity-80 transition-opacity"
-                >
-                  <LinkedinIcon />
-                  {activeTestimonial.linkedinLabel ?? "Ver recomendación en LinkedIn"}
-                </a>
-              ) : (
-                <span className="text-[var(--text-tertiary)] text-[12px] leading-5">
-                  Recomendación recibida · perfil público de Leandro
-                </span>
-              )}
-            </div>
-        </div>
-
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2" role="tablist" aria-label="Seleccionar recomendación">
-            {TESTIMONIALS.map((testimonial, index) => (
-              <button
-                key={testimonial.name}
-                type="button"
-                role="tab"
-                aria-selected={index === activeIndex}
-                aria-label={`Mostrar recomendación de ${testimonial.name}`}
-                className="flex size-8 items-center justify-center rounded-full transition-colors hover:bg-[var(--bg-secondary)]"
-                onClick={() => setActiveIndex(index)}
-              >
-                <span
-                  aria-hidden
-                  className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-6 bg-[var(--text-accent)]" : "w-2 bg-[var(--border-interactive)]"}`}
-                />
-              </button>
-            ))}
-          </div>
-          <div className="flex items-center gap-2">
-            <button type="button" onClick={() => move(-1)} aria-label="Recomendación anterior" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-secondary)] hover:border-[var(--border-interactive)] hover:text-[var(--text-accent)] transition-colors">
-              <ChevronLeft size={18} />
-            </button>
-            <button type="button" onClick={() => move(1)} aria-label="Siguiente recomendación" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-secondary)] hover:border-[var(--border-interactive)] hover:text-[var(--text-accent)] transition-colors">
-              <ChevronRight size={18} />
-            </button>
-          </div>
+        <div className="home-quote-controls">
+          <div role="group" aria-label="Seleccionar recomendación">{TESTIMONIALS.map((item, i) => <button key={item.name} type="button" aria-label={`Mostrar recomendación de ${item.name}`} aria-pressed={activeIndex === i} onClick={() => setActiveIndex(i)}>{String(i + 1).padStart(2, "0")}</button>)}</div>
+          <div><button type="button" onClick={() => move(-1)} aria-label="Recomendación anterior"><ChevronLeft size={20} aria-hidden /></button><button type="button" onClick={() => move(1)} aria-label="Siguiente recomendación"><ChevronRight size={20} aria-hidden /></button></div>
         </div>
       </div>
     </section>

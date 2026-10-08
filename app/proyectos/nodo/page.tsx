@@ -4,8 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 import { BackToPortfolio, CaseExternalLink, CaseNavigation, SectionHeader, TagChip } from "@/components/CaseStudyUI";
 import UICarousel from "@/components/UICarousel";
 import type { Screen } from "@/lib/cases";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import ResilientImage from "@/components/ResilientImage";
 import cover from "@/public/projects/nodo/05-sobre-nodo-introduccion-desktop.jpg";
 import projectsDesktop from "@/public/projects/nodo/01-proyectos-desktop.jpg";
@@ -53,8 +51,8 @@ const contactScreens = [
 function Capture({ image, alt, caption, priority = false }: { image: StaticImageData; alt: string; caption: string; priority?: boolean }) {
   return (
     <figure className="min-w-0">
-      <div className="overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)]">
-        <ResilientImage src={image} alt={alt} sizes="(min-width: 1280px) 1120px, 100vw" priority={priority} className="h-auto w-full" />
+      <div className="case-capture overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)]">
+        <ResilientImage src={image} alt={alt} sizes="(min-width: 1280px) 1120px, 100vw" preload={priority} className="h-auto w-full" />
       </div>
       <figcaption className="mt-3 text-sm leading-6 text-[var(--text-tertiary)]">
         {caption}{" "}
@@ -67,15 +65,14 @@ function Capture({ image, alt, caption, priority = false }: { image: StaticImage
 export default function NodoCasePage() {
   return (
     <>
-      <Navbar />
-      <main className="min-w-0 bg-[var(--bg-primary)] px-6 pt-12 sm:px-12 lg:px-24">
-        <article className="flex w-full min-w-0 flex-col">
-          <header className="space-y-8 border-b border-[var(--border-default)] pb-16">
+      <main id="contenido-principal" tabIndex={-1} className="case-main">
+        <article className="case-body home-container flex min-w-0 flex-col">
+          <header id="inicio" className="case-nodo-hero space-y-8 border-b border-[var(--border-default)] pb-16">
             <BackToPortfolio />
             <div className="max-w-3xl space-y-5">
               <div className="flex flex-wrap gap-2"><TagChip label="Diseño web" accent /><TagChip label="Proyecto personal conceptual" /></div>
               <h1 className="text-[34px] sm:text-[40px] md:text-[56px] font-bold leading-[1.14] tracking-[-1.5px] md:tracking-[-2px] text-[var(--text-primary)] w-full min-w-0 break-words">NODO Arquitectura</h1>
-              <p className="text-xl leading-8 text-[var(--text-secondary)]">Del diseño visual a una web responsive.</p>
+              <p className="case-subtitle text-xl leading-8 text-[var(--text-secondary)]">Del diseño visual a una web responsive.</p>
               <p className={body}>Una web de arquitectura necesita dar protagonismo a los proyectos y, al mismo tiempo, explicar qué ofrece el estudio. NODO explora ese equilibrio mediante una lectura editorial, imágenes amplias y una estructura compartida.</p>
               <CaseExternalLink href="https://nodo-arquitectura-five.vercel.app/">Ver sitio <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (se abre en otra pestaña)</span></CaseExternalLink>
             </div>
@@ -135,7 +132,6 @@ export default function NodoCasePage() {
           <CaseNavigation prev={{ slug: "trainit", title: "TrainiT — Gestión de Proyectos", role: "Junior UX/UI Designer · Práctica formativa" }} />
         </article>
       </main>
-      <Footer />
     </>
   );
 }

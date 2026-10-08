@@ -1,10 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { BackToPortfolio, CaseNavigation, SectionHeader, TagChip } from "@/components/CaseStudyUI";
+import { BackToPortfolio, CaseNavigation, CaseTldr, SectionHeader, TagChip } from "@/components/CaseStudyUI";
 import { SiBehance, SiFigma } from "react-icons/si";
 import { CASES, getCaseBySlug } from "@/lib/cases";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import UICarousel from "@/components/UICarousel";
 import ResilientImage from "@/components/ResilientImage";
 
@@ -57,7 +55,7 @@ function DecisionBlock({
   decision: { id: string; title: string; motivo: string; impacto: string; tradeoff?: string };
 }) {
   return (
-    <div className="border-l-2 rounded-br-xl rounded-tr-xl w-full" style={{ borderColor: "var(--border-interactive)" }}>
+    <div className="case-decision border-l-2 rounded-br-xl rounded-tr-xl w-full" style={{ borderColor: "var(--border-interactive)" }}>
       <div
         className="flex flex-col gap-2 p-6 rounded-br-xl rounded-tr-xl border"
         style={{ background: "var(--bg-secondary)", borderColor: "var(--border-default)" }}
@@ -91,7 +89,7 @@ function MetricCard({ value, label }: { value: string; label: string }) {
   const number = match ? match[1] : value;
   const suffix = match ? match[2] : "";
   return (
-    <div className="flex flex-col gap-2 p-6 rounded-xl border flex-1 bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)] border-[var(--border-default)] transition-colors cursor-default">
+    <div className="case-metric flex flex-col gap-2 p-6 rounded-xl border flex-1 bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)] border-[var(--border-default)] transition-colors cursor-default">
       <p className="text-[56px] font-bold leading-[64px] tracking-[-2px]">
         <span className="text-[var(--text-primary)]">{number}</span>
         {suffix && <span className="text-[var(--text-accent)]">{suffix}</span>}
@@ -111,82 +109,52 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const c = getCaseBySlug(slug);
   if (!c) notFound();
-  const needsBackLinkContrast = c.slug === "crm" || c.slug === "trainit";
+  const coverScreen = c.pantallas?.find(screen => screen.role === "key") ?? c.pantallas?.[0];
 
   return (
     <>
-      <Navbar />
-      <main className="bg-[var(--bg-primary)]">
+      <main id="contenido-principal" tabIndex={-1} className="case-main">
 
-        {/* ── Hero — Figma 349:55 (desktop) / 593:3011 (tablet) / 659:3011 (mobile) ── */}
-        <div className="relative w-full min-w-0 min-h-[480px] md:min-h-[560px]">
-          {c.heroImages ? (
-            <picture className="absolute inset-0 size-full">
-              <source media="(min-width: 1024px)" srcSet={c.heroImages.desktop} />
-              <source media="(min-width: 768px)" srcSet={c.heroImages.tablet} />
-              <img src={c.heroImages.mobile} alt="" className="absolute inset-0 size-full object-cover pointer-events-none" />
-            </picture>
-          ) : (
-            <ResilientImage src={c.images[0]} alt={c.title} fill className="object-cover" priority fallbackLabel={`${c.title}: imagen no disponible`} />
-          )}
-
-          <div
-            className="absolute inset-0 flex flex-col justify-between px-6 md:px-12 xl:px-24 py-12"
-            style={{ backgroundImage: "linear-gradient(90deg, var(--card-gradient-4) 0%, var(--card-gradient-3) 42%, var(--card-gradient-2) 72%, var(--card-gradient-1) 100%)" }}
-          >
-
-            {/* Ghost button MD — Figma 198:253 */}
-            <BackToPortfolio contrast={needsBackLinkContrast} />
-
-            {/* Bottom content */}
-          <div className="flex flex-col gap-4 w-full min-w-0">
-              <div className="flex flex-wrap gap-2">
-                {c.tags.map((tag, i) => (
-                  <TagChip key={tag} label={tag} accent={i === 0} />
-                ))}
-              </div>
-
-          <h1 className="text-[34px] sm:text-[40px] md:text-[56px] font-bold leading-[1.14] tracking-[-1.5px] md:tracking-[-2px] text-[var(--text-primary)] w-full min-w-0 break-words">
-                {c.title}
-              </h1>
-
-              <p className="text-[18px] md:text-[20px] leading-8 text-[var(--text-secondary)] w-full">
-                {c.subtitle}
-              </p>
-
-              {/* Button Icon Secondary MD — Behance + Figma */}
-              <div className="flex gap-3">
-                <a
-                  href={c.links.behance}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ver en Behance"
-                  className="flex items-center justify-center w-10 h-10 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] bg-transparent transition-colors hover:bg-[var(--brand-soft)]"
-                >
-                  <SiBehance size={20} />
-                </a>
+        <header id="inicio" className="case-hero home-container">
+          <BackToPortfolio />
+          <div className="case-hero-layout">
+            <div className="case-hero-copy">
+              <div className="case-tags">{c.tags.map((tag, i) => <TagChip key={tag} label={tag} accent={i === 0} />)}</div>
+              <h1>{c.title}</h1>
+              <p className="case-subtitle">{c.subtitle}</p>
+              <div className="case-hero-links">
+                <a href={c.links.behance} target="_blank" rel="noopener noreferrer" aria-label="Ver en Behance" className="case-icon-link"><SiBehance size={20} aria-hidden /></a>
                 {c.links.figma ? (
-                  <a
-                    href={c.links.figma}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Ver prototipo en Figma"
-                    className="flex items-center justify-center w-10 h-10 rounded-lg border border-[var(--text-accent)] text-[var(--text-accent)] bg-transparent transition-colors hover:bg-[var(--brand-soft)]"
-                  >
-                    <SiFigma size={20} />
-                  </a>
+                  <a href={c.links.figma} target="_blank" rel="noopener noreferrer" aria-label="Ver prototipo en Figma" className="case-icon-link"><SiFigma size={20} aria-hidden /></a>
                 ) : c.links.figmaNote ? (
-                  <span className="flex items-center max-w-xs px-3 py-2 rounded-lg border border-[var(--border-default)] text-[12px] leading-4 text-[var(--text-tertiary)]">
-                    Figma: {c.links.figmaNote}
-                  </span>
+                  <span className="case-link-note">Figma: {c.links.figmaNote}</span>
                 ) : null}
               </div>
             </div>
+            <div className="case-hero-media">
+              <ResilientImage src={coverScreen?.src ?? c.images[0]} alt={coverScreen?.alt ?? c.title} fill preload sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1296px) 52vw, 595px" className="object-contain p-4" fallbackLabel={`${c.title}: imagen no disponible`} />
+            </div>
           </div>
-        </div>
+        </header>
 
         {/* ── Content — px-6/12/24 (96px en desktop) ── */}
-        <div className="px-6 sm:px-12 lg:px-24">
+        <div className="case-body home-container">
+
+          {c.slug === "fintech" && c.attribution && (
+            <div className="py-12">
+              <CaseTldr
+                items={[
+                  { label: "Rol", value: c.context.rol },
+                  { label: "Equipo / contexto", value: c.context.foco },
+                  { label: "Tipo de proyecto", value: "Simulación laboral de No Country" },
+                  { label: "Alcance", value: c.attribution.responsibility },
+                  { label: "Entregables", value: c.attribution.deliverables },
+                  { label: "Evidencia", value: c.attribution.evidence },
+                  { label: "Límites", value: c.notice ?? "No se presentan métricas, testing ni resultados no documentados." },
+                ]}
+              />
+            </div>
+          )}
 
           {/* Overview */}
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
@@ -230,7 +198,7 @@ export default async function CaseStudyPage({
                   { label: "Entregables descritos", value: c.attribution.deliverables },
                   { label: "Evidencia y límites", value: c.attribution.evidence },
                 ].map(({ label, value }) => (
-                  <div key={label} className="flex flex-col gap-2 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+                  <div key={label} className="case-panel flex flex-col gap-2 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
                     <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">{label}</span>
                     <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{value}</p>
                   </div>
@@ -244,14 +212,14 @@ export default async function CaseStudyPage({
               <SectionHeader eyebrow="Lectura del caso" heading="Personas y entregables" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {c.users && (
-                  <div className="flex flex-col gap-3 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+                  <div className="case-panel flex flex-col gap-3 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
                     <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">Personas involucradas</span>
                     <h3 className="text-[20px] font-semibold leading-8 text-[var(--text-primary)]">{c.users.title}</h3>
                     <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{c.users.body}</p>
                   </div>
                 )}
                 {c.outcome && (
-                  <div className="flex flex-col gap-3 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+                  <div className="case-panel flex flex-col gap-3 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
                     <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-accent)]">{c.outcome.title}</span>
                     <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{c.outcome.body}</p>
                   </div>
@@ -345,7 +313,6 @@ export default async function CaseStudyPage({
           <CaseNavigation prev={c.prev} next={c.next} />
         </div>
       </main>
-      <Footer />
     </>
   );
 }

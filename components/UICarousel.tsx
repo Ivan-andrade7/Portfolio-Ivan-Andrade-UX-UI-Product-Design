@@ -80,7 +80,7 @@ function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-label={`${title} — pantalla ${idx + 1} de ${total}, ampliada`}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10"
+      className="case-lightbox fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10"
       style={{ background: "rgba(2, 6, 23, 0.92)" }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -178,7 +178,8 @@ export default function UICarousel({
   const galleryScreens = screens.filter((screen) => !screen.role || screen.role === "gallery");
   const idBase = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-  function openScreen(screen: Screen) {
+  function openScreen(screen: Screen, trigger: HTMLButtonElement) {
+    expandBtnRef.current = trigger;
     setIdx(screens.indexOf(screen));
     setLightboxOpen(true);
   }
@@ -195,7 +196,7 @@ export default function UICarousel({
   }
 
   return (
-    <div className="flex flex-col gap-12 w-full overflow-hidden">
+    <div className="case-gallery flex flex-col gap-12 w-full">
 
       {/* Bloque 1 — pantalla clave: se ve completa y tiene contexto antes de pedirle al recruiter que explore. */}
       <section className="flex flex-col gap-6" aria-labelledby={`${idBase}-key-screen`}>
@@ -211,7 +212,7 @@ export default function UICarousel({
           <button
             ref={expandBtnRef}
             type="button"
-            onClick={() => openScreen(screens[keyIndex])}
+            onClick={event => openScreen(screens[keyIndex], event.currentTarget)}
             aria-label={`Ampliar captura: ${title}, ${screens[keyIndex].name}`}
             className="group relative w-full rounded-xl overflow-hidden border border-[var(--border-default)] cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
             style={{ aspectRatio: galleryAspect ?? "800 / 569", background: captureBackground ?? "var(--bg-secondary)" }}
@@ -232,7 +233,7 @@ export default function UICarousel({
             </span>
           </button>
 
-          <div className="flex flex-col gap-5 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
+          <div className="case-panel flex flex-col gap-5 p-6 rounded-xl border bg-[var(--bg-secondary)] border-[var(--border-default)]">
             <div className="flex flex-col gap-2">
               <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-tertiary)]">Qué demuestra</span>
               <p className="text-[16px] leading-7 text-[var(--text-secondary)]">{screens[keyIndex].decision}</p>
@@ -248,7 +249,7 @@ export default function UICarousel({
       {/* Aviso discreto opcional. */}
       {note && (
         <div
-          className="flex items-start gap-2 px-4 py-3 rounded-lg border text-[14px] leading-5 min-w-0"
+          className="case-gallery-note flex items-start gap-2 px-4 py-3 rounded-lg border text-[14px] leading-5 min-w-0"
           style={{
             background: "var(--feedback-info-bg)",
             borderColor: "var(--feedback-info-border)",
@@ -288,7 +289,7 @@ export default function UICarousel({
               <button
                 key={screen.src}
                 type="button"
-                onClick={() => openScreen(screen)}
+                onClick={event => openScreen(screen, event.currentTarget)}
                 aria-label={`Ampliar ${screen.name}`}
                 className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
               >
@@ -316,7 +317,7 @@ export default function UICarousel({
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {comparisonScreens.map((screen) => (
-              <button key={screen.src} type="button" onClick={() => openScreen(screen)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
+              <button key={screen.src} type="button" onClick={event => openScreen(screen, event.currentTarget)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
                 <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 768px) 100vw, 50vw" />
                 </span>
@@ -339,7 +340,7 @@ export default function UICarousel({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {galleryScreens.map((screen) => (
-              <button key={screen.src} type="button" onClick={() => openScreen(screen)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
+              <button key={screen.src} type="button" onClick={event => openScreen(screen, event.currentTarget)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
                 <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 640px) 100vw, 50vw" />
                 </span>

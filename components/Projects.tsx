@@ -4,6 +4,9 @@ import ProjectCard, { type Project } from "@/components/ProjectCard";
 const PROJECTS: Project[] = [
   {
     id: "fintech",
+    index: "01",
+    category: "Product Design",
+    nature: "Simulación laboral · No Country",
     title: "Fintech PYME",
     tags: ["Fintech", "SaaS B2B", "KYC"],
     longDesc: "Simulación laboral No Country: diseño UX/UI de una experiencia de solicitud y revisión de créditos PYME.",
@@ -12,6 +15,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "garden-ads",
+    index: "02",
+    category: "Product Design",
+    nature: "Simulación laboral · No Country",
     title: "GardenAds — Attribution & Tracking Health",
     tags: ["Analytics SaaS", "Dashboard", "2026"],
     longDesc: "Simulación laboral de No Country: propuesta de plataforma para detectar fallos de tracking y convertirlos en señales accionables.",
@@ -20,6 +26,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "crm",
+    index: "03",
+    category: "Product Design",
+    nature: "Simulación laboral · No Country",
     title: "ChatCRM — CRM para PyMEs",
     tags: ["CRM", "SaaS B2B", "Pipeline"],
     longDesc: "Simulación laboral de No Country: concepto de CRM con pipeline visual kanban y handoff como entregable de diseño.",
@@ -28,6 +37,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "multi-brand",
+    index: "04",
+    category: "Sistemas de diseño",
+    nature: "Simulación colaborativa · No Country",
     title: "Multi-Brand Design System",
     tags: ["Design System", "EdTech", "Multi-marca"],
     longDesc: "Simulación laboral colaborativa de No Country: arquitectura de tokens compartida para Academy y Kids.",
@@ -36,6 +48,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "trainit",
+    index: "05",
+    category: "UX/UI y componentes",
+    nature: "Práctica formativa · TrainiT",
     title: "TrainiT — Gestión de Proyectos",
     tags: ["Pasantía formativa", "SaaS", "Kanban"],
     longDesc: "Pasantía/práctica formativa del Programa TrainiT: trabajo en el workstream Grupo 1/UI Components.",
@@ -44,6 +59,9 @@ const PROJECTS: Project[] = [
   },
   {
     id: "nodo",
+    index: "06",
+    category: "Diseño e implementación web",
+    nature: "Proyecto personal conceptual",
     title: "NODO Arquitectura",
     tags: ["Diseño web", "Responsive", "UI"],
     longDesc: "Proyecto personal conceptual: sitio de arquitectura responsive, con componentes reutilizables y navegación coherente.",
@@ -54,19 +72,19 @@ const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="proyectos" className="bg-[var(--bg-primary)] flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-12 md:py-16 min-w-0">
-      <div className="flex flex-col gap-2 items-start w-full">
-        <div className="flex items-center gap-2 min-h-4">
-          <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-          <span className="min-w-0 break-words text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px]">Proyectos seleccionados</span>
-        </div>
-        <div className="flex flex-col gap-3 w-full min-w-0">
-          <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px] break-words">Casos de estudio</h2>
-          <p className="text-[var(--text-secondary)] text-[16px] leading-7">Proyectos de diseño de producto y web que exploran problemas complejos con criterio, sistemas y documentación.</p>
-        </div>
+    <section id="proyectos" className="home-section home-container" aria-labelledby="projects-heading">
+      <div className="home-section-heading">
+        <p className="home-kicker">01 / Trabajo seleccionado</p>
+        <h2 id="projects-heading">El criterio, en práctica.</h2>
+        <p>Problemas, decisiones y aportes de diseño. Cada proyecto conserva su contexto: simulación, práctica formativa o proyecto personal.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-w-0">
-        {PROJECTS.map((project) => <ProjectCard key={project.id} project={project} />)}
+      <p className="home-group-label">Producto, interfaces y sistemas <span>05 proyectos</span></p>
+      <div className="home-project-grid">
+        {PROJECTS.filter(p => p.id !== "nodo").map((project, i) => <ProjectCard key={project.id} project={project} featured={i === 0} />)}
+      </div>
+      <p className="home-group-label">Diseño web <span>01 proyecto</span></p>
+      <div className="home-project-grid">
+        {PROJECTS.filter(p => p.id === "nodo").map(project => <ProjectCard key={project.id} project={project} featured />)}
       </div>
     </section>
   );

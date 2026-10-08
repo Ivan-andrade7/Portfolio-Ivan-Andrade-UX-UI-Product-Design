@@ -1,8 +1,6 @@
-import Navbar from "@/components/Navbar";
+import { HomeNavbar, HomeFooter } from "@/components/HomeChrome";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
 import Projects from "@/components/Projects";
-import CtaMid from "@/components/CtaMid";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Services from "@/components/Services";
@@ -11,29 +9,25 @@ import Education from "@/components/Education";
 import Testimonials from "@/components/Testimonials";
 import CtaFinal from "@/components/CtaFinal";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import "./home.css";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <section id="inicio">
-          <Hero />
-        </section>
-        <Marquee />
+    <div className="portfolio-home">
+      <HomeNavbar />
+      <main id="contenido-principal" tabIndex={-1}>
+        <Hero />
         <Projects />
-        <CtaMid />
+        <Services />
         <About />
         <Skills />
-        <Services />
         <Experience />
         <Education />
         <Testimonials />
         <CtaFinal />
         <Contact />
       </main>
-      <Footer />
-    </>
+      <HomeFooter />
+    </div>
   );
 }

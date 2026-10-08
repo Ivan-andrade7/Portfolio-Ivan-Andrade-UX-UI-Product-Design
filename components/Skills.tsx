@@ -1,97 +1,14 @@
-import { Check } from "lucide-react";
-
-const SKILL_GROUPS = [
-  {
-    title: "Producto & IA",
-    items: [
-      "UX/UI Design",
-      "Product Design",
-      "IA aplicada al diseño",
-      "Design Systems",
-      "Interfaces responsive",
-    ],
-  },
-  {
-    title: "Disciplinas",
-    items: [
-      "UX Research",
-      "UI Design",
-      "Arquitectura de información",
-      "Prototipado",
-      "Interaction Design",
-      "Accesibilidad",
-    ],
-  },
-  {
-    title: "Herramientas",
-    items: [
-      "Figma · FigJam",
-      "Variables & Tokens",
-      "Auto Layout",
-      "Dev Mode",
-      "Notion",
-    ],
-  },
-  {
-    title: "Método & soft",
-    items: [
-      "Handoff a desarrollo",
-      "Documentación",
-      "Pensamiento sistémico",
-      "Trabajo en equipo",
-      "Comunicación",
-    ],
-  },
+const GROUPS = [
+  { title: "Estructura y flujos", items: "Arquitectura de información · User flows · Desk research y benchmark · Wireframes" },
+  { title: "Interfaces y sistemas", items: "UI responsive · Componentes y estados · Variables y tokens · Prototipado en Figma" },
+  { title: "Colaboración", items: "Documentación · Handoff · Trabajo multidisciplinario · Comunicación de decisiones" },
+  { title: "IA en el proceso", items: "Exploración · Síntesis · Documentación · Implementación asistida y revisión propia" },
 ];
-
 export default function Skills() {
   return (
-    /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
-    <section className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)]">
-      {/* ── Section header: gap/xs=8px outer, gap/sm=12px content ── */}
-      <div className="flex flex-col gap-2 w-full">
-        {/* Eyebrow */}
-        <div className="flex items-center gap-2 h-4">
-          <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-          <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-            Capacidades
-          </span>
-        </div>
-        {/* Content */}
-        <div className="flex flex-col gap-3 w-full">
-          <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Lo que sé hacer
-          </h2>
-          <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Disciplinas, herramientas y métodos con los que trabajo de punta a punta.
-          </p>
-        </div>
-      </div>
-
-      {/* ── Skill groups: gap/lg=24px between cards ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 w-full min-w-0">
-        {SKILL_GROUPS.map(({ title, items }) => (
-          /* Card: inset/lg=24px, radius/card=12px, gap/sm=12px, border-default */
-          <div
-            key={title}
-            className="flex min-w-0 flex-col gap-3 p-6 rounded-xl border border-[var(--border-default)]"
-          >
-            {/* Label-L: 14px/600/20px/0px — accent */}
-            <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">
-              {title}
-            </p>
-            {/* Items — each with gap/xs=8px between icon and text */}
-            {items.map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <Check size={16} className="text-[var(--text-accent)] shrink-0" />
-                <span className="text-[var(--text-secondary)] text-[16px] leading-7">
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+    <section className="home-capabilities home-container" aria-labelledby="capabilities-heading">
+      <div className="home-capabilities-title"><p className="home-kicker">Herramientas y método</p><h2 id="capabilities-heading">Cómo lo trabajo</h2></div>
+      <div className="home-capabilities-grid">{GROUPS.map(group => <div key={group.title}><h3>{group.title}</h3><p>{group.items}</p></div>)}</div>
     </section>
   );
 }

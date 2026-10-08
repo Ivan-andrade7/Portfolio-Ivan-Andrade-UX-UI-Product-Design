@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Send, ArrowRight, Mail, AlertTriangle } from "lucide-react";
 import { SiBehance } from "react-icons/si";
 
@@ -55,7 +55,7 @@ const FEEDBACK = {
     color:  "var(--feedback-warning-text)",
     Icon: AlertTriangle,
     title: "Campos incompletos o inválidos",
-    body: "Completá tu nombre, un email válido y un mensaje antes de enviar.",
+    body: "Completá tu nombre, un email válido y un mensaje antes de preparar el correo.",
   },
 } as const;
 
@@ -126,7 +126,7 @@ type FieldErrors = { name?: boolean; email?: boolean; message?: boolean };
 /* ── Links column ── */
 function LinksColumn() {
   return (
-    <div className="flex flex-col gap-6 flex-1 min-w-0 basis-full lg:basis-0">
+    <div className="flex flex-col gap-6 min-w-0">
       <div className="flex flex-col gap-3">
         <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">
           Otros canales
@@ -161,6 +161,17 @@ function LinksColumn() {
 }
 
 export default function Contact() {
+  const [intent, setIntent] = useState("Oportunidad laboral");
+  const formRef = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    function updateIntent() {
+      if (window.location.hash === "#consulta-web") setIntent("Consulta por una web");
+      if (window.location.hash === "#oportunidad-laboral") setIntent("Oportunidad laboral");
+    }
+    updateIntent();
+    window.addEventListener("hashchange", updateIntent);
+    return () => window.removeEventListener("hashchange", updateIntent);
+  }, []);
   const [name, setName]       = useState("");
   const [email, setEmail]     = useState("");
   const [message, setMessage] = useState("");
@@ -194,6 +205,8 @@ export default function Contact() {
       } else {
         setBannerBody(undefined);
       }
+      const firstInvalid = newErrors.name ? "#contact-name" : newErrors.email ? "#contact-email" : "#contact-message";
+      formRef.current?.querySelector<HTMLElement>(firstInvalid)?.focus();
       return;
     }
 
@@ -201,45 +214,40 @@ export default function Contact() {
     setErrors({});
     setBanner(null);
     setBannerBody(undefined);
-    const subject = encodeURIComponent(`Contacto desde portfolio — ${name.trim()}`);
-    const body = encodeURIComponent(`Nombre: ${name.trim()}\nEmail: ${emailVal}\n\nMensaje:\n${message.trim()}`);
+    const subject = encodeURIComponent(`${intent} — Portfolio — ${name.trim()}`);
+    const body = encodeURIComponent(`Motivo: ${intent}\nNombre: ${name.trim()}\nEmail: ${emailVal}\n\nMensaje:\n${message.trim()}`);
     window.location.href = `mailto:ivanandradeuxui@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
     <section
       id="contactos"
-      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)] min-w-0"
+      className="home-contact home-container"
+      aria-labelledby="contact-heading"
     >
-      {/* ── Section header ── */}
-      <div className="flex flex-col gap-2 w-full">
-        <div className="flex items-center gap-2 h-4">
-          <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-          <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-            Contacto
-          </span>
-        </div>
-        <div className="flex flex-col gap-3 w-full">
-          <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Hablemos sobre una{" "}
-            <span className="text-[var(--text-accent)]">oportunidad</span>
-          </h2>
-          <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Estoy buscando incorporarme a un equipo de diseño full-time y también evalúo proyectos web seleccionados. Escribime y coordinamos una conversación.
-          </p>
-        </div>
+      <span id="consulta-web" className="home-contact-anchor" aria-hidden />
+      <span id="oportunidad-laboral" className="home-contact-anchor" aria-hidden />
+      <div className="home-section-heading">
+        <p className="home-kicker">07 / Contacto</p>
+        <h2 id="contact-heading">Empecemos por conversar.</h2>
+        <p>Contame sobre el rol que buscás cubrir o sobre la web que necesitás. Con ese contexto podemos evaluar el próximo paso.</p>
       </div>
 
       {/* ── Contact Row ── */}
-      <div className="flex flex-wrap gap-12 items-start w-full min-w-0">
+      <div className="home-contact-layout">
 
         {/* ── LEFT COLUMN: form ── */}
         <form
+          ref={formRef}
           onSubmit={handleSubmit}
           noValidate
           aria-describedby={banner ? "contact-validation" : undefined}
-          className="flex flex-col gap-4 flex-1 min-w-0 basis-full lg:basis-0"
+          className="flex flex-col gap-4 min-w-0"
         >
+            <fieldset className="home-contact-intent">
+              <legend>¿Por qué me escribís?</legend>
+              <div>{["Oportunidad laboral", "Consulta por una web"].map(option => <label key={option}><input type="radio" name="contact-intent" value={option} checked={intent === option} onChange={() => setIntent(option)} />{option}</label>)}</div>
+            </fieldset>
             {/* Nombre */}
             <div className="flex flex-col gap-2">
               <label htmlFor="contact-name" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
@@ -295,7 +303,7 @@ export default function Contact() {
               </label>
               <textarea
                 id="contact-message"
-                placeholder="Contame sobre la oportunidad o el proyecto"
+                placeholder={intent === "Oportunidad laboral" ? "Contame sobre el equipo, el rol y la modalidad" : "Contame qué hacés, qué necesita la web y con qué contenido contás"}
                 value={message}
                 aria-invalid={errors.message || undefined}
                 aria-describedby={errors.message ? "contact-message-error" : undefined}
@@ -328,7 +336,7 @@ export default function Contact() {
         </form>
 
         {/* ── RIGHT COLUMN: always visible ── */}
-        <LinksColumn />
+        <aside aria-label="Otros canales de contacto"><LinksColumn /></aside>
       </div>
     </section>
   );

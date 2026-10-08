@@ -70,97 +70,16 @@ const EXPERIENCES: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
-    <section
-      id="experiencia"
-      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)] min-w-0"
-    >
-      {/* ── Section header: gap/xs=8px outer, gap/sm=12px content ── */}
-      <div className="flex flex-col gap-2 w-full">
-        <div className="flex items-center gap-2 h-4">
-          <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-          <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-            Experiencia
-          </span>
-        </div>
-        <div className="flex flex-col gap-3 w-full">
-          <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-            Experiencia en producto y formación
-          </h2>
-          <p className="text-[var(--text-secondary)] text-[16px] leading-7">
-            Fellowship y simulaciones laborales de No Country, junto con práctica formativa en TrainiT, con atribución diferenciada por equipo y alcance.
-          </p>
-        </div>
-      </div>
-
-      {/* ── Exp list: gap/lg=24px between items ── */}
-      <div className="flex flex-col gap-6 w-full">
-        {EXPERIENCES.map(({ date, dateExact, title, company, desc, link, accentTags, neutralTags }) => (
-          /* Item: flex gap/lg=24px, pb-inset/lg=24px, border-b */
-          <div
-            key={title}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-6 items-start pb-6 border-b border-[var(--border-default)] min-w-0"
-          >
-            {/* Date — Label-S: 12px/600/16px/1px — tertiary, no-wrap */}
-            <span className="shrink-0 sm:whitespace-nowrap text-[12px] font-bold leading-4 tracking-[1px] text-[var(--text-secondary)]">
-              <span title={dateExact}>{date}</span>
-            </span>
-
-            {/* Content — gap/sm=12px */}
-            <div className="flex flex-col gap-3 flex-1 min-w-0">
-              {/* Header: title + company — gap/xs=8px */}
-              <div className="flex flex-col gap-2">
-                <p className="text-[var(--text-primary)] text-[14px] font-bold leading-5">
-                  {title}
-                </p>
-                <p className="text-[var(--text-accent)] text-[14px] font-bold leading-6">
-                  {company}
-                </p>
-              </div>
-
-              {/* Description — Body-S: 14px/400/24px */}
-              <p className="text-[var(--text-secondary)] text-[14px] leading-6">
-                {desc}
-              </p>
-
-              {link ? (
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-2 text-[var(--text-accent)] text-[14px] font-semibold leading-5 underline decoration-1 underline-offset-4 hover:opacity-80 transition-opacity"
-                >
-                  {link.label}
-                  <span aria-hidden>↗</span>
-                </a>
-              ) : null}
-
-              {/* Tags — gap/xs=8px */}
-              <div className="flex flex-wrap gap-2">
-                {accentTags.map((tag) => (
-                  <div
-                    key={tag}
-                    className="flex items-center justify-center h-8 px-3 py-2 rounded-full shrink-0 bg-[var(--brand-soft)] border border-[var(--border-interactive)]"
-                  >
-                    <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-                      {tag}
-                    </span>
-                  </div>
-                ))}
-                {neutralTags.map((tag) => (
-                  <div
-                    key={tag}
-                    className="flex items-center justify-center h-8 px-3 py-2 rounded-full shrink-0 bg-[var(--bg-secondary)] border border-[var(--border-default)]"
-                  >
-                    <span className="text-[var(--text-secondary)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-                      {tag}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+    <section id="experiencia" className="home-section home-container home-experience-layout" aria-labelledby="experience-heading">
+      <div className="home-section-heading"><p className="home-kicker">04 / Experiencia y práctica</p><h2 id="experience-heading">Aprender.<br />Colaborar.<br /><em>Hacer.</em></h2><p>Fellowship, simulaciones laborales y práctica formativa. Cada aporte, en su contexto.</p></div>
+      <div className="home-experience-list">
+        {EXPERIENCES.map(item => <article key={item.title}>
+          <p className="home-kicker" title={item.dateExact}>{item.date}</p>
+          <h3>{item.title}</h3>
+          <p className="home-experience-context">{item.company}</p>
+          <p>{item.desc}</p>
+          {item.link && <a href={item.link.href} target="_blank" rel="noopener noreferrer" className="home-text-link">{item.link.label} ↗</a>}
+        </article>)}
       </div>
     </section>
   );

@@ -1,0 +1,84 @@
+/* Case presentation shares Home tokens; project artwork retains its own identity. */
+.portfolio-case { --focus-ring: #93dec9; --overlay-card: #10191c; }
+html.light .portfolio-case { --focus-ring: #245b4e; --overlay-card: #f5f2eb; }
+.portfolio-case .case-main { min-width: 0; background: var(--bg-primary); }
+.portfolio-case .case-hero { padding-block: 32px 64px; border-bottom: 1px solid var(--border-default); }
+.portfolio-case .case-back { padding-inline: 0; border-radius: 4px; font-size: 13px; color: var(--text-secondary); }
+.portfolio-case .case-back:hover { color: var(--text-accent); background: transparent; text-decoration: underline; text-underline-offset: 5px; }
+.portfolio-case .case-hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: 64px; margin-top: 40px; }
+.portfolio-case .case-hero-copy { min-width: 0; }
+.portfolio-case .case-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.portfolio-case .case-tag { border-radius: 2px; max-width: 100%; padding: 6px 10px; }
+.portfolio-case .case-tag span { font-family: var(--font-mono); font-size: 10px; line-height: 1.5; font-weight: 500; letter-spacing: .05em; overflow-wrap: anywhere; }
+.portfolio-case h1 { font-size: clamp(38px, 4.1vw, 60px); font-weight: 550; line-height: 1.08; letter-spacing: -.045em; margin-block: 24px; overflow-wrap: anywhere; text-wrap: balance; }
+.portfolio-case .case-subtitle { font-family: var(--home-serif); font-style: italic; color: var(--text-accent); font-size: clamp(22px, 2vw, 28px); line-height: 1.45; max-width: 40ch; }
+.portfolio-case .case-hero-links { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 28px; }
+.portfolio-case .case-icon-link { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--text-accent); border-radius: 4px; color: var(--text-accent); }
+.portfolio-case .case-icon-link:hover { background: var(--brand-soft); }
+.portfolio-case .case-link-note { color: var(--text-tertiary); font-size: 12px; max-width: 32ch; }
+.portfolio-case .case-hero-media { position: relative; min-width: 0; aspect-ratio: 4/3; background: var(--bg-secondary); overflow: hidden; border-radius: 4px; }
+.portfolio-case .case-hero-media picture, .portfolio-case .case-hero-media img { display: block; width: 100%; height: 100%; }
+.portfolio-case .case-hero-media img { object-fit: contain; }
+.portfolio-case .case-body > section, .portfolio-case .case-body > article > section { padding-block: 80px; gap: 28px; }
+.portfolio-case .case-body > section > p { max-width: 78ch; font-size: 17px; line-height: 1.8; }
+.portfolio-case .case-section-header { margin-bottom: 8px; }
+.portfolio-case .case-section-header > div:first-child { margin-bottom: 8px; }
+.portfolio-case .case-section-header > div:first-child > span:first-child { display: none; }
+.portfolio-case .case-section-header > div:first-child > span:last-child,
+.portfolio-case .case-gallery section > div:first-child > p:first-child { font-family: var(--font-mono); font-weight: 500; font-size: 11px; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; }
+.portfolio-case .case-section-header h2 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.15; font-weight: 550; letter-spacing: -.04em; max-width: 28ch; }
+.portfolio-case .case-panel { background: transparent; border: 0; border-top: 1px solid var(--border-default); padding: 24px 0 0; border-radius: 0; }
+.portfolio-case .case-panel > span:first-child { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: .04em; }
+.portfolio-case .case-decision { border: 0; border-top: 1px solid var(--border-default); border-radius: 0; }
+.portfolio-case .case-decision > div { border: 0; background: transparent !important; border-radius: 0; padding: 28px 0; gap: 16px; }
+.portfolio-case .case-decision > div > p:first-child { font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .08em; }
+.portfolio-case .case-decision > div > p:nth-child(2) { font-size: 26px; line-height: 1.35; font-weight: 550; letter-spacing: -.025em; max-width: 46ch; }
+.portfolio-case .case-decision > div > div { font-size: 16px; line-height: 1.8; }
+.portfolio-case .case-decision > div > div > span { min-width: 145px; font-size: 12px; padding-top: 3px; }
+.portfolio-case .case-decision > div > div > p { max-width: 70ch; }
+.portfolio-case .case-metric { border-radius: 0; border: 0; border-top: 1px solid var(--border-default); padding: 24px 0; background: transparent; }
+.portfolio-case .case-metric:hover { background: transparent; }
+.portfolio-case .case-metric > p:first-child { font-family: var(--home-serif); font-size: 52px; font-weight: 400; letter-spacing: -.04em; line-height: 1.2; overflow-wrap: anywhere; }
+.portfolio-case .case-metric > p:last-child { font-family: var(--font-mono); letter-spacing: .04em; }
+.portfolio-case .case-tldr { border: 0; border-top: 1px solid var(--border-default); border-bottom: 1px solid var(--border-default); border-radius: 0; background: transparent; padding-inline: 0; }
+.portfolio-case .case-tldr h2 { font-size: 30px; font-weight: 550; letter-spacing: -.035em; }
+.portfolio-case .case-body [role="note"] { border-radius: 4px; font-size: 14px; }
+.portfolio-case .case-nav-card { border: 0; border-top: 1px solid var(--border-default); background: transparent; border-radius: 0; padding: 24px 0; }
+.portfolio-case .case-nav-card:hover { border-color: var(--text-accent); background: transparent; }
+.portfolio-case .case-nav-card p { overflow-wrap: anywhere; }
+.portfolio-case .case-nav-card p:first-child { font-size: 24px; font-weight: 550; letter-spacing: -.025em; }
+.portfolio-case .case-nav-card p:last-child { font-size: 12px; font-weight: 400; }
+.portfolio-case .case-gallery { gap: 64px; min-width: 0; }
+.portfolio-case .case-gallery button { border-radius: 4px; text-align: left; min-width: 0; }
+.portfolio-case .case-gallery button:focus-visible { outline: 2px solid var(--text-accent); outline-offset: 5px; box-shadow: none; }
+.portfolio-case .case-gallery-note { background: var(--brand-soft) !important; border-color: var(--border-default) !important; color: var(--text-secondary) !important; border-radius: 4px; }
+.portfolio-case .case-capture { border-radius: 4px; }
+.portfolio-case .case-nodo-hero { padding-block: 32px 64px; }
+.portfolio-case .case-nodo-hero > div { max-width: 850px; }
+.portfolio-case .case-nodo-hero > div > p:not(.case-subtitle) { max-width: 70ch; }
+.portfolio-case .case-nodo-hero a[target="_blank"]:not(.case-back) { border-radius: 4px; color: var(--text-accent); }
+.portfolio-case .case-nodo-hero > dl dt { font-family: var(--font-mono); font-size: 11px; }
+.portfolio-case .case-nodo-hero > dl dd { font-size: 14px; }
+.case-lightbox { --focus-ring: #93dec9; background: rgba(16,25,28,.96) !important; }
+.case-lightbox button { width: 44px; height: 44px; border-radius: 4px; }
+.case-lightbox button:focus-visible { outline: 2px solid #93dec9; outline-offset: 4px; box-shadow: none; }
+@media (max-width: 1100px) {
+  .portfolio-case .case-hero-layout { gap: 36px; }
+}
+@media (max-width: 767px) {
+  .portfolio-case .case-hero { padding-block: 24px 40px; }
+  .portfolio-case .case-hero-layout { grid-template-columns: 1fr; gap: 32px; margin-top: 24px; }
+  .portfolio-case h1 { font-size: clamp(34px, 8.6vw, 48px); line-height: 1.12; margin-block: 22px; }
+  .portfolio-case .case-subtitle { font-size: 23px; }
+  .portfolio-case .case-hero-media { aspect-ratio: 4/3; }
+  .portfolio-case .case-body > section, .portfolio-case .case-body > article > section { padding-block: 56px; gap: 24px; }
+  .portfolio-case .case-section-header h2 { font-size: 32px; }
+  .portfolio-case .case-decision > div > p:nth-child(2) { font-size: 23px; }
+  .portfolio-case .case-nodo-hero { padding-block: 24px 40px; }
+  .portfolio-case .case-nav-card p:first-child { font-size: 22px; }
+  .portfolio-case .case-gallery { gap: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-case .case-gallery img { transform: none !important; }
+  .case-lightbox *, .case-lightbox *::before, .case-lightbox *::after { animation: none !important; transition: none !important; }
+}

@@ -41,103 +41,12 @@ const CERTS: EduItem[] = [
   },
 ];
 
-/* Dot icons — 16×16 filled circle */
-function ActiveDot() {
-  return <div className="w-4 h-4 rounded-full bg-[var(--text-accent)] shrink-0" />;
-}
-function InactiveDot() {
-  return <div className="w-4 h-4 rounded-full bg-[var(--text-tertiary)] opacity-40 shrink-0" />;
-}
-
-/* Status tag — accent (Próximo/Cursando) | neutral (Completo) */
-function StatusTag({ status }: { status: EduItem["status"] }) {
-  const isActive = status !== "Completado";
-  return (
-    <div
-      className="flex items-center justify-center h-8 px-3 py-2 rounded-full shrink-0"
-      style={{
-        background: isActive ? "var(--brand-soft)" : "var(--bg-secondary)",
-        border: `1px solid ${isActive ? "var(--border-interactive)" : "var(--border-default)"}`,
-      }}
-    >
-      <span
-        className="text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap"
-        style={{ color: isActive ? "var(--text-accent)" : "var(--text-secondary)" }}
-      >
-        {status}
-      </span>
-    </div>
-  );
-}
-
-/* Education / Item
-   Default: transparent bg
-   Hover:   bg-[var(--bg-secondary)]   ← per Figma node 246:1736 */
-function EduItemCard({ title, institution, status, date }: EduItem) {
-  const isActive = status !== "Completado";
-  return (
-    <div className="flex flex-col gap-2 px-4 py-3 rounded-xl w-full cursor-default hover:bg-[var(--bg-secondary)] transition-colors duration-150">
-      {/* Row: dot + title + status tag — gap/sm=12px */}
-      <div className="flex items-center gap-3 w-full">
-        {isActive ? <ActiveDot /> : <InactiveDot />}
-        <p className="text-[var(--text-primary)] text-[14px] font-semibold leading-5 flex-1 min-w-0">
-          {title}
-        </p>
-        <StatusTag status={status} />
-      </div>
-      {/* Institution — Body-S: 14px/400/24px — accent */}
-      <p className="text-[var(--text-accent)] text-[14px] leading-6">
-        {institution}
-      </p>
-      {/* Date — Label-S: 12px/600/16px/1px — tertiary */}
-      <p className="text-[var(--text-tertiary)] text-[12px] font-semibold leading-4 tracking-[1px]">
-        {date}
-      </p>
-    </div>
-  );
-}
-
 export default function Education() {
   return (
-    /* section/lg × section/md = 96px × 64px; gap/xxl=48px between blocks */
-    <section
-      id="educacion"
-      className="flex flex-col gap-12 px-6 md:px-12 xl:px-24 py-16 bg-[var(--bg-primary)] min-w-0"
-    >
-      {/* ── Section header: gap/xs=8px outer, no subtitle (per Figma) ── */}
-      <div className="flex flex-col gap-2 w-full">
-        <div className="flex items-center gap-2 h-4">
-          <span className="block h-[2px] w-6 bg-[var(--text-accent)] shrink-0" />
-          <span className="text-[var(--text-accent)] text-[12px] font-semibold leading-4 tracking-[1px] whitespace-nowrap">
-            Formación
-          </span>
-        </div>
-        <h2 className="text-[var(--text-primary)] text-[32px] font-bold leading-10 tracking-[-1.5px]">
-          Educación y certificaciones
-        </h2>
-      </div>
-
-      {/* ── Edu Row: 2 columns — gap/lg=24px ── */}
-        <div className="flex flex-wrap gap-6 items-start w-full min-w-0">
-        {/* Educación formal — gap/md=16px */}
-        <div className="flex flex-col gap-4 flex-1 min-w-0 basis-full lg:basis-0">
-          <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">
-            Educación formal
-          </p>
-          {FORMAL.map((item) => (
-            <EduItemCard key={item.title} {...item} />
-          ))}
-        </div>
-
-        {/* Certificaciones — gap/md=16px */}
-        <div className="flex flex-col gap-4 flex-1 min-w-0 basis-full lg:basis-0">
-          <p className="text-[var(--text-accent)] text-[14px] font-semibold leading-5 whitespace-nowrap">
-            Certificaciones
-          </p>
-          {CERTS.map((item) => (
-            <EduItemCard key={item.title} {...item} />
-          ))}
-        </div>
+    <section id="educacion" className="home-section home-container home-education" aria-labelledby="education-heading">
+      <div className="home-section-heading"><p className="home-kicker">05 / Formación</p><h2 id="education-heading">Una práctica en construcción.</h2></div>
+      <div className="home-education-grid">
+        {[{ title: "Educación formal", items: FORMAL }, { title: "Cursos y certificaciones", items: CERTS }].map(group => <div key={group.title}><h3>{group.title}</h3>{group.items.map(item => <article key={item.title}><div><h4>{item.title}</h4><span className="home-status">{item.status}</span></div><p>{item.institution}</p><p className="home-education-date">{item.date}</p></article>)}</div>)}
       </div>
     </section>
   );
