@@ -1,3 +1,5 @@
+import { fintechEditorial, fintechEvidence } from "./fintech-editorial";
+
 export interface Decision {
   id: string;
   title: string;
@@ -85,102 +87,21 @@ export const CASES: CaseStudy[] = [
   {
     slug: "fintech",
     tags: ["Fintech", "SaaS B2B", "2025"],
-    title: "Fintech PYME — Plataforma de Créditos B2B",
-    subtitle: "Onboarding y operación de créditos B2B organizados en dos superficies.",
+    title: fintechEditorial.title,
+    subtitle: fintechEditorial.intro,
     links: {
       figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
       behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
     },
-    context: {
-      rol: "Único diseñador UX/UI",
-      duracion: "5 semanas · 29 sep — 2 nov 2025",
-      focoLabel: "Equipo",
-      foco: "Simulación laboral · No Country",
-      tools: "Figma · FigJam",
-    },
-    description:
-      "En una simulación laboral de No Country diseñé una plataforma de onboarding de créditos para PyMEs con dos superficies diferenciadas: un portal cliente y un panel admin. El alcance de diseño buscó ordenar el proceso y hacer visible el estado de cada solicitud.",
-    notice:
-      "Simulación laboral de No Country. Fui el único diseñador UX/UI; el caso documenta entregables de diseño y no resultados de negocio, implementación ni despliegue.",
-    attribution: {
-      responsibility: "Diseño de la plataforma dual de onboarding: portal cliente, panel admin, KYC y RBAC.",
-      collaboration: "Simulación laboral de No Country con colaboración multidisciplinaria.",
-      deliverables: "Flujos de onboarding, superficies diferenciadas y sistema de componentes.",
-      evidence: "La documentación del proyecto me identifica como Diseñador UX/UI y reúne capturas de interfaz, enlaces a Figma y Behance y el caso escrito. No presento métricas posteriores de negocio.",
-    },
-    users: {
-      title: "Solicitante y operador",
-      body: "El solicitante PyME necesita completar y seguir su solicitud; el supervisor u operador necesita revisar, aprobar o pedir correcciones con trazabilidad.",
-    },
-    outcome: {
-      title: "Alcance documentado",
-      body: "La propuesta ordena el onboarding y separa las responsabilidades de cada superficie. No hay una medición posterior disponible para afirmar mejoras de conversión, tiempo o eficiencia.",
-    },
-    problema: {
-      title: "Un proceso sensible, largo y propenso a errores",
-      body: "La simulación explora un alta de crédito para PyMEs que combina KYC, documentación y revisión operativa. Un dato incorrecto o una identidad sin verificar puede afectar la continuidad de la solicitud.\n\nEl objetivo de diseño fue hacer visible el progreso para quien solicita y organizar la revisión para quien opera, sin presentar una reducción medida de errores o tiempos.",
-    },
-    estrategia:
-      "Separé la operación en dos superficies con objetivos distintos: el Solicitante PyME (completar y enviar) y el Supervisor/Operador (revisar, aprobar, auditar), en vez de forzar una sola plataforma para ambos.\n\nDiseñé un onboarding KYC de 4 pasos con progreso siempre visible y documenté un sistema de componentes desde cero con dark mode nativo. La accesibilidad queda pendiente de verificación.",
-    decisions: [
-      {
-        id: "01",
-        title: "Dos superficies separadas: portal cliente y panel admin",
-        motivo:
-          "Solicitante y supervisor realizan tareas y acciones diferentes dentro del flujo documentado.",
-        impacto: "Separa responsabilidades y facilita la trazabilidad de cada superficie.",
-        tradeoff: "Suma una segunda superficie que requiere reglas compartidas, pero evita mezclar tareas y permisos opuestos.",
-      },
-      {
-        id: "02",
-        title: "KYC en 4 pasos con progreso visible",
-        motivo:
-          "Un alta larga sin feedback de avance puede aumentar la incertidumbre del solicitante.",
-        impacto: "El solicitante puede identificar en qué paso está y qué información falta.",
-        tradeoff: "Agrega pasos al recorrido, pero hace visible el avance y la información pendiente.",
-      },
-      {
-        id: "03",
-        title: "RBAC pensado como UX, no solo como capa técnica",
-        motivo:
-          "Los permisos definen qué ve y qué puede hacer cada operador; impactan directo en la interfaz.",
-        impacto:
-          "Organiza la visibilidad y las acciones propuestas de acuerdo con el rol del operador.",
-        tradeoff: "Requiere modelar permisos desde el diseño, pero reduce acciones irrelevantes en cada rol.",
-      },
-    ],
-    images: ["/projects/fintech.webp"],
-    heroImages: {
-      desktop: "/projects/fintech-hero-desktop.webp",
-      tablet: "/projects/fintech-hero-tablet.webp",
-      mobile: "/projects/fintech-hero-mobile.webp",
-    },
-    pantallas: [
-      { src: "/projects/fintech-screen-1.webp", width: 1440, height: 1024, name: "Dashboard de solicitudes", task: "Revisar el estado general de las solicitudes de crédito.", decision: "Una vista operativa única concentra el estado que antes estaba fragmentado.", alt: "Dashboard de solicitudes de crédito para PyMEs con estados y acciones de revisión.", role: "key" },
-      { src: "/projects/fintech-screen-2.webp", width: 1440, height: 1024, name: "Inicio del onboarding", task: "Entender qué información necesita el solicitante para comenzar.", decision: "El flujo explicita el punto de partida y reduce la incertidumbre antes de completar datos.", alt: "Pantalla inicial del onboarding de créditos para una empresa solicitante.", role: "flow" },
-      { src: "/projects/fintech-screen-3.webp", width: 1440, height: 1024, name: "Paso de crédito", task: "Completar una etapa del alta sin perder el progreso.", decision: "El onboarding se divide en pasos visibles para hacer legible un proceso largo.", alt: "Paso del formulario de solicitud de crédito con progreso visible.", role: "flow" },
-      { src: "/projects/fintech-screen-4.webp", width: 1440, height: 1024, name: "Revisión de solicitudes", task: "Revisar información y detectar qué requiere atención del operador.", decision: "La tabla prioriza el estado y la trazabilidad por encima de una lectura documental aislada.", alt: "Vista de revisión de solicitudes de crédito para el operador.", role: "flow" },
-      { src: "/projects/fintech-screen-5.webp", width: 1440, height: 1024, name: "Dashboard del administrador", task: "Supervisar la operación desde la superficie administrativa.", decision: "La superficie admin se separa del portal del solicitante para respetar objetivos y permisos distintos.", alt: "Dashboard administrativo de una plataforma de créditos B2B.", role: "gallery" },
-    ],
-    designSystem: {
-      title: "Sistema de componentes desde cero",
-      foundations:
-        "Sistema de componentes documentado con dark mode nativo y una arquitectura dual (portal + admin). La auditoría de accesibilidad queda pendiente de verificación.",
-      components: [
-        "KYC stepper de 4 pasos",
-        "Estatus de solicitud",
-        "Tablas de revisión con filtros",
-        "Matriz de permisos RBAC",
-        "Formularios con validación inline",
-      ],
-    },
-    metrics: [
-      { value: "4", label: "pasos del onboarding KYC" },
-      { value: "2", label: "superficies diferenciadas" },
-      { value: "61 / 540", label: "entidades / variantes documentadas" },
-    ],
-    reflection:
-      "Separar las dos superficies temprano ordenó la arquitectura del caso. También aprendí a considerar el RBAC como parte de la experiencia desde el diseño, dejando su implementación técnica y validación fuera del alcance demostrado.",
+    context: { rol: "Único diseñador UX/UI", duracion: "2025", focoLabel: "Contexto", foco: "Simulación laboral · No Country", tools: "Figma · FigJam" },
+    description: fintechEditorial.intro,
+    notice: fintechEditorial.scope,
+    problema: { title: fintechEditorial.sections[0].heading, body: fintechEditorial.sections[0].paragraphs.join("\n\n") },
+    estrategia: fintechEditorial.sections[1].paragraphs.join("\n\n"),
+    decisions: [],
+    images: [fintechEvidence.pyme.src, fintechEvidence.operation.src],
+    metrics: [],
+    reflection: fintechEditorial.sections[4].paragraphs.join("\n\n"),
     next: {
       slug: "garden-ads",
       title: "GardenAds — Attribution & Tracking Health",

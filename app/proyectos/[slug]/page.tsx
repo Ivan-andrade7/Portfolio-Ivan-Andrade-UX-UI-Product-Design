@@ -1,10 +1,13 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { BackToPortfolio, CaseNavigation, CaseTldr, SectionHeader, TagChip } from "@/components/CaseStudyUI";
+import { BackToPortfolio, CaseNavigation, SectionHeader, TagChip } from "@/components/CaseStudyUI";
 import { SiBehance, SiFigma } from "react-icons/si";
 import { CASES, getCaseBySlug } from "@/lib/cases";
 import UICarousel from "@/components/UICarousel";
 import ResilientImage from "@/components/ResilientImage";
+import FintechCase from "@/components/FintechCase";
+import { fintechEvidence } from "@/lib/fintech-editorial";
+import "../fintech-editorial.css";
 
 export async function generateStaticParams() {
   return CASES.filter((c) => c.published !== false).map((c) => ({ slug: c.slug }));
@@ -36,7 +39,9 @@ export async function generateMetadata({
       description: c.subtitle,
       siteName: "Ivan Andrade — Product Designer",
       locale: "es_AR",
-      images: [{ url: image, alt: c.title }],
+      images: c.slug === "fintech"
+        ? [fintechEvidence.pyme, fintechEvidence.operation].map(asset => ({ url: asset.src, alt: asset.alt }))
+        : [{ url: image, alt: c.title }],
     },
     twitter: {
       card: "summary_large_image",
@@ -109,6 +114,7 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const c = getCaseBySlug(slug);
   if (!c) notFound();
+  if (c.slug === "fintech") return <FintechCase next={c.next} />;
   const coverScreen = c.pantallas?.find(screen => screen.role === "key") ?? c.pantallas?.[0];
 
   return (
@@ -139,22 +145,6 @@ export default async function CaseStudyPage({
 
         {/* ── Content — px-6/12/24 (96px en desktop) ── */}
         <div className="case-body home-container">
-
-          {c.slug === "fintech" && c.attribution && (
-            <div className="py-12">
-              <CaseTldr
-                items={[
-                  { label: "Rol", value: c.context.rol },
-                  { label: "Equipo / contexto", value: c.context.foco },
-                  { label: "Tipo de proyecto", value: "Simulación laboral de No Country" },
-                  { label: "Alcance", value: c.attribution.responsibility },
-                  { label: "Entregables", value: c.attribution.deliverables },
-                  { label: "Evidencia", value: c.attribution.evidence },
-                  { label: "Límites", value: c.notice ?? "No se presentan métricas, testing ni resultados no documentados." },
-                ]}
-              />
-            </div>
-          )}
 
           {/* Overview */}
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
