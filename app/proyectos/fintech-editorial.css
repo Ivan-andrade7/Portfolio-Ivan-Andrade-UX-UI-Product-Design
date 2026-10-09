@@ -5,7 +5,7 @@
 .fintech-case .fintech-intro { max-width: 70ch; font-size: 20px; line-height: 1.65; color: var(--text-secondary); }
 .fintech-case .fintech-scope { max-width: none; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-default); font-size: 14px; line-height: 1.8; color: var(--text-secondary); }
 .fintech-case .fintech-context-title { margin-bottom: 16px; color: var(--text-primary); }
-.fintech-case .fintech-context-list { display: grid; grid-template-columns: max-content max-content max-content minmax(0,1.45fr) minmax(0,1fr); gap: 16px clamp(12px,1.5vw,24px); align-items: start; }
+.fintech-case .fintech-context-list { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 16px 24px; align-items: start; }
 .fintech-case .fintech-context-list > div { min-width: 0; }
 .fintech-case .fintech-context-list dt { font-family: var(--font-mono); font-size: 11px; line-height: 1.7; color: var(--text-accent); }
 .fintech-case .fintech-context-list dd { margin: 4px 0 0; font-size: 14px; line-height: 1.7; color: var(--text-secondary); }

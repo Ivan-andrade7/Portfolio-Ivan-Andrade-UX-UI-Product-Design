@@ -17,11 +17,11 @@ export const fintechEditorial = {
     },
     {
       "label": "Rol",
-      "value": "Único diseñador UX/UI de un equipo multidisciplinario"
+      "value": "Único diseñador UX/UI"
     },
     {
       "label": "Contribución",
-      "value": "Flujos, interfaces, estados y prototipo"
+      "value": "Flujos, UI y prototipo"
     }
   ],
   "scope": "Diseño sin implementación ni resultados comerciales medidos. Los datos de las pantallas pertenecen al escenario simulado; no hay pruebas con usuarios documentadas. La simulación cerró sin una presentación en el Showcase tras reducirse la conformación del equipo.",
