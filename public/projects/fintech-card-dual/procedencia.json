@@ -1,0 +1,99 @@
+{
+  "status": "Composición y derivados aprobados por Iván para publicación. El estado efectivo se confirma en el registro canónico de Portfolio.",
+  "direction": "Plataforma dual B aprobada: PyME principal y operación secundaria",
+  "coverMaster": {
+    "file": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\fintech-mockup-plataforma-dual-2026-10-09\\portada-b.png",
+    "sha256": "e3d30c89017803ee9f02d8caad6099cf4ee4310f7b822ad20195c7d6fe653ec1"
+  },
+  "sources": [
+    {
+      "id": "pyme",
+      "node": "4389:30704",
+      "file": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\fintech-editorial-2026-10-09\\originales-figma\\4389-30704.png",
+      "mime": "image/png",
+      "width": 1440,
+      "height": 1024,
+      "sha256": "ee77f28219df4d4ebd4d73c2c0865d305d6609e95cf835d85d9e029aca82a856"
+    },
+    {
+      "id": "operacion",
+      "node": "4460:30656",
+      "file": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\Portfolio 2026\\public\\projects\\fintech-editorial\\e01-operacion.webp",
+      "mime": "image/webp",
+      "width": 1440,
+      "height": 500,
+      "sha256": "dd641bcd19c0d7b2d3d2b6e9110a6708a9becd6056e909d0da2c06b420c8590a"
+    }
+  ],
+  "cardMaster": {
+    "file": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\fintech-card-plataforma-dual-2026-10-09\\fintech-card-plataforma-dual-b-master.png",
+    "width": 2400,
+    "height": 1500,
+    "sha256": "77bf9d4521b60e48f7324fe99704d3f516fd36ad68507d889d922814afe8333e"
+  },
+  "derivative": {
+    "file": "fintech-card-plataforma-dual-b.webp",
+    "width": 1600,
+    "height": 1000,
+    "bytes": 45884,
+    "sha256": "83f622e799479aff049c1de8d5fa3aba57355c3bd3bf06235baba1cb134e0da9",
+    "quality": 92,
+    "format": "webp"
+  },
+  "layers": [
+    {
+      "source": "operacion",
+      "x": 1180,
+      "y": 40,
+      "width": 950,
+      "angle": 1
+    },
+    {
+      "source": "pyme",
+      "x": 270,
+      "y": 425,
+      "width": 1440,
+      "angle": 0
+    }
+  ],
+  "background": "radial-gradient(ellipse at 91% 9%,#183c39 0%,#142b2c 27%,#10191c 65%)",
+  "shadow": "drop-shadow(0 24px 28px rgba(0,0,0,.24))",
+  "bounds": [
+    {
+      "id": "operacion",
+      "x": 1177.1939697265625,
+      "y": 31.735225677490234,
+      "width": 955.6121826171875,
+      "height": 346.388916015625,
+      "top": 31.735225677490234,
+      "right": 2132.80615234375,
+      "bottom": 378.12414169311523,
+      "left": 1177.1939697265625
+    },
+    {
+      "id": "pyme",
+      "x": 270,
+      "y": 425,
+      "width": 1440,
+      "height": 1024,
+      "top": 425,
+      "right": 1710,
+      "bottom": 1449,
+      "left": 270
+    }
+  ],
+  "safeAreaIncludingHover": {
+    "left": 224.3902439024389,
+    "right": 2175.6097560975613,
+    "top": 18.29268292682923,
+    "bottom": 1481.7073170731708
+  },
+  "desktopRatio": "16:10",
+  "mobileRatio": "4:3",
+  "hoverScale": 1.025,
+  "processing": "Montaje determinista de fuentes intactas; únicamente escala, posición, rotación de 1° de la superficie operativa, fondo y sombra exterior. Reducción proporcional y codificación WebP. Recorte responsive sólo de fondo exterior.",
+  "noInterfaceEditing": true,
+  "noAddedText": true,
+  "noScreenOverlap": true,
+  "originalHistoricalAssetPreserved": "public/projects/fintech-card-square.webp"
+}

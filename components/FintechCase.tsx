@@ -18,34 +18,31 @@ export default function FintechCase({ next }: { next?: NavItem }) {
     <main id="contenido-principal" tabIndex={-1} className="case-main fintech-case">
       <header id="inicio" className="case-hero home-container">
         <BackToPortfolio />
-        <div className="fintech-entry">
-          <h1>{copy.title}</h1>
-          <p className="fintech-intro">{copy.intro}</p>
-          <div className="fintech-scope">
-            <p id="fintech-context-heading" className="fintech-context-title"><strong>Contexto y alcance</strong></p>
-            <dl className="fintech-context-list" aria-labelledby="fintech-context-heading">
-              {copy.facts.map(fact => <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.value}</dd>
-              </div>)}
-            </dl>
-            <p className="fintech-scope-note" role="note">{copy.scope}</p>
+        <div className="case-hero-layout fintech-opening">
+          <div className="fintech-entry">
+            <h1>{copy.title}</h1>
+            <p className="fintech-intro">{copy.intro}</p>
           </div>
+          <picture className="fintech-presentation">
+            <img
+              src="/projects/fintech-cover-dual/portada-b-1280.webp"
+              srcSet="/projects/fintech-cover-dual/portada-b-480.webp 480w, /projects/fintech-cover-dual/portada-b-768.webp 768w, /projects/fintech-cover-dual/portada-b-1280.webp 1280w, /projects/fintech-cover-dual/portada-b-1920.webp 1920w, /projects/fintech-cover-dual/portada-b-2400.webp 2400w"
+              sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) calc((92vw - 36px) * 0.524), min(942px, calc((92vw - 64px) * 0.524))"
+              width={2400} height={2100}
+              alt="Plataforma Fintech PYME con experiencia de carga de documentación y superficie operativa de revisión"
+              loading="eager" fetchPriority="high" decoding="async"
+            />
+          </picture>
         </div>
-        <div className="fintech-cover" data-evidence="E01">
-          <div className="fintech-dual">
-            <figure aria-labelledby="fintech-pyme-label" aria-describedby="fintech-cover-caption">
-              <figcaption id="fintech-pyme-label" className="fintech-label">{evidence.pyme.title}</figcaption>
-              <FintechEvidence asset={evidence.pyme} caption={captions.cover} describedBy="fintech-cover-caption" priority />
-              <p className="fintech-image-key">Documentos · Selfie · Validación · Resultado. Inicio del KYC: frente y dorso del DNI.</p>
-            </figure>
-            <figure aria-labelledby="fintech-operation-label" aria-describedby="fintech-cover-caption">
-              <figcaption id="fintech-operation-label" className="fintech-label">{evidence.operation.title}</figcaption>
-              <FintechEvidence asset={evidence.operation} caption={captions.cover} describedBy="fintech-cover-caption" priority />
-              <p className="fintech-image-key">Solicitudes nuevas, en revisión, que requieren acción, aprobadas y rechazadas. Cantidades de ejemplo del escenario simulado.</p>
-            </figure>
-          </div>
-          <p id="fintech-cover-caption" className="fintech-caption">{captions.cover}</p>
+        <div className="fintech-scope">
+          <p id="fintech-context-heading" className="fintech-context-title"><strong>Contexto y alcance</strong></p>
+          <dl className="fintech-context-list" aria-labelledby="fintech-context-heading">
+            {copy.facts.map(fact => <div key={fact.label}>
+              <dt>{fact.label}</dt>
+              <dd>{fact.value}</dd>
+            </div>)}
+          </dl>
+          <p className="fintech-scope-note" role="note">{copy.scope}</p>
         </div>
       </header>
       <article className="case-body home-container" aria-label="Decisiones y evidencia de Fintech PYME">
@@ -63,6 +60,23 @@ export default function FintechCase({ next }: { next?: NavItem }) {
                 return <p key={paragraph}>{paragraph}</p>;
               })}
             </div>
+            {section.id === "superficies" && <>
+              <div className="fintech-cover" data-evidence="E01">
+                <div className="fintech-dual">
+                  <figure aria-labelledby="fintech-pyme-label" aria-describedby="fintech-cover-caption">
+                    <figcaption id="fintech-pyme-label" className="fintech-label">{evidence.pyme.title}</figcaption>
+                    <FintechEvidence asset={evidence.pyme} caption={captions.cover} describedBy="fintech-cover-caption" priority />
+                    <p className="fintech-image-key">Documentos · Selfie · Validación · Resultado. Inicio del KYC: frente y dorso del DNI.</p>
+                  </figure>
+                  <figure aria-labelledby="fintech-operation-label" aria-describedby="fintech-cover-caption">
+                    <figcaption id="fintech-operation-label" className="fintech-label">{evidence.operation.title}</figcaption>
+                    <FintechEvidence asset={evidence.operation} caption={captions.cover} describedBy="fintech-cover-caption" priority />
+                    <p className="fintech-image-key">Solicitudes nuevas, en revisión, que requieren acción, aprobadas y rechazadas. Cantidades de ejemplo del escenario simulado.</p>
+                  </figure>
+                </div>
+                <p id="fintech-cover-caption" className="fintech-caption">{captions.cover}</p>
+              </div>
+            </>}
             {section.id === "kyc" && <div className="fintech-recovery">
               <figure data-evidence="E03">
                 <FintechEvidence asset={evidence.camera} caption={captions.camera} describedBy="fintech-camera-caption fintech-camera-transcript" />

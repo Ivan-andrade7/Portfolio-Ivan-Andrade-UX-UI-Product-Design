@@ -1,0 +1,83 @@
+{
+  "status": "Composición y derivados aprobados por Iván para publicación. El estado efectivo se confirma en el registro canónico de Portfolio.",
+  "master": {
+    "path": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\fintech-mockup-plataforma-dual-2026-10-09\\portada-b.png",
+    "width": 2400,
+    "height": 2100,
+    "sha256": "e3d30c89017803ee9f02d8caad6099cf4ee4310f7b822ad20195c7d6fe653ec1"
+  },
+  "sources": [
+    {
+      "id": "pyme",
+      "node": "4389:30704",
+      "file": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\fintech-editorial-2026-10-09\\originales-figma\\4389-30704.png",
+      "mime": "image/png",
+      "width": 1440,
+      "height": 1024,
+      "sha256": "ee77f28219df4d4ebd4d73c2c0865d305d6609e95cf835d85d9e029aca82a856"
+    },
+    {
+      "id": "operacion",
+      "node": "4460:30656",
+      "file": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\Portfolio 2026\\public\\projects\\fintech-editorial\\e01-operacion.webp",
+      "mime": "image/webp",
+      "width": 1440,
+      "height": 500,
+      "sha256": "dd641bcd19c0d7b2d3d2b6e9110a6708a9becd6056e909d0da2c06b420c8590a"
+    }
+  ],
+  "composition": "Variante B aprobada. PyME completa y recorte operativo existente intactos. El maestro no se modifica.",
+  "processing": "Sólo reducción proporcional y codificación WebP. Sin extracción, máscaras, retoque, texto añadido o alteración de interfaces.",
+  "derivatives": [
+    {
+      "file": "portada-b-480.webp",
+      "width": 480,
+      "height": 420,
+      "bytes": 11502,
+      "sha256": "3acfadb4407c35f1b9515d740d9685be270d3d0d2cb2521b2e63c2340eb98e49",
+      "format": "webp",
+      "quality": 92,
+      "sourceSha256": "e3d30c89017803ee9f02d8caad6099cf4ee4310f7b822ad20195c7d6fe653ec1"
+    },
+    {
+      "file": "portada-b-768.webp",
+      "width": 768,
+      "height": 672,
+      "bytes": 22206,
+      "sha256": "ebf1f5052bc3572d9bf36066d9a64e96dde5215933a6ff67b0aa8436491dca6c",
+      "format": "webp",
+      "quality": 92,
+      "sourceSha256": "e3d30c89017803ee9f02d8caad6099cf4ee4310f7b822ad20195c7d6fe653ec1"
+    },
+    {
+      "file": "portada-b-1280.webp",
+      "width": 1280,
+      "height": 1120,
+      "bytes": 47508,
+      "sha256": "c6bc4c50a392d7c10a8d52edd5d7ffc65130265e87e02b07f7f04addfed3e82c",
+      "format": "webp",
+      "quality": 92,
+      "sourceSha256": "e3d30c89017803ee9f02d8caad6099cf4ee4310f7b822ad20195c7d6fe653ec1"
+    },
+    {
+      "file": "portada-b-1920.webp",
+      "width": 1920,
+      "height": 1680,
+      "bytes": 82146,
+      "sha256": "cefb22d8536afbeb526b8fbe3c517103c6bc8984593f6c83d8c8ee707660d6f2",
+      "format": "webp",
+      "quality": 92,
+      "sourceSha256": "e3d30c89017803ee9f02d8caad6099cf4ee4310f7b822ad20195c7d6fe653ec1"
+    },
+    {
+      "file": "portada-b-2400.webp",
+      "width": 2400,
+      "height": 2100,
+      "bytes": 109016,
+      "sha256": "5b2902af325a85c69a3b65ccda9d472f92ef790c2baeabd640800ae2d51604ac",
+      "format": "webp",
+      "quality": 92,
+      "sourceSha256": "e3d30c89017803ee9f02d8caad6099cf4ee4310f7b822ad20195c7d6fe653ec1"
+    }
+  ]
+}

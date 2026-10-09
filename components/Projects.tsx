@@ -11,7 +11,7 @@ const PROJECTS: Project[] = [
     tags: ["Fintech", "SaaS B2B", "KYC"],
     longDesc: "Simulación laboral No Country: diseño UX/UI de una experiencia de solicitud y revisión de créditos PYME.",
     role: "Único diseñador UX/UI del workstream · 2025",
-    images: { image: "/projects/fintech-card-square.webp" },
+    images: { image: "/projects/fintech-card-dual/fintech-card-plataforma-dual-b.webp" },
   },
   {
     id: "garden-ads",
