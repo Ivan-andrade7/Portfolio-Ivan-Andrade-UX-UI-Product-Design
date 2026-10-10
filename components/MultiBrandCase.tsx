@@ -41,12 +41,12 @@ export default function MultiBrandCase({ caseData: c }: { caseData: NonNullable<
     <header id="inicio" className="case-hero home-container">
       <BackToPortfolio />
       <div className="case-hero-layout">
-        <div className="case-hero-copy"><h1>{copy.title}</h1><p className="mb-intro">{copy.intro}</p></div>
+        <div className="case-hero-copy"><h1>{copy.title}</h1><p className="mb-intro">{copy.intro}</p><div className="case-project-links"><CaseExternalLink href={figma}>Ver diseño en Figma ↗</CaseExternalLink><CaseExternalLink href="https://nocountry.tech/showcase/simulacion-laboral-noviembre-2025/equipo-22-productdesign">Showcase del equipo ↗</CaseExternalLink></div></div>
         <CasePresentation project="multi-brand" alt="Catálogos Academy y Kids del equipo en dos monitores desktop" />
       </div>
     </header>
     <article className="case-body home-container" aria-label="Contribución UX y decisiones de Multi-Brand">
-      <section className="mb-context" aria-labelledby="mb-context-heading"><h2 id="mb-context-heading">Contexto y alcance</h2><dl>{copy.facts.map(f => <div key={f.label}><dt>{f.label}</dt><dd>{f.value}</dd></div>)}</dl><div className="case-project-links"><CaseExternalLink href={figma}>Ver diseño en Figma ↗</CaseExternalLink><CaseExternalLink href="https://nocountry.tech/showcase/simulacion-laboral-noviembre-2025/equipo-22-productdesign">Showcase del equipo ↗</CaseExternalLink></div></section>
+      <section className="mb-context" aria-labelledby="mb-context-heading"><h2 id="mb-context-heading">Contexto y alcance</h2><dl>{copy.facts.map(f => <div key={f.label}><dt>{f.label}</dt><dd>{f.value}</dd></div>)}</dl></section>
       {sections.map((section, i) => <section key={section.id} id={`mb-${section.id}`} aria-labelledby={`mb-heading-${section.id}`}>
         <div className="case-editorial-row">
         <div className="mb-reading" id={`mb-heading-${section.id}`}><SectionHeader eyebrow={["Benchmark y definición UX", "Del criterio al componente", "Identidad", "Arquitectura", "Feedback", "Cierre"][i]} heading={section.heading} /></div>

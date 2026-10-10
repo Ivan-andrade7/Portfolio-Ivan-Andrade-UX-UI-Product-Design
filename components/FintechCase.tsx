@@ -25,6 +25,7 @@ export default function FintechCase({ prev, next }: { prev?: NavItem; next?: Nav
           <div className="fintech-entry">
             <h1>{copy.title}</h1>
             <p className="fintech-intro">{copy.intro}</p>
+            <div className="case-project-links"><CaseExternalLink href="https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO?node-id=6735-1410">Ver diseño en Figma ↗</CaseExternalLink></div>
           </div>
           <CasePresentation project="fintech" alt="Mi diseño Fintech: portal PyME y superficie operativa en dos monitores completos" />
         </div>
@@ -117,7 +118,7 @@ export default function FintechCase({ prev, next }: { prev?: NavItem; next?: Nav
             </div></div>}
           </section>
         ))}
-        <div className="fintech-return case-editorial-followup"><CaseExternalLink href="https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO?node-id=6735-1410">Ver diseño en Figma ↗</CaseExternalLink></div>
+        
         <CaseNavigation prev={prev} next={next} />
       </article>
     </main>
