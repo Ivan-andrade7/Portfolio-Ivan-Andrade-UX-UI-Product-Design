@@ -1,3 +1,4 @@
+import { getCaseNavigation } from "./case-navigation";
 import { fintechEditorial, fintechEvidence } from "./fintech-editorial";
 
 export interface Decision {
@@ -47,7 +48,7 @@ export interface CaseStudy {
   tags: string[];
   title: string;
   subtitle: string;
-  links: { figma?: string; behance: string; figmaNote?: string };
+  links: { figma?: string; showcase?: string; figmaNote?: string };
   context: {
     rol: string;
     duracion: string;
@@ -83,7 +84,7 @@ export interface CaseStudy {
   next?: NavItem;
 }
 
-export const CASES: CaseStudy[] = [
+const CASE_RECORDS: CaseStudy[] = [
   {
     slug: "fintech",
     tags: ["Fintech", "SaaS B2B", "2025"],
@@ -91,7 +92,6 @@ export const CASES: CaseStudy[] = [
     subtitle: fintechEditorial.intro,
     links: {
       figma: "https://www.figma.com/design/ryoPAtXnEr6GqFaWHXPTvO",
-      behance: "https://www.behance.net/gallery/237822185/Plataforma-Fintech-B2B-para-Onboarding-de-Crditos-PYME",
     },
     context: { rol: "Único diseñador UX/UI", duracion: "2025", focoLabel: "Contexto", foco: "Simulación laboral · No Country", tools: "Figma · FigJam" },
     description: fintechEditorial.intro,
@@ -102,11 +102,6 @@ export const CASES: CaseStudy[] = [
     images: [fintechEvidence.pyme.src, fintechEvidence.operation.src],
     metrics: [],
     reflection: fintechEditorial.sections[4].paragraphs.join("\n\n"),
-    next: {
-      slug: "garden-ads",
-      title: "GardenAds — Attribution & Tracking Health",
-      role: "Único diseñador UX/UI · Simulación laboral · No Country · 2026",
-    },
   },
   {
     slug: "garden-ads",
@@ -116,7 +111,7 @@ export const CASES: CaseStudy[] = [
       "Una propuesta SaaS para hacer visible la salud del tracking y anticipar fallos que podrían afectar la atribución.",
     links: {
       figma: "https://www.figma.com/design/8SMwklByslExRkjFk8P9U2",
-      behance: "https://www.behance.net/gallery/245704303/GardenAds-Attribution-Tracking-Health-Platform",
+      showcase: "https://www.nocountry.tech/showcase/simulacion-laboral-febrero-2026/equipo-03-web-app-development",
     },
     context: {
       rol: "Único diseñador UX/UI",
@@ -213,16 +208,6 @@ export const CASES: CaseStudy[] = [
     ],
     reflection:
       "El benchmark colaborativo abrió la hipótesis de Tracking Health como eje del producto. También aprendí que, al diseñar para varios perfiles, conviene definir temprano la arquitectura de información y los permisos para que las pantallas respondan a un modelo coherente.",
-    prev: {
-      slug: "fintech",
-      title: "Fintech PYME — Plataforma de Créditos B2B",
-      role: "Único diseñador UX/UI · Simulación laboral · No Country · 2025",
-    },
-    next: {
-      slug: "crm",
-      title: "ChatCRM — CRM para PyMEs",
-      role: "Único diseñador UX/UI · Simulación laboral · No Country · 2026",
-    },
   },
   {
     slug: "crm",
@@ -231,7 +216,7 @@ export const CASES: CaseStudy[] = [
     subtitle: "Centralizar conversaciones y pipeline para no perder contexto comercial.",
     links: {
       figma: "https://www.figma.com/design/WfehLZHqanlAyZy5qPrlcV",
-      behance: "https://www.behance.net/gallery/248459859/Startup-CRM-Plataforma-SaaS-UXUI?platform=direct",
+      showcase: "https://www.nocountry.tech/showcase/simulacion-laboral-marzo-2026/equipo-02-web-app-development",
     },
     context: {
       rol: "Único diseñador UX/UI",
@@ -313,16 +298,6 @@ export const CASES: CaseStudy[] = [
     ],
     reflection:
       "Tratar el handoff como entregable principal cambió mi forma de diseñar: me obligó a explicar estados, reglas y componentes con suficiente claridad para que otra persona pudiera interpretarlos, aunque la implementación no esté verificada.",
-    prev: {
-      slug: "garden-ads",
-      title: "GardenAds — Attribution & Tracking Health",
-      role: "Único diseñador UX/UI · Simulación laboral · No Country · 2026",
-    },
-    next: {
-      slug: "multi-brand",
-      title: "Multi-Brand Design System",
-      role: "1 de 4 UX/UI · Simulación laboral colaborativa · No Country · 2025",
-    },
   },
   {
     slug: "multi-brand",
@@ -330,7 +305,6 @@ export const CASES: CaseStudy[] = [
     title: "Multi-Brand Design System",
     subtitle: "Arquitectura compartida para dos marcas de una plataforma EdTech.",
     links: {
-      behance: "https://www.behance.net/gallery/240712809/Multi-Brand-Design-System",
       figma: "https://www.figma.com/design/1jHTtZiRuYJM2cG5mtoEG3/Multi-Brand-Design-System-%E2%80%94-EdTech",
     },
     context: {
@@ -426,16 +400,6 @@ export const CASES: CaseStudy[] = [
     ],
     reflection:
       "Lo que más me llevé fue dónde vive de verdad la identidad de una marca. La escala de espaciado terminó siendo idéntica en ambas y los neutrales se comparten enteros: lo que separa a Academy de Kids es el color y, sobre todo, el border-radius —de 4 a 16px en una, de 12 a 32 en la otra—. La estructura de un sistema puede ser común mucho más de lo que uno supone.",
-    prev: {
-      slug: "crm",
-      title: "ChatCRM — CRM para PyMEs",
-      role: "Único diseñador UX/UI · Simulación laboral · No Country · 2026",
-    },
-    next: {
-      slug: "trainit",
-      title: "TrainiT — Gestión de Proyectos",
-      role: "Junior UX/UI · Pasantía formativa TrainiT · 2025",
-    },
   },
   {
     slug: "trainit",
@@ -443,7 +407,6 @@ export const CASES: CaseStudy[] = [
     title: "TrainiT — Gestión de Proyectos",
     subtitle: "Componentes, estados y coordinación de un workstream dentro de una práctica formativa.",
     links: {
-      behance: "https://www.behance.net/gallery/240653385/TrainiT-PGT-%28Plataforma-de-Gestion-de-Proyectos%29",
       figma: "https://www.figma.com/design/mRTUkA0fo9kmxB94q6y57N/TrainiT-%E2%80%94-Gesti%C3%B3n-de-Proyectos",
     },
     context: {
@@ -530,18 +493,10 @@ export const CASES: CaseStudy[] = [
     ],
     reflection:
       "Coordinar un workstream me enseñó que un sistema compartido no se sostiene sólo con componentes: también necesita nombres, estados, criterios de revisión y responsabilidades claras. Ese aprendizaje es transferible, aunque la implementación y los resultados del producto no estén verificados.",
-    prev: {
-      slug: "multi-brand",
-      title: "Multi-Brand Design System",
-      role: "1 de 4 UX/UI · Simulación laboral colaborativa · No Country · 2025",
-    },
-    next: {
-      slug: "nodo",
-      title: "NODO Arquitectura",
-      role: "Diseño web · Proyecto personal conceptual",
-    },
   },
 ];
+
+export const CASES: CaseStudy[] = CASE_RECORDS.map(item => ({ ...item, ...getCaseNavigation(item.slug) }));
 
 export function getCaseBySlug(slug: string): CaseStudy | undefined {
   return CASES.find((c) => c.slug === slug && c.published !== false);

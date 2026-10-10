@@ -1,0 +1,90 @@
+{
+  "status": "Integración local aprobada por Iván; publicación no autorizada",
+  "sourceManifest": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\procedencia.json",
+  "source": "Viewports continuos de Home NODO publicada: desktop1440x900, tablet834x1112, mobile390x844",
+  "compositions": "Monitor16:10 principal; tablet3:4 y teléfono390:844 secundarios; composición exterior aprobada25.46",
+  "records": [
+    {
+      "path": "public/projects/devices/nodo-responsive-25-47-hero-480.webp",
+      "dimensions": [
+        480,
+        360
+      ],
+      "bytes": 18310,
+      "sha256": "6ce56082345d7fec18a55c10c143ee6b164ff8db2172ba0b2492229b153a0893",
+      "master": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\hero-propuesta.png",
+      "masterDimensions": [
+        1800,
+        1350
+      ],
+      "masterSha256": "35029ee7db71444dfb234a457fd75341185faf55a91b0cb12e78f4f3e1cb78dd",
+      "operation": "Escala uniforme del maestro aprobado y compresión WebP; sin encuadres adicionales ni cambios de interfaz"
+    },
+    {
+      "path": "public/projects/devices/nodo-responsive-25-47-hero-768.webp",
+      "dimensions": [
+        768,
+        576
+      ],
+      "bytes": 38082,
+      "sha256": "e804b72b595af200cda8e0e7337dafa7ae7492c4e8f2bb350340bee11376442e",
+      "master": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\hero-propuesta.png",
+      "masterDimensions": [
+        1800,
+        1350
+      ],
+      "masterSha256": "35029ee7db71444dfb234a457fd75341185faf55a91b0cb12e78f4f3e1cb78dd",
+      "operation": "Escala uniforme del maestro aprobado y compresión WebP; sin encuadres adicionales ni cambios de interfaz"
+    },
+    {
+      "path": "public/projects/devices/nodo-responsive-25-47-hero-1280.webp",
+      "dimensions": [
+        1280,
+        960
+      ],
+      "bytes": 86968,
+      "sha256": "e2edb8709b7dbc7d65b505a316cf1ea53fda435e49a743e7ab1d1e28775ec709",
+      "master": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\hero-propuesta.png",
+      "masterDimensions": [
+        1800,
+        1350
+      ],
+      "masterSha256": "35029ee7db71444dfb234a457fd75341185faf55a91b0cb12e78f4f3e1cb78dd",
+      "operation": "Escala uniforme del maestro aprobado y compresión WebP; sin encuadres adicionales ni cambios de interfaz"
+    },
+    {
+      "path": "public/projects/devices/nodo-responsive-25-47-hero-1800.webp",
+      "dimensions": [
+        1800,
+        1350
+      ],
+      "bytes": 147526,
+      "sha256": "9c338ed2cfe76a4e6ab96dcb7084e163ba2a7969f611fefcac5ad678e9413620",
+      "master": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\hero-propuesta.png",
+      "masterDimensions": [
+        1800,
+        1350
+      ],
+      "masterSha256": "35029ee7db71444dfb234a457fd75341185faf55a91b0cb12e78f4f3e1cb78dd",
+      "operation": "Escala uniforme del maestro aprobado y compresión WebP; sin encuadres adicionales ni cambios de interfaz"
+    },
+    {
+      "path": "public/projects/devices/nodo-responsive-25-47-card-1200.webp",
+      "dimensions": [
+        1200,
+        750
+      ],
+      "bytes": 77280,
+      "sha256": "d4d451fcf1f60a871454320315aa2b49ca4d06ac306731461cff3c2c1c0313c5",
+      "master": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\card-propuesta.png",
+      "masterDimensions": [
+        1800,
+        1125
+      ],
+      "masterSha256": "2f9886d6f128592f77eff354cb799f68282b36cbc1305fe473151d3492eedef5",
+      "operation": "Escala uniforme del maestro aprobado y compresión WebP; sin encuadres adicionales ni cambios de interfaz"
+    }
+  ],
+  "responsive": "Card con contain existente, incluido mobile4:3; hero4:3 completo, srcSet480/768/1280/1800. Sin dispositivos reconstruidos en React.",
+  "originalsPreserved": true
+}

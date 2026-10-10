@@ -1,0 +1,86 @@
+{
+  "title": "Multi-Brand — Compartir reglas, diferenciar Academy y Kids",
+  "intro": "Un sistema de diseño para dos experiencias educativas necesita algo más que variaciones de color. El reto era reconocer tareas comunes, definir qué componentes requerían y permitir que Academy y Kids conservaran su identidad. Mi contribución conecta el benchmark y la definición UX con esas necesidades y con una propuesta de arquitectura para el sistema.",
+  "facts": [
+    {
+      "label": "Naturaleza y año",
+      "value": "Simulación laboral colaborativa de No Country · 2025."
+    },
+    {
+      "label": "Equipo y rol",
+      "value": "Equipo 22: cuatro diseñadores UX/UI y un Product Designer. Participé como UX/UI Designer."
+    },
+    {
+      "label": "Contribución individual",
+      "value": "Realicé el benchmark de Platzi, edX y Coursera y el de sistemas de diseño; propuse una arquitectura en HU04."
+    },
+    {
+      "label": "Contribución compartida",
+      "value": "Trabajé con Paula de Alba en la definición UX del ecosistema, los flujos y el inventario de componentes. La realización UI, la biblioteca y la arquitectura final son trabajo del equipo."
+    },
+    {
+      "label": "Alcance",
+      "value": "Diseño y documentación. Se muestran referencias observadas, propuestas y aplicaciones en Figma; no se acredita implementación completa del producto, pruebas con usuarios ni resultados medidos."
+    }
+  ],
+  "sections": [
+    {
+      "id": "entrada",
+      "heading": "Orientar la entrada a la plataforma",
+      "paragraphs": [
+        "En el benchmark observé cómo Platzi preguntaba por objetivos y Coursera permitía seleccionar habilidades durante el onboarding. Registré esas referencias y propuse recoger intereses para orientar el primer contacto con la plataforma. El criterio UX era dar contexto a la entrada, en lugar de comenzar con una lista de cursos sin orientación.",
+        "Con Paula trabajé la definición del ecosistema —web pública, plataforma de cursos y panel de gestión— y su traducción a flujos e inventario. Para el onboarding, el documento compartido enumera una barra de progreso, chips o cards seleccionables y una acción para continuar. Así, la necesidad de orientar al estudiante se expresa también como una necesidad de componentes.",
+        "El onboarding Academy diseñado por el equipo permite ver esa combinación: pregunta por la situación actual, presenta opciones y sitúa al usuario en el paso 1 de 4. La referencia, el criterio y la aplicación pueden leerse juntos; la pantalla muestra la propuesta de entrada, sin demostrar una personalización automática de las recomendaciones."
+      ]
+    },
+    {
+      "id": "catalogo",
+      "heading": "Anticipar el nivel antes de abrir un curso",
+      "paragraphs": [
+        "En mi benchmark también observé etiquetas de nivel en las cards de Platzi. Registré la recomendación de incorporar esa información a la tarjeta del curso: reconocer si el contenido es básico, intermedio o avanzado debía ser posible antes de entrar al detalle.",
+        "El inventario UX compartido incluye una card de curso y un badge de nivel dentro del flujo de descubrimiento. En el catálogo Academy del equipo, “Nivel Básico” aparece sobre la imagen, mientras el título, el docente y la información complementaria ocupan sus propias posiciones.",
+        "Este ejemplo permite explicar una necesidad del sistema a una escala concreta: la card organiza la información del curso y el badge identifica su nivel. La correspondencia entre observación, inventario y pantalla es visible."
+      ]
+    },
+    {
+      "id": "identidad",
+      "heading": "Compartir criterios sin igualar la identidad",
+      "paragraphs": [
+        "Academy y Kids comparten un formulario de pago y un resumen de compra. Academy presenta ‘Fundamentos de Diseño UX/UI’ y la acción ‘Completar Compra’; Kids muestra ‘Mi primer videojuego’ e ‘Inscribir en Autodidacta’. La tarea es equivalente, mientras el contenido y la acción cambian según la experiencia.",
+        "El logotipo, el color de la acción y el tratamiento del resumen muestran diferencias de identidad. La tabla reúne las reglas de tipografía, espaciado y radio definidas por el equipo."
+      ]
+    },
+    {
+      "id": "arquitectura",
+      "heading": "Separar el propósito del valor",
+      "paragraphs": [
+        "En HU04 propuse dos colecciones, Primitivos y Semánticos: una para valores de base y otra para roles de uso. Mi intención era que un componente consumiera un propósito —como el color de una acción— y que el valor correspondiente se resolviera según la marca. También señalé el riesgo de fijar valores dentro de componentes o desacoplar instancias para adaptarlas.",
+        "Mi propuesta planteaba esta separación; el sistema del equipo combina variables base y colecciones semánticas con modos Academy y Kids.",
+        "Un binding es la vinculación de una propiedad, como el color de un borde, con una variable. En los paneles de ejemplo, borde y título se vinculan a `brand/primary`; el modo determina el valor de marca. Esta conexión permite explicar cómo una regla llega a una propiedad concreta. En esos mismos ejemplos, los inputs usan variables base directamente, por lo que la conexión semántica mostrada no describe toda la biblioteca."
+      ]
+    },
+    {
+      "id": "feedback",
+      "heading": "Mantener la recuperación y adaptar la voz",
+      "paragraphs": [
+        "La documentación propone mensajes persistentes para información importante y notificaciones breves para confirmaciones no críticas. La decisión no es sólo visual: define qué tipo de feedback corresponde a cada situación.",
+        "El error al guardar conserva el problema y la acción de recuperación, con una voz diferente para cada marca:",
+        "- **Academy:** “No pudimos guardar tus cambios. Por favor verifica tu conexión e intenta de nuevo.”\n- **Kids:** “Ups… no pudimos guardar tus cambios. Revisa tu conexión e inténtalo otra vez, por favor.”",
+        "Cambiar el tono no elimina la información necesaria para continuar. Las guías también indican que el texto de ejemplo dentro de un campo no debe reemplazar su etiqueta: la identidad puede variar, pero la instrucción debe seguir siendo reconocible."
+      ]
+    },
+    {
+      "id": "aprendizaje",
+      "heading": "Conectar tareas con reglas",
+      "paragraphs": [
+        "El criterio del caso es poner en relación las tareas de la plataforma con las necesidades de componentes y las reglas de variación entre marcas. Mi benchmark, la definición UX compartida con Paula y la propuesta HU04 aportan a esa lectura desde distintos niveles.",
+        "La comparación entre Academy y Kids permite explicar qué se mantiene y qué cambia mediante ejemplos concretos. Las pantallas, la biblioteca y la arquitectura final corresponden al trabajo del equipo."
+      ]
+    }
+  ],
+  "identityEvidence": {
+    "caption": "Checkout Academy y Kids. Pantallas originales y definiciones del sistema: trabajo del equipo.",
+    "sampleNote": "Precios, duración, garantías y métodos de pago son datos de muestra de la propuesta diseñada.",
+    "tableNote": "Valores definidos en el sistema; no describen todos los elementos de las pantallas."
+  }
+}

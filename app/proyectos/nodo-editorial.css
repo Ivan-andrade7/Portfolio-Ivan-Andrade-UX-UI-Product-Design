@@ -1,0 +1,7 @@
+.nodo-case .case-presentation{max-width:920px;justify-self:start}
+.nodo-case .nodo-opening-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center}
+@media(max-width:1023px){.nodo-case .nodo-opening-layout{grid-template-columns:1fr;gap:32px}}
+.nodo-case .case-capture{width:fit-content;max-width:100%}
+.nodo-case .case-capture img{max-height:480px;max-width:100%;width:auto;height:auto;object-fit:contain}
+.nodo-case .case-gallery>section>div>button{max-width:730px}
+.portfolio-case .nodo-case .case-nodo-hero > .nodo-opening-layout{width:100%;max-width:none}

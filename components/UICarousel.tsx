@@ -57,7 +57,7 @@ function Lightbox({
         return;
       }
       if (e.key === "Tab" && dialogRef.current) {
-        const focusable = dialogRef.current.querySelectorAll<HTMLButtonElement>("button");
+        const focusable = dialogRef.current.querySelectorAll<HTMLElement>("button, [tabindex]:not([tabindex='-1'])");
         if (focusable.length === 0) return;
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -124,6 +124,9 @@ function Lightbox({
       {screens[idx].height > screens[idx].width ? (
         <div
           className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-lg"
+          tabIndex={0}
+          role="region"
+          aria-label="Imagen completa; desplazable con el teclado"
           onClick={(e) => e.stopPropagation()}
         >
           <ResilientImage
@@ -161,12 +164,16 @@ export default function UICarousel({
   note,
   galleryAspect,
   captureBackground,
+  keyImageSizes = "(max-width: 1024px) 100vw, 70vw",
+  evidenceDescription = "Captura de interfaz diseñada; no implica por sí sola un resultado de negocio medido.",
 }: {
   screens: Screen[];
   title: string;
   note?: string;
   galleryAspect?: string;
   captureBackground?: string;
+  keyImageSizes?: string;
+  evidenceDescription?: string;
 }) {
   const [idx, setIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -222,7 +229,7 @@ export default function UICarousel({
               alt={screens[keyIndex].alt}
               fill
               className="object-contain p-3 md:p-6 transition-transform duration-300 group-hover:scale-[1.01]"
-              sizes="(max-width: 1024px) 100vw, 70vw"
+              sizes={keyImageSizes}
             />
             <span
               aria-hidden
@@ -240,7 +247,7 @@ export default function UICarousel({
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-[12px] font-semibold leading-4 tracking-[1px] text-[var(--text-tertiary)]">Evidencia disponible</span>
-              <p className="text-[14px] leading-6 text-[var(--text-secondary)]">Captura de interfaz diseñada; no implica por sí sola un resultado de negocio medido.</p>
+              <p className="text-[14px] leading-6 text-[var(--text-secondary)]">{evidenceDescription}</p>
             </div>
           </div>
         </div>

@@ -1,0 +1,182 @@
+[
+  {
+    "case": "fintech",
+    "source": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\3- No Country - WEB APP Fintech\\Usuario Verificado Existente - Panel Priincipal.png",
+    "sourceSha256": "c38a2f14a2a838bf62c9132daeedea313ff0501b0783549fbab971f86a0ea299",
+    "node": null,
+    "region": [
+      0,
+      0,
+      1440,
+      1024
+    ],
+    "dimensions": [
+      1440,
+      1024
+    ],
+    "derived": "public/projects/documentary/fintech-portal-cliente-c38a2f14a2a8.webp",
+    "sha256": "65399126ae1a4d6d51711b5b9e3361d05bc03b09ef8eb61389bf39ed01cfb923",
+    "bytes": 36298,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "fintech",
+    "source": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\3- No Country - WEB APP Fintech\\Dashboard Supervisor.png",
+    "sourceSha256": "5fb34c52f3e9b7e73d22bd89416f5889ccea555fa58cb0cbee0de720f771cf4d",
+    "node": null,
+    "region": [
+      0,
+      0,
+      1440,
+      1024
+    ],
+    "dimensions": [
+      1440,
+      1024
+    ],
+    "derived": "public/projects/documentary/fintech-dashboard-supervisor-5fb34c52f3e9.webp",
+    "sha256": "b74307819fee33db2c1158a35c7a9521ad8d0f3b6d65ae2fb51322a7f8e2b651",
+    "bytes": 41766,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "crm",
+    "source": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\Startup CRM - Cross-Industry\\Screen Figma\\04. UI Screens\\Resumen.png",
+    "sourceSha256": "3a1c7e99aa66c928b35020660b3638881203026ff229b6fc20045f71870b69ff",
+    "node": "2144:3256",
+    "region": [
+      0,
+      0,
+      1440,
+      1024
+    ],
+    "dimensions": [
+      1440,
+      1024
+    ],
+    "derived": "public/projects/documentary/crm-contacto-resumen-3a1c7e99aa66.webp",
+    "sha256": "0c041d1ab73aef72171514645f8dc0d70320fffbfeeae293588a5fd7d362b382",
+    "bytes": 37438,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "crm",
+    "source": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\Startup CRM - Cross-Industry\\Screen Figma\\04. UI Screens\\Notas.png",
+    "sourceSha256": "881672e7b4961c55b0456dd914693599854b1155deb28e9d41984a448bdd1c2c",
+    "node": "2144:5423",
+    "region": [
+      0,
+      0,
+      1440,
+      1024
+    ],
+    "dimensions": [
+      1440,
+      1024
+    ],
+    "derived": "public/projects/documentary/crm-contacto-notas-881672e7b496.webp",
+    "sha256": "72670f28e7972206f113847d03be830f15ba1e80e0beca2b23ea32e698c81552",
+    "bytes": 32486,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "crm",
+    "source": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\Startup CRM - Cross-Industry\\Screen Figma\\04. UI Screens\\Agregar-Contacto.png",
+    "sourceSha256": "037d778db64bd02494c44d2319c7f118b9cea4090d010c03ef1eade6dd7ab6d3",
+    "node": "2139:5801",
+    "region": [
+      0,
+      0,
+      1440,
+      1024
+    ],
+    "dimensions": [
+      1440,
+      1024
+    ],
+    "derived": "public/projects/documentary/crm-contacto-alta-037d778db64b.webp",
+    "sha256": "06726f0e99feaf8fbd87b873c1f133aaa6455dc4b84760d16f697e1997dce1c2",
+    "bytes": 75534,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "crm",
+    "source": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\Startup CRM - Cross-Industry\\Screen Figma\\04. UI Screens\\Tareas2.png",
+    "sourceSha256": "0643a9db75608415bfea433d112338fc8b7d47fa969f8fc109610442c0da313c",
+    "node": "2144:4417",
+    "region": [
+      0,
+      0,
+      1440,
+      1024
+    ],
+    "dimensions": [
+      1440,
+      1024
+    ],
+    "derived": "public/projects/documentary/crm-contacto-tareas-0643a9db7560.webp",
+    "sha256": "df23004e7ab311805c5dd7e17ded1db25ca1e7aed91ababb56e6e0e0e8d37cf5",
+    "bytes": 35832,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "garden-ads",
+    "source": "C:\\Users\\ivana\\OneDrive\\Escritorio\\Proyectos de DIseño UX UI\\Plataforma Eccomerce - No Country\\Taskflows.png",
+    "sourceSha256": "e57b7da08c29ef3e02f47bde1b9fcee9f0038fc86619dc3c7d7074fba4b13e61",
+    "node": null,
+    "region": [
+      0,
+      0,
+      4264,
+      4611
+    ],
+    "dimensions": [
+      4264,
+      4611
+    ],
+    "derived": "public/projects/documentary/garden-taskflows-e57b7da08c29.webp",
+    "sha256": "5203a97a98e3bf7c99c5e3f760d5846042085026263dd4771f231083feba47e4",
+    "bytes": 120790,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "trainit",
+    "source": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-44\\trainit-edicion-descripcion.png",
+    "sourceSha256": "9a4c49ae2311b3b7c21f0302e10fc8b6aed7832817eefb6f6f1a75dbad27fb1c",
+    "node": "1115:23386",
+    "region": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "dimensions": [
+      1280,
+      720
+    ],
+    "derived": "public/projects/documentary/trainit-edicion-alternativa-9a4c49ae2311.webp",
+    "sha256": "e22aee73dc824550e6bfbbd9bc365a96ee1c1c90a9e424b9e701b8a4437bf3a1",
+    "bytes": 38382,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  },
+  {
+    "case": "trainit",
+    "source": "C:\\Users\\ivana\\OneDrive\\Documentos\\ChatGPT\\Portfolio\\evidencia\\revision-siete-casos-2026-10-10\\lote-25-44\\trainit-alta-fidelidad.png",
+    "sourceSha256": "3c7fb6d56e5640e85261714eb9665de1c8eb308095bedd6f6cce0eb29c244bcd",
+    "node": "1584:28166",
+    "region": [
+      0,
+      0,
+      1366,
+      1210
+    ],
+    "dimensions": [
+      1366,
+      1210
+    ],
+    "derived": "public/projects/documentary/trainit-backlog-alta-3c7fb6d56e56.webp",
+    "sha256": "f2da915c1daf492719677dd95bf6ae62ab25e8bb4d994fd413450e8edb1f1bbe",
+    "bytes": 24876,
+    "treatment": "Original completo, WebP sin pérdida; ningún cambio interior"
+  }
+]

@@ -1,0 +1,11 @@
+export const fintechReferences = {
+  title: "Referencias: separar registro, identidad y orientación",
+  items: [
+    ["American Express · registro por etapas", "En el análisis registré datos personales, credenciales y verificación como etapas distintas, además de explicaciones sobre email y contraseña. El criterio de dividir una tarea sensible ayuda a leer mi secuencia KYC; no supone que haya incorporado todas las funciones de la referencia."],
+    ["Nubi · distinguir captación y KYC", "El registro diferencia el formulario B2B «Solicitar demo» del recorrido individual que se propone analizar como referencia local de DNI y selfie. Esa hipótesis orienta la verificación del representante; captar un contacto empresarial no equivale a validar su identidad ni a aprobar un crédito."],
+    ["Mercado Pago · progreso y siguiente acción", "El análisis describe un ingreso por DNI o CUIT seguido de un checklist de email, teléfono e identidad. En mi diseño, las etapas de verificación hacen visible el progreso; cámara denegada e identidad no verificada añaden alternativas explícitas para continuar."],
+    ["Revisión · una regla del proyecto", "La condición de identidad verificada antes de aprobar una solicitud pertenece a los requisitos del proyecto. No la atribuyo al benchmark: une el recorrido de quien solicita con la responsabilidad de quien revisa."],
+  ],
+  artifacts: [{"src": "/projects/documentary/fintech-amex-registro.png", "title": "Referencia American Express · registro y orientación", "alt": "Formulario original de American Express para crear una cuenta, con datos personales, correo, teléfono y código de seguridad", "caption": "Referencia de terceros · American Express. Captura 3.png conservada en el material de trabajo de 2025 y vinculada al análisis documental. Campos vacíos y explicación del código de seguridad visibles. Mi aporte es el análisis; no diseñé esta interfaz ni la presento como validación de mi KYC.", "width": 1920, "height": 2087}],
+  note: "Síntesis editorial del análisis documental conservado en Notion, con referencias de trabajo de 2025. No es una captura histórica, una evaluación actual de esas plataformas ni una prueba con usuarios. La documentación organizada posteriormente y los casos límite se distinguen en Entrega.",
+} as const;

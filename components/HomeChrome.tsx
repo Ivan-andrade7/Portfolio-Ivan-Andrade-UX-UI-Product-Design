@@ -80,7 +80,7 @@ export function HomeFooter({ caseMode = false }: { caseMode?: boolean }) {
   const prefix = caseMode ? "/" : "";
   return <footer className="home-footer"><div className="home-container">
     <div className="home-footer-top"><Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link><p>UX/UI y Product Design.<br />Diseño e implementación web.</p><a href="#inicio" className="home-text-link">Volver arriba ↑</a></div>
-    <div className="home-footer-links"><nav aria-label="Navegación del pie">{LINKS.map(link => <a key={link.href} href={`${prefix}${link.href}`}>{link.label}</a>)}</nav><nav aria-label="Perfiles y contacto"><a href="mailto:ivanandradeuxui@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ivan-andrade-uxui/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://www.behance.net/ivaanandrade" target="_blank" rel="noopener noreferrer">Behance ↗</a><a href="https://wa.me/5492346683761" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
+    <div className="home-footer-links"><nav aria-label="Navegación del pie">{LINKS.map(link => <a key={link.href} href={`${prefix}${link.href}`}>{link.label}</a>)}</nav><nav aria-label="Perfiles y contacto"><a href="mailto:ivanandradeuxui@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ivan-andrade-uxui/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/5492346683761" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
     <div className="home-footer-bottom"><span>© 2026 Iván Andrade</span><span>Buenos Aires, Argentina · Diseño con criterio</span></div>
   </div></footer>;
 }

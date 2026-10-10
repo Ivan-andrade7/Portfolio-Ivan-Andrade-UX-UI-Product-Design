@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { NavItem } from "@/lib/cases";
 
 export function CaseExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[var(--border-interactive)] bg-[var(--bg-primary)] px-4 py-2 text-[14px] font-semibold text-[var(--brand-hover)] transition-colors hover:bg-[var(--brand-soft)]">{children}</a>;
+  return <a href={href} target="_blank" rel="noopener noreferrer" className="case-external-link inline-flex min-h-11 items-center gap-2 rounded-lg border border-[var(--border-interactive)] bg-[var(--bg-primary)] px-4 py-2 text-[14px] font-semibold text-[var(--brand-hover)] transition-colors hover:bg-[var(--brand-soft)]">{children}</a>;
 }
 
 // Shared editorial patterns for all six case studies.
@@ -61,7 +61,7 @@ export function BackToPortfolio({ contrast = false }: { contrast?: boolean }) {
   return (
     <Link href="/#proyectos" className={`case-back inline-flex items-center gap-3 min-h-11 px-4 py-3 rounded-lg w-fit text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-secondary)] ${contrast ? "bg-[var(--bg-primary)]/75 backdrop-blur-sm shadow-sm" : ""}`}>
       <ArrowLeft size={20} aria-hidden="true" />
-      <span className="text-[14px] font-semibold leading-5">Volver al portfolio</span>
+      <span className="text-[14px] font-semibold leading-5">Volver a proyectos</span>
     </Link>
   );
 }

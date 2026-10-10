@@ -1,0 +1,62 @@
+[
+  {
+    "case": "fintech",
+    "source": "lote-25-44/fintech-dos-caminos-master.png",
+    "derived": "public/projects/devices/fintech-dos-caminos-8ea8197a452a-480.webp",
+    "dimensions": [
+      480,
+      320
+    ],
+    "bytes": 8830,
+    "sha256": "47b2924f91bf218a0920157e4dc743cbdf4c69d980f8910ef1bcb249cf6000ca",
+    "treatment": "Escalado uniforme del maestro, sin recortes"
+  },
+  {
+    "case": "fintech",
+    "source": "lote-25-44/fintech-dos-caminos-master.png",
+    "derived": "public/projects/devices/fintech-dos-caminos-8ea8197a452a-768.webp",
+    "dimensions": [
+      768,
+      512
+    ],
+    "bytes": 14438,
+    "sha256": "a9a1af45b79f99f010a74b519769c15b2f287b10e150eca0bd4f4e21d9bdf625",
+    "treatment": "Escalado uniforme del maestro, sin recortes"
+  },
+  {
+    "case": "fintech",
+    "source": "lote-25-44/fintech-dos-caminos-master.png",
+    "derived": "public/projects/devices/fintech-dos-caminos-8ea8197a452a-1280.webp",
+    "dimensions": [
+      1280,
+      853
+    ],
+    "bytes": 28838,
+    "sha256": "894199b1b0d88add8bdd44be3382a5f762b29c85186caad3a5d59cf7bf6c4dd0",
+    "treatment": "Escalado uniforme del maestro, sin recortes"
+  },
+  {
+    "case": "fintech",
+    "source": "lote-25-44/fintech-dos-caminos-master.png",
+    "derived": "public/projects/devices/fintech-dos-caminos-8ea8197a452a-1920.webp",
+    "dimensions": [
+      1920,
+      1280
+    ],
+    "bytes": 54240,
+    "sha256": "d699b6a11bc182534e129e29c773acb6b00baf2243361da8f14b0193f54656bc",
+    "treatment": "Escalado uniforme del maestro, sin recortes"
+  },
+  {
+    "case": "fintech",
+    "derived": "public/projects/devices/fintech-card-dos-caminos-8ea8197a452a.webp",
+    "dimensions": [
+      1800,
+      1350
+    ],
+    "source": "lote-25-44/fintech-dos-caminos-master.png",
+    "treatment": "Composición completa; padding exterior vertical, sin textos editoriales",
+    "bytes": 54404,
+    "sha256": "44a5e864f2d47ae300f52a537a63f96870189dddc9b99fd3b91c683a820d9251"
+  }
+]

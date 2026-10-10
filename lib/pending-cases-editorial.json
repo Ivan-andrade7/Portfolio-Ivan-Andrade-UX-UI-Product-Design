@@ -1,0 +1,556 @@
+{
+  "garden-ads": {
+    "title": "GardenAds — Attribution & Tracking Health",
+    "intro": "Diseñé una experiencia desktop para relacionar los pagos de Stripe con las señales de atribución de Meta y Google. El foco fue hacer visible cuándo los datos requieren revisión y dónde empezar a investigar.",
+    "nature": "Simulación laboral · No Country",
+    "role": "Único diseñador UX/UI en un equipo multidisciplinario",
+    "period": "26 ene — 7 mar 2026 · período del programa",
+    "delivery": "Arquitectura, UI desktop, componentes y prototipos en Figma",
+    "scope": "Diseño desktop y prototipos para una simulación laboral, sin implementación ni resultados medidos. El benchmark de seis competidores fue colaborativo; mi aporte fue UX/UI. Datos, importes, testimonios y conexiones son de escenario. No hay pruebas con usuarios documentadas.",
+    "cover": "garden-ads-ui-tracking-health.webp",
+    "sections": [
+      {
+        "label": "01 · Foco",
+        "title": "Antes de interpretar ingresos, revisar el dato",
+        "body": [
+          "El brief planteaba contar los pagos de Stripe desde los píxeles de Google y Meta. Trabajé ese problema como una tensión de lectura: un dashboard puede mostrar ingresos y campañas, pero también necesita advertir cuándo la atribución merece una revisión.",
+          "El benchmark colaborativo comparó seis herramientas de atribución: lectura por canal, profundidad de modelos, configuración, segmentación y complejidad de uso. Separé esa lectura de negocio de las referencias de interfaz de Stripe, Meta y GA4 que recoge la documentación del proyecto."
+        ],
+        "documents": [
+          {
+            "title": "Benchmark colaborativo · lectura de negocio",
+            "note": "Síntesis documental del análisis del equipo. Describe lo que se registró durante el proyecto; no certifica prestaciones actuales, precios o exclusividad de mercado.",
+            "items": [
+              [
+                "Triple Whale",
+                "El registro destaca comparación entre canales y lectura de cohortes, junto con una curva de aprendizaje exigente. El criterio es relacionar cifras sin ocultar su contexto."
+              ],
+              [
+                "Hyros",
+                "El análisis pone en relación atribución avanzada y configuración técnica. La complejidad del setup ayuda a explicar por qué la propuesta hace visibles los estados de integración."
+              ],
+              [
+                "Wicked Reports",
+                "El documento compara modelos de atribución y reportes densos. La profundidad analítica y la lectura rápida aparecen como necesidades distintas."
+              ],
+              [
+                "Elevar / Littledata",
+                "La lectura se concentra en captura de eventos y configuración de tracking. Es el plano de calidad del dato que el caso distingue de la lectura de ingresos."
+              ],
+              [
+                "WeTracked",
+                "El análisis registra una experiencia orientada a atribución básica. La sencillez se considera un criterio de acceso, sin afirmar ventaja competitiva comprobada."
+              ],
+              [
+                "SegMetrics",
+                "El registro trata segmentación, cohortes y funnels. Ese foco permite distinguir el seguimiento de un recorrido de la investigación de una incidencia."
+              ]
+            ]
+          },
+          {
+            "title": "Referencias UI · del patrón a su aplicación",
+            "note": "Síntesis documental de Research & Benchmark. Las interfaces de referencia pertenecen a terceros; las correspondencias visibles no prueban implementación funcional de todos los patrones previstos.",
+            "items": [
+              [
+                "Stripe · filtrar antes de leer",
+                "El documento describe intervalo, granularidad y comparación como niveles del filtro de fecha. En el Panel Ejecutivo, el período y la comparación acompañan las cifras; los estados por proveedor se leen en Integraciones."
+              ],
+              [
+                "Meta · distinguir niveles y estados",
+                "El análisis describe tabs por campaña, conjunto y anuncio, y filtros contextuales. En Tracking Health, la propuesta relaciona plataforma, severidad y recencia; personalizar columnas quedó previsto para V2."
+              ],
+              [
+                "GA4 · una cifra necesita referencia",
+                "El registro describe KPI cards con cambio porcentual y un gráfico de período actual y anterior. El Panel Ejecutivo representa cifras de escenario junto a un gráfico comparativo."
+              ]
+            ],
+            "artifacts": [
+              {
+                "src": "/projects/documentary/garden-stripe-comparar.png",
+                "title": "Referencia Stripe · comparación de períodos",
+                "alt": "Interfaz de Stripe en modo de prueba, con el selector de comparación de períodos abierto",
+                "caption": "Referencia UI de terceros · Stripe. Captura original conservada en Stripe Atlas / periodo comparar.png, en modo de prueba. Mi análisis distingue intervalo, granularidad y comparación; el Panel Ejecutivo del caso permite observar período y lectura comparativa. No acredita todas las funciones previstas.",
+                "width": 1323,
+                "height": 595
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Arquitectura y recorte",
+        "title": "Distinguir investigar de reparar",
+        "layout": "aside",
+        "body": [
+          "El mapa de tareas conserva recorridos de captación, acceso, soporte, análisis, diagnóstico, exportación e invitación. El mapa aporta contexto a la propuesta, sin equiparar su alcance con las pantallas entregadas.",
+          "En TF5, Tracking Health lleva del score a una incidencia, su diagnóstico y una acción prevista Fix/Test. Las pantallas que diseñé hacen visibles señal, clasificación y detalle. La región final conservada no demuestra reparación: esa distancia define el límite del recorrido que muestro."
+        ],
+        "assets": [
+          {
+            "file": "garden-taskflows-e57b7da08c29.webp",
+            "src": "/projects/documentary/garden-taskflows-e57b7da08c29.webp",
+            "title": "Task flows del proyecto",
+            "alt": "Diagrama original de GardenAds con siete tareas: captación, acceso, soporte, análisis, diagnóstico, exportación e invitación.",
+            "caption": "Material de trabajo del proyecto · Taskflows.png, completo. El flujo TF5 prevé score → incidencias → diagnóstico → Fix/Test. La UI conservada permite observar diagnóstico, pero no una reparación realizada; la autoría de este diagrama no está individualizada.",
+            "width": 4264,
+            "height": 4611
+          }
+        ],
+        "table": {
+          "headers": [
+            "Recorrido documentado",
+            "Qué permite observar el caso"
+          ],
+          "rows": [
+            [
+              "Diagnóstico · TF5",
+              "Score → incidencias → diagnóstico. Fix/Test es un paso previsto, sin resultado demostrado."
+            ],
+            [
+              "Análisis · TF4",
+              "Filtros y detalle de campaña pertenecen a otro recorrido; no se confunden con investigar la calidad del tracking."
+            ],
+            [
+              "Exportación e invitación · TF6/TF7",
+              "Constan en el mapa; no se presentan aquí como acciones implementadas."
+            ]
+          ],
+          "note": "Transcripción editorial parcial de Taskflows.png. El original completo se conserva y puede ampliarse."
+        }
+      },
+      {
+        "label": "02 · Señal",
+        "title": "Una alerta dentro de la vista general",
+        "body": [
+          "Organicé el Panel Ejecutivo para reunir la lectura de ingresos con una advertencia sobre la salud del tracking. La tarjeta «Ver Problemas» representa el acceso a investigar anomalías, junto al gráfico comparativo.",
+          "La card «HEALTH SCORE» conserva una inconsistencia: muestra un importe, mientras el indicador de salud aparece como 72. No representa una regla de cálculo coherente."
+        ],
+        "assets": [
+          {
+            "file": "garden-ads-ui-executive-dashboard.webp",
+            "title": "Panel Ejecutivo",
+            "alt": "GardenAds: Panel Ejecutivo con cifras de escenario, gráfico comparativo y tarjeta Ver Problemas",
+            "caption": "Mi diseño UX/UI · Panel Ejecutivo. La frase «datos reales» es contenido de la propuesta diseñada.",
+            "src": "/projects/garden-ads-ui-executive-dashboard.webp",
+            "width": 1440,
+            "height": 1024
+          }
+        ]
+      },
+      {
+        "label": "03 · Interpretación y prioridad",
+        "title": "Dar contexto a cada anomalía",
+        "body": [
+          "En Tracking Health, la tabla relaciona tipo de problema, plataforma, recencia y severidad. Las etiquetas «Crítico» y «Alerta» acompañan al color; la acción «Analizar» está representada en cada fila.",
+          "El Health Score es conceptual: verde por encima de 80, amarillo entre 50 y 80 y rojo por debajo de 50. Estos umbrales definen una regla visual; no hay una fórmula de cálculo ni validación empírica documentadas."
+        ],
+        "assets": [
+          {
+            "file": "garden-ads-ui-tracking-health.webp",
+            "title": "Tracking Health",
+            "alt": "GardenAds: Salud de Tracking con Health Score 72, estados de proveedores y tabla de incidencias con acción Analizar",
+            "caption": "Mi diseño UX/UI · Tracking Health. La tabla sitúa la acción Analizar junto a cada incidencia; el score y los impactos son estimaciones del escenario.",
+            "src": "/projects/garden-ads-ui-tracking-health.webp",
+            "width": 1440,
+            "height": 1024
+          }
+        ]
+      },
+      {
+        "label": "04 · Diagnóstico",
+        "title": "Pasar de la clasificación al detalle",
+        "body": [
+          "Diseñé el detalle para separar el evento faltante, el diagnóstico técnico y el impacto estimado. El enlace «Volver a Tracking Health» conserva la referencia de la tarea.",
+          "La exportación conserva sólo una región del detalle. El diagnóstico sobre Safari es contenido del mockup; no se muestra una acción de reparación ni su resultado."
+        ],
+        "assets": [
+          {
+            "file": "garden-ads-ui-incident-detail.webp",
+            "title": "Detalle de incidencia · región exportada",
+            "alt": "GardenAds: región exportada del detalle de Evento Faltante, diagnóstico técnico e impacto estimado",
+            "caption": "Mi diseño UX/UI · región exportada del detalle. El original conserva Campañas activo en la navegación lateral y el retorno a Tracking Health.",
+            "src": "/projects/garden-ads-ui-incident-detail.webp",
+            "width": 1440,
+            "height": 1024
+          }
+        ]
+      },
+      {
+        "label": "05 · Configuración",
+        "title": "Representar estado y siguiente paso",
+        "body": [
+          "Reuní Stripe, Meta y Google con estados visibles y la acción «Gestionar». El final del onboarding propone «Conectar con Google Ads» o «Ver una Guía» como siguientes pasos.",
+          "Apliqué la base Canopy con tema Emerald a navegación, botones, cards y badges para conservar el lenguaje visual entre configuración, seguimiento y diagnóstico."
+        ],
+        "assets": [
+          {
+            "file": "garden-ads-ui-integrations.webp",
+            "title": "Integraciones",
+            "alt": "GardenAds: configuración de integraciones con Stripe conectado, Meta en alerta, Google conectado y acciones Gestionar",
+            "caption": "Mi diseño UX/UI · Integraciones, con estado y acción diferenciados por proveedor.",
+            "src": "/projects/garden-ads-ui-integrations.webp",
+            "width": 1440,
+            "height": 1024
+          },
+          {
+            "file": "garden-ads-ui-onboarding.webp",
+            "title": "Final del onboarding",
+            "alt": "GardenAds: final del onboarding con conexiones representadas, botón Conectar con Google Ads y enlace Ver una Guía",
+            "caption": "Mi diseño UX/UI · final del onboarding. El testimonio y las expresiones de validación son contenido ficticio de la propuesta.",
+            "src": "/projects/garden-ads-ui-onboarding.webp",
+            "width": 1440,
+            "height": 1024
+          }
+        ]
+      },
+      {
+        "label": "Cierre",
+        "title": "De la señal a una investigación posible",
+        "body": [
+          "Relacioné la lectura de negocio con la confiabilidad del dato: advertir, clasificar y abrir un diagnóstico. El recorrido va de la señal general a una incidencia que necesita investigación.",
+          "Entregué diseño desktop y prototipos en Figma. El programa se organizó en cinco sprints dentro del período indicado en la ficha."
+        ]
+      }
+    ]
+  },
+  "crm": {
+    "title": "ChatCRM — CRM para PyMEs",
+    "intro": "Diseñé una experiencia para retomar conversaciones sin perder el contexto del contacto y organizar su seguimiento. La bandeja, los registros de contactos y las tareas permiten explicar ese foco con ejemplos concretos.",
+    "nature": "Simulación laboral · No Country",
+    "role": "Único diseñador UX/UI en un equipo de cinco integrantes",
+    "period": "9 mar — 18 abr 2026 · período del programa",
+    "delivery": "Concepto UX/UI, arquitectura, pantallas, estados y prototipo",
+    "scope": "Diseño y prototipo para una simulación laboral, sin implementación ni resultados medidos. Las conversaciones y los contactos son datos de muestra; no hay envío de mensajes ni integraciones verificadas. Personas, JTBD, precio y oportunidad son hipótesis o desk research; no hay pruebas con participantes documentadas.",
+    "cover": "crm-screen-1.webp",
+    "sections": [
+      {
+        "label": "01 · Foco",
+        "title": "Un seguimiento que no dependa de la memoria",
+        "body": [
+          "El problema de partida era la información comercial repartida entre conversaciones y registros manuales: un equipo pequeño necesita encontrar a la persona, recuperar el contexto y decidir qué hacer después. Trabajé sobre ese escenario operativo, sin presentarlo como un hallazgo de entrevistas.",
+          "El documento UX/UI propone priorizar contactos, conversaciones y seguimiento manual. Deja fuera IA generativa, automatizaciones avanzadas, campañas complejas y reporting avanzado. Ese recorte explica el foco del caso; el roadmap y las integraciones previstas no son funcionalidades entregadas."
+        ],
+        "documents": [
+          {
+            "title": "Investigación y definición · hipótesis y recorte",
+            "note": "Síntesis documental del proyecto. Personas, JTBD y escenarios son hipótesis; no entrevistas, pruebas realizadas ni evidencia de adopción.",
+            "items": [
+              [
+                "Criterio de lectura de competidores",
+                "Wati y Callbell aportan referencias de bandeja compartida y asignación; Whato, de seguimiento y recordatorios; ManyContacts, de trazabilidad; HubSpot, de contexto del contacto. La pregunta de diseño es qué información necesita acompañar una conversación, no cuántas funciones puede acumular el producto."
+              ],
+              [
+                "Usuario operativo propuesto",
+                "El documento UX/UI prioriza al representante comercial u operador de una startup pequeña. Las personas de investigación y sus JTBD son hipótesis documentales, no participantes entrevistados."
+              ],
+              [
+                "Arquitectura propuesta",
+                "El contacto se plantea como base compartida; conversación y tarea remiten a su contexto. Las pantallas seleccionadas permiten observar esa correspondencia, sin probar todas las conexiones o transiciones previstas."
+              ],
+              [
+                "Prioridad y límites",
+                "El plan propone una lectura diaria de atención, contacto, contexto y siguiente acción. No convierto los estados empty/loading/error, permisos enterprise o checklists de QA enumerados en evidencia de que todos se hayan diseñado o probado."
+              ]
+            ],
+            "artifacts": [
+              {
+                "src": "/projects/documentary/crm-flujos-presentacion.png",
+                "title": "Definición de CRM · contacto, tarea y comunicación",
+                "alt": "Lámina conservada de CRM: crear contacto, asignar tarea y comunicación con seguimiento en bandeja",
+                "caption": "Lámina conservada de presentación · Slides CRM.pdf, página 14, íntegra. Relaciona contacto, tarea y comunicación como síntesis. El PDF también contiene imágenes de referencia de terceros y no se utiliza como prueba de autoría o de la interfaz final. La autoría individual de esta lámina no está documentada.",
+                "width": 2560,
+                "height": 1440
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "02 · Conversaciones",
+        "title": "Retomar el intercambio con contexto visible",
+        "body": [
+          "Organicé la bandeja en tres regiones: lista de conversaciones, intercambio seleccionado y contexto del contacto. Filtros de lectura, etiquetas y recencia ayudan a distinguir qué conversación retomar.",
+          "El panel lateral mantiene nombre y estado junto a accesos a acciones, tareas, notas e información. Así, el contexto del contacto acompaña la lectura del intercambio."
+        ],
+        "assets": [
+          {
+            "file": "crm-screen-1.webp",
+            "title": "Bandeja de Entrada",
+            "alt": "ChatCRM: bandeja con lista de conversaciones, intercambio seleccionado y panel lateral del contacto",
+            "caption": "Mi diseño UX/UI · Bandeja de Entrada, con conversaciones de muestra conservadas tal como aparecen en el original.",
+            "src": "/projects/crm-screen-1.webp",
+            "width": 1440,
+            "height": 1024
+          }
+        ],
+        "layout": "aside"
+      },
+      {
+        "label": "03 · Contactos",
+        "title": "Conservar una entidad compartida",
+        "body": [
+          "Diseñé Contactos como una tabla con búsqueda, estado y etiquetas. Nombre, email y teléfono aparecen junto al indicador de mensajes sin leer; así, la persona tiene una referencia fuera del intercambio puntual.",
+          "Sarah Johnson aparece como «Cliente» tanto en la bandeja como en Contactos. El ejemplo permite leer la misma entidad en dos vistas; es una correspondencia entre pantallas, no una transición funcional demostrada."
+        ],
+        "assets": [
+          {
+            "file": "crm-screen-3.webp",
+            "title": "Contactos · tabla",
+            "alt": "ChatCRM: tabla de contactos con nombre, email, teléfono, estado, etiquetas y mensajes sin leer",
+            "caption": "Mi diseño UX/UI · Contactos: búsqueda, estado, etiquetas y mensajes sin leer en una tabla compartida.",
+            "src": "/projects/crm-screen-3.webp",
+            "width": 1440,
+            "height": 1024
+          }
+        ],
+        "layout": "aside"
+      },
+      {
+        "label": "Detalle y registro",
+        "title": "Separar contexto, notas y próxima acción",
+        "layout": "comparison",
+        "body": [
+          "En el detalle mantuve nombre, estado y etiquetas visibles mientras las pestañas separan Resumen, Tareas y Notas. El resumen organiza actividad; las notas permiten registrar contexto que no es un mensaje ni una tarea.",
+          "La propuesta documental sitúa aquí el núcleo del producto. Las vistas de Sarah Johnson muestran una correspondencia concreta con ese planteo: la misma persona reúne actividad, notas y seguimientos. El documento conservado no permite fechar la adopción de cada decisión ni comprobar una timeline unificada completa."
+        ],
+        "assets": [
+          {
+            "file": "crm-contacto-resumen-3a1c7e99aa66.webp",
+            "src": "/projects/documentary/crm-contacto-resumen-3a1c7e99aa66.webp",
+            "title": "Resumen del contacto",
+            "alt": "ChatCRM: detalle de Sarah Johnson, etiquetas y pestañas Resumen, Tareas y Notas; actividades recientes.",
+            "caption": "Mi diseño UX/UI · Resumen del contacto. La ficha conserva identidad y estado mientras organiza la actividad. Fuente: Screen Figma / 04. UI Screens / Resumen.png; Figma 2144:3256. Datos de muestra.",
+            "width": 1440,
+            "height": 1024
+          },
+          {
+            "file": "crm-contacto-notas-881672e7b496.webp",
+            "src": "/projects/documentary/crm-contacto-notas-881672e7b496.webp",
+            "title": "Notas del contacto",
+            "alt": "ChatCRM: pestaña Notas con campo de descripción, acción Agregar Nota y una nota de seguimiento.",
+            "caption": "Mi diseño UX/UI · Notas del contacto. El texto de seguimiento queda asociado a la persona y separado del intercambio. Fuente: Notas.png; Figma 2144:5423. Datos de muestra.",
+            "width": 1440,
+            "height": 1024
+          }
+        ]
+      },
+      {
+        "label": "Alta y continuidad",
+        "title": "Registrar a la persona y dejar un seguimiento",
+        "layout": "comparison",
+        "body": [
+          "El alta se abre sobre Contactos, con nombre, email, teléfono, estado y etiquetas. La acción principal permanece dentro del modal; el listado sigue siendo el contexto de la tarea.",
+          "Dentro del contacto, una tarea reúne título, vencimiento y prioridad. La lista global permite revisar seguimientos de distintas personas; la pestaña del contacto concentra los de esa persona. Son dos escalas de la misma necesidad operativa, no un pipeline kanban."
+        ],
+        "assets": [
+          {
+            "file": "crm-contacto-alta-037d778db64b.webp",
+            "src": "/projects/documentary/crm-contacto-alta-037d778db64b.webp",
+            "title": "Agregar contacto",
+            "alt": "ChatCRM: modal Agregar Nuevo Contacto sobre la tabla, con nombre, email, teléfono, estado y etiquetas.",
+            "caption": "Mi diseño UX/UI · Alta de contacto sobre el listado, sin abandonar su contexto. Fuente: Agregar-Contacto.png; Figma 2139:5801. El frame no demuestra validación ni guardado implementados.",
+            "width": 1440,
+            "height": 1024
+          },
+          {
+            "file": "crm-contacto-tareas-0643a9db7560.webp",
+            "src": "/projects/documentary/crm-contacto-tareas-0643a9db7560.webp",
+            "title": "Tareas de un contacto",
+            "alt": "ChatCRM: pestaña Tareas del contacto con creación de tarea y lista de seguimientos asociados.",
+            "caption": "Mi diseño UX/UI · Tareas dentro del contacto, con título, fecha, prioridad y seguimiento asociado. Fuente: Tareas2.png; Figma 2144:4417. No se acredita generación automática desde la conversación.",
+            "width": 1440,
+            "height": 1024
+          }
+        ]
+      },
+      {
+        "label": "04 · Seguimiento",
+        "title": "Hacer explícita la próxima tarea",
+        "body": [
+          "En Tareas, reuní la acción pendiente, la persona, el vencimiento y la prioridad. La separación entre pendientes y completadas permite leer el seguimiento sin confundirlo con el historial de mensajes.",
+          "La tarea «Hacer seguimiento con Sarah sobre agendamiento de demo» retoma el contacto de las otras vistas. Explica el seguimiento previsto, sin implicar que se genere automáticamente desde el chat."
+        ],
+        "assets": [
+          {
+            "file": "crm-screen-4.webp",
+            "title": "Tareas",
+            "alt": "ChatCRM: tareas pendientes con contacto, vencimiento y prioridad, y una tarea completada",
+            "caption": "Mi diseño UX/UI · Tareas, con acción pendiente, contacto, vencimiento y prioridad.",
+            "src": "/projects/crm-screen-4.webp",
+            "width": 1440,
+            "height": 1024
+          }
+        ],
+        "layout": "aside"
+      },
+      {
+        "label": "Sistema y entrega",
+        "title": "De la regla visual a las piezas de interfaz",
+        "body": [
+          "Los JSON conservan valores semánticos para texto, superficies y acciones, junto a tipografía por tamaño. Un alias es la referencia que permite que un valor semántico tome su definición de una variable base; por ejemplo, Page-Title remite a Sans.",
+          "La bandeja, las pestañas del contacto, las tablas y los modales permiten observar usos de esa base visual. Los archivos de tokens documentan valores y referencias; no acreditan que cada instancia esté vinculada ni que haya un tema oscuro implementado en una web.",
+          "Conservé materiales de exploración en Lovable y Make. Sus variantes de dashboard y pipeline sirven como antecedentes, sin presentarlas como el resultado final ni atribuirles programación propia. La presentación y el carrusel también incluyen referencias de terceros: sus ejemplos y claims no sustituyen las pantallas de ChatCRM."
+        ],
+        "table": {
+          "headers": [
+            "Variable conservada",
+            "Valor o referencia en el export"
+          ],
+          "rows": [
+            [
+              "Text/Primary",
+              "#0F172A en Light · #FFFFFF en Dark."
+            ],
+            [
+              "Text/Secondary",
+              "#475569 en Light · #CBD5E1 en Dark."
+            ],
+            [
+              "Typography/Font-Family/Page-Title",
+              "Inter en Desktop; alias a Typography/Font-Family/Sans en _Primitives."
+            ],
+            [
+              "Typography/Font-Family/KPI-Value",
+              "Inter en Desktop; alias a Typography/Font-Family/Sans en _Primitives."
+            ]
+          ],
+          "note": "Transcripción de JSON Variables / Light.tokens.json, Dark.tokens.json y Desktop.tokens.json. No es código de una aplicación desplegada."
+        }
+      },
+      {
+        "label": "Cierre",
+        "title": "Relacionar el mensaje con su seguimiento",
+        "body": [
+          "Organicé tres niveles de contexto: qué conversación retomar, con quién se habla y qué tarea queda pendiente. La bandeja, la tabla de contactos y las tareas muestran esa relación desde funciones distintas.",
+          "Mi entrega comprende diseño, estados y prototipo."
+        ]
+      }
+    ]
+  },
+  "trainit": {
+    "title": "TrainiT — Gestión de Proyectos",
+    "intro": "Trabajé en UI Components dentro de un sistema compartido: componentes, estados y convenciones debían integrarse a las tareas de gestión de tableros. Mi aporte combina diseño documentado de Backlog y coordinación de un subequipo durante sprints concretos.",
+    "nature": "Práctica formativa · Programa TrainiT",
+    "role": "Junior UX/UI Designer · Grupo 1 / UI Components",
+    "period": "23 jun — 15 oct 2025 · período formal",
+    "delivery": "Componentes, estados, vistas de Backlog y documentación de trabajo",
+    "scope": "Práctica formativa del Programa TrainiT, una organización distinta de No Country. Mi aporte incluye Backlog y coordinación acotada del Grupo 1. El producto y el sistema son del equipo; las capturas colectivas contienen datos de muestra. La entrega es diseño visual, sin implementación, pruebas con usuarios ni mejoras de productividad documentadas.",
+    "cover": "trainit-ui-home.webp",
+    "sections": [
+      {
+        "label": "01 · Integración",
+        "title": "Una pieza tiene que funcionar con las demás",
+        "body": [
+          "El trabajo de UI Components debía mantener variantes, estados y nomenclatura compatibles con el sistema del equipo. El foco no era sumar pantallas aisladas: filtros, perfil, formularios y tablas tenían que conservar reglas de uso reconocibles.",
+          "En el Sprint 2 coordiné el Grupo 1 con Fabiana y Denis. El plan asigna a Fabiana filtros y desplegable de perfil, y a Denis formularios de miembros y etiquetas; mi responsabilidad era guiar y revisar sus entregas. La colaboración posterior con el sistema general se describe como apoyo bajo la coordinación de Oscar."
+        ],
+        "table": {
+          "headers": [
+            "Pieza del Sprint 2",
+            "Contribución documentada"
+          ],
+          "rows": [
+            [
+              "Filtros de tablero y desplegable de perfil",
+              "Diseño asignado a Fabiana; mi coordinación y revisión dentro del Grupo 1."
+            ],
+            [
+              "Formularios de miembros y etiquetas",
+              "Diseño asignado a Denis; mi coordinación y revisión dentro del Grupo 1."
+            ],
+            [
+              "Variantes, estados y nomenclatura",
+              "Criterios de revisión del subequipo: default, hover, disabled y active; tamaños y paddings."
+            ],
+            [
+              "Sistema general",
+              "Colaboración de apoyo bajo la coordinación de Oscar; no ownership de todo el sistema."
+            ]
+          ],
+          "note": "Plan de Sprint 2: asignaciones y criterios de revisión del Grupo 1; no registro de cierre de todas las tareas."
+        }
+      },
+      {
+        "label": "02 · Aporte propio",
+        "title": "Diseñar la edición alrededor de la tabla",
+        "body": [
+          "En el registro del Sprint 3 documenté mi trabajo en Backlog: columnas de tarea, responsable, estado, prioridad, miembros, fecha y acciones. Describí creación, edición y eliminación con validaciones, confirmación y feedback visual.",
+          "El mismo registro conserva alternativas de wireframe, correcciones solicitadas y la entrega en alta fidelidad. La entrega describe un modal general con pestañas para editar; las propuestas anteriores de pop-ups por campo no se convierten en una única decisión final. El documento aclara que es diseño visual, sin interacciones conectadas.",
+          "Las secciones firmadas conservan la alternativa de edición por campo y una tabla de alta fidelidad con selección y acciones. Las muestro próximas para distinguir sus soluciones; el nombre de la sección y el registro de Sprint 3 respaldan mi contribución, sin convertir cada estado del archivo en una interacción conectada."
+        ],
+        "assets": [
+          {
+            "file": "trainit-edicion-alternativa-9a4c49ae2311.webp",
+            "src": "/projects/documentary/trainit-edicion-alternativa-9a4c49ae2311.webp",
+            "title": "Backlog · alternativa de edición",
+            "alt": "Alternativa de Backlog de Iván Andrade con edición de descripción en popup y acciones Guardar y Cancelar.",
+            "caption": "Mi sección firmada de trabajo · Figma 1115:23386, dentro de Ivan Andrade - Tableros - Backlog. Alternativa de edición por campo conservada; no se presenta como el modal final. Interfaz íntegra.",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "file": "trainit-backlog-alta-3c7fb6d56e56.webp",
+            "src": "/projects/documentary/trainit-backlog-alta-3c7fb6d56e56.webp",
+            "title": "Backlog · alta fidelidad",
+            "alt": "Backlog de alta fidelidad de Iván Andrade con selección de filas, responsables, prioridad, estado, miembros, fechas y acciones.",
+            "caption": "Mi sección firmada de alta fidelidad · Figma 1584:28166, dentro de Ivan Andrade - Tableros - Backlog - Alta fidelidad. Selección y acciones visibles; los datos son del diseño y no acreditan interacciones conectadas.",
+            "width": 1366,
+            "height": 1210
+          }
+        ],
+        "documents": [
+          {
+            "title": "Backlog · alternativas, revisión y entrega",
+            "note": "Síntesis editorial del registro propio de Sprint 3. No reproduce un wireframe histórico ni atribuye a la captura colectiva todos los estados del documento.",
+            "items": [
+              [
+                "Primer avance · media fidelidad",
+                "Registré edición por columna, Guardar y Cancelar, confirmación al cancelar y feedback de éxito. El menú lateral colapsable seguía la indicación de Oscar."
+              ],
+              [
+                "Corrección solicitada",
+                "La revisión pide checkboxes para selección múltiple, Eliminar deshabilitado sin selección y creación desde un modal. La edición con pop-ups por campo figura como alternativa solicitada."
+              ],
+              [
+                "Entrega · alta fidelidad",
+                "Documenté un modal general de edición con pestañas y apertura inicial en Descripción, confirmación para eliminar y feedback al guardar. La entrega aclara que las interacciones no estaban conectadas."
+              ],
+              [
+                "Opciones sin adopción acreditada",
+                "El chip «nueva tarea», la vista previa y otras mejoras opcionales quedan como propuestas. No las presento como comportamiento entregado."
+              ]
+            ]
+          }
+        ],
+        "layout": "comparison"
+      },
+      {
+        "label": "03 · Sistema compartido",
+        "title": "Conservar reglas en usos distintos",
+        "body": [
+          "Trabajé con la convención Tipo / Componente / Variante y con criterios de tamaños, padding y estados. El inventario de íconos Lucide y las revisiones del subequipo acompañaron ese trabajo.",
+          "El detalle de tarjeta muestra inputs, estados, miembros y acciones dentro de una tarea: distintos usos del sistema compartido realizado por el equipo."
+        ],
+        "assets": [
+          {
+            "file": "trainit-ui-card-detail.webp",
+            "title": "Detalle de tarjeta · trabajo del equipo",
+            "alt": "TrainiT: detalle de tarjeta con descripción, responsable, miembros, fecha, subtareas y comentarios",
+            "caption": "UI del equipo · detalle de tarjeta con descripción, responsables, fecha, subtareas y comentarios.",
+            "src": "/projects/trainit-ui-card-detail.webp",
+            "width": 1366,
+            "height": 1094
+          }
+        ]
+      },
+      {
+        "label": "Cierre",
+        "title": "Integrar componentes al trabajo del equipo",
+        "body": [
+          "Mi aporte combinó el diseño de Backlog con la coordinación y revisión de piezas del Grupo 1. El registro conserva los estados que describí, las alternativas y la entrega visual.",
+          "Trabajé sobre convenciones compartidas para integrar esas piezas al producto del equipo."
+        ]
+      }
+    ]
+  }
+}

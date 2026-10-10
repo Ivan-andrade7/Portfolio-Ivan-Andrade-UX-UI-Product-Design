@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Send, ArrowRight, Mail, AlertTriangle } from "lucide-react";
-import { SiBehance } from "react-icons/si";
+
 
 /* ── Brand icons ── */
 function LinkedinIcon() {
@@ -32,11 +32,6 @@ const CONTACT_LINKS = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/ivan-andrade-uxui/",
     Icon: LinkedinIcon,
-  },
-  {
-    label: "Behance",
-    href: "https://www.behance.net/ivaanandrade",
-    Icon: () => <SiBehance size={20} aria-hidden />,
   },
   {
     label: "WhatsApp",

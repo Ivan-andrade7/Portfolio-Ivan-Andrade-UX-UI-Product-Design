@@ -1,6 +1,8 @@
 import ProjectCard, { type Project } from "@/components/ProjectCard";
+import "@/app/fellowship-integration.css";
+import "@/app/proyectos/case-presentation.css";
 
-// Todos los casos publicados se presentan en una selección unificada.
+// Selección local: cada caso mantiene su naturaleza y alcance explícitos.
 const PROJECTS: Project[] = [
   {
     id: "fintech",
@@ -11,7 +13,7 @@ const PROJECTS: Project[] = [
     tags: ["Fintech", "SaaS B2B", "KYC"],
     longDesc: "Simulación laboral No Country: diseño UX/UI de una experiencia de solicitud y revisión de créditos PYME.",
     role: "Único diseñador UX/UI del workstream · 2025",
-    images: { image: "/projects/fintech-card-dual/fintech-card-plataforma-dual-b.webp" },
+    images: { treatment: "device", image: "/projects/devices/fintech-card-dos-caminos-8ea8197a452a.webp" },
   },
   {
     id: "garden-ads",
@@ -21,8 +23,8 @@ const PROJECTS: Project[] = [
     title: "GardenAds — Attribution & Tracking Health",
     tags: ["Analytics SaaS", "Dashboard", "2026"],
     longDesc: "Simulación laboral de No Country: propuesta de plataforma para detectar fallos de tracking y convertirlos en señales accionables.",
-    role: "UX/UI Designer · único diseñador · 5 semanas",
-    images: { image: "/projects/garden-ads-card-square.webp" },
+    role: "UX/UI Designer · único diseñador · ene–mar 2026",
+    images: { treatment: "device", image: "/projects/devices/garden-ads-card-1200.webp" },
   },
   {
     id: "crm",
@@ -30,10 +32,10 @@ const PROJECTS: Project[] = [
     category: "Product Design",
     nature: "Simulación laboral · No Country",
     title: "ChatCRM — CRM para PyMEs",
-    tags: ["CRM", "SaaS B2B", "Pipeline"],
-    longDesc: "Simulación laboral de No Country: concepto de CRM con pipeline visual kanban y handoff como entregable de diseño.",
+    tags: ["CRM", "SaaS B2B", "Conversaciones"],
+    longDesc: "Simulación laboral de No Country: diseño UX/UI para relacionar conversaciones, contactos y tareas de seguimiento.",
     role: "UX/UI Designer · equipo de 5",
-    images: { image: "/projects/crm-card-square.webp" },
+    images: { treatment: "device", image: "/projects/devices/crm-card-1200.webp" },
   },
   {
     id: "multi-brand",
@@ -44,7 +46,7 @@ const PROJECTS: Project[] = [
     tags: ["Design System", "EdTech", "Multi-marca"],
     longDesc: "Simulación laboral colaborativa de No Country: arquitectura de tokens compartida para Academy y Kids.",
     role: "UX/UI Designer · equipo de 5 · 5 semanas",
-    images: { image: "/projects/multi-brand-card-square.webp" },
+    images: { treatment: "device", image: "/projects/devices/multi-brand-card-1200.webp" },
   },
   {
     id: "trainit",
@@ -55,7 +57,7 @@ const PROJECTS: Project[] = [
     tags: ["Pasantía formativa", "SaaS", "Kanban"],
     longDesc: "Pasantía/práctica formativa del Programa TrainiT: trabajo en el workstream Grupo 1/UI Components.",
     role: "Junior UX/UI Designer · 23 jun — 15 oct 2025",
-    images: { image: "/projects/trainit-card-square.webp" },
+    images: { treatment: "device", image: "/projects/devices/trainit-card-1200.webp" },
   },
   {
     id: "nodo",
@@ -66,7 +68,18 @@ const PROJECTS: Project[] = [
     tags: ["Diseño web", "Responsive", "UI"],
     longDesc: "Proyecto personal conceptual: sitio de arquitectura responsive, con componentes reutilizables y navegación coherente.",
     role: "Diseño UI · ejecución asistida",
-    images: { image: "/projects/nodo/05-sobre-nodo-introduccion-desktop.jpg", treatment: "screen" },
+    images: { treatment: "device", image: "/projects/devices/nodo-responsive-25-47-card-1200.webp" },
+  },
+  {
+    id: "fellowship",
+    index: "07",
+    category: "Diseño web UX/UI",
+    nature: "Trabajo real · Fellowship No Country",
+    title: "Fellowship / No Country",
+    tags: ["Diseño web", "Adaptación de marca", "Responsive"],
+    longDesc: "Diseñé y documenté una landing para empresas, con una identidad existente, adaptación responsive y coordinación con desarrollo.",
+    role: "Web Designer Fellow · diseño y documentación · 2026",
+    images: { treatment: "device", image: "/projects/devices/fellowship-card-1200.webp" },
   },
 ];
 
@@ -76,15 +89,15 @@ export default function Projects() {
       <div className="home-section-heading">
         <p className="home-kicker">01 / Trabajo seleccionado</p>
         <h2 id="projects-heading">El criterio, en práctica.</h2>
-        <p>Problemas, decisiones y aportes de diseño. Cada proyecto conserva su contexto: simulación, práctica formativa o proyecto personal.</p>
+        <p>Problemas, decisiones y aportes de diseño. Cada proyecto conserva su contexto: trabajo real, simulación, práctica formativa o proyecto personal.</p>
       </div>
       <p className="home-group-label">Producto, interfaces y sistemas <span>05 proyectos</span></p>
       <div className="home-project-grid">
-        {PROJECTS.filter(p => p.id !== "nodo").map((project, i) => <ProjectCard key={project.id} project={project} featured={i === 0} />)}
+        {PROJECTS.filter(p => p.id !== "nodo" && p.id !== "fellowship").map((project, i) => <ProjectCard key={project.id} project={project} featured={i === 0} />)}
       </div>
-      <p className="home-group-label">Diseño web <span>01 proyecto</span></p>
+      <p className="home-group-label">Diseño web <span>02 proyectos</span></p>
       <div className="home-project-grid">
-        {PROJECTS.filter(p => p.id === "nodo").map(project => <ProjectCard key={project.id} project={project} featured />)}
+        {PROJECTS.filter(p => p.id === "nodo" || p.id === "fellowship").map(project => <ProjectCard key={project.id} project={project} featured />)}
       </div>
     </section>
   );

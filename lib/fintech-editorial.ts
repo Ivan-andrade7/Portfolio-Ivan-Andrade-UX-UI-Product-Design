@@ -40,7 +40,7 @@ export const fintechEditorial = {
       "heading": "KYC: orientar y ofrecer una salida ante el error",
       "paragraphs": [
         "Organicé la verificación de identidad en cuatro etapas: documentos, selfie, validación y resultado. Esta secuencia pertenece al KYC; la solicitud de crédito es otro recorrido.",
-        "El análisis documental de American Express, Nubi y Mercado Pago aportó referencias sobre registro por etapas, DNI y selfie, y orientación mediante progreso visible. Tomé esos patrones como punto de partida para estructurar el flujo.",
+        "En mi análisis documental de American Express, Nubi y Mercado Pago encontré referencias sobre registro por etapas, DNI y selfie, y orientación mediante progreso visible. Tomé esos patrones como punto de partida para estructurar el flujo.",
         "La decisión implica más pantallas que un formulario único. A cambio, cada etapa presenta su tarea y señala el avance. La prioridad fue acompañar una operación sensible con instrucciones y estados explícitos.",
         "También trabajé situaciones en las que el recorrido se interrumpe. Ante un problema de acceso a la cámara, la pantalla indica revisar permisos y ofrece reintentar o subir un archivo. Si la identidad no se verifica, presenta posibles causas y acciones para intentar nuevamente o contactar a soporte. Son alternativas diseñadas para continuar, sin atribuir una causa concreta que el sistema no haya confirmado."
       ]
@@ -78,6 +78,8 @@ export const fintechEditorial = {
 export type FintechAsset = { src: string; width: number; height: number; title: string; alt: string };
 const asset = (name: string, width: number, height: number, title: string, alt: string): FintechAsset => ({ src: "/projects/fintech-editorial/" + name + ".webp", width, height, title, alt });
 export const fintechEvidence = {
+  portal: {src: "/projects/documentary/fintech-portal-cliente-c38a2f14a2a8.webp", width:1440,height:1024,title:"PyME · Portal de solicitudes",alt:"Portal de la PyME verificada: solicitudes activas, estado Corregir, información adicional requerida y acción Nueva solicitud."},
+  supervisor: {src: "/projects/documentary/fintech-dashboard-supervisor-5fb34c52f3e9.webp",width:1440,height:1024,title:"Superficie operativa · Dashboard de solicitudes",alt:"Dashboard de la superficie operativa con distribución de estados, solicitudes pendientes de asignación y tabla de solicitudes recientes."},
   pyme: asset("e01-pyme", 1000,560,"PyME · Verificación de identidad","Inicio de verificación de identidad, con zonas vacías para cargar el frente y dorso del DNI."),
   operation: asset("e01-operacion",1440,500,"Superficie operativa · Resumen de solicitudes","Resumen de solicitudes por estado en la superficie operativa, con cantidades de ejemplo."),
   camera: asset("e03-camara",540,450,"Acceso a cámara","Error de acceso a la cámara, con instrucción de revisar permisos y acciones Subir archivo e Intentar de nuevo."),
@@ -86,7 +88,7 @@ export const fintechEvidence = {
   fields: asset("e06-campos",1104,320,"Estados de campos","Variantes de campos vacíos, con contenido, foco, error, error con foco y deshabilitados."),
 };
 export const fintechCaptions = {
-  cover: "Portal de la PyME: verificación de identidad. Superficie operativa: resumen de solicitudes. Vistas independientes con datos de ejemplo.",
+  cover: "Portal del cliente y dashboard operativo completos. Son vistas independientes, no un mismo expediente: incluso una numeración coincidente no acredita correspondencia entre sus datos. Estados, organizaciones e importes pertenecen al escenario diseñado.",
   camera: "Detalle del error de acceso a cámara: instrucciones y alternativas para continuar.",
   identity: "Si la identidad no se verifica, la pantalla presenta posibles causas, un reintento y contacto con soporte.",
   states: "Botones y campos: variantes de interacción documentadas en el archivo actual.",

@@ -1,14 +1,19 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BackToPortfolio, CaseNavigation, SectionHeader, TagChip } from "@/components/CaseStudyUI";
-import { SiBehance, SiFigma } from "react-icons/si";
+import { SiFigma } from "react-icons/si";
 import { CASES, getCaseBySlug } from "@/lib/cases";
 import UICarousel from "@/components/UICarousel";
 import ResilientImage from "@/components/ResilientImage";
 import FintechCase from "@/components/FintechCase";
+import MultiBrandCase from "@/components/MultiBrandCase";
+import PendingEditorialCase, { type PendingCaseSlug } from "@/components/PendingEditorialCase";
+import pendingCopy from "@/lib/pending-cases-editorial.json";
+import "../pending-cases-editorial.css";
+import multiBrandCopy from "@/lib/multi-brand-editorial.json";
+import "../multi-brand-editorial.css";
 import { fintechEvidence } from "@/lib/fintech-editorial";
 import "../fintech-editorial.css";
-
 export async function generateStaticParams() {
   return CASES.filter((c) => c.published !== false).map((c) => ({ slug: c.slug }));
 }
@@ -22,13 +27,14 @@ export async function generateMetadata({
   const c = getCaseBySlug(slug);
   if (!c) return {};
 
-  const title = `${c.title} — Ivan Andrade`;
+  const editorial = c.slug in pendingCopy ? pendingCopy[c.slug as PendingCaseSlug] : null;
+  const title = `${editorial?.title ?? (c.slug === "multi-brand" ? multiBrandCopy.title : c.title)} — Ivan Andrade`;
   const canonical = `/proyectos/${c.slug}`;
   const image = c.heroImages?.desktop ?? c.images[0];
 
   return {
     title,
-    description: c.subtitle,
+    description: editorial?.intro ?? (c.slug === "multi-brand" ? multiBrandCopy.intro : c.subtitle),
     alternates: {
       canonical,
     },
@@ -36,7 +42,7 @@ export async function generateMetadata({
       type: "article",
       url: canonical,
       title,
-      description: c.subtitle,
+      description: editorial?.intro ?? (c.slug === "multi-brand" ? multiBrandCopy.intro : c.subtitle),
       siteName: "Ivan Andrade — Product Designer",
       locale: "es_AR",
       images: c.slug === "fintech"
@@ -46,7 +52,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title,
-      description: c.subtitle,
+      description: editorial?.intro ?? (c.slug === "multi-brand" ? multiBrandCopy.intro : c.subtitle),
       images: [image],
     },
   };
@@ -114,7 +120,9 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const c = getCaseBySlug(slug);
   if (!c) notFound();
-  if (c.slug === "fintech") return <FintechCase next={c.next} />;
+  if (c.slug === "fintech") return <FintechCase prev={c.prev} next={c.next} />;
+  if (c.slug === "multi-brand") return <MultiBrandCase caseData={c} />;
+  if (c.slug in pendingCopy) return <PendingEditorialCase caseData={c} />;
   const coverScreen = c.pantallas?.find(screen => screen.role === "key") ?? c.pantallas?.[0];
 
   return (
@@ -129,7 +137,7 @@ export default async function CaseStudyPage({
               <h1>{c.title}</h1>
               <p className="case-subtitle">{c.subtitle}</p>
               <div className="case-hero-links">
-                <a href={c.links.behance} target="_blank" rel="noopener noreferrer" aria-label="Ver en Behance" className="case-icon-link"><SiBehance size={20} aria-hidden /></a>
+
                 {c.links.figma ? (
                   <a href={c.links.figma} target="_blank" rel="noopener noreferrer" aria-label="Ver prototipo en Figma" className="case-icon-link"><SiFigma size={20} aria-hidden /></a>
                 ) : c.links.figmaNote ? (

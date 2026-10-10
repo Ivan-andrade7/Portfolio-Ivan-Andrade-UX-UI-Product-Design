@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import ResilientImage from "@/components/ResilientImage";
 
-export interface ProjectImages { image: string; treatment?: "screen" }
+export interface ProjectImages { image: string; treatment?: "screen" | "device" }
 export interface Project {
   id: string;
   index: string;
@@ -18,7 +18,7 @@ export interface Project {
 export default function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
   return (
     <Link href={`/proyectos/${project.id}`} aria-labelledby={`home-project-${project.id}`} aria-describedby={`home-project-meta-${project.id}`} className={`home-project${featured ? " home-project-featured" : ""}`}>
-      <div className={`home-project-image${project.images.treatment === "screen" ? " home-project-screen" : ""}`}>
+      <div className={`home-project-image${project.images.treatment === "screen" ? " home-project-screen" : project.images.treatment === "device" ? " home-project-device" : ""}`}>
         <ResilientImage src={project.images.image} alt={`Vista del proyecto ${project.title}`} fill className="object-cover" sizes={featured ? "(max-width: 767px) 100vw, 55vw" : "(max-width: 767px) 100vw, 50vw"} />
         <span className="home-project-index" aria-hidden>{project.index}</span>
       </div>

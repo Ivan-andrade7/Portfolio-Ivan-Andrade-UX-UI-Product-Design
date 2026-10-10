@@ -1,0 +1,80 @@
+{
+  "title": "Fellowship / No Country — Dar forma a una landing para contratar talento",
+  "intro": "Durante mi Fellowship en No Country trabajé en el diseño y la documentación de una landing dirigida a empresas que buscan incorporar talento junior. El desafío era traducir una propuesta de negocio a una página comprensible, respetar una identidad existente y coordinar decisiones mientras diseño y desarrollo avanzaban en paralelo.",
+  "facts": [
+    {
+      "label": "Naturaleza",
+      "value": "Trabajo web real · Fellowship / voluntariado para No Country."
+    },
+    {
+      "label": "Período",
+      "value": "3–31 de agosto de 2026."
+    },
+    {
+      "label": "Rol",
+      "value": "Web Designer Fellow · Comunicación / Sales & Marketing."
+    },
+    {
+      "label": "Mi contribución",
+      "value": "Estructura y contenido, iteraciones de wireframes, diseño UI responsive y documentación de diseño."
+    },
+    {
+      "label": "Colaboración",
+      "value": "Dirección y feedback de Leandro Buzeta; coordinación con Lautaro, desarrollador del equipo."
+    }
+  ],
+  "scope": "Mi aporte comprende diseño y documentación; la implementación corresponde al equipo de desarrollo. La landing está publicada. No hay pruebas con usuarios ni resultados de conversión documentados.",
+  "sections": [
+    {
+      "heading": "Una página para una audiencia concreta",
+      "paragraphs": [
+        "La landing debía explicar la propuesta de contratación a empresas y reclutadores. No tenía que resolver al mismo tiempo la comunicación para talento o instituciones. Organicé el recorrido para presentar la propuesta, explicar qué información acompaña a los perfiles, mostrar el proceso y ofrecer una siguiente acción.",
+        "Trabajé dentro de restricciones de marca y contenido. El mensaje de negocio y la identidad de No Country eran puntos de partida; mi responsabilidad era darles forma en una experiencia web. Eso exigía decidir qué debía entenderse primero, qué podía explicarse visualmente y qué información necesitaba seguir en revisión."
+      ]
+    },
+    {
+      "heading": "Iterar la estructura y la forma de explicar",
+      "paragraphs": [
+        "En la revisión, Leandro pidió sintetizar el contenido, mantener explícita la referencia al talento junior y expresar el diferencial también mediante recursos visuales. Trabajé con esos pedidos para revisar la jerarquía del hero, el protagonismo de su representación de producto y la comparación entre el enfoque tradicional y la propuesta de No Country.",
+        "Las dos iteraciones conservadas permiten ver cambios concretos de estructura. La primera usa navegación por secciones; la segunda incorpora la navegación general del sitio y mantiene la acción de contacto dentro del hero. La separación ayuda a distinguir orientación global y acción de la página.",
+        "La comparación visual organiza el mensaje en pares: presentación y observación, información declarada y documentada, una conversación y un período de trabajo."
+      ]
+    },
+    {
+      "heading": "Adaptar la identidad sin diseñar otra marca",
+      "paragraphs": [
+        "La identidad existente marcó el lenguaje visual. Trabajé la jerarquía tipográfica, los gradientes, las superficies y los componentes para que la landing conservara esa continuidad. El seguimiento registra ajustes sobre una referencia HTML compartida por Leandro, además del trabajo previo en Figma.",
+        "En el hero del diseño entregado, “evidencia real” concentra el énfasis visual y el resto del título acompaña la lectura. Las secciones claras y oscuras permiten diferenciar bloques del recorrido. La decisión de presentación debía sostener el mensaje y también responder al feedback sobre alineación con la marca.",
+        "Documenté estilos y reglas reutilizables para acompañar esa aplicación. La biblioteca y las especificaciones forman parte de la entrega de diseño; los recursos de marca y las referencias recibidas mantienen su procedencia."
+      ]
+    },
+    {
+      "heading": "Conservar la jerarquía al cambiar de ancho",
+      "paragraphs": [
+        "Trabajé la adaptación entre desktop y mobile desde la composición y sus componentes. En la apertura, el mensaje y la acción preceden al contenido de apoyo. El proceso de cuatro pasos pasa de una fila a una secuencia apilada, conservando el orden de lectura.",
+        "El formulario permite ver otra adaptación concreta: los campos de rol y fecha comparten fila cuando hay espacio y se apilan en mobile. Las etiquetas y las ayudas permanecen asociadas a sus campos.",
+        "El handoff también describe el comportamiento intermedio de tablet. Ese ancho se resuelve mediante reglas de disposición y contenedores, sin una landing tablet independiente."
+      ]
+    },
+    {
+      "heading": "Coordinar una entrega que pudiera continuarse",
+      "paragraphs": [
+        "Coordiné el trabajo con Lautaro y recibí dirección de Leandro. Registré feedback, dependencias y pendientes para distinguir lo que podía avanzar en diseño de lo que necesitaba una definición adicional. El seguimiento conserva tanto el avance visual como observaciones sobre atención al detalle y la necesidad de proponer opciones cuando faltaba información.",
+        "En el handoff reuní referencias de componentes, reglas responsive, estados y comportamiento esperado. Por ejemplo, el proceso conserva su secuencia al apilarse y el formulario adapta sus campos al ancho disponible. La documentación permite leer esas decisiones junto a los frames correspondientes."
+      ]
+    },
+    {
+      "heading": "Conclusión",
+      "paragraphs": [
+        "Mi aporte fue transformar una propuesta de contenido en un diseño web responsive y dejar documentadas sus decisiones para continuar el trabajo con desarrollo. El caso muestra cómo abordé la jerarquía, incorporé feedback y mantuve la relación entre marca, pantallas y especificaciones dentro de un proyecto real.",
+        "La web publicada conserva el mensaje central y el proceso de cuatro pasos, con ajustes de contenido y contacto respecto del diseño entregado. En el cierre ofrece una acción hacia WhatsApp en lugar del formulario diseñado. Las evidencias de este caso corresponden a mi entrega en Figma."
+      ]
+    }
+  ],
+  "testimony": [
+    "“Iván participó en el No Country Fellowship como diseñador UX/UI en un contexto exigente: trabajar sobre un producto real con branding definido, mobile-first, y aprendiendo el modelo de negocio en paralelo.",
+    "Lo que más valoro de su paso por el programa es su disposición a iterar. Cada semana los wireframes mejoraron, la documentación ganó coherencia y la integración con el equipo de desarrollo avanzó notablemente, algo que no es fácil de lograr cuando diseño y desarrollo trabajan en paralelo sobre el mismo producto.",
+    "Tiene buena sensibilidad para los layouts y para adaptar estilos de diseño rápidamente. Su próximo paso es profundizar en la atención al detalle y en pensar en opcionalidades cuando falta información, dos habilidades que se desarrollan con práctica y que van a hacer la diferencia en su carrera.",
+    "Iván tiene potencial real en UX/UI. Con más tiempo y continuidad, estoy seguro de que habría entregado trabajo muy sólido.”"
+  ]
+}

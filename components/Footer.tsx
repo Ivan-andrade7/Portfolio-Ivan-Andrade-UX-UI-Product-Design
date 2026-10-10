@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
-import { SiBehance } from "react-icons/si";
+
 import { useTheme } from "@/components/ThemeProvider";
 
 function LinkedinIcon() {
@@ -15,9 +15,7 @@ function LinkedinIcon() {
   );
 }
 
-function BehanceIcon() {
-  return <SiBehance size={20} aria-hidden />;
-}
+
 
 function WhatsAppIcon() {
   return (
@@ -34,12 +32,12 @@ const PROJECT_LINKS = [
   { label: "Multi-Brand DS", href: "/proyectos/multi-brand" },
   { label: "TrainiT", href: "/proyectos/trainit" },
   { label: "NODO Arquitectura", href: "/proyectos/nodo" },
+  { label: "Fellowship / No Country", href: "/proyectos/fellowship" },
 ];
 
 const CONTACT_LINKS = [
   { label: "ivanandradeuxui@gmail.com", href: "mailto:ivanandradeuxui@gmail.com", Icon: () => <Mail size={20} aria-hidden /> },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/ivan-andrade-uxui/", Icon: LinkedinIcon },
-  { label: "Behance", href: "https://www.behance.net/ivaanandrade", Icon: BehanceIcon },
   { label: "WhatsApp", href: "https://wa.me/5492346683761", Icon: WhatsAppIcon },
 ];
 

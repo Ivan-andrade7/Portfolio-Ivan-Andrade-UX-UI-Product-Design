@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface ExperienceItem {
   date: string;
   dateExact?: string;
@@ -17,11 +19,11 @@ const EXPERIENCES: ExperienceItem[] = [
     date: "3 ago — 31 ago 2026",
     dateExact: "03/08/2026–31/08/2026",
     title: "Web Designer — Fellowship — No Country",
-    company: "Experiencia profesional/formativa · Remoto",
+    company: "No Country · Trabajo real · Fellowship / voluntariado · Remoto",
     desc: "Trabajé en el diseño y la documentación de una landing mobile-first para el área de Comunicación / Sales & Marketing, con branding definido y en coordinación continua con desarrollo.",
     link: {
-      href: "https://www.figma.com/design/amDM45xs0St1MQU40tfl0f/Landing---Empresa--%3E-Busca-talento?node-id=69-32&p=f",
-      label: "Ver trabajo autorizado en Figma",
+      href: "/proyectos/fellowship",
+      label: "Ver caso completo de Fellowship",
     },
     accentTags: ["Fellowship", "Web Design"],
     neutralTags: ["Mobile-first"],
@@ -30,8 +32,9 @@ const EXPERIENCES: ExperienceItem[] = [
     date: "9 mar — 18 abr 2026",
     title: "UX UI Designer — ChatCRM",
     company: "No Country · Simulación laboral · equipo de 5 · único diseñador UX/UI",
-    desc: "Diseñé un concepto UX/UI para centralizar conversaciones y pipeline; personas, JTBD y oportunidad se presentan como hipótesis o síntesis de desk research.",
-    accentTags: ["CRM", "Kanban"],
+    desc: "Diseñé un concepto UX/UI para relacionar conversaciones, contactos y seguimiento; personas, JTBD y oportunidad se presentan como hipótesis o síntesis de desk research.",
+    link: { href: "/proyectos/crm", label: "Ver caso completo de ChatCRM" },
+    accentTags: ["CRM", "Conversaciones"],
     neutralTags: ["Handoff"],
   },
   {
@@ -40,13 +43,15 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "No Country · Simulación laboral · único diseñador UX/UI",
     desc: "Diseñé una propuesta de plataforma de tracking health con benchmark colaborativo de seis competidores, arquitectura y prototipos.",
     accentTags: ["Analytics", "SaaS B2B"],
-    neutralTags: ["Dark"],
+    link: { href: "/proyectos/garden-ads", label: "Ver caso completo de GardenAds" },
+    neutralTags: ["Tracking Health"],
   },
   {
     date: "10 nov — 14 dic 2025",
     title: "UX UI Designer — Multi-Brand DS",
     company: "No Country · Simulación laboral colaborativa · 1 de 4 UX/UI en equipo de 5",
     desc: "Contribuí a una arquitectura de tokens compartida para Academy y Kids, con componentes, variantes, estados y documentación de handoff.",
+    link: { href: "/proyectos/multi-brand", label: "Ver caso completo de Multi-Brand" },
     accentTags: ["DS", "Tokens"],
     neutralTags: ["EdTech"],
   },
@@ -55,6 +60,7 @@ const EXPERIENCES: ExperienceItem[] = [
     title: "UX UI Designer — Fintech PYME",
     company: "No Country · Simulación laboral · único diseñador UX/UI",
     desc: "Diseñé una plataforma dual de créditos B2B con onboarding KYC y superficies diferenciadas para solicitantes y supervisores.",
+    link: { href: "/proyectos/fintech", label: "Ver caso completo de Fintech" },
     accentTags: ["Fintech", "KYC"],
     neutralTags: ["RBAC"],
   },
@@ -63,6 +69,7 @@ const EXPERIENCES: ExperienceItem[] = [
     title: "Junior UX/UI Designer — TrainiT",
     company: "Programa TrainiT (PGT) · Pasantía/práctica formativa",
     desc: "Lideré el workstream Grupo 1/UI Components durante sprints concretos, coordinando a dos diseñadoras y trabajando nomenclatura, estados, tamaños, paddings e inventario de íconos dentro del sistema colaborativo.",
+    link: { href: "/proyectos/trainit", label: "Ver caso completo de TrainiT" },
     accentTags: ["UI Components", "Design System"],
     neutralTags: ["Práctica formativa"],
   },
@@ -78,7 +85,7 @@ export default function Experience() {
           <h3>{item.title}</h3>
           <p className="home-experience-context">{item.company}</p>
           <p>{item.desc}</p>
-          {item.link && <a href={item.link.href} target="_blank" rel="noopener noreferrer" className="home-text-link">{item.link.label} ↗</a>}
+          {item.link && (item.link.href.startsWith("/") ? <Link href={item.link.href} className="home-text-link">{item.link.label} →</Link> : <a href={item.link.href} target="_blank" rel="noopener noreferrer" className="home-text-link">{item.link.label} ↗</a>)}
         </article>)}
       </div>
     </section>

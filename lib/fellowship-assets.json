@@ -1,0 +1,82 @@
+{
+  "wireframe01": {
+    "src": "/projects/fellowship-editorial/wireframe01.webp",
+    "width": 1483,
+    "height": 753,
+    "title": "Iteración 01 de la apertura",
+    "alt": "Wireframe de apertura Empresas con navegación por secciones, mensaje, contacto y representación de producto.",
+    "node": "1:737"
+  },
+  "wireframe02": {
+    "src": "/projects/fellowship-editorial/wireframe02.webp",
+    "width": 1483,
+    "height": 734,
+    "title": "Iteración 02 de la apertura",
+    "alt": "Wireframe de apertura Empresas con navegación general y acción de contacto dentro del hero.",
+    "node": "29:4"
+  },
+  "diferencial": {
+    "src": "/projects/fellowship-editorial/diferencial.webp",
+    "width": 1440,
+    "height": 512,
+    "title": "Diferencial diseñado",
+    "alt": "Comparación visual diseñada para No Country: presentación frente a observación, declarado frente a documentado, una hora frente a semanas.",
+    "node": "166:1666"
+  },
+  "aperturaDesktop": {
+    "src": "/projects/fellowship-editorial/aperturaDesktop.webp",
+    "width": 740,
+    "height": 412,
+    "title": "Apertura desktop · contenido",
+    "alt": "Región del hero desktop con titular Talento junior con evidencia real antes de contratar y acción Ver como funciona.",
+    "node": "163:1135"
+  },
+  "aperturaMobile": {
+    "src": "/projects/fellowship-editorial/aperturaMobile.webp",
+    "width": 342,
+    "height": 404,
+    "title": "Apertura mobile · contenido",
+    "alt": "Región equivalente del hero mobile: mensaje y acción apilados, con énfasis en evidencia real.",
+    "node": "1244:1715"
+  },
+  "procesoDesktop": {
+    "src": "/projects/fellowship-editorial/procesoDesktop.webp",
+    "width": 1280,
+    "height": 330,
+    "title": "Proceso desktop · cuatro pasos",
+    "alt": "Proceso diseñado en cuatro columnas: reunión de hallazgo, catálogo curado, entrevistas coordinadas y onboarding.",
+    "node": "551:2292"
+  },
+  "procesoMobile01": {
+    "src": "/projects/fellowship-editorial/procesoMobile01.webp",
+    "width": 342,
+    "height": 672,
+    "title": "Proceso mobile · pasos 1 y 2",
+    "alt": "Primeros dos pasos apilados en mobile: reunión de hallazgo y catálogo curado.",
+    "node": "1244:1786"
+  },
+  "procesoMobile02": {
+    "src": "/projects/fellowship-editorial/procesoMobile02.webp",
+    "width": 342,
+    "height": 672,
+    "title": "Proceso mobile · pasos 3 y 4",
+    "alt": "Continuación de los pasos mobile: entrevistas coordinadas y onboarding en 72 horas, como contenido de la interfaz diseñada.",
+    "node": "1244:1786"
+  },
+  "formularioDesktop": {
+    "src": "/projects/fellowship-editorial/formularioDesktop.webp",
+    "width": 676,
+    "height": 604,
+    "title": "Formulario diseñado · desktop",
+    "alt": "Formulario desktop con email de trabajo, rol y fecha en una fila, detalles y botón Enviar requerimiento.",
+    "node": "1088:8141"
+  },
+  "formularioMobile": {
+    "src": "/projects/fellowship-editorial/formularioMobile.webp",
+    "width": 368,
+    "height": 658,
+    "title": "Formulario diseñado · mobile",
+    "alt": "Formulario mobile con email, rol, fecha y detalles apilados; conserva ayudas y acción Enviar requerimiento.",
+    "node": "1244:1885"
+  }
+}

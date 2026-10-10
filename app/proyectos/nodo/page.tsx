@@ -1,7 +1,10 @@
+import { getCaseNavigation } from "@/lib/case-navigation";
 import type { Metadata } from "next";
 import type { StaticImageData } from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { BackToPortfolio, CaseExternalLink, CaseNavigation, SectionHeader, TagChip } from "@/components/CaseStudyUI";
+import CasePresentation from "@/components/CasePresentation";
+import "@/app/proyectos/nodo-editorial.css";
 import UICarousel from "@/components/UICarousel";
 import type { Screen } from "@/lib/cases";
 import ResilientImage from "@/components/ResilientImage";
@@ -65,17 +68,18 @@ function Capture({ image, alt, caption, priority = false }: { image: StaticImage
 export default function NodoCasePage() {
   return (
     <>
-      <main id="contenido-principal" tabIndex={-1} className="case-main">
+      <main id="contenido-principal" tabIndex={-1} className="case-main nodo-case">
         <article className="case-body home-container flex min-w-0 flex-col">
           <header id="inicio" className="case-nodo-hero space-y-8 border-b border-[var(--border-default)] pb-16">
             <BackToPortfolio />
-            <div className="max-w-3xl space-y-5">
+            <div className="nodo-opening-layout"><div className="max-w-3xl space-y-5">
               <div className="flex flex-wrap gap-2"><TagChip label="Diseño web" accent /><TagChip label="Proyecto personal conceptual" /></div>
               <h1 className="text-[34px] sm:text-[40px] md:text-[56px] font-bold leading-[1.14] tracking-[-1.5px] md:tracking-[-2px] text-[var(--text-primary)] w-full min-w-0 break-words">NODO Arquitectura</h1>
               <p className="case-subtitle text-xl leading-8 text-[var(--text-secondary)]">Del diseño visual a una web responsive.</p>
               <p className={body}>Una web de arquitectura necesita dar protagonismo a los proyectos y, al mismo tiempo, explicar qué ofrece el estudio. NODO explora ese equilibrio mediante una lectura editorial, imágenes amplias y una estructura compartida.</p>
-              <CaseExternalLink href="https://nodo-arquitectura-five.vercel.app/">Ver sitio <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (se abre en otra pestaña)</span></CaseExternalLink>
+              <div className="case-project-links"><CaseExternalLink href="https://nodo-arquitectura-five.vercel.app/">Ver sitio <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (se abre en otra pestaña)</span></CaseExternalLink><CaseExternalLink href="https://www.figma.com/design/5KEvqtKTQWD27jqjacv0F1">Ver diseño en Figma ↗</CaseExternalLink></div>
             </div>
+            <CasePresentation project="nodo" alt="NODO Arquitectura en monitor desktop, tablet y teléfono: capturas de su web responsive" /></div>
             <dl className="grid gap-6 border-y border-[var(--border-default)] py-6 sm:grid-cols-3">
               {[
                 ["Mi rol", "Dirección visual, diseño y revisión"],
@@ -83,7 +87,6 @@ export default function NodoCasePage() {
                 ["Entrega", "Cinco páginas y cuatro detalles de proyecto"],
               ].map(([label, value]) => <div key={label}><dt className="mb-2 text-sm text-[var(--text-tertiary)]">{label}</dt><dd className="text-base text-[var(--text-primary)]">{value}</dd></div>)}
             </dl>
-            <Capture image={cover} alt="Introducción de Sobre NODO: título y descripción a la izquierda, interior del estudio a la derecha" caption="La composición dividida introduce la identidad sin convertir la página en una galería de imágenes." priority />
           </header>
 
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
@@ -100,14 +103,16 @@ export default function NodoCasePage() {
               <p className={body}>En Figma, cada pantalla contiene frames de sección que organizan grupos y componentes. El padding y los gaps se aplican en ese nivel; las variables se mantienen en dos colecciones: Primitiva y Semántica.</p>
               <p className={body}>El contenido tiene un ancho máximo de 1280 px. Las grillas se reorganizan con el espacio disponible, mientras que navegación y tipografía cambian según el modo. La adaptación no implica que todos los controles deban ocupar todo el ancho.</p>
             </div>
-            <UICarousel screens={listingScreens} title="NODO · Proyectos" captureBackground="var(--bg-secondary)" note="Capturas reales de la web. Mobile muestra el inicio del listado." />
+            <div className="nodo-contracts"><table><caption>Del diseño a las reglas web · contrato de implementación</caption><thead><tr><th scope="col">Decisión</th><th scope="col">Aplicación documentada</th></tr></thead><tbody><tr><th scope="row">Contenedor</th><td>Máximo 1280 px; padding mínimo 16 / 32 / 64 px según modo.</td></tr><tr><th scope="row">Cambio de modo</th><td>640 y 1120 px en la web, con grillas fluidas entre ambos. Son decisiones de implementación, no breakpoints automáticos de Figma.</td></tr><tr><th scope="row">Valores visuales</th><td>Primitiva y Semántica se resuelven en tokens CSS; las variables de estado del prototipo quedan fuera.</td></tr></tbody></table><p>Fuente: HANDOFF.md y src/styles/tokens.css del proyecto NODO. Definí y revisé estas decisiones; la implementación se realizó con asistencia de Codex.</p></div><UICarousel screens={listingScreens} title="NODO · Proyectos" keyImageSizes="(max-width: 768px) 100vw, 730px" captureBackground="var(--bg-secondary)" evidenceDescription="Captura real de mi proyecto web conceptual, implementado con asistencia de Codex; no acredita un cliente ni un resultado comercial." note="Capturas reales de la web. Mobile muestra el inicio del listado." />
           </section>
 
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
+            <div className="nodo-argument">
             <SectionHeader eyebrow="03 · Detalle de proyecto" heading="Contar el proyecto más allá de su portada" />
             <div className="mb-8 max-w-3xl space-y-4">
               <p className={body}>Casa Patio explica el patrón compartido por los cuatro detalles: desafío y respuesta, galería, materialidad, concepto espacial y recorrido. Planta y recorrido conviven en dos columnas en tablet y desktop y se apilan en mobile.</p>
               <p className={body}>El enlace superior vuelve al listado y conserva ancho de contenido y alineación izquierda. Abajo, anterior y siguiente se mantienen en horizontal para distinguir la navegación entre proyectos.</p>
+            </div>
             </div>
             <Capture image={projectDetail} alt="Desarrollo de Casa Patio con galería, materialidad y planta y recorrido en dos columnas" caption="Materialidad y organización espacial amplían la lectura del proyecto; los esquemas son ilustrativos, no documentación constructiva." />
           </section>
@@ -118,18 +123,18 @@ export default function NodoCasePage() {
               <p className={body}>La web se implementó con Astro, TypeScript y CSS: componentes compartidos, fuentes locales, iconos Lucide y assets preparados como WebP. La revisión incluyó rutas, imágenes, filtros, menú y estados del formulario.</p>
               <p className={body}>Una corrección concreta fue retirar el error de un campo cuando vuelve a ser válido, sin mover el foco mientras se escribe. Contacto demuestra validación local: el estado final dice «Validación completada», no confirma una consulta recibida.</p>
             </div>
-            <UICarousel screens={contactScreens} title="NODO · Contacto" captureBackground="var(--bg-secondary)" note="Validación local, sin transmisión ni almacenamiento de datos." />
+            <UICarousel screens={contactScreens} title="NODO · Contacto" keyImageSizes="(max-width: 768px) 100vw, 730px" captureBackground="var(--bg-secondary)" evidenceDescription="Captura real de la web: estado de validación local, sin envío ni almacenamiento de la consulta." note="Validación local, sin transmisión ni almacenamiento de datos." />
           </section>
 
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">
             <SectionHeader eyebrow="05 · Resultado" heading="Coherencia desde el sistema hasta la web" />
             <div className="max-w-3xl space-y-4">
-              <p className={body}>El resultado es una web estática publicada en Vercel, con nueve rutas, un listado filtrable y estados de contacto. El aprendizaje fue sostener una misma lógica en estructura, componentes, contenido y comportamiento, sin multiplicar versiones para cada ajuste.</p>
+              <p className={body}>El resultado es una web estática publicada en Vercel, con nueve rutas, un listado filtrable y estados de contacto. El criterio del caso es sostener una misma lógica en estructura, componentes, contenido y comportamiento, sin multiplicar versiones para cada ajuste.</p>
               <p className={body}>Definí y revisé la dirección visual y las decisiones de diseño. La ejecución y las comprobaciones se realizaron con asistencia de Codex; las visualizaciones arquitectónicas y los retratos se generaron con IA.</p>
               <p className="text-sm leading-6 text-[var(--text-tertiary)]">Alcance del caso: no hubo investigación con usuarios ni medición de resultados de negocio. La QA técnica documentada no equivale a certificación de accesibilidad; quedan pendientes otros motores de navegador, zoom real, lector de pantalla y dispositivos físicos. El formulario no transmite ni almacena datos.</p>
             </div>
           </section>
-          <CaseNavigation prev={{ slug: "trainit", title: "TrainiT — Gestión de Proyectos", role: "Junior UX/UI Designer · Práctica formativa" }} />
+          <CaseNavigation {...getCaseNavigation("nodo")} />
         </article>
       </main>
     </>

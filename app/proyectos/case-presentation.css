@@ -1,0 +1,9 @@
+.portfolio-case .case-presentation{display:block;width:100%;min-width:0;max-width:900px;justify-self:center}
+.portfolio-case .case-presentation img{display:block;width:100%;height:auto;aspect-ratio:4/3;border-radius:4px}
+@media(max-width:767px){.portfolio-case .case-presentation{max-width:520px}}
+
+/* Transparent complete devices; the exterior belongs to the portfolio theme. */
+.portfolio-case .case-presentation{background:var(--bg-secondary);border:1px solid var(--border-default);border-radius:4px;overflow:hidden}
+.portfolio-case .case-presentation img{object-fit:contain;max-height:560px}
+.home-project-device{background:var(--bg-secondary)!important;border:1px solid var(--border-default)}
+.home-project-device img{object-fit:contain!important}
