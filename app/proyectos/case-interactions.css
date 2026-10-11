@@ -1,0 +1,45 @@
+/* Shared interaction contract for case content. Layout and artwork stay with each case.
+   Text links are underlined; action buttons and project navigation are separate roles. */
+.portfolio-case .case-main a:not(:is(.case-external-link,.case-nav-card,.case-back,.case-icon-link)) {
+  color:var(--text-accent); text-decoration-line:underline; text-decoration-thickness:1px;
+  text-underline-offset:4px; transition:color 150ms ease;
+}
+.portfolio-case .case-main a:not(:is(.case-external-link,.case-nav-card,.case-back,.case-icon-link)):visited {color:var(--text-secondary)}
+.portfolio-case .case-main .case-external-link {text-decoration:none;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease}
+.portfolio-case .case-main :is(.fl-image-trigger,.mb-image-trigger,.pending-image-trigger),
+.portfolio-case .case-gallery button {transition:border-color 150ms ease}
+.portfolio-case :is(.fl-dialog-toolbar,.mb-dialog-toolbar,.pending-dialog-toolbar) button {transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease}
+@media(hover:hover) and (pointer:fine) {
+  .portfolio-case .case-main a:not(:is(.case-external-link,.case-nav-card,.case-back,.case-icon-link)):hover {
+    color:var(--brand-hover);text-decoration-thickness:2px;
+  }
+  .portfolio-case .case-main .case-external-link:hover {color:var(--text-primary);background:var(--brand-soft);border-color:var(--text-accent)}
+  .portfolio-case .case-main .case-icon-link:hover {background:var(--brand-soft);border-color:var(--text-primary)}
+  .portfolio-case .case-main :is(.fl-image-trigger,.mb-image-trigger,.pending-image-trigger):hover,
+  .portfolio-case .case-gallery button:hover {border-color:var(--text-accent)}
+  .portfolio-case .case-main :is(.fl-image-trigger,.mb-image-trigger,.pending-image-trigger):hover :is(.fl-enlarge,.mb-enlarge,.pending-enlarge) {background:var(--brand-soft);color:var(--text-primary)}
+  .portfolio-case :is(.fl-dialog-toolbar,.mb-dialog-toolbar,.pending-dialog-toolbar) button:hover {background:var(--brand-soft);border-color:var(--text-accent)}
+  .portfolio-case .case-main summary:hover {color:var(--brand-hover);text-decoration:underline;text-underline-offset:4px}
+}
+.portfolio-case .case-main a:not(:is(.case-external-link,.case-nav-card,.case-back,.case-icon-link)):focus-visible {color:var(--brand-hover);text-decoration-thickness:2px;outline:2px solid var(--text-accent);outline-offset:5px}
+.portfolio-case .case-main a:not(:is(.case-external-link,.case-nav-card,.case-back,.case-icon-link)):active {color:var(--text-primary);text-decoration-thickness:2px}
+.portfolio-case .case-main :is(.case-external-link,.case-icon-link):focus-visible {outline:2px solid var(--text-accent);outline-offset:5px;border-color:var(--text-accent)}
+.portfolio-case .case-main :is(.case-external-link,.case-icon-link):active {color:var(--text-primary);background:var(--surface-elevated);border-color:var(--text-primary)}
+.portfolio-case .case-main .case-back:active {color:var(--text-primary)}
+.portfolio-case .case-main :is(.fl-image-trigger,.mb-image-trigger,.pending-image-trigger):focus-visible,
+.portfolio-case .case-gallery button:focus-visible {outline:2px solid var(--text-accent);outline-offset:5px;box-shadow:none;border-color:var(--text-accent)}
+.portfolio-case .case-main :is(.fl-image-trigger,.mb-image-trigger,.pending-image-trigger):active,
+.portfolio-case .case-gallery button:active {border-color:var(--text-primary)}
+.portfolio-case :is(.fl-dialog-toolbar,.mb-dialog-toolbar,.pending-dialog-toolbar) button:focus-visible {outline:2px solid var(--text-accent);outline-offset:5px}
+.portfolio-case :is(.fl-dialog-toolbar,.mb-dialog-toolbar,.pending-dialog-toolbar) button:active,
+.portfolio-case :is(.fl-dialog-toolbar,.mb-dialog-toolbar,.pending-dialog-toolbar) button[aria-pressed="true"] {background:var(--brand-soft);color:var(--text-primary);border-color:var(--text-accent)}
+.portfolio-case .case-main summary:focus-visible {outline:2px solid var(--text-accent);outline-offset:5px}
+.portfolio-case .case-main summary:active {color:var(--text-primary)}
+.case-lightbox button:active {background:rgba(255,255,255,.3)}
+@media(prefers-reduced-motion:reduce) {
+  .portfolio-case .case-gallery img {transition:none;transform:none}
+  .portfolio-case .case-main a,
+  .portfolio-case .case-main :is(.fl-image-trigger,.mb-image-trigger,.pending-image-trigger),
+  .portfolio-case .case-gallery button,
+  .portfolio-case :is(.fl-dialog-toolbar,.mb-dialog-toolbar,.pending-dialog-toolbar) button {transition:none}
+}

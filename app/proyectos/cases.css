@@ -71,7 +71,6 @@ html.light .portfolio-case { --focus-ring: #245b4e; --overlay-card: #f5f2eb; }
 .portfolio-case .case-nodo-hero { padding-block: 32px 64px; }
 .portfolio-case .case-nodo-hero > div { max-width: 850px; }
 .portfolio-case .case-nodo-hero > div > p:not(.case-subtitle) { max-width: 70ch; }
-.portfolio-case .case-nodo-hero a[target="_blank"]:not(.case-back) { border-radius: 4px; color: var(--text-accent); }
 .portfolio-case .case-nodo-hero > dl dt { font-family: var(--font-mono); font-size: 11px; }
 .portfolio-case .case-nodo-hero > dl dd { font-size: 14px; }
 .case-lightbox { --focus-ring: #93dec9; background: rgba(16,25,28,.96) !important; }
