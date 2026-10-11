@@ -1,4 +1,8 @@
+/* Documentary borders remain unless another region already owns the same boundary. */
 .portfolio-case .documentary-evidence{width:100%;max-width:none;min-width:0;margin:0;padding-block:24px;border-block:1px solid var(--border-default);color:var(--text-secondary)}
+/* The following document owns a shared internal boundary; the section owns its close. */
+.portfolio-case .documentary-evidence:has(+ .documentary-evidence),
+.portfolio-case section > .documentary-evidence:last-child{border-bottom:0}
 .portfolio-case .documentary-kind{font-family:var(--font-mono);font-size:12px;line-height:1.6;color:var(--text-accent);margin-bottom:12px}
 .portfolio-case .documentary-evidence h3{font-size:22px;line-height:1.4;color:var(--text-primary);margin-bottom:24px}
 .portfolio-case .documentary-evidence dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px}

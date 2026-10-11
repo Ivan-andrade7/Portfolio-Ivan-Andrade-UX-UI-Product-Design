@@ -1,5 +1,7 @@
 "use client";
 
+import { CASE_SEQUENCE } from "@/lib/case-navigation";
+
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
@@ -25,7 +27,7 @@ function WhatsAppIcon() {
   );
 }
 
-const PROJECT_LINKS = [
+const PROJECT_LINK_RECORDS = [
   { label: "GardenAds", href: "/proyectos/garden-ads" },
   { label: "Fintech PYME", href: "/proyectos/fintech" },
   { label: "ChatCRM", href: "/proyectos/crm" },
@@ -34,6 +36,12 @@ const PROJECT_LINKS = [
   { label: "NODO Arquitectura", href: "/proyectos/nodo" },
   { label: "Fellowship / No Country", href: "/proyectos/fellowship" },
 ];
+
+const PROJECT_LINKS = CASE_SEQUENCE.map(item => {
+  const link = PROJECT_LINK_RECORDS.find(link => link.href === `/proyectos/${item.slug}`);
+  if (!link) throw new Error(`Missing footer case: ${item.slug}`);
+  return link;
+});
 
 const CONTACT_LINKS = [
   { label: "ivanandradeuxui@gmail.com", href: "mailto:ivanandradeuxui@gmail.com", Icon: () => <Mail size={20} aria-hidden /> },

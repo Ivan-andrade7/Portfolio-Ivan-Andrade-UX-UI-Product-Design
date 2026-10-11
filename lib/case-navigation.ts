@@ -13,14 +13,14 @@ export const CASE_SEQUENCE: readonly NavItem[] = [
     "role": "Único diseñador UX/UI · Simulación laboral · No Country · 2026"
   },
   {
-    "slug": "crm",
-    "title": "ChatCRM — CRM para PyMEs",
-    "role": "Único diseñador UX/UI · Simulación laboral · No Country · 2026"
-  },
-  {
     "slug": "multi-brand",
     "title": "Multi-Brand Design System",
     "role": "1 de 4 UX/UI · Simulación laboral colaborativa · No Country · 2025"
+  },
+  {
+    "slug": "crm",
+    "title": "ChatCRM — CRM para PyMEs",
+    "role": "Único diseñador UX/UI · Simulación laboral · No Country · 2026"
   },
   {
     "slug": "trainit",
@@ -28,14 +28,14 @@ export const CASE_SEQUENCE: readonly NavItem[] = [
     "role": "Junior UX/UI · Pasantía formativa TrainiT · 2025"
   },
   {
-    "slug": "nodo",
-    "title": "NODO Arquitectura",
-    "role": "Diseño web · Proyecto personal conceptual"
-  },
-  {
     "slug": "fellowship",
     "title": "Fellowship / No Country",
     "role": "Diseño web · Trabajo real · Fellowship No Country"
+  },
+  {
+    "slug": "nodo",
+    "title": "NODO Arquitectura",
+    "role": "Diseño web · Proyecto personal conceptual"
   }
 ];
 

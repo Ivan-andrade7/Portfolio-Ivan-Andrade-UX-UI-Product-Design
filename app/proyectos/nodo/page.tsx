@@ -80,7 +80,7 @@ export default function NodoCasePage() {
               <div className="case-project-links"><CaseExternalLink href="https://nodo-arquitectura-five.vercel.app/">Ver sitio <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (se abre en otra pestaña)</span></CaseExternalLink><CaseExternalLink href="https://www.figma.com/design/5KEvqtKTQWD27jqjacv0F1">Ver diseño en Figma ↗</CaseExternalLink></div>
             </div>
             <CasePresentation project="nodo" alt="NODO Arquitectura en monitor desktop, tablet y teléfono: capturas de su web responsive" /></div>
-            <dl className="grid gap-6 border-y border-[var(--border-default)] py-6 sm:grid-cols-3">
+            <dl className="grid gap-6 border-t border-[var(--border-default)] py-6 sm:grid-cols-3">
               {[
                 ["Mi rol", "Dirección visual, diseño y revisión"],
                 ["Alcance", "UI, sistema visual, responsive e implementación"],

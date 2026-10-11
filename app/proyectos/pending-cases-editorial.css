@@ -1,3 +1,4 @@
+/* Context entry is internal; pending-opening owns the transition to the first section. */
 .pending-case .pending-container{width:100%;max-width:1800px;margin:auto;padding:72px 24px 0;min-width:0}
 .pending-case .pending-opening{display:flex;flex-direction:column;align-items:flex-start;gap:28px;padding-bottom:64px;border-bottom:1px solid var(--border-default)}
 .pending-case .pending-opening h1{font-size:clamp(34px,4vw,64px);font-weight:700;line-height:1.12;letter-spacing:-.035em;color:var(--text-primary);max-width:1100px;overflow-wrap:break-word}
@@ -5,7 +6,7 @@
 .pending-case .pending-intro{font-size:clamp(18px,1.5vw,22px);line-height:1.65;max-width:72ch;color:var(--text-secondary)}
 .pending-case .pending-cover{width:100%;max-width:480px;align-self:center;margin:0}
 .pending-case .pending-cover img{display:block;width:100%;height:auto;border:1px solid var(--border-default);border-radius:4px}
-.pending-case .pending-context{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;width:100%;border-block:1px solid var(--border-default);padding-block:24px}
+.pending-case .pending-context{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;width:100%;border-top:1px solid var(--border-default);padding-block:24px}
 .pending-case .pending-context dt{font-size:14px;line-height:1.7;color:var(--text-tertiary);margin-bottom:8px}
 .pending-case .pending-context dd{font-size:16px;line-height:1.7;color:var(--text-primary)}
 .pending-case .pending-scope{font-size:15px;line-height:1.8;color:var(--text-tertiary);max-width:90ch}

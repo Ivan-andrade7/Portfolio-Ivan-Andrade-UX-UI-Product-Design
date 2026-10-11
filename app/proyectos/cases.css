@@ -1,3 +1,5 @@
+/* Each editorial boundary has one visible divider and one owner: the outgoing
+   section (or hero/testimony). Navigation cards do not repeat that boundary. */
 /* Case presentation shares Home tokens; project artwork retains its own identity. */
 .portfolio-case { --focus-ring: #93dec9; --overlay-card: #10191c; }
 html.light .portfolio-case { --focus-ring: #245b4e; --overlay-card: #f5f2eb; }
@@ -43,7 +45,7 @@ html.light .portfolio-case { --focus-ring: #245b4e; --overlay-card: #f5f2eb; }
 .portfolio-case .case-tldr { border: 0; border-top: 1px solid var(--border-default); border-bottom: 1px solid var(--border-default); border-radius: 0; background: transparent; padding-inline: 0; }
 .portfolio-case .case-tldr h2 { font-size: 30px; font-weight: 550; letter-spacing: -.035em; }
 .portfolio-case .case-body [role="note"] { border-radius: 4px; font-size: 14px; }
-.portfolio-case .case-nav-card { border: 0; border-top: 1px solid var(--border-default); background: transparent; border-radius: 0; padding: 24px 0; }
+.portfolio-case .case-nav-card { border: 0; background: transparent; border-radius: 0; padding: 24px 0; }
 .portfolio-case .case-nav-card:hover { border-color: var(--text-accent); background: transparent; }
 .portfolio-case .case-nav-card p { overflow-wrap: anywhere; }
 .portfolio-case .case-nav-card p:first-child { font-size: 24px; font-weight: 550; letter-spacing: -.025em; }

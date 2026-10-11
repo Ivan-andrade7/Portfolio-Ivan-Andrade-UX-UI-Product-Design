@@ -70,7 +70,8 @@
 .portfolio-case .fellowship-case .fl-conclusion-content .fl-end {margin-top:0}
 .portfolio-case .case-main .case-external-link {text-decoration:none}
 .portfolio-case .case-main :is(.case-nav-card,.case-back):focus-visible {outline:3px solid var(--text-accent);outline-offset:5px}
-.portfolio-case .fellowship-case .fl-testimony {width:100%;border-block:1px solid var(--border-default)}
+/* The preceding section owns testimony entry; fellowship.css owns testimony exit. */
+.portfolio-case .fellowship-case .fl-testimony {width:100%}
 .portfolio-case .fellowship-case .fl-testimony .fl-prose {max-width:none}
 .portfolio-case .fellowship-case .fl-process-comparison {display:grid;gap:32px;align-items:start}
 .portfolio-case .fellowship-case .fl-contrast {display:grid;gap:32px;align-items:start}

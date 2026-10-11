@@ -1,5 +1,7 @@
 "use client";
 
+import { CASE_SEQUENCE } from "@/lib/case-navigation";
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Check, Command, Copy, ExternalLink, Search, X } from "lucide-react";
@@ -15,7 +17,7 @@ type CommandAction = {
   copy?: string;
 };
 
-const ACTIONS: CommandAction[] = [
+const ACTION_RECORDS: CommandAction[] = [
   { id: "home", label: "Inicio", category: "Secciones", href: "/#inicio" },
   { id: "projects", label: "Proyectos", category: "Secciones", href: "/#proyectos", tag: "UX/UI · Product Design" },
   { id: "services", label: "Servicios web", category: "Secciones", href: "/#servicios", tag: "Web Design" },
@@ -33,6 +35,16 @@ const ACTIONS: CommandAction[] = [
   { id: "copy-email", label: "Copiar correo de contacto", category: "Acciones", copy: "ivanandradeuxui@gmail.com", tag: "Email" },
   { id: "linkedin", label: "Abrir perfil de LinkedIn", category: "Enlaces", href: "https://www.linkedin.com/in/ivan-andrade-uxui/", external: true },
   { id: "cv", label: "Descargar CV actualizado", category: "Acciones", href: "/cv/Iván Andrade - Product Designer UX UI.pdf", tag: "PDF" },
+];
+
+const ACTIONS: CommandAction[] = [
+  ...ACTION_RECORDS.filter(action => action.category === "Secciones"),
+  ...CASE_SEQUENCE.map(item => {
+    const action = ACTION_RECORDS.find(action => action.category === "Casos de estudio" && action.id === item.slug);
+    if (!action) throw new Error(`Missing case command: ${item.slug}`);
+    return action;
+  }),
+  ...ACTION_RECORDS.filter(action => action.category !== "Secciones" && action.category !== "Casos de estudio"),
 ];
 
 function openCommandMenu() {

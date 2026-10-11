@@ -1,13 +1,12 @@
+import { CASE_SEQUENCE } from "@/lib/case-navigation";
 import ProjectCard, { type Project } from "@/components/ProjectCard";
 import "@/app/fellowship-integration.css";
 import "@/app/proyectos/case-presentation.css";
 
 // Selección local: cada caso mantiene su naturaleza y alcance explícitos.
-const PROJECTS: Project[] = [
+const PROJECT_RECORDS: Omit<Project, "index">[] = [
   {
-    id: "fintech",
-    index: "01",
-    category: "Product Design",
+    id: "fintech",    category: "Product Design",
     nature: "Simulación laboral · No Country",
     title: "Fintech PYME",
     tags: ["Fintech", "SaaS B2B", "KYC"],
@@ -16,9 +15,7 @@ const PROJECTS: Project[] = [
     images: { treatment: "device", image: "/projects/devices/fintech-card-dos-caminos-8ea8197a452a.webp" },
   },
   {
-    id: "garden-ads",
-    index: "02",
-    category: "Product Design",
+    id: "garden-ads",    category: "Product Design",
     nature: "Simulación laboral · No Country",
     title: "GardenAds — Attribution & Tracking Health",
     tags: ["Analytics SaaS", "Dashboard", "2026"],
@@ -27,9 +24,7 @@ const PROJECTS: Project[] = [
     images: { treatment: "device", image: "/projects/devices/garden-ads-card-1200.webp" },
   },
   {
-    id: "crm",
-    index: "03",
-    category: "Product Design",
+    id: "crm",    category: "Product Design",
     nature: "Simulación laboral · No Country",
     title: "ChatCRM — CRM para PyMEs",
     tags: ["CRM", "SaaS B2B", "Conversaciones"],
@@ -38,9 +33,7 @@ const PROJECTS: Project[] = [
     images: { treatment: "device", image: "/projects/devices/crm-card-1200.webp" },
   },
   {
-    id: "multi-brand",
-    index: "04",
-    category: "Sistemas de diseño",
+    id: "multi-brand",    category: "Sistemas de diseño",
     nature: "Simulación colaborativa · No Country",
     title: "Multi-Brand Design System",
     tags: ["Design System", "EdTech", "Multi-marca"],
@@ -49,9 +42,7 @@ const PROJECTS: Project[] = [
     images: { treatment: "device", image: "/projects/devices/multi-brand-card-1200.webp" },
   },
   {
-    id: "trainit",
-    index: "05",
-    category: "UX/UI y componentes",
+    id: "trainit",    category: "UX/UI y componentes",
     nature: "Práctica formativa · TrainiT",
     title: "TrainiT — Gestión de Proyectos",
     tags: ["Pasantía formativa", "SaaS", "Kanban"],
@@ -60,20 +51,16 @@ const PROJECTS: Project[] = [
     images: { treatment: "device", image: "/projects/devices/trainit-card-1200.webp" },
   },
   {
-    id: "nodo",
-    index: "06",
-    category: "Diseño e implementación web",
+    id: "nodo",    category: "Diseño e implementación web",
     nature: "Proyecto personal conceptual",
     title: "NODO Arquitectura",
     tags: ["Diseño web", "Responsive", "UI"],
     longDesc: "Proyecto personal conceptual: sitio de arquitectura responsive, con componentes reutilizables y navegación coherente.",
     role: "Diseño UI · ejecución asistida",
-    images: { treatment: "device", image: "/projects/devices/nodo-responsive-25-47-card-1200.webp" },
+    images: { treatment: "device", image: "/projects/devices/nodo-card-sistema-1200.webp" },
   },
   {
-    id: "fellowship",
-    index: "07",
-    category: "Diseño web UX/UI",
+    id: "fellowship",    category: "Diseño web UX/UI",
     nature: "Trabajo real · Fellowship No Country",
     title: "Fellowship / No Country",
     tags: ["Diseño web", "Adaptación de marca", "Responsive"],
@@ -82,6 +69,12 @@ const PROJECTS: Project[] = [
     images: { treatment: "device", image: "/projects/devices/fellowship-card-1200.webp" },
   },
 ];
+
+const PROJECTS: Project[] = CASE_SEQUENCE.map((item, index) => {
+  const project = PROJECT_RECORDS.find(project => project.id === item.slug);
+  if (!project) throw new Error(`Missing project card: ${item.slug}`);
+  return { ...project, index: String(index + 1).padStart(2, "0") };
+});
 
 export default function Projects() {
   return (

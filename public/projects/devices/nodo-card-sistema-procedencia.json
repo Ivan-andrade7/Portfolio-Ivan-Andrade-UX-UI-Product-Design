@@ -1,0 +1,50 @@
+{
+  "source": "lote-25-46/nodo-propuesta/card.html; mismas capturas publicadas NODO desktop/tablet/mobile",
+  "operation": "Sólo body y canvas pasan de fondo exterior opaco a transparente. Dispositivos, posiciones, escala, sombras y contenido conservados. La superficie exterior la aporta el tema de ProjectCard existente. Hero intacto. Se conservan físicamente los píxeles opacos del maestro anterior; la nueva renderización sólo aporta transparencia y borde de sombra exterior.",
+  "sourceFiles": [
+    {
+      "file": "evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\card.html",
+      "sha256": "b4428117bc69e387e07fb441722f263c74ed61467cb65f1173e5d818b4adadfd"
+    },
+    {
+      "file": "evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\card-propuesta.png",
+      "sha256": "2f9886d6f128592f77eff354cb799f68282b36cbc1305fe473151d3492eedef5"
+    },
+    {
+      "file": "evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\desktop-produccion.png",
+      "sha256": "1f05fce2d356a84ee654962ac2649d9c83e00fa65c7602e8a0d2852b30b11ad5"
+    },
+    {
+      "file": "evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\tablet-produccion.png",
+      "sha256": "a0dc4f827bdce2eea798ee006a181d695a897b7a9421d35664c554a126d1eee8"
+    },
+    {
+      "file": "evidencia\\revision-siete-casos-2026-10-10\\lote-25-46\\nodo-propuesta\\mobile-produccion.png",
+      "sha256": "3cff7ae8ceb0d94d987337d190b8822345a98e2524e0bf8dc1f5cc3f5f28dd90"
+    }
+  ],
+  "master": {
+    "file": "nodo-card-transparente-master.png",
+    "dimensions": [
+      1800,
+      1125
+    ],
+    "sha256": "16c0a26fe130ccb2b8d95057f5a3c08ba1c692985437b0d7c34240f553fd70d7",
+    "bytes": 1390171
+  },
+  "derivative": {
+    "file": "public/projects/devices/nodo-card-sistema-1200.webp",
+    "dimensions": [
+      1200,
+      750
+    ],
+    "bytes": 82940,
+    "sha256": "602b7f5879d691ccde1e793dce7b93a7abbcce50c3c35cd9a73b41570a39a22d"
+  },
+  "interfacePixelComparison": {
+    "desktop": true,
+    "tablet": true,
+    "mobile": true
+  },
+  "originalsPreserved": true
+}
