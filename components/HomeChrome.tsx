@@ -80,11 +80,11 @@ export function HomeNavbar({ caseMode = false, servicesMode = false }: { caseMod
 }
 
 export function HomeFooter({ caseMode = false, servicesMode = false }: { caseMode?: boolean; servicesMode?: boolean }) {
-  if (servicesMode) return <footer className="home-footer"><div className="home-container home-footer-top"><Link href="/" aria-label="Iván Andrade · Portfolio"><HomeLogo /></Link><p>Diseño UX/UI · Product Design · Servicios web</p><nav aria-label="Enlaces del pie"><a href="#contacto" className="home-text-link">Contacto</a> · <Link href="/" className="home-text-link">Portfolio profesional <ArrowUpRight size={18} aria-hidden /></Link> · <a href="#inicio" className="home-text-link">Volver arriba ↑</a></nav></div></footer>;
-  const prefix = caseMode ? "/" : "";
+  const links = servicesMode ? SERVICES_LINKS : LINKS;
+  const prefix = caseMode ? (servicesMode ? "/servicios-web" : "/") : "";
   return <footer className="home-footer"><div className="home-container">
-    <div className="home-footer-top"><Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link><p>UX/UI y Product Design.<br />Diseño e implementación web.</p><a href="#inicio" className="home-text-link">Volver arriba ↑</a></div>
-    <div className="home-footer-links"><nav aria-label="Navegación del pie">{LINKS.map(link => <a key={link.href} href={`${prefix}${link.href}`}>{link.label}</a>)}</nav><nav aria-label="Perfiles y contacto"><a href="mailto:ivanandradeuxui@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ivan-andrade-uxui/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/5492346683761" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
+    <div className="home-footer-top"><Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link><p>{servicesMode ? <>Landing pages y sitios institucionales.<br />Diseño e implementación web por alcance.</> : <>UX/UI y Product Design.<br />Diseño e implementación web.</>}</p><a href="#inicio" className="home-text-link">Volver arriba ↑</a></div>
+    <div className="home-footer-links"><nav aria-label="Navegación del pie">{links.map(link => <a key={link.href} href={link.href.startsWith("#") ? `${prefix}${link.href}` : link.href}>{link.label}</a>)}</nav><nav aria-label="Perfiles y contacto"><a href="mailto:ivanandradeuxui@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ivan-andrade-uxui/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/5492346683761" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
     <div className="home-footer-bottom"><span>© 2026 Iván Andrade</span><span>Buenos Aires, Argentina · Diseño con criterio</span></div>
   </div></footer>;
 }

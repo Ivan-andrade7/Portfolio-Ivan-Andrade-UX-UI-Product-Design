@@ -91,7 +91,7 @@ function Lightbox({
         type="button"
         onClick={onClose}
         aria-label="Cerrar ampliación"
-        className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center justify-center size-10 rounded-lg text-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
+        className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center justify-center size-10 portfolio-action text-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
       >
         <X size={20} />
       </button>
@@ -101,7 +101,7 @@ function Lightbox({
           type="button"
           onClick={onPrev}
           aria-label="Pantalla anterior"
-          className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 flex items-center justify-center size-10 rounded-lg text-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
+          className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 flex items-center justify-center size-10 portfolio-action text-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
         >
           <ChevronLeft size={20} />
         </button>
@@ -111,7 +111,7 @@ function Lightbox({
           type="button"
           onClick={onNext}
           aria-label="Pantalla siguiente"
-          className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center size-10 rounded-lg text-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
+          className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center size-10 portfolio-action text-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
         >
           <ChevronRight size={20} />
         </button>
@@ -163,6 +163,7 @@ export default function UICarousel({
   title,
   note,
   galleryAspect,
+  keyImagePadding = true,
   captureBackground,
   keyImageSizes = "(max-width: 1024px) 100vw, 70vw",
   evidenceDescription = "Captura de interfaz diseñada; no implica por sí sola un resultado de negocio medido.",
@@ -171,6 +172,7 @@ export default function UICarousel({
   title: string;
   note?: string;
   galleryAspect?: string;
+  keyImagePadding?: boolean;
   captureBackground?: string;
   keyImageSizes?: string;
   evidenceDescription?: string;
@@ -221,14 +223,14 @@ export default function UICarousel({
             type="button"
             onClick={event => openScreen(screens[keyIndex], event.currentTarget)}
             aria-label={`Ampliar captura: ${title}, ${screens[keyIndex].name}`}
-            className="group relative w-full rounded-xl overflow-hidden border border-[var(--border-default)] cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
+            className="group relative w-full overflow-hidden border border-[var(--border-default)] cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
             style={{ aspectRatio: galleryAspect ?? "800 / 569", background: captureBackground ?? "var(--bg-secondary)" }}
           >
             <ResilientImage
               src={screens[keyIndex].src}
               alt={screens[keyIndex].alt}
               fill
-              className="object-contain p-3 md:p-6 transition-transform duration-300 group-hover:scale-[1.01]"
+              className={`object-contain ${keyImagePadding ? "p-3 md:p-6 transition-transform duration-300 group-hover:scale-[1.01]" : ""}`}
               sizes={keyImageSizes}
             />
             <span
@@ -298,7 +300,7 @@ export default function UICarousel({
                 type="button"
                 onClick={event => openScreen(screen, event.currentTarget)}
                 aria-label={`Ampliar ${screen.name}`}
-                className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
+                className="group flex flex-col gap-3 text-left border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
               >
                 <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 768px) 100vw, 33vw" />
@@ -324,7 +326,7 @@ export default function UICarousel({
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {comparisonScreens.map((screen) => (
-              <button key={screen.src} type="button" onClick={event => openScreen(screen, event.currentTarget)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
+              <button key={screen.src} type="button" onClick={event => openScreen(screen, event.currentTarget)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
                 <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 768px) 100vw, 50vw" />
                 </span>
@@ -347,7 +349,7 @@ export default function UICarousel({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {galleryScreens.map((screen) => (
-              <button key={screen.src} type="button" onClick={event => openScreen(screen, event.currentTarget)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left rounded-xl border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
+              <button key={screen.src} type="button" onClick={event => openScreen(screen, event.currentTarget)} aria-label={`Ampliar ${screen.name}`} className="group flex flex-col gap-3 text-left border border-[var(--border-default)] bg-[var(--bg-secondary)] overflow-hidden cursor-zoom-in focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]">
                 <span className="relative block w-full aspect-[4/3]" style={{ background: captureBackground ?? "var(--bg-primary)" }}>
                   <ResilientImage src={screen.src} alt={screen.alt} fill className={`${previewClass(screen)} p-3 transition-transform duration-300 group-hover:scale-[1.02]`} style={previewStyle(screen)} sizes="(max-width: 640px) 100vw, 50vw" />
                 </span>

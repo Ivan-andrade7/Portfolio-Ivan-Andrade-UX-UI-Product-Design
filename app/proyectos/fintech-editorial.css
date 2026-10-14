@@ -40,7 +40,7 @@ html.light .fintech-dialog { --focus-ring: #245b4e; --text-primary: #122f2c; --t
 .fintech-dialog::backdrop { background: rgba(8,18,20,.82); }
 .fintech-dialog-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
 .fintech-dialog-toolbar h3 { flex: 1 1 260px; font-size: 18px; line-height: 1.4; }
-.fintech-dialog-toolbar button { min-height: 44px; padding: 10px 14px; border: 1px solid var(--border-default); border-radius: 4px; font-size: 14px; color: var(--text-accent); cursor: pointer; }
+.fintech-dialog-toolbar button { min-height: 44px; padding: 10px 14px; border: 1px solid var(--border-default); border-radius: var(--control-radius); font-size: 14px; color: var(--text-accent); cursor: pointer; }
 .fintech-dialog-toolbar button:hover { background: var(--brand-soft); }
 .fintech-dialog :is(button,[tabindex]):focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 .fintech-dialog-viewport { width: 100%; max-height: 65dvh; overflow: auto; background: #101827; overscroll-behavior: contain; }

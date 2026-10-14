@@ -46,7 +46,7 @@ const listingScreens = [
   screen(projectsMobile, "Proyectos · Mobile", "Explorar el inicio del listado en un ancho compacto.", "Filtros compactos y cards en una columna.", "Inicio del listado mobile con filtros y primera card", "gallery"),
 ];
 const contactScreens = [
-  screen(contactError, "Contacto · Error", "Identificar campos que requieren corrección.", "Los errores aparecen junto a sus campos.", "Formulario de Contacto con errores de validación", "key"),
+  screen(contactError, "Contacto · Validación de campos", "Reconocer los mensajes debajo de Nombre, Email o teléfono y Mensaje.", "La captura de validación local muestra mensajes junto a Nombre, Email o teléfono y Mensaje que indican qué completar o corregir.", "Contacto NODO con tres mensajes de validación local debajo de los campos", "key"),
   screen(contactSuccess, "Contacto · Validación completada", "Comprender el resultado de la validación local.", "El resultado no confirma una consulta enviada: no transmite ni almacena datos.", "Estado de validación completada de Contacto", "gallery"),
   screen(contactMobile, "Contacto · Mobile", "Leer el resultado en un ancho compacto.", "La jerarquía del estado se conserva en mobile.", "Validación completada de Contacto en mobile", "gallery"),
 ];
@@ -123,7 +123,7 @@ export default function NodoCasePage() {
               <p className={body}>La web se implementó con Astro, TypeScript y CSS: componentes compartidos, fuentes locales, iconos Lucide y assets preparados como WebP. La revisión incluyó rutas, imágenes, filtros, menú y estados del formulario.</p>
               <p className={body}>Una corrección concreta fue retirar el error de un campo cuando vuelve a ser válido, sin mover el foco mientras se escribe. Contacto demuestra validación local: el estado final dice «Validación completada», no confirma una consulta recibida.</p>
             </div>
-            <UICarousel screens={contactScreens} title="NODO · Contacto" keyImageSizes="(max-width: 768px) 100vw, 730px" captureBackground="var(--bg-secondary)" evidenceDescription="Captura real de la web: estado de validación local, sin envío ni almacenamiento de la consulta." note="Validación local, sin transmisión ni almacenamiento de datos." />
+            <UICarousel screens={contactScreens} title="NODO · Contacto" galleryAspect="1425 / 1121" keyImagePadding={false} keyImageSizes="(max-width: 768px) 100vw, 730px" captureBackground="var(--bg-secondary)" evidenceDescription="Captura real de la web: estado de validación local, sin envío ni almacenamiento de la consulta." note="Validación local, sin transmisión ni almacenamiento de datos." />
           </section>
 
           <section className="flex flex-col gap-6 py-16 border-b border-[var(--border-default)]">

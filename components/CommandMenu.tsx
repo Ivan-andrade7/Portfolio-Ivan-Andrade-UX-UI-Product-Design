@@ -57,7 +57,7 @@ export function CommandMenuTrigger() {
       type="button"
       onClick={openCommandMenu}
       aria-label="Abrir navegación rápida"
-      className="hidden xl:flex items-center gap-2 h-8 px-3 rounded-lg border border-[var(--border-default)] text-[14px] font-semibold leading-5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
+      className="hidden xl:flex items-center gap-2 h-8 px-3 portfolio-action border border-[var(--border-default)] text-[14px] font-semibold leading-5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_var(--focus-ring)]"
     >
       <Search size={16} />
       Buscar
@@ -231,7 +231,7 @@ export default function CommandMenu() {
                 type="button"
                 onClick={closeMenu}
                 aria-label="Cerrar navegación rápida"
-                className="flex size-10 shrink-0 items-center justify-center rounded-lg text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]"
+                className="flex size-11 shrink-0 items-center justify-center portfolio-action text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]"
               >
                 <X size={18} aria-hidden />
               </button>

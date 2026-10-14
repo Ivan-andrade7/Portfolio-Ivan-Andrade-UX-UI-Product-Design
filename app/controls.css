@@ -1,0 +1,8 @@
+/* Shared standard action/control shape. Artwork, tags, feedback and navigation keep their own roles. */
+:root { --control-radius: 4px; }
+.portfolio-action, .portfolio-control, .portfolio-case .case-external-link { border-radius: var(--control-radius); }
+.portfolio-control:focus-visible { outline: 2px solid var(--text-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-action, .portfolio-control { transition: none; }
+  .portfolio-action:active { transform: none; }
+}

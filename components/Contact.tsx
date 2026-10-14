@@ -76,12 +76,12 @@ export function FeedbackBanner({ type, bodyOverride }: { type: FeedbackType; bod
 
 /* ── Input class helper ── */
 const INPUT_BASE =
-  "w-full px-4 rounded-lg text-[16px] leading-7 bg-[var(--surface-secondary)] border outline-none transition-all placeholder:text-[var(--text-placeholder)]";
+  "portfolio-control w-full px-4 text-[16px] leading-7 bg-[var(--surface-secondary)] border outline-none transition-all placeholder:text-[var(--text-placeholder)]";
 
 export function inputCls(hasError: boolean): string {
   return hasError
     ? `${INPUT_BASE} border-[var(--feedback-error-border)] text-[var(--text-primary)]`
-    : `${INPUT_BASE} border-[var(--border-default)] text-[var(--text-primary)] hover:border-2 hover:border-[var(--border-default)] focus:border-[var(--border-interactive)] focus:shadow-[0_0_0_4px_var(--focus-ring)]`;
+    : `${INPUT_BASE} border-[var(--border-default)] text-[var(--text-primary)] hover:border-[var(--border-default)] focus:border-[var(--border-interactive)] focus:shadow-[0_0_0_4px_var(--focus-ring)]`;
 }
 
 type FieldErrors = { name?: boolean; email?: boolean; message?: boolean };
@@ -100,7 +100,7 @@ function LinksColumn() {
             href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
             rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="group flex items-center gap-2 px-4 py-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-default)] hover:border-[var(--border-interactive)] transition-colors no-underline"
+            className="group flex items-center gap-2 px-4 py-3 portfolio-action bg-[var(--bg-secondary)] border border-[var(--border-default)] hover:border-[var(--border-interactive)] transition-colors no-underline"
           >
             <span className="text-[var(--text-accent)] shrink-0"><Icon /></span>
             <span className="text-[var(--text-secondary)] group-hover:text-[var(--text-accent)] text-[14px] font-semibold leading-5 flex-1 min-w-0 truncate transition-colors">
@@ -194,13 +194,14 @@ export default function Contact() {
           ref={formRef}
           onSubmit={handleSubmit}
           noValidate
-          aria-describedby={banner ? "contact-validation" : undefined}
+          aria-describedby={banner ? "contact-required contact-validation" : "contact-required"}
           className="flex flex-col gap-4 min-w-0"
         >
+            <p id="contact-required" className="text-[12px] leading-5 text-[var(--text-tertiary)]">* Campos obligatorios</p>
             {/* Nombre */}
             <div className="flex flex-col gap-2">
               <label htmlFor="contact-name" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
-                Nombre
+                Nombre <span aria-hidden="true">*</span>
               </label>
               <input
                 id="contact-name"
@@ -224,7 +225,7 @@ export default function Contact() {
             {/* Email */}
             <div className="flex flex-col gap-2">
               <label htmlFor="contact-email" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
-                Email
+                Email <span aria-hidden="true">*</span>
               </label>
               <input
                 id="contact-email"
@@ -248,7 +249,7 @@ export default function Contact() {
             {/* Mensaje */}
             <div className="flex flex-col gap-2">
               <label htmlFor="contact-message" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
-                Mensaje
+                Mensaje <span aria-hidden="true">*</span>
               </label>
               <textarea
                 id="contact-message"
@@ -273,7 +274,7 @@ export default function Contact() {
             {/* Submit */}
             <button
               type="submit"
-              className="flex items-center gap-3 h-12 px-4 py-3 rounded-lg shrink-0 w-fit bg-[var(--brand-primary)] text-[var(--text-inverse)] text-[14px] font-semibold leading-5 hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
+              className="flex items-center gap-3 h-12 px-4 py-3 portfolio-action shrink-0 w-fit bg-[var(--brand-primary)] text-[var(--text-inverse)] text-[14px] font-semibold leading-5 hover:bg-[var(--brand-hover)] active:scale-[0.98] transition-colors"
               aria-describedby="contact-mail-helper"
             >
               <Send size={20} aria-hidden />
