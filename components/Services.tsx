@@ -14,7 +14,7 @@ export default function Services() {
           <p className="home-kicker">02 / Servicios web directos</p>
           <h2 id="services-heading">Tu propuesta.<br />Una web que la explique.</h2>
           <p>Diseño e implementación de webs para profesionales y negocios. Una oferta propia, con trato directo y alcance acordado.</p>
-          <a href="#consulta-web" className="home-button home-button-primary">Consultar por una web <ArrowUpRight size={18} aria-hidden /></a>
+          <a href="/servicios-web" className="home-button home-button-primary">Conocer mis servicios web <ArrowUpRight size={18} aria-hidden /></a>
         </div>
         <div className="home-service-list">
           {SERVICES.map((service, index) => <article key={service.title}><span className="home-kicker">0{index + 1}</span><div><h3>{service.title}</h3><p>{service.description}</p></div></article>)}

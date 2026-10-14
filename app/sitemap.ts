@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    { url: `${BASE_URL}/servicios-web` },
     ...caseUrls,
     {
       url: `${BASE_URL}/proyectos/nodo`,

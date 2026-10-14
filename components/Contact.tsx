@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { EMAIL_RE, detectEmailTypo } from "@/lib/contact-validation";
 import { Send, ArrowRight, Mail, AlertTriangle } from "lucide-react";
 
 
@@ -13,7 +14,7 @@ function LinkedinIcon() {
     </svg>
   );
 }
-function WhatsAppIcon() {
+export function WhatsAppIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
@@ -54,7 +55,7 @@ const FEEDBACK = {
   },
 } as const;
 
-function FeedbackBanner({ type, bodyOverride }: { type: FeedbackType; bodyOverride?: string }) {
+export function FeedbackBanner({ type, bodyOverride }: { type: FeedbackType; bodyOverride?: string }) {
   const { bg, border, color, Icon, title, body } = FEEDBACK[type];
   return (
     <div
@@ -77,43 +78,10 @@ function FeedbackBanner({ type, bodyOverride }: { type: FeedbackType; bodyOverri
 const INPUT_BASE =
   "w-full px-4 rounded-lg text-[16px] leading-7 bg-[var(--surface-secondary)] border outline-none transition-all placeholder:text-[var(--text-placeholder)]";
 
-function inputCls(hasError: boolean): string {
+export function inputCls(hasError: boolean): string {
   return hasError
     ? `${INPUT_BASE} border-[var(--feedback-error-border)] text-[var(--text-primary)]`
     : `${INPUT_BASE} border-[var(--border-default)] text-[var(--text-primary)] hover:border-2 hover:border-[var(--border-default)] focus:border-[var(--border-interactive)] focus:shadow-[0_0_0_4px_var(--focus-ring)]`;
-}
-
-/* Strict email regex */
-const EMAIL_RE = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
-
-/* Typo detection for common email domains */
-const COMMON_DOMAINS = [
-  "gmail.com", "hotmail.com", "outlook.com", "yahoo.com",
-  "icloud.com", "live.com", "hotmail.es", "yahoo.com.ar",
-  "hotmail.com.ar", "gmail.com.ar",
-];
-
-function levenshtein(a: string, b: string): number {
-  const m = a.length, n = b.length;
-  const dp: number[][] = Array.from({ length: m + 1 }, (_, i) =>
-    Array.from({ length: n + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0))
-  );
-  for (let i = 1; i <= m; i++)
-    for (let j = 1; j <= n; j++)
-      dp[i][j] = a[i - 1] === b[j - 1]
-        ? dp[i - 1][j - 1]
-        : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-  return dp[m][n];
-}
-
-function detectEmailTypo(email: string): string | null {
-  const at = email.lastIndexOf("@");
-  if (at < 0) return null;
-  const domain = email.slice(at + 1).toLowerCase();
-  for (const common of COMMON_DOMAINS) {
-    if (domain !== common && levenshtein(domain, common) <= 1) return common;
-  }
-  return null;
 }
 
 type FieldErrors = { name?: boolean; email?: boolean; message?: boolean };
@@ -156,17 +124,8 @@ function LinksColumn() {
 }
 
 export default function Contact() {
-  const [intent, setIntent] = useState("Oportunidad laboral");
+  const intent = "Oportunidad laboral o colaboración profesional";
   const formRef = useRef<HTMLFormElement>(null);
-  useEffect(() => {
-    function updateIntent() {
-      if (window.location.hash === "#consulta-web") setIntent("Consulta por una web");
-      if (window.location.hash === "#oportunidad-laboral") setIntent("Oportunidad laboral");
-    }
-    updateIntent();
-    window.addEventListener("hashchange", updateIntent);
-    return () => window.removeEventListener("hashchange", updateIntent);
-  }, []);
   const [name, setName]       = useState("");
   const [email, setEmail]     = useState("");
   const [message, setMessage] = useState("");
@@ -220,12 +179,11 @@ export default function Contact() {
       className="home-contact home-container"
       aria-labelledby="contact-heading"
     >
-      <span id="consulta-web" className="home-contact-anchor" aria-hidden />
       <span id="oportunidad-laboral" className="home-contact-anchor" aria-hidden />
       <div className="home-section-heading">
         <p className="home-kicker">07 / Contacto</p>
         <h2 id="contact-heading">Empecemos por conversar.</h2>
-        <p>Contame sobre el rol que buscás cubrir o sobre la web que necesitás. Con ese contexto podemos evaluar el próximo paso.</p>
+        <p>Contame sobre el rol, el equipo o la colaboración profesional que proponés. Con ese contexto podemos evaluar el próximo paso.</p>
       </div>
 
       {/* ── Contact Row ── */}
@@ -239,10 +197,6 @@ export default function Contact() {
           aria-describedby={banner ? "contact-validation" : undefined}
           className="flex flex-col gap-4 min-w-0"
         >
-            <fieldset className="home-contact-intent">
-              <legend>¿Por qué me escribís?</legend>
-              <div>{["Oportunidad laboral", "Consulta por una web"].map(option => <label key={option}><input type="radio" name="contact-intent" value={option} checked={intent === option} onChange={() => setIntent(option)} />{option}</label>)}</div>
-            </fieldset>
             {/* Nombre */}
             <div className="flex flex-col gap-2">
               <label htmlFor="contact-name" className="text-[14px] font-semibold leading-5 text-[var(--text-secondary)]">
@@ -298,7 +252,7 @@ export default function Contact() {
               </label>
               <textarea
                 id="contact-message"
-                placeholder={intent === "Oportunidad laboral" ? "Contame sobre el equipo, el rol y la modalidad" : "Contame qué hacés, qué necesita la web y con qué contenido contás"}
+                placeholder="Contame sobre el equipo, el rol, la modalidad o la colaboración"
                 value={message}
                 aria-invalid={errors.message || undefined}
                 aria-describedby={errors.message ? "contact-message-error" : undefined}

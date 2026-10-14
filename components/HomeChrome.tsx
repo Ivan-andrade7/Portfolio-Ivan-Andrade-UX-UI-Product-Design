@@ -16,14 +16,16 @@ const LINKS = [
   { href: "#educacion", label: "Educación" },
   { href: "#contactos", label: "Contacto" },
 ];
+const SERVICES_LINKS = [{href:"#servicios",label:"Servicios"},{href:"#trabajos",label:"Trabajos"},{href:"#proceso",label:"Proceso"},{href:"#preguntas",label:"Preguntas"},{href:"#contacto",label:"Contacto"},{href:"/",label:"Portfolio"}];
 const CV = "/cv/Iván Andrade - Product Designer UX UI.pdf";
 
 function HomeLogo() {
   const { theme } = useTheme();
-  return <span className="home-logo"><span className="home-logo-image"><Image src={theme === "light" ? "/logo-light.png" : "/logo-dark.png"} width={180} height={120} alt="" className="home-logo-crop" /></span><span>Iván Andrade<span className="home-logo-role">UX/UI · Product Design</span></span></span>;
+  return <span className="home-logo"><span className="home-logo-image"><Image src={theme === "light" ? "/brand/ivan-andrade-monogram-light.svg" : "/brand/ivan-andrade-monogram-dark.svg"} width={358} height={310} alt="" className="home-logo-mark" /></span><span>Iván Andrade<span className="home-logo-role">UX/UI · Product Design</span></span></span>;
 }
 
-export function HomeNavbar({ caseMode = false }: { caseMode?: boolean }) {
+export function HomeNavbar({ caseMode = false, servicesMode = false }: { caseMode?: boolean; servicesMode?: boolean }) {
+  const links = servicesMode ? SERVICES_LINKS : LINKS;
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -35,20 +37,21 @@ export function HomeNavbar({ caseMode = false }: { caseMode?: boolean }) {
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) if (entry.isIntersecting) setActive(`#${entry.target.id}`);
     }, { rootMargin: "-15% 0px -65% 0px" });
-    for (const link of LINKS) { const section = document.querySelector(link.href); if (section) observer.observe(section); }
+    for (const link of links.filter(link => link.href.startsWith("#"))) { const section = document.querySelector(link.href); if (section) observer.observe(section); }
     const hero = document.getElementById("inicio");
     if (hero) observer.observe(hero);
     return () => observer.disconnect();
-  }, [caseMode]);
+  }, [caseMode, servicesMode]);
 
   useEffect(() => {
     if (open) panelRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
   }, [open]);
 
+  function navHref(href: string) { return caseMode && href.startsWith("#") ? `${servicesMode ? "/servicios-web" : "/"}${href}` : href; }
   function close() { setOpen(false); toggleRef.current?.focus(); }
   function navigate(href: string) {
     setOpen(false);
-    if (caseMode) return;
+    if (caseMode || !href.startsWith("#")) return;
     setActive(href);
     requestAnimationFrame(() => {
       const section = document.querySelector<HTMLElement>(href);
@@ -58,25 +61,26 @@ export function HomeNavbar({ caseMode = false }: { caseMode?: boolean }) {
 
   return <header className="home-header" onKeyDown={event => { if (event.key === "Escape" && open && !document.querySelector('[role="dialog"]')) { event.preventDefault(); close(); } }}>
     <a href="#contenido-principal" className="skip-link">Saltar al contenido principal</a>
-    <CommandMenu />
+    {!servicesMode && <CommandMenu />}
     <div className="home-container home-navbar">
       <Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link>
-      <nav className="home-desktop-nav" aria-label="Navegación principal">{LINKS.map(link => <a key={link.href} href={`${caseMode ? "/" : ""}${link.href}`} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}</a>)}</nav>
+      <nav className="home-desktop-nav" aria-label="Navegación principal">{links.map(link => <a key={link.href} href={navHref(link.href)} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}</a>)}</nav>
       <div className="home-nav-tools">
-        <span className="home-search-trigger"><CommandMenuTrigger /></span>
+        {!servicesMode && <span className="home-search-trigger"><CommandMenuTrigger /></span>}
         <button type="button" onClick={toggle} className="home-icon-button" aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}>{theme === "dark" ? <Sun size={19} aria-hidden /> : <Moon size={19} aria-hidden />}</button>
-        <a href={CV} download className="home-nav-cv"><Download size={16} aria-hidden /><span>CV</span></a>
+        {!servicesMode && <a href={CV} download className="home-nav-cv"><Download size={16} aria-hidden /><span>CV</span></a>}
         <button ref={toggleRef} type="button" className="home-icon-button home-menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="home-mobile-nav" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}</button>
       </div>
     </div>
     <div ref={panelRef} id="home-mobile-nav" className="home-mobile-nav home-container" hidden={!open}>
-      <nav aria-label="Navegación móvil">{LINKS.map(link => <a key={link.href} href={`${caseMode ? "/" : ""}${link.href}`} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}<ArrowUpRight size={18} aria-hidden /></a>)}</nav>
-      <a href={CV} download className="home-text-link">Descargar CV <Download size={16} aria-hidden /></a>
+      <nav aria-label="Navegación móvil">{links.map(link => <a key={link.href} href={navHref(link.href)} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}<ArrowUpRight size={18} aria-hidden /></a>)}</nav>
+      {!servicesMode && <a href={CV} download className="home-text-link">Descargar CV <Download size={16} aria-hidden /></a>}
     </div>
   </header>;
 }
 
-export function HomeFooter({ caseMode = false }: { caseMode?: boolean }) {
+export function HomeFooter({ caseMode = false, servicesMode = false }: { caseMode?: boolean; servicesMode?: boolean }) {
+  if (servicesMode) return <footer className="home-footer"><div className="home-container home-footer-top"><Link href="/" aria-label="Iván Andrade · Portfolio"><HomeLogo /></Link><p>Diseño UX/UI · Product Design · Servicios web</p><nav aria-label="Enlaces del pie"><a href="#contacto" className="home-text-link">Contacto</a> · <Link href="/" className="home-text-link">Portfolio profesional <ArrowUpRight size={18} aria-hidden /></Link> · <a href="#inicio" className="home-text-link">Volver arriba ↑</a></nav></div></footer>;
   const prefix = caseMode ? "/" : "";
   return <footer className="home-footer"><div className="home-container">
     <div className="home-footer-top"><Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link><p>UX/UI y Product Design.<br />Diseño e implementación web.</p><a href="#inicio" className="home-text-link">Volver arriba ↑</a></div>
