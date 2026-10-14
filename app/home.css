@@ -1,6 +1,5 @@
 /* Shared visual system, including dialogs portaled outside the page wrapper. */
 .portfolio-home {
-  --portrait-stack-mask: linear-gradient(to bottom, #000 76%, transparent 100%);
   --bg-primary: #10191c;
   --bg-secondary: #19272b;
   --surface-secondary: #19272b;
@@ -93,20 +92,12 @@ html.light .portfolio-home {
 
 /* One editorial signal: contrasting italic serif, a restrained rule and numbering. */
 .portfolio-home .home-hero { padding-bottom: 40px; }
-.portfolio-home .home-hero-stage { position: relative; isolation: isolate; overflow: clip; }
-/* Shared portrait frame is independent of content height; mobile returns to natural flow. */
-.portfolio-home .home-hero-layout { --hero-frame-height: clamp(680px, 42vw, 820px); position: relative; min-height: var(--hero-frame-height); display: flex; align-items: center; padding-block: 48px 40px; }
 .portfolio-home .home-hero-content { position: relative; z-index: 2; width: var(--hero-content-width, 59%); }
 .portfolio-home .home-hero h1 { margin: 24px 0; font-size: clamp(48px, 5.2vw, 96px); line-height: 1.04; font-weight: 550; letter-spacing: -.055em; text-wrap: balance; }
 .portfolio-home .home-hero-intro { color: var(--text-secondary); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.65; max-width: 56ch; }
 .portfolio-home .home-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .portfolio-home .home-availability { display: flex; align-items: center; gap: 9px; color: var(--text-tertiary); font-size: 12px; margin-top: 22px; }
 .portfolio-home .home-availability > span { width: 6px; height: 6px; background: var(--text-accent); border-radius: 50%; }
-.portfolio-home .home-portrait { position: var(--portrait-position, absolute); inset: 0 0 auto 30%; height: var(--hero-frame-height); z-index: 0; margin: var(--portrait-margin, 0); width: var(--portrait-width, auto); max-width: var(--portrait-max-width, none); pointer-events: none; }
-.portfolio-home .home-portrait-image { position: var(--portrait-image-position, absolute); inset: var(--portrait-image-inset, 0); overflow: hidden; aspect-ratio: var(--portrait-aspect, auto); mask-image: var(--portrait-mask, linear-gradient(to right, transparent 0%, transparent 18%, #000 58%, #000 95%, transparent 100%), linear-gradient(to bottom, #000 72%, transparent 100%)); mask-composite: var(--portrait-mask-composite, intersect); }
-.portfolio-home .home-portrait picture, .portfolio-home .home-portrait img { display: block; width: 100%; height: 100%; }
-.portfolio-home .home-portrait img { position: var(--portrait-img-position, static); inset: var(--portrait-img-inset, auto); object-fit: cover; object-position: var(--portrait-object-position, 65% 45%); filter: saturate(.72); }
-.portfolio-home .home-portrait figcaption { position: absolute; bottom: 26px; right: 0; display: flex; gap: 18px; color: var(--text-primary); font-family: var(--font-mono); font-size: 10px; }
 .portfolio-home .home-hero-paths { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 72px; border-top: 1px solid var(--border-default); padding-top: 28px; }
 .portfolio-home .home-hero-paths p { font-size: 20px; font-weight: 550; letter-spacing: -.02em; margin-block: 6px; }
 .portfolio-home .home-hero-paths div > span:last-child { font-size: 13px; color: var(--text-secondary); }
@@ -224,15 +215,9 @@ html.light .portfolio-home {
   .portfolio-home .home-mobile-nav nav > a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; border-bottom: 1px solid var(--border-default); font-size: 18px; }
   .portfolio-home .home-mobile-nav a[aria-current] { color: var(--text-accent); }
   .portfolio-home .home-hero { padding-block: 0 24px; }
-  .portfolio-home .home-hero-layout { min-height: 0; display: block; padding-block: 48px 0; }
-  .portfolio-home .home-hero-content { width: 100%; }
   .portfolio-home .home-hero h1 { font-size: clamp(42px, 9.3vw, 64px); margin-block: 22px; }
   .portfolio-home .home-desktop-break { display: none; }
   .portfolio-home .home-hero-intro { font-size: 17px; }
-  .portfolio-home .home-portrait { position: relative; inset: auto; height: auto; width: 100%; max-width: var(--portrait-max-width, 440px); margin: 32px auto 0; }
-  .portfolio-home .home-portrait-image { position: relative; inset: auto; aspect-ratio: 3/4; mask-image: var(--portrait-mask, var(--portrait-stack-mask)); mask-composite: var(--portrait-mask-composite, add); }
-  .portfolio-home .home-portrait img { position: absolute; inset: 0; object-position: center 25%; }
-  .portfolio-home .home-portrait figcaption { position: relative; inset: auto; justify-content: space-between; gap: 12px; margin-top: -8px; }
   .portfolio-home .home-hero-paths { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; padding-top: 24px; }
   .portfolio-home .home-hero-paths > div + div { border-top: 1px solid var(--border-default); padding-top: 24px; }
   .portfolio-home .home-project-grid { grid-template-columns: 1fr; gap: 32px; margin-bottom: 36px; }
