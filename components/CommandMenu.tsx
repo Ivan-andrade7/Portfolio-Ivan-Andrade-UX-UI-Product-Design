@@ -20,7 +20,6 @@ type CommandAction = {
 const ACTION_RECORDS: CommandAction[] = [
   { id: "home", label: "Inicio", category: "Secciones", href: "/#inicio" },
   { id: "projects", label: "Proyectos", category: "Secciones", href: "/#proyectos", tag: "UX/UI · Product Design" },
-  { id: "services", label: "Servicios web", category: "Secciones", href: "/#servicios", tag: "Web Design" },
   { id: "about", label: "Sobre mí", category: "Secciones", href: "/#sobre-mi" },
   { id: "experience", label: "Experiencia", category: "Secciones", href: "/#experiencia" },
   { id: "education", label: "Educación", category: "Secciones", href: "/#educacion" },

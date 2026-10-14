@@ -74,8 +74,8 @@ html.light .portfolio-home {
 .portfolio-home .home-logo-image { display: block; position: relative; width: 34px; height: 30px; overflow: hidden; flex-shrink: 0; }
 .portfolio-home .home-logo-mark { display: block; width: 100%; height: 100%; object-fit: contain; }
 .portfolio-home .home-desktop-nav { display: flex; gap: 26px; }
-.portfolio-home .home-desktop-nav a { display: flex; align-items: center; min-height: 44px; font-size: 13px; color: var(--text-secondary); transition: color 150ms; }
-.portfolio-home .home-desktop-nav a:hover, .portfolio-home .home-desktop-nav a[aria-current] { color: var(--text-accent); text-decoration: underline; text-underline-offset: 8px; }
+.portfolio-home .home-desktop-nav > a { display: flex; align-items: center; min-height: 44px; font-size: 13px; color: var(--text-secondary); transition: color 150ms; }
+.portfolio-home .home-desktop-nav > a:hover, .portfolio-home .home-desktop-nav > a[aria-current] { color: var(--text-accent); text-decoration: underline; text-underline-offset: 8px; }
 .portfolio-home .home-nav-tools { display: flex; align-items: center; gap: 8px; }
 .portfolio-home .home-search-trigger button { min-height: 44px; border-radius: var(--control-radius); }
 .portfolio-home .home-icon-button, .portfolio-home .home-nav-cv { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; min-height: 44px; color: var(--text-primary); border: 1px solid var(--border-default); border-radius: var(--control-radius); }
@@ -106,7 +106,7 @@ html.light .portfolio-home {
 .portfolio-home .home-portrait picture, .portfolio-home .home-portrait img { display: block; width: 100%; height: 100%; }
 .portfolio-home .home-portrait img { position: var(--portrait-img-position, static); inset: var(--portrait-img-inset, auto); object-fit: cover; object-position: var(--portrait-object-position, 65% 45%); filter: saturate(.72); }
 .portfolio-home .home-portrait figcaption { position: absolute; bottom: 26px; right: 0; display: flex; gap: 18px; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 10px; }
-.portfolio-home .home-hero-paths { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; border-top: 1px solid var(--border-default); padding-top: 28px; }
+.portfolio-home .home-hero-paths { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 72px; border-top: 1px solid var(--border-default); padding-top: 28px; }
 .portfolio-home .home-hero-paths p { font-size: 20px; font-weight: 550; letter-spacing: -.02em; margin-block: 6px; }
 .portfolio-home .home-hero-paths div > span:last-child { font-size: 13px; color: var(--text-secondary); }
 
@@ -218,7 +218,7 @@ html.light .portfolio-home {
   .portfolio-home .home-menu-toggle { display: inline-flex; }
   .portfolio-home .home-mobile-nav:not([hidden]) { display: block; padding-block: 8px 24px; max-height: calc(100dvh - 72px); overflow-y: auto; }
   .portfolio-home .home-mobile-nav nav { display: flex; flex-direction: column; margin-bottom: 16px; }
-  .portfolio-home .home-mobile-nav nav a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; border-bottom: 1px solid var(--border-default); font-size: 18px; }
+  .portfolio-home .home-mobile-nav nav > a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; border-bottom: 1px solid var(--border-default); font-size: 18px; }
   .portfolio-home .home-mobile-nav a[aria-current] { color: var(--text-accent); }
   .portfolio-home .home-hero { padding-block: 0 24px; }
   .portfolio-home .home-hero-layout { min-height: 0; display: block; padding-block: 48px 0; }
@@ -260,7 +260,7 @@ html.light .portfolio-home {
   .portfolio-home .home-menu-toggle { display: inline-flex; }
   .portfolio-home .home-mobile-nav:not([hidden]) { display: block; padding-block: 8px 24px; max-height: calc(100dvh - 82px); overflow-y: auto; }
   .portfolio-home .home-mobile-nav nav { display: flex; flex-direction: column; margin-bottom: 16px; }
-  .portfolio-home .home-mobile-nav nav a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; border-bottom: 1px solid var(--border-default); font-size: 18px; }
+  .portfolio-home .home-mobile-nav nav > a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; border-bottom: 1px solid var(--border-default); font-size: 18px; }
   .portfolio-home .home-mobile-nav a[aria-current] { color: var(--text-accent); }
 }
 /* Explicit scope restores the shared tokens across the document.body portal. */
@@ -294,3 +294,19 @@ html.light .portfolio-home.command-overlay { background: rgb(23 45 43 / .45); }
 @media (prefers-reduced-motion: reduce) { .portfolio-home .home-project-image img { transition: none; } .portfolio-home .home-project:is(:hover,:focus-visible) .home-project-image img { transform: none; } }
 
 .portfolio-home .home-project-compact .home-project-meta { flex-direction: column; gap: 4px; }
+
+/* Shared cross-journey disclosure. The gap is part of the hit area, not an overlay. */
+.portfolio-home .cross-access{position:relative;flex-shrink:0}
+.portfolio-home .cross-access-trigger{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:0;background:transparent;border:0;border-radius:var(--control-radius);color:var(--text-secondary);font:inherit;font-size:13px;transition:color 150ms}
+.portfolio-home .cross-access-trigger:hover,.portfolio-home .cross-access-trigger[aria-expanded=true]{color:var(--text-accent)}
+.portfolio-home .cross-access-chevron{transition:transform 150ms}
+.portfolio-home .cross-access-trigger[aria-expanded=true] .cross-access-chevron{transform:rotate(180deg)}
+.portfolio-home .cross-access-panel{position:absolute;right:0;top:100%;width:320px;max-width:calc(100vw - 40px);padding-top:8px;z-index:1}
+.portfolio-home .cross-access-panel[hidden]{display:none}
+.portfolio-home .cross-access-surface{padding:20px;border:1px solid var(--border-default);border-radius:var(--control-radius);background:var(--bg-secondary)}
+.portfolio-home .cross-access-surface p{font-size:14px;line-height:1.6;color:var(--text-secondary);margin:0 0 16px}
+.portfolio-home .cross-access-panel .cross-access-primary{min-height:48px;font-size:14px;color:var(--text-inverse);width:100%;text-decoration:none}
+.portfolio-home .cross-access-panel .cross-access-new-tab{font-size:13px;justify-content:flex-start;gap:8px;border:0;margin-top:8px;color:var(--text-accent)}
+.portfolio-home .cross-access-compact .cross-access-trigger{min-height:52px;width:100%;font-size:18px;border-bottom:1px solid var(--border-default)}
+.portfolio-home .cross-access-compact .cross-access-panel{position:static;width:100%;max-width:none;padding-top:8px;padding-bottom:8px}
+@media(prefers-reduced-motion:reduce){.portfolio-home .cross-access-trigger,.portfolio-home .cross-access-chevron{transition:none}}

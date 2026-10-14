@@ -1,5 +1,5 @@
 import HeroComposition from "@/components/HeroComposition";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -10,13 +10,11 @@ export default function Hero() {
         <p className="home-hero-intro">En productos, servicios y plataformas.<br />Y en webs que conectan una propuesta con las personas.</p>
         <div className="home-hero-actions">
           <a href="#proyectos" className="home-button home-button-primary">Ver proyectos <ArrowDown size={18} aria-hidden /></a>
-          <a href="#servicios" className="home-button home-button-secondary">Servicios web <ArrowUpRight size={18} aria-hidden /></a>
         </div>
         <p className="home-availability"><span aria-hidden />Abierto a oportunidades full-time</p>
       </HeroComposition>
       <div className="home-hero-paths home-container">
-        <div><span className="home-kicker">01 / Para equipos</span><p>UX/UI y Product Design</p><span>Flujos, interfaces y sistemas. Abierto a distintos sectores y contextos.</span></div>
-        <div><span className="home-kicker">02 / Para profesionales y negocios</span><p>Diseño e implementación web</p><span>Landing pages, sitios institucionales y soluciones web por alcance.</span></div>
+        <div><span className="home-kicker">Diseño y capacidades</span><p>UX/UI y Product Design</p><span>Flujos, interfaces y sistemas. Diseño e implementación web. Abierto a distintos sectores y contextos.</span></div>
       </div>
     </section>
   );

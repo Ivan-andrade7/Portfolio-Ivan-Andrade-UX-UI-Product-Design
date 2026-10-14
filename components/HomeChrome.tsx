@@ -5,18 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Download, Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
+import CrossJourneyAccess from "@/components/CrossJourneyAccess";
 import CommandMenu, { CommandMenuTrigger } from "@/components/CommandMenu";
 
 const LINKS = [
   { href: "#inicio", label: "Inicio" },
   { href: "#proyectos", label: "Proyectos" },
-  { href: "#servicios", label: "Servicios web" },
   { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#experiencia", label: "Experiencia" },
   { href: "#educacion", label: "Educación" },
   { href: "#contactos", label: "Contacto" },
 ];
-const SERVICES_LINKS = [{href:"#servicios",label:"Servicios"},{href:"#trabajos",label:"Trabajos"},{href:"#proceso",label:"Proceso"},{href:"#preguntas",label:"Preguntas"},{href:"#contacto",label:"Contacto"},{href:"/",label:"Portfolio"}];
+const SERVICES_LINKS = [{href:"#servicios",label:"Servicios"},{href:"#trabajos",label:"Trabajos"},{href:"#proceso",label:"Proceso"},{href:"#preguntas",label:"Preguntas"},{href:"#contacto",label:"Contacto"}];
 const CV = "/cv/Iván Andrade - Product Designer UX UI.pdf";
 
 function HomeLogo() {
@@ -64,7 +64,7 @@ export function HomeNavbar({ caseMode = false, servicesMode = false }: { caseMod
     {!servicesMode && <CommandMenu />}
     <div className="home-container home-navbar">
       <Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link>
-      <nav className="home-desktop-nav" aria-label="Navegación principal">{links.map(link => <a key={link.href} href={navHref(link.href)} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}</a>)}</nav>
+      <nav className="home-desktop-nav" aria-label="Navegación principal">{links.map(link => <a key={link.href} href={navHref(link.href)} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}</a>)}<CrossJourneyAccess destination={servicesMode ? "portfolio" : "services"} /></nav>
       <div className="home-nav-tools">
         {!servicesMode && <span className="home-search-trigger"><CommandMenuTrigger /></span>}
         <button type="button" onClick={toggle} className="home-icon-button" aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}>{theme === "dark" ? <Sun size={19} aria-hidden /> : <Moon size={19} aria-hidden />}</button>
@@ -73,7 +73,7 @@ export function HomeNavbar({ caseMode = false, servicesMode = false }: { caseMod
       </div>
     </div>
     <div ref={panelRef} id="home-mobile-nav" className="home-mobile-nav home-container" hidden={!open}>
-      <nav aria-label="Navegación móvil">{links.map(link => <a key={link.href} href={navHref(link.href)} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}<ArrowUpRight size={18} aria-hidden /></a>)}</nav>
+      <nav aria-label="Navegación móvil">{links.map(link => <a key={link.href} href={navHref(link.href)} onClick={() => navigate(link.href)} aria-current={active === link.href ? "location" : undefined}>{link.label}<ArrowUpRight size={18} aria-hidden /></a>)}<CrossJourneyAccess destination={servicesMode ? "portfolio" : "services"} compact onNavigate={() => setOpen(false)} /></nav>
       {!servicesMode && <a href={CV} download className="home-text-link">Descargar CV <Download size={16} aria-hidden /></a>}
     </div>
   </header>;
@@ -84,7 +84,7 @@ export function HomeFooter({ caseMode = false, servicesMode = false }: { caseMod
   const prefix = caseMode ? (servicesMode ? "/servicios-web" : "/") : "";
   return <footer className="home-footer"><div className="home-container">
     <div className="home-footer-top"><Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link><p>{servicesMode ? <>Landing pages y sitios institucionales.<br />Diseño e implementación web por alcance.</> : <>UX/UI y Product Design.<br />Diseño e implementación web.</>}</p><a href="#inicio" className="home-text-link">Volver arriba ↑</a></div>
-    <div className="home-footer-links"><nav aria-label="Navegación del pie">{links.map(link => <a key={link.href} href={link.href.startsWith("#") ? `${prefix}${link.href}` : link.href}>{link.label}</a>)}</nav><nav aria-label="Perfiles y contacto"><a href="mailto:ivanandradeuxui@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ivan-andrade-uxui/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/5492346683761" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
+    <div className="home-footer-links"><nav aria-label="Navegación del pie">{links.map(link => <a key={link.href} href={link.href.startsWith("#") ? `${prefix}${link.href}` : link.href}>{link.label}</a>)}{servicesMode && <a href="/">Portfolio</a>}</nav><nav aria-label="Perfiles y contacto"><a href="mailto:ivanandradeuxui@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ivan-andrade-uxui/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/5492346683761" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
     <div className="home-footer-bottom"><span>© 2026 Iván Andrade</span><span>Buenos Aires, Argentina · Diseño con criterio</span></div>
   </div></footer>;
 }
