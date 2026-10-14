@@ -37,17 +37,28 @@
 /* Integrated commercial composition consumes Home's positioning/mask/chroma recipes. */
 .services-web .sw-integrated-hero { --hero-content-width: 52%; --hero-min-height: 640px; --hero-layout-padding: 64px 72px; --portrait-inset: 0 0 0 36%; padding-bottom: 40px; }
 .services-web .sw-integrated-hero .home-portrait figcaption { font-size: 10px; color: var(--text-primary); }
-@media (max-width: 1199px) {
+/* Keep the lateral composition while the commercial heading and actions have room.
+   The stacked wide frame uses the desktop original; narrow portrait source starts at399px. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .services-web .sw-integrated-hero { --hero-content-width: 52%; --hero-layout-padding: 48px 56px; }
+  .services-web .sw-integrated-hero h1 { font-size: clamp(42px,4.45vw,54px); max-width:18ch; }
+}
+@media (max-width: 767px) {
   .services-web .sw-integrated-hero {
     --hero-layout-display: block; --hero-min-height: 0; --hero-layout-padding: 48px 0;
     --hero-content-width: 100%; --portrait-position: relative; --portrait-inset: auto;
-    --portrait-width: 100%; --portrait-max-width: 360px; --portrait-margin: 32px auto 0;
-    --portrait-image-position: relative; --portrait-image-inset: auto; --portrait-aspect: 3 / 4;
-    --portrait-mask: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 76%, transparent 100%); --portrait-mask-composite: intersect;
-    --portrait-img-position: absolute; --portrait-img-inset: 0; --portrait-object-position: center 25%;
+    --portrait-width: 100%; --portrait-max-width: none; --portrait-margin: 32px 0 0;
+    --portrait-image-position: relative; --portrait-image-inset: auto;
+    --portrait-mask: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 8%, #000 88%, transparent 100%); --portrait-mask-composite: intersect;
+    --portrait-img-position: absolute; --portrait-img-inset: 0; --portrait-object-position: 65% 45%;
   }
+  .services-web .sw-integrated-hero .home-portrait { width:100%;max-width:none;margin-inline:0; }
+  .services-web .sw-integrated-hero .home-portrait-image { aspect-ratio:auto;height:clamp(350px,calc((100vw - 40px) * 1.25),480px); }
   .services-web .sw-integrated-hero .home-portrait figcaption { position: relative; inset: auto; justify-content: space-between; gap: 12px; margin-top: -8px; flex-wrap: wrap; }
   .services-web .sw-integrated-hero h1 { max-width: 20ch; font-size: clamp(42px,6.5vw,60px); }
+}
+@media (max-width: 399px) {
+  .services-web .sw-integrated-hero { --portrait-object-position: center 20%; }
 }
 @media (max-width: 599px) { .services-web .sw-integrated-hero h1 { max-width: 15ch; font-size: 42px; } }
 @media (max-width: 359px) { .services-web .sw-integrated-hero h1 { font-size: 38px; } }

@@ -19,8 +19,8 @@
 .portfolio-case .case-main .documentary-evidence {width:100%;max-width:none;grid-column:1/-1}
 .portfolio-case .case-main .documentary-evidence :is(h3,.documentary-note) {max-width:1200px}
 .portfolio-case .case-main .documentary-evidence dd {max-width:none}
-.portfolio-case .case-main .documentary-artifact {margin-inline:0;max-width:620px}
-.portfolio-case .case-main .documentary-artifact .pending-image-trigger {width:fit-content;max-width:100%}
+.portfolio-case .case-main .documentary-artifact {width:100%;margin-inline:0;max-width:none}
+.portfolio-case .case-main .documentary-artifact .pending-image-trigger {width:fit-content;max-width:min(100%,620px)}
 .portfolio-case .case-main .documentary-artifact img {object-position:left center;width:auto;max-width:100%}
 .portfolio-case .fintech-case :is(.fintech-dual,.fintech-recovery,.fintech-states-desktop) {grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--case-gap);align-items:start}
 .portfolio-case .fintech-case .fintech-cover {width:100%}
@@ -133,4 +133,12 @@
  .portfolio-case .case-main :is(.fintech-dual,.fintech-recovery,.mb-comparison,.pending-layout-comparison .pending-evidence-group,.fl-pair) {grid-template-columns:1fr;gap:32px}
  .portfolio-case .multi-brand-case .mb-context dl {grid-template-columns:1fr}
  .portfolio-case .nodo-case .nodo-contracts :is(th,td) {font-size:14px;padding:12px 8px}
+}
+
+/* These standalone notes are structural surfaces; list lines retain a reading measure. */
+.portfolio-case .fellowship-case section[aria-labelledby="fl-heading-3"] > .fl-transcript { width:100%;max-width:none;margin-inline:0; }
+.portfolio-case .fellowship-case section[aria-labelledby="fl-heading-3"] > .fl-transcript li { max-width:90ch; }
+
+@media(max-width:767px) {
+ .portfolio-case .fellowship-case .fl-pair > .fl-figure { width:100%;max-width:none;justify-self:stretch; }
 }
