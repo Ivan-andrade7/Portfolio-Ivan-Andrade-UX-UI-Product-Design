@@ -7,12 +7,6 @@ interface EduItem {
 
 const FORMAL: EduItem[] = [
   {
-    title: "Tecnicatura Universitaria en Diseño Gráfico Digital",
-    institution: "Universidad Tecnológica Nacional (UTN)",
-    status: "Cursando",
-    date: "Ago 2026 — Presente",
-  },
-  {
     title: "Diplomatura en IA Aplicada a Entornos Digitales",
     institution: "UBA · C.U. Chivilcoy",
     status: "Cursando",
