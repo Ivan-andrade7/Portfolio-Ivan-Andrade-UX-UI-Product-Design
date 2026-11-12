@@ -6,7 +6,7 @@ import { EMAIL_RE, detectEmailTypo } from "@/lib/contact-validation";
 
 import { COMMERCIAL_ENABLED, submitCommercial, type SubmissionResult } from "@/lib/commercial-form";
 
-const PROJECTS = ["Landing profesional", "Sitio institucional", "Diagnóstico de mi web", "Tienda online", "Ordenar un proceso", "Otro"];
+const PROJECTS = ["Landing profesional", "Sitio institucional", "Diagnóstico de mi web", "Tienda online", "Ordenar un proceso", "Diseño UX/UI", "Otro"];
 const INITIAL = { nombre: "", email: "", actividad: "", tipo: "", necesidad: "", web: "", plazo: "", presupuesto: "" };
 type Field = keyof typeof INITIAL;
 export default function CommercialContact({ reviewTransport }: { reviewTransport?: (data: Record<string, string>) => Promise<SubmissionResult> }) {
