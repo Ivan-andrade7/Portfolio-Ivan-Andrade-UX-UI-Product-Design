@@ -50,3 +50,14 @@
 .services-web .sw-service{transition:border-color 150ms,background-color 150ms}
 .services-web .sw-service:hover,.services-web .sw-service:focus-within{border-color:var(--border-interactive);background:var(--brand-soft)}
 @media(prefers-reduced-motion:reduce){.services-web .sw-service{transition:none}}
+
+/* Etapa 6 (12/11/2026): situaciones, servicios por necesidad con rótulo, banda en construcción y modalidades. Solo composición; sin tokens nuevos. */
+.services-web .sw-situations{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}.services-web .sw-situations li{padding:18px 0;border-top:1px solid var(--border-default);color:var(--text-secondary);font-size:17px;line-height:1.6;max-width:56ch}
+.services-web .sw-need{margin-top:48px}.services-web .sw-need:first-of-type{margin-top:0}.services-web .sw-need-title{font-size:22px;margin-bottom:20px;color:var(--text-primary)}
+.services-web .sw-need .sw-service h3{font-size:22px;margin-bottom:12px}.services-web .sw-need .sw-service>p{font-size:15px}
+.services-web .sw-pill{display:inline-block;align-self:flex-start;font:500 11px/1.6 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:2px 10px;border-radius:9999px;border:1px solid var(--border-default);margin-bottom:20px}.services-web .sw-pill-available{color:var(--text-accent);border-color:var(--border-interactive);background:var(--brand-soft)}.services-web .sw-pill-pilot{color:var(--text-secondary)}
+.services-web .sw-building{margin-top:48px;padding:32px;border:1px dashed var(--border-default);border-radius:4px}.services-web .sw-building h3{font-size:22px;margin-bottom:12px}.services-web .sw-building p{font-size:15px}.services-web .sw-building strong{color:var(--text-primary);font-weight:600}
+.services-web .sw-modes{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.services-web .sw-mode{padding-top:20px;border-top:1px solid var(--border-default)}.services-web .sw-mode h3{font-size:24px;margin-bottom:10px}.services-web .sw-mode p{font-size:15px}.services-web .sw-blocks{margin-top:24px;font-size:15px}.services-web .sw-blocks strong{color:var(--text-primary);font-weight:600}
+.services-web .sw-pricing-note{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border-default)}.services-web .sw-pricing-note h3{font-size:24px;margin-bottom:12px}.services-web .sw-pricing-note p{font-size:15px}
+@media(max-width:899px){.services-web .sw-modes,.services-web .sw-situations{grid-template-columns:1fr}.services-web .sw-situations{gap:0}}
+@media(max-width:599px){.services-web .sw-need{margin-top:36px}.services-web .sw-building{padding:24px}.services-web .sw-pricing-note{grid-column:auto}}

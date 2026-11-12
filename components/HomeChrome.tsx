@@ -16,7 +16,7 @@ const LINKS = [
   { href: "#educacion", label: "Educación" },
   { href: "#contactos", label: "Contacto" },
 ];
-const SERVICES_LINKS = [{href:"#servicios",label:"Servicios"},{href:"#trabajos",label:"Trabajos"},{href:"#proceso",label:"Proceso"},{href:"#preguntas",label:"Preguntas"},{href:"#contacto",label:"Contacto"}];
+const SERVICES_LINKS = [{href:"#servicios",label:"Servicios"},{href:"#proceso",label:"Cómo trabajo"},{href:"#trabajos",label:"Trabajos"},{href:"#preguntas",label:"Preguntas"},{href:"#contacto",label:"Contacto"}];
 const CV = "/cv/Iván Andrade - Product Designer UX UI.pdf";
 
 function HomeLogo() {
