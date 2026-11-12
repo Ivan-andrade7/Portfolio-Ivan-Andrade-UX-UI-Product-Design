@@ -85,6 +85,6 @@ export function HomeFooter({ caseMode = false, servicesMode = false }: { caseMod
   return <footer className="home-footer"><div className="home-container">
     <div className="home-footer-top"><Link href="/" aria-label="Iván Andrade · Inicio"><HomeLogo /></Link><p>{servicesMode ? <>Landing pages y sitios institucionales.<br />Diseño e implementación web por alcance.</> : <>UX/UI y Product Design.<br />Diseño e implementación web.</>}</p><a href="#inicio" className="home-text-link">Volver arriba ↑</a></div>
     <div className="home-footer-links"><nav aria-label="Navegación del pie">{links.map(link => <a key={link.href} href={link.href.startsWith("#") ? `${prefix}${link.href}` : link.href}>{link.label}</a>)}{servicesMode && <a href="/">Portfolio</a>}</nav><nav aria-label="Perfiles y contacto"><a href="mailto:ivanandradeuxui@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ivan-andrade-uxui/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/5492346683761" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
-    <div className="home-footer-bottom"><span>© 2026 Iván Andrade</span><span>Buenos Aires, Argentina · Diseño con criterio</span></div>
+    <div className="home-footer-bottom"><span>© 2026 Iván Andrade</span><span>Chivilcoy, Provincia de Buenos Aires, Argentina · Diseño con criterio</span></div>
   </div></footer>;
 }

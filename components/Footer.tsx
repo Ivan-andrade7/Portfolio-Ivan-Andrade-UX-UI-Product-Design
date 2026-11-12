@@ -94,7 +94,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-[var(--text-tertiary)] text-[14px] leading-6">
-              Iván Andrade · UX/UI Designer · Product Design · IA aplicada al diseño. Buenos Aires, Argentina.
+              Iván Andrade · Product Designer UX/UI · IA aplicada al diseño y al producto. Chivilcoy, Provincia de Buenos Aires, Argentina.
             </p>
           </div>
 

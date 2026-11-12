@@ -5,9 +5,9 @@ import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-ivan-andrade-ux-ui-produc.vercel.app"),
-  title: "Iván Andrade — UX/UI Designer · Product Design · IA aplicada",
+  title: "Iván Andrade — Product Designer UX/UI · IA aplicada",
   description:
-    "Portfolio de Iván Andrade: UX/UI Designer y Product Designer con IA aplicada al proceso de diseño.",
+    "Portfolio de Iván Andrade: Product Designer UX/UI con IA aplicada al diseño, al prototipado y a la automatización.",
   alternates: {
     canonical: "/",
   },
