@@ -102,3 +102,25 @@
 @media(max-width:899px){.services-web .sw-cards,.services-web .sw-price,.services-web .sw-modes{grid-template-columns:1fr}.services-web .sw-section,.services-web .sw-band .sw-section{padding-block:72px}.services-web .sw-head{margin-bottom:36px}}
 @media(max-width:599px){.services-web .sw-section,.services-web .sw-band .sw-section{padding-block:56px}.services-web .sw-card{padding:24px}.services-web .sw-card h3{font-size:24px}.services-web .sw-steps{grid-template-columns:1fr}.services-web .sw-steps li{padding:24px}.services-web .sw-head p{font-size:17px}.services-web .sw-faq-list .sw-disclosure{padding-inline:18px}}
 @media(prefers-reduced-motion:reduce){.services-web .sw-row{transition:none}}
+.services-web .sw-modes-intro{font-size:17px;max-width:62ch}
+.services-web .sw-modes{align-items:start}
+.services-web .sw-mode{background:var(--bg-primary);border-radius:12px;min-width:0;display:block;padding:0;overflow:hidden;transition:background-color 200ms ease}
+.services-web .sw-mode:hover,.services-web .sw-mode[data-open="true"]{background:var(--brand-soft)}
+.services-web .sw-mode-toggle{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:24px 28px;cursor:pointer;color:var(--text-primary)}
+.services-web .sw-mode-toggle:focus-visible{outline:2px solid var(--text-accent);outline-offset:-2px;border-radius:12px}
+.services-web .sw-mode-head{display:flex;flex-direction:column;gap:6px;min-width:0}
+.services-web .sw-mode-head strong{font-size:22px;font-weight:600;margin:0}
+.services-web .sw-mode-tag{font:500 11px/1.5 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.services-web .sw-mode-hint{font-size:14px;color:var(--text-secondary)}
+.services-web .sw-mode-icon{flex:none;margin-top:2px;transition:transform 280ms cubic-bezier(.2,.7,.2,1)}
+.services-web .sw-mode[data-open="true"] .sw-mode-icon{transform:rotate(45deg)}
+.services-web .sw-mode-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows 300ms cubic-bezier(.2,.7,.2,1),visibility 0s linear 300ms}
+.services-web .sw-mode[data-open="true"] .sw-mode-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows 300ms cubic-bezier(.2,.7,.2,1),visibility 0s}
+.services-web .sw-mode-panel-inner{min-height:0;overflow:hidden;opacity:0;padding-inline:28px;transition:opacity 180ms ease}
+.services-web .sw-mode[data-open="true"] .sw-mode-panel-inner{opacity:1;transition:opacity 260ms ease 90ms}
+.services-web .sw-mode dl{margin:0;padding-bottom:28px;display:flex;flex-direction:column;gap:16px}
+.services-web .sw-mode dt{font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:2px}
+.services-web .sw-mode dd{margin:0;font-size:15px;line-height:1.55}
+.services-web .sw-modes-cta{align-self:flex-start;font-size:16px;font-weight:600;color:var(--text-primary);text-decoration:underline;text-underline-offset:4px}
+@media(min-width:900px){.services-web .sw-mode-head{min-height:88px}}
+@media(prefers-reduced-motion:reduce){.services-web .sw-mode,.services-web .sw-mode-icon,.services-web .sw-mode-panel,.services-web .sw-mode-panel-inner{transition:none!important}}

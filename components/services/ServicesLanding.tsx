@@ -3,6 +3,7 @@ import ContactAlternatives from "@/components/services/ContactAlternatives";
 import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import CasePresentation from "@/components/CasePresentation";
 import ServiceRow from "@/components/services/ServiceRow";
+import ModeCard from "@/components/services/ModeCard";
 import CommercialContact from "@/components/services/CommercialContact";
 import ProjectCard from "@/components/ProjectCard";
 import HeroPortrait from "@/components/HeroPortrait";
@@ -31,9 +32,24 @@ const STEPS = [
   { title: "Entregar", text: "Controles finales, publicación, accesos y el soporte inicial acordado.", stages: "Revisión · Publicación" },
 ];
 const MODES = [
-  { title: "Esencial", text: "Lo mínimo que resuelve tu decisión. Para proyectos acotados y de poco riesgo." },
-  { title: "Estándar", text: "Suma descubrimiento y validación proporcionales cuando una pregunta lo justifica." },
-  { title: "Completo", text: "Recorre el proceso entero según el riesgo del proyecto. Para productos y sistemas." },
+  { title: "Esencial", tag: "Ir directo", suggested: "Suele alcanzar para una landing", rows: [
+    ["Cuándo conviene", "Ya sabés qué querés comunicar y el proyecto es chico: una landing o una web simple."],
+    ["Qué hacemos", "Definimos juntos qué tiene que decir la página y la diseño con ese alcance."],
+    ["Qué recibís", "Una página terminada, dentro del alcance acordado."],
+    ["Qué queda afuera", "La investigación previa y las pruebas con personas."],
+  ] },
+  { title: "Estándar", tag: "Confirmar antes de diseñar", rows: [
+    ["Cuándo conviene", "No tenés claro qué mostrar primero o a quién le hablás, y querés confirmarlo antes de diseñar."],
+    ["Qué hacemos", "Lo del Esencial, más una etapa previa para entender a tus clientes y revisar con ellos lo que se va a hacer."],
+    ["Qué recibís", "Una página terminada, con decisiones apoyadas en lo que aprendimos de tus clientes."],
+    ["Qué queda afuera", "La estructura completa de un sitio grande y su mantenimiento."],
+  ] },
+  { title: "Completo", tag: "Sitios o productos más grandes", rows: [
+    ["Cuándo conviene", "Un sitio con varias secciones o un producto digital, donde equivocarse sale caro."],
+    ["Qué hacemos", "Recorremos el proceso entero: cómo se organiza el contenido, diseño, pruebas y entrega."],
+    ["Qué recibís", "Un sitio completo, con la estructura y el contenido pensados de punta a punta."],
+    ["Qué queda afuera", "Lo que no está en el alcance firmado; los cambios se acuerdan aparte."],
+  ] },
 ];
 const INCLUDED = [
   "Qué páginas, secciones y funciones incluye el trabajo.",
@@ -62,7 +78,7 @@ export default function ServicesLanding({ heroVariant = "nodo", portraitFraming 
 <div className="sw-work"><ProjectCard context="services" compact project={{ id: "nodo", index: "", category: "Diseño e implementación web", nature: "Proyecto conceptual personal", title: "NODO", tags: [], longDesc: "Trabajé la estrategia, la identidad visual, el diseño responsive, la implementación y la publicación de un sitio para un estudio de arquitectura conceptual.", role: "No representa un cliente ni resultados comerciales.", images: { image: "/projects/devices/nodo-card-sistema-1200.webp", treatment: "device" } }} /><ProjectCard context="services" compact project={{ id: "fellowship", index: "", category: "Diseño web responsive", nature: "Trabajo real colaborativo · No Country", title: "Fellowship · UI Empresas", tags: [], longDesc: "Diseñé la experiencia responsive y preparé la entrega para el equipo de desarrollo de No Country.", role: "Diseño y entrega para desarrollo · No Country", images: { image: "/projects/devices/fellowship-card-1200.webp", treatment: "device" } }} /></div></section>
 <section id="proceso" className="sw-band" aria-labelledby="process-title"><div className="sw-wrap sw-section"><div className="sw-head"><span className="sw-eyebrow">Cómo trabajo</span><h2 id="process-title">Primero lo definimos. Después lo construimos.</h2><p>Un recorrido simple, de la primera conversación a la publicación. Se adapta a lo que ya tengas: contenido, identidad, diseño o una web existente.</p></div>
 <ol className="sw-steps">{STEPS.map((step, index) => <li key={step.title}><span className="sw-step">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p><span className="sw-step-stages">{step.stages}</span></li>)}</ol>
-<div className="sw-modes-block"><h3>Vos elegís cuánto proceso necesitás</h3><div className="sw-modes">{MODES.map(mode => <div className="sw-mode" key={mode.title}><strong>{mode.title}</strong><p>{mode.text}</p></div>)}</div><p className="sw-note">Si elegís menos de lo que el riesgo pide, lo dejamos por escrito: qué se omite y qué implica.</p></div></div></section>
+<div className="sw-modes-block"><h3>Tres formas de trabajar, según lo que necesite tu proyecto</h3><p className="sw-modes-intro">A veces alcanza con ir directo a lo que hay que resolver. Otras conviene entender mejor a tus clientes antes de diseñar. En la primera conversación te digo cuál te recomiendo y por qué.</p><div className="sw-modes">{MODES.map(mode => <ModeCard key={mode.title} mode={mode} />)}</div><p className="sw-note">Si elegís menos de lo que tu proyecto pide, lo dejamos por escrito: qué se omite y qué implica. Así decidís con toda la información.</p><a className="sw-modes-cta" href="#contacto">Contame tu proyecto y te digo cuál conviene</a></div></div></section>
 <section id="precio" className="sw-wrap sw-section" aria-labelledby="price-title"><div className="sw-price"><div className="sw-head"><span className="sw-eyebrow">Precio y alcance</span><h2 id="price-title">Una propuesta clara antes de empezar.</h2><p>No tengo precios de lista: cada proyecto se cotiza según lo que necesita. La propuesta indica el precio en dólares con su equivalente en pesos el día en que se envía, y hasta cuándo vale.</p></div><ul className="sw-checks">{INCLUDED.map(text => <li key={text}><Check size={18} aria-hidden />{text}</li>)}</ul></div>
 <p className="sw-note sw-exclusions-note"><strong>Fuera del alcance inicial, salvo cotización específica:</strong> branding completo, fotografías, redacción extensa, backend personalizado, cuentas de usuario, pagos, stock, logística, CMS, integraciones complejas, campañas, SEO mensual y mantenimiento indefinido.</p></section>
 <section id="preguntas" className="sw-wrap sw-section sw-faq-layout" aria-labelledby="faq-title"><div className="sw-head"><span className="sw-eyebrow">Preguntas frecuentes</span><h2 id="faq-title">Antes de dar el primer paso.</h2></div><div className="sw-faq-list">{FAQ.map(item => <details className="sw-disclosure" key={item.q}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
